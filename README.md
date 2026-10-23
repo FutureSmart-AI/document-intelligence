@@ -7,7 +7,28 @@ table, and ask questions answered from the documents with their sources. Use the
 web application, or call the same ingestion, search and chat API from your own
 software.
 
-![A document collection answering a question with its source](docs/images/product.jpg)
+**[Try the live application →](https://futuresmart.ai/solutions/document-intelligence)**
+FutureSmart's hosted service, nothing to install. To run it yourself, see [Install](#install).
+
+![Six synthetic invoices in one collection, with currency, due date, invoice number, payment terms, total and vendor extracted into typed columns](docs/images/structured-extraction.jpg)
+
+**Structured data extraction.** Name the fields you want; every document becomes
+a row and every field a typed column. Shown: six synthetic invoices.
+
+<table>
+<tr>
+<td width="50%" valign="top">
+<img src="docs/images/knowledge-view.jpg" alt="One invoice opened from the table: the text read from the file beside its summary and extracted fields">
+<br><b>Knowledge view.</b> Open any row to see the text read from the document
+beside every field taken from it.
+</td>
+<td width="50%" valign="top">
+<img src="docs/images/product.jpg" alt="A document collection answering a question with its source">
+<br><b>Managed RAG.</b> Ask a question and get an answer with the documents it
+was drawn from.
+</td>
+</tr>
+</table>
 
 ## How AI Demos research improves Document Intelligence
 
