@@ -1,14 +1,61 @@
 # FutureSmart Document Intelligence
 
-**A working, opinionated Document Intelligence application by [FutureSmart AI](https://futuresmart.ai/), released under Apache-2.0. A complete UI and backend reference application that shows how [AI Demos](https://aidemos.com/) research becomes product improvements.**
+**An open-source Document Intelligence application by [FutureSmart AI](https://futuresmart.ai/).**
 
-Upload documents into a collection, extract the fields you define into a typed
-table, and ask questions answered from the documents with their sources. Use the
-web application, or call the same ingestion, search and chat API from your own
-software.
+Turn documents into structured, searchable information.
 
-**[Try the live application →](https://futuresmart.ai/solutions/document-intelligence)**
-FutureSmart's hosted service, nothing to install. To run it yourself, see [Install](#install).
+Upload PDFs, invoices, resumes, contracts, reports and other supported documents.
+Define the fields you want to extract, organize the results into structured
+tables, explore your documents through the Knowledge View, and ask questions
+using RAG.
+
+Use the hosted application, deploy it in your own environment, or integrate its
+capabilities through APIs.
+
+**[Try the Live Application](https://futuresmart.ai/solutions/document-intelligence)** ·
+**[View Installation Guide](#install)** ·
+**[Explore the API](docs/api/rag-service.md)**
+
+Open source · Apache-2.0 · Self-hostable · API accessible
+
+## What you can do
+
+**Structured data extraction.** Define fields with their types and descriptions,
+process documents, and inspect the extracted values in a structured table.
+Search, sort and filter it, and export the results as CSV.
+
+**Knowledge View.** Explore the documents in a collection, their extracted
+fields, summaries and the text read from each file, in one place.
+
+**Document question answering.** Ask questions about a collection or chosen
+documents and get answers grounded in them, with the documents each answer used.
+
+**Document Intelligence APIs.** Use ingestion, extraction configuration, search
+and grounded chat from your own applications through the
+[documented REST API](docs/api/rag-service.md). The search API returns the
+matching passages themselves.
+
+## Who it is for
+
+- **Teams with a pile of documents to read**: invoices for finance and
+  operations, resumes for recruiting, contracts for legal and procurement,
+  reports and policies for everyone else.
+- **Developers who need document extraction and RAG in their own product**,
+  through an API instead of building ingestion, indexing and retrieval from
+  scratch.
+- **Engineers who want a working reference architecture** they can read, run,
+  self-host and change.
+
+## Improved through real-world AI research
+
+We evaluate FutureSmart Document Intelligence through the Structured Document
+Extraction and Managed RAG benchmarks on [AI Demos](https://aidemos.com/).
+
+The findings help us identify limitations, investigate issues and improve the
+application. We document engineering decisions, fixes, verification results and
+ongoing work publicly.
+
+[Explore our research-driven improvement history →](docs/improvements/README.md)
 
 ![Six synthetic invoices in one collection, with currency, due date, invoice number, payment terms, total and vendor extracted into typed columns](docs/images/structured-extraction.jpg)
 
@@ -30,7 +77,29 @@ was drawn from.
 </tr>
 </table>
 
-## How AI Demos research improves Document Intelligence
+## A complete reference application, not just a library
+
+One repository contains the FastAPI backend, the Next.js web application, the
+Celery ingestion/indexing worker, deployment configuration, tests and examples.
+The supported stack is Docker Compose with PostgreSQL, Qdrant, Redis and S3/SQS
+(LocalStack locally, real AWS for durable deployments). The web UI is optional;
+the worker is required.
+
+What it does:
+
+- **Collections and ingestion.** PDF, DOCX, TXT, Markdown, HTML, web pages and
+  audio. Text-based files and web pages are read locally; scanned, layout and
+  visual modes use an optional LlamaParse key, and Firecrawl is an optional
+  scraper.
+- **Structured extraction.** Define fields with types and descriptions; each
+  document's values appear in a typed table you can inspect and export as CSV.
+- **Grounded answers.** Ask questions about a collection or chosen documents and
+  see which documents the answer used. The search API returns the matching
+  passages themselves.
+- **RAG as a service.** Authenticated REST API for ingestion, search and chat,
+  with OpenAPI docs and a server-side example client.
+
+## How research findings become fixes
 
 We test this application in the [AI Demos](https://aidemos.com/) Structured
 Document Extraction and Managed RAG benchmarks, then use what the testing finds
@@ -65,28 +134,6 @@ lists what is and is not published.
 
 We prioritize a dependable, deployable product and reproducible evidence over
 commercial feature parity or a higher benchmark score.
-
-## A complete reference application, not just a library
-
-One repository contains the FastAPI backend, the Next.js web application, the
-Celery ingestion/indexing worker, deployment configuration, tests and examples.
-The supported stack is Docker Compose with PostgreSQL, Qdrant, Redis and S3/SQS
-(LocalStack locally, real AWS for durable deployments). The web UI is optional;
-the worker is required.
-
-What it does:
-
-- **Collections and ingestion.** PDF, DOCX, TXT, Markdown, HTML, web pages and
-  audio. Text-based files and web pages are read locally; scanned, layout and
-  visual modes use an optional LlamaParse key, and Firecrawl is an optional
-  scraper.
-- **Structured extraction.** Define fields with types and descriptions; each
-  document's values appear in a typed table you can inspect and export as CSV.
-- **Grounded answers.** Ask questions about a collection or chosen documents and
-  see which documents the answer used. The search API returns the matching
-  passages themselves.
-- **RAG as a service.** Authenticated REST API for ingestion, search and chat,
-  with OpenAPI docs and a server-side example client.
 
 ## Install
 
