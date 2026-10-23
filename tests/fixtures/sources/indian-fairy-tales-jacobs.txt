@@ -1,0 +1,3058 @@
+E-text prepared by Delphine Lettau, Charles Franks, and the Online
+Distributed Proofreading Team and revised by Sankar Viswanathan, Fritz
+Ohrenschall, Sania Ali Mirza, and the Online Distributed Proofreading Team
+(http://www.pgdp.net) using page images generously made available by
+Internet Archive (http://archive.org)
+
+
+
+Note: Project Gutenberg also has an HTML version of this
+      file which includes the lovely original illustrations.
+      See 7128-h.htm or 7128-h.zip:
+      (https://www.gutenberg.org/cache/epub/7128/pg7128-images.html)
+      or
+      (https://www.gutenberg.org/files/7128/7128-h.zip)
+
+
+      Images of the original pages are available through
+      Internet Archive. See
+      http://archive.org/details/indiantales00jacorich
+
+
+Transcriber's note:
+
+      A letter following a carat character is superscripted.
+      For example, in "2^e" the "e" is superscripted.
+
+
+
+
+
+[Illustration: Indian Fairy Tales]
+
+[Illustration:]
+
+[Illustration: PRINCESS LABAM]
+
+
+INDIAN FAIRY TALES
+
+Selected and Edited by
+
+JOSEPH JACOBS
+
+Editor of "Folk Lore"
+
+Illustrated by John D. Batten
+
+[Illustration:]
+
+
+
+
+
+
+London
+David Nutt, 270, 271 Strand
+1892
+
+
+
+
+_Only One Hundred and Sixty Copies of this
+Edition on Japanese Vellum Paper have been printed,
+of which One Hundred and Fifty are for Sale.
+
+This is No. 147_
+
+
+_The Illustrations in this Book were coloured by hand by
+Miss Gloria Cardew._
+
+
+
+
+   _TO
+   MY DEAR LITTLE PHIL_
+
+
+
+
+Preface
+
+
+From the extreme West of the Indo-European world, we go this year to
+the extreme East. From the soft rain and green turf of Gaeldom, we
+seek the garish sun and arid soil of the Hindoo. In the Land of Ire,
+the belief in fairies, gnomes, ogres and monsters is all but dead; in
+the Land of Ind it still flourishes in all the vigour of animism.
+
+Soils and national characters differ; but fairy tales are the same in
+plot and incidents, if not in treatment. The majority of the tales in
+this volume have been known in the West in some form or other, and the
+problem arises how to account for their simultaneous existence in
+farthest West and East. Some--as Benfey in Germany, M. Cosquin in
+France, and Mr. Clouston in England--have declared that India is the
+Home of the Fairy Tale, and that all European fairy tales have been
+brought from thence by Crusaders, by Mongol missionaries, by Gipsies,
+by Jews, by traders, by travellers. The question is still before the
+courts, and one can only deal with it as an advocate. So far as my
+instructions go, I should be prepared, within certain limits, to hold
+a brief for India. So far as the children of Europe have their fairy
+stories in common, these--and they form more than a third of the
+whole--are derived from India. In particular, the majority of the
+Drolls or comic tales and jingles can be traced, without much
+difficulty, back to the Indian peninsula.
+
+Certainly there is abundant evidence of the early transmission by
+literary means of a considerable number of drolls and folk-tales from
+India about the time of the Crusaders. The collections known in Europe
+by the titles of _The Fables of Bidpai_, _The Seven Wise Masters_,
+_Gesta Romanorum_, and _Barlaam and Josaphat_, were extremely popular
+during the Middle Ages, and their contents passed on the one hand into
+the _Exempla_ of the monkish preachers, and on the other into the
+_Novelle_ of Italy, thence, after many days, to contribute their quota
+to the Elizabethan Drama. Perhaps nearly one-tenth of the main
+incidents of European folk-tales can be traced to this source.
+
+There are even indications of an earlier literary contact between
+Europe and India, in the case of one branch of the folk-tale, the
+Fable or Beast Droll. In a somewhat elaborate discussion[1] I have
+come to the conclusion that a goodly number of the fables that pass
+under the name of the Samian slave, Æsop, were derived from India,
+probably from the same source whence the same tales were utilised in
+the Jatakas, or Birth-stories of Buddha. These Jatakas contain a large
+quantity of genuine early Indian folk-tales, and form the earliest
+collection of folk-tales in the world, a sort of Indian Grimm,
+collected more than two thousand years before the good German brothers
+went on their quest among the folk with such delightful results. For
+this reason I have included a considerable number of them in this
+volume; and shall be surprised if tales that have roused the laughter
+and wonder of pious Buddhists for the last two thousand years, cannot
+produce the same effect on English children. The Jatakas have been
+fortunate in their English translators, who render with vigour and
+point; and I rejoice in being able to publish the translation of two
+new Jatakas, kindly done into English for this volume by Mr. W. H. D.
+Rouse, of Christ's College, Cambridge. In one of these I think I have
+traced the source of the Tar Baby incident in "Uncle Remus."
+
+[Footnote 1: "History of the Æsopic Fable," the introductory volume to
+my edition of Caxton's _Fables of Esope_ (London, Nutt, 1889).]
+
+Though Indian fairy tales are the earliest in existence, yet they are
+also from another point of view the youngest. For it is only about
+twenty-five years ago that Miss Frere began the modern collection of
+Indian folk-tales with her charming "Old Deccan Days" (London, John
+Murray, 1868; fourth edition, 1889). Her example has been followed by
+Miss Stokes, by Mrs. Steel, and Captain (now Major) Temple, by the
+Pandit Natesa Sastri, by Mr. Knowles and Mr. Campbell, as well as
+others who have published folk-tales in such periodicals as the
+_Indian Antiquary_ and _The Orientalist_. The story-store of modern
+India has been well dipped into during the last quarter of a century,
+though the immense range of the country leaves room for any number of
+additional workers and collections. Even so far as the materials
+already collected go, a large number of the commonest incidents in
+European folk-tales have been found in India. Whether brought there or
+born there, we have scarcely any criterion for judging; but as some of
+those still current among the folk in India can be traced back more
+than a millennium, the presumption is in favour of an Indian origin.
+
+From all these sources--from the Jatakas, from the Bidpai, and from
+the more recent collections--I have selected those stories which throw
+most light on the origin of Fable and Folk-tales, and at the same time
+are most likely to attract English children. I have not, however,
+included too many stories of the Grimm types, lest I should repeat
+the contents of the two preceding volumes of this series. This has to
+some degree weakened the case for India as represented by this book.
+The need of catering for the young ones has restricted my selection
+from the well-named "Ocean of the Streams of Story," _Katha-Sarit
+Sagara_ of Somadeva. The stories existing in Pali and Sanskrit I have
+taken from translations, mostly from the German of Benfey or the
+vigorous English of Professor Rhys-Davids, whom I have to thank for
+permission to use his versions of the Jatakas.
+
+I have been enabled to make this book a representative collection of
+the Fairy Tales of Ind by the kindness of the original collectors or
+their publishers. I have especially to thank Miss Frere, who kindly
+made an exception in my favour, and granted me the use of that fine
+story, "Punchkin," and that quaint myth, "How Sun, Moon, and Wind went
+out to Dinner." Miss Stokes has been equally gracious in granting me
+the use of characteristic specimens from her "Indian Fairy Tales." To
+Major Temple I owe the advantage of selecting from his admirable
+_Wideawake Stories_, and Messrs. Kegan Paul, Trench & Co. have allowed
+me to use Mr. Knowles' "Folk-tales of Kashmir," in their Oriental
+Library; and Messrs. W. H. Allen have been equally obliging with
+regard to Mrs. Kingscote's "Tales of the Sun." Mr. M. L. Dames has
+enabled me add to the published story-store of India by granting me
+the use of one from his inedited collection of Baluchi folk-tales.
+
+I have again to congratulate myself on the co-operation of my friend
+Mr. J. D. Batten in giving beautiful or amusing form to the creations
+of the folk fancy of the Hindoos. It is no slight thing to embody, as
+he has done, the glamour and the humour both of the Celt and of the
+Hindoo. It is only a further proof that Fairy Tales are something more
+than Celtic or Hindoo. They are human.
+
+JOSEPH JACOBS.
+
+
+
+
+Contents
+
+
+                                                    PAGE
+
+I.      THE LION AND THE CRANE                        1
+
+II.     HOW THE RAJA'S SON WON THE PRINCESS LABAM     3
+
+III.    THE LAMBIKIN                                 17
+
+IV.     PUNCHKIN                                     21
+
+V.      THE BROKEN POT                               38
+
+VI.     THE MAGIC FIDDLE                             40
+
+VII.    THE CRUEL CRANE OUTWITTED                    46
+
+VIII.   LOVING LAILI                                 51
+
+IX.     THE TIGER, THE BRAHMAN, AND THE JACKAL       66
+
+X.      THE SOOTHSAYER'S SON                         70
+
+XI.     HARISARMAN                                   85
+
+XII.    THE CHARMED RING                             90
+
+XIII.   THE TALKATIVE TORTOISE                      100
+
+XIV.    A LAC OF RUPEES FOR A PIECE OF ADVICE       103
+
+XV.     THE GOLD-GIVING SERPENT                     112
+
+XVI.    THE SON OF SEVEN QUEENS                     115
+
+XVII.   A LESSON FOR KINGS                          127
+
+XVIII.  PRIDE GOETH BEFORE A FALL                   132
+
+XIX.    RAJA RASALU                                 136
+
+XX.     THE ASS IN THE LION'S SKIN                  150
+
+XXI.    THE FARMER AND THE MONEY-LENDER             152
+
+XXII.   THE BOY WHO HAD A MOON ON HIS FOREHEAD
+            AND A STAR ON HIS CHIN                  156
+
+XXIII.  THE PRINCE AND THE FAKIR                    179
+
+XXIV.   WHY THE FISH LAUGHED                        186
+
+XXV.    THE DEMON WITH THE MATTED HAIR              194
+
+XXVI.   THE IVORY CITY AND ITS FAIRY PRINCESS       199
+
+XXVII.  SUN, MOON, AND WIND GO OUT TO DINNER        218
+
+XXVIII. HOW THE WICKED SONS WERE DUPED              221
+
+XXIX.   THE PIGEON AND THE CROW                     223
+
+        NOTES AND REFERENCES                        227
+
+       *       *       *       *       *
+
+
+
+
+Full-page Illustrations
+
+
+PRINCESS LABAM                              _Frontispiece_
+
+THE LION AND THE CRANE          _To face page_       2
+
+PUNCHKIN                                 "          36
+
+LOVING LAILI                             "          64
+
+THE CHARMED RING                         "          96
+
+THE SON OF SEVEN QUEENS                  "         120
+
+RAJA RASALU                              "         146
+
+BOY WITH MOON ON FOREHEAD                "         165
+
+DEMON WITH MATTED HAIR                   "         196
+
+       *       *       *       *       *
+
+     [Plates, vignettes, initials, and cuts are from "process"
+     blocks supplied by Messrs. J. C. Drummond & Co. of Covent
+     Garden.]
+
+       *       *       *       *       *
+
+
+
+
+The Lion and the Crane
+
+
+The Bodhisatta was at one time born in the region of Himavanta as a
+white crane; now Brahmadatta was at that time reigning in Benares. Now
+it chanced that as a lion was eating meat a bone stuck in his throat.
+The throat became swollen, he could not take food, his suffering was
+terrible. The crane seeing him, as he was perched on a tree looking
+for food, asked, "What ails thee, friend?" He told him why. "I could
+free thee from that bone, friend, but dare not enter thy mouth for
+fear thou mightest eat me." "Don't be afraid, friend, I'll not eat
+thee; only save my life." "Very well," says he, and caused him to lie
+down on his left side. But thinking to himself, "Who knows what this
+fellow will do," he placed a small stick upright between his two jaws
+that he could not close his mouth, and inserting his head inside his
+mouth struck one end of the bone with his beak. Whereupon the bone
+dropped and fell out. As soon as he had caused the bone to fall, he
+got out of the lion's mouth, striking the stick with his beak so that
+it fell out, and then settled on a branch. The lion gets well, and
+one day was eating a buffalo he had killed. The crane thinking "I will
+sound him," settled on a branch just over him, and in conversation
+spoke this first verse:
+
+    "A service have we done thee
+      To the best of our ability,
+    King of the Beasts! Your Majesty!
+      What return shall we get from thee?"
+
+In reply the Lion spoke the second verse:
+
+    "As I feed on blood,
+      And always hunt for prey,
+    'Tis much that thou art still alive
+      Having once been between my teeth."
+
+Then in reply the crane said the two other verses:
+
+    "Ungrateful, doing no good,
+      Not doing as he would be done by,
+    In him there is no gratitude,
+      To serve him is useless.
+
+    "His friendship is not won
+      By the clearest good deed.
+    Better softly withdraw from him,
+      Neither envying nor abusing."
+
+And having thus spoken the crane flew away.
+
+_And when the great Teacher, Gautama the Buddha, told this tale, he
+used to add: "Now at that time the lion was Devadatta the Traitor, but
+the white crane was I myself."_
+
+[Illustration: THE LION AND THE CRANE]
+
+
+
+
+How the Raja's Son won the Princess Labam.
+
+
+In a country there was a Raja who had an only son who every day went
+out to hunt. One day the Rani, his mother, said to him, "You can hunt
+wherever you like on these three sides; but you must never go to the
+fourth side." This she said because she knew if he went on the fourth
+side he would hear of the beautiful Princess Labam, and that then he
+would leave his father and mother and seek for the princess.
+
+The young prince listened to his mother, and obeyed her for some time;
+but one day, when he was hunting on the three sides where he was
+allowed to go, he remembered what she had said to him about the fourth
+side, and he determined to go and see why she had forbidden him to
+hunt on that side. When he got there, he found himself in a jungle,
+and nothing in the jungle but a quantity of parrots, who lived in it.
+The young Raja shot at some of them, and at once they all flew away up
+to the sky. All, that is, but one, and this was their Raja, who was
+called Hiraman parrot.
+
+When Hiraman parrot found himself left alone, he called out to the
+other parrots, "Don't fly away and leave me alone when the Raja's son
+shoots. If you desert me like this, I will tell the Princess Labam."
+
+Then the parrots all flew back to their Raja, chattering. The prince
+was greatly surprised, and said, "Why, these birds can talk!" Then he
+said to the parrots, "Who is the Princess Labam? Where does she live?"
+But the parrots would not tell him where she lived. "You can never get
+to the Princess Labam's country." That is all they would say.
+
+The prince grew very sad when they would not tell him anything more;
+and he threw his gun away, and went home. When he got home, he would
+not speak or eat, but lay on his bed for four or five days, and seemed
+very ill.
+
+At last he told his father and mother that he wanted to go and see the
+Princess Labam. "I must go," he said; "I must see what she is like.
+Tell me where her country is."
+
+"We do not know where it is," answered his father and mother.
+
+"Then I must go and look for it," said the prince.
+
+"No, no," they said, "you must not leave us. You are our only son.
+Stay with us. You will never find the Princess Labam."
+
+"I must try and find her," said the prince. "Perhaps God will show me
+the way. If I live and I find her, I will come back to you; but
+perhaps I shall die, and then I shall never see you again. Still I
+must go."
+
+So they had to let him go, though they cried very much at parting with
+him. His father gave him fine clothes to wear, and a fine horse. And
+he took his gun, and his bow and arrows, and a great many other
+weapons, "for," he said, "I may want them." His father, too, gave him
+plenty of rupees.
+
+Then he himself got his horse all ready for the journey, and he said
+good-bye to his father and mother; and his mother took her
+handkerchief and wrapped some sweetmeats in it, and gave it to her
+son. "My child," she said to him, "When you are hungry eat some of
+these sweetmeats."
+
+He then set out on his journey, and rode on and on till he came to a
+jungle in which were a tank and shady trees. He bathed himself and his
+horse in the tank, and then sat down under a tree. "Now," he said to
+himself, "I will eat some of the sweetmeats my mother gave me, and I
+will drink some water, and then I will continue my journey." He opened
+his handkerchief, and took out a sweetmeat. He found an ant in it. He
+took out another. There was an ant in that one too. So he laid the two
+sweetmeats on the ground, and he took out another, and another, and
+another, until he had taken them all out; but in each he found an ant.
+"Never mind," he said, "I won't eat the sweetmeats; the ants shall eat
+them." Then the Ant-Raja came and stood before him and said, "You have
+been good to us. If ever you are in trouble, think of me and we will
+come to you."
+
+The Raja's son thanked him, mounted his horse and continued his
+journey. He rode on and on until he came to another jungle, and there
+he saw a tiger who had a thorn in his foot, and was roaring loudly
+from the pain.
+
+"Why do you roar like that?" said the young Raja. "What is the matter
+with you?"
+
+"I have had a thorn in my foot for twelve years," answered the tiger,
+"and it hurts me so; that is why I roar."
+
+"Well," said the Raja's son, "I will take it out for you. But
+perhaps, as you are a tiger, when I have made you well, you will eat
+me?"
+
+[Illustration:]
+
+"Oh, no," said the tiger, "I won't eat you. Do make me well."
+
+Then the prince took a little knife from his pocket, and cut the thorn
+out of the tiger's foot; but when he cut, the tiger roared louder than
+ever--so loud that his wife heard him in the next jungle, and came
+bounding along to see what was the matter. The tiger saw her coming,
+and hid the prince in the jungle, so that she should not see him.
+
+[Illustration:]
+
+"What man hurt you that you roared so loud?" said the wife.
+
+"No one hurt me," answered the husband; "but a Raja's son came and
+took the thorn out of my foot."
+
+"Where is he? Show him to me," said his wife.
+
+"If you promise not to kill him, I will call him," said the tiger.
+
+"I won't kill him; only let me see him," answered his wife.
+
+Then the tiger called the Raja's son, and when he came the tiger and
+his wife made him a great many salaams. Then they gave him a good
+dinner, and he stayed with them for three days. Every day he looked at
+the tiger's foot, and the third day it was quite healed. Then he said
+good-bye to the tigers, and the tiger said to him, "If ever you are in
+trouble, think of me, and we will come to you."
+
+The Raja's son rode on and on till he came to a third jungle. Here he
+found four fakirs whose teacher and master had died, and had left four
+things,--a bed, which carried whoever sat on it whithersoever he
+wished to go; a bag, that gave its owner whatever he wanted, jewels,
+food, or clothes; a stone bowl that gave its owner as much water as he
+wanted, no matter how far he might be from a tank; and a stick and
+rope, to which its owner had only to say, if any one came to make war
+on him, "Stick, beat as many men and soldiers as are here," and the
+stick would beat them and the rope would tie them up.
+
+The four fakirs were quarrelling over these four things. One said, "I
+want this;" another said, "You cannot have it, for I want it;" and so
+on.
+
+The Raja's son said to them, "Do not quarrel for these things. I will
+shoot four arrows in four different directions. Whichever of you gets
+to my first arrow, shall have the first thing--the bed. Whosoever gets
+to the second arrow, shall have the second thing--the bag. He who gets
+to the third arrow, shall have the third thing--the bowl. And he who
+gets to the fourth arrow, shall have the last things--the stick and
+rope." To this they agreed, and the prince shot off his first arrow.
+Away raced the fakirs to get it. When they brought it back to him he
+shot off the second, and when they had found and brought it to him he
+shot off his third, and when they had brought him the third he shot
+off the fourth.
+
+While they were away looking for the fourth arrow the Raja's son let
+his horse loose in the jungle, and sat on the bed, taking the bowl,
+the stick and rope, and the bag with him. Then he said, "Bed, I wish
+to go to the Princess Labam's country." The little bed instantly rose
+up into the air and began to fly, and it flew and flew till it came to
+the Princess Labam's country, where it settled on the ground. The
+Raja's son asked some men he saw, "Whose country is this?"
+
+"The Princess Labam's country," they answered. Then the prince went on
+till he came to a house where he saw an old woman.
+
+"Who are you?" she said. "Where do you come from?"
+
+"I come from a far country," he said; "do let me stay with you
+to-night."
+
+"No," she answered, "I cannot let you stay with me; for our king has
+ordered that men from other countries may not stay in his country. You
+cannot stay in my house."
+
+"You are my aunty," said the prince; "let me remain with you for this
+one night. You see it is evening, and if I go into the jungle, then
+the wild beasts will eat me."
+
+"Well," said the old woman, "you may stay here to-night; but to-morrow
+morning you must go away, for if the king hears you have passed the
+night in my house, he will have me seized and put into prison."
+
+Then she took him into her house, and the Raja's son was very glad.
+The old woman began preparing dinner, but he stopped her, "Aunty," he
+said, "I will give you food." He put his hand into his bag, saying,
+"Bag, I want some dinner," and the bag gave him instantly a delicious
+dinner, served up on two gold plates. The old woman and the Raja's son
+then dined together.
+
+When they had finished eating, the old woman said, "Now I will fetch
+some water."
+
+"Don't go," said the prince. "You shall have plenty of water
+directly." So he took his bowl and said to it, "Bowl, I want some
+water," and then it filled with water. When it was full, the prince
+cried out, "Stop, bowl," and the bowl stopped filling. "See, aunty,"
+he said, "with this bowl I can always get as much water as I want."
+
+By this time night had come. "Aunty," said the Raja's son, "why don't
+you light a lamp?"
+
+"There is no need," she said. "Our king has forbidden the people in
+his country to light any lamps; for, as soon as it is dark, his
+daughter, the Princess Labam, comes and sits on her roof, and she
+shines so that she lights up all the country and our houses, and we
+can see to do our work as if it were day."
+
+When it was quite black night the princess got up. She dressed herself
+in her rich clothes and jewels, and rolled up her hair, and across her
+head she put a band of diamonds and pearls. Then she shone like the
+moon, and her beauty made night day. She came out of her room, and sat
+on the roof of her palace. In the daytime she never came out of her
+house; she only came out at night. All the people in her father's
+country then went about their work and finished it.
+
+The Raja's son watched the princess quietly, and was very happy. He
+said to himself, "How lovely she is!"
+
+At midnight, when everybody had gone to bed, the princess came down
+from her roof, and went to her room; and when she was in bed and
+asleep, the Raja's son got up softly, and sat on his bed. "Bed," he
+said to it, "I want to go to the Princess Labam's bed-room." So the
+little bed carried him to the room where she lay fast asleep.
+
+The young Raja took his bag and said, "I want a great deal of
+betel-leaf," and it at once gave him quantities of betel-leaf. This he
+laid near the princess's bed, and then his little bed carried him back
+to the old woman's house.
+
+Next morning all the princess's servants found the betel-leaf, and
+began to eat it. "Where did you get all that betel-leaf?" asked the
+princess.
+
+"We found it near your bed," answered the servants. Nobody knew the
+prince had come in the night and put it all there.
+
+In the morning the old woman came to the Raja's son. "Now it is
+morning," she said, "and you must go; for if the king finds out all I
+have done for you, he will seize me."
+
+"I am ill to-day, dear aunty," said the prince; "do let me stay till
+to-morrow morning."
+
+"Good," said the old woman. So he stayed, and they took their dinner
+out of the bag, and the bowl gave them water.
+
+When night came the princess got up and sat on her roof, and at twelve
+o'clock, when every one was in bed, she went to her bed-room, and was
+soon fast asleep. Then the Raja's son sat on his bed, and it carried
+him to the princess. He took his bag and said, "Bag, I want a most
+lovely shawl." It gave him a splendid shawl, and he spread it over the
+princess as she lay asleep. Then he went back to the old woman's house
+and slept till morning.
+
+In the morning, when the princess saw the shawl she was delighted.
+"See, mother," she said; "Khuda must have given me this shawl, it is
+so beautiful." Her mother was very glad too.
+
+"Yes, my child," she said; "Khuda must have given you this splendid
+shawl."
+
+When it was morning the old woman said to the Raja's son, "Now you
+must really go."
+
+"Aunty," he answered, "I am not well enough yet. Let me stay a few
+days longer. I will remain hidden in your house, so that no one may
+see me." So the old woman let him stay.
+
+When it was black night, the princess put on her lovely clothes and
+jewels, and sat on her roof. At midnight she went to her room and went
+to sleep. Then the Raja's son sat on his bed and flew to her bed-room.
+There he said to his bag, "Bag, I want a very, very beautiful ring."
+The bag gave him a glorious ring. Then he took the Princess Labam's
+hand gently to put on the ring, and she started up very much
+frightened.
+
+"Who are you?" she said to the prince. "Where do you come from? Why do
+you come to my room?"
+
+"Do not be afraid, princess," he said; "I am no thief. I am a great
+Raja's son. Hiraman parrot, who lives in the jungle where I went to
+hunt, told me your name, and then I left my father and mother, and
+came to see you."
+
+"Well," said the princess, "as you are the son of such a great Raja,
+I will not have you killed, and I will tell my father and mother that
+I wish to marry you."
+
+The prince then returned to the old woman's house; and when morning
+came the princess said to her mother, "The son of a great Raja has
+come to this country, and I wish to marry him." Her mother told this
+to the king.
+
+"Good," said the king; "but if this Raja's son wishes to marry my
+daughter, he must first do whatever I bid him. If he fails I will kill
+him. I will give him eighty pounds weight of mustard seed, and out of
+this he must crush the oil in one day. If he cannot do this he shall
+die."
+
+In the morning the Raja's son told the old woman that he intended to
+marry the princess. "Oh," said the old woman, "go away from this
+country, and do not think of marrying her. A great many Rajas and
+Rajas' sons have come here to marry her, and her father has had them
+all killed. He says whoever wishes to marry his daughter must first do
+whatever he bids him. If he can, then he shall marry the princess; if
+he cannot, the king will have him killed. But no one can do the things
+the king tells him to do; so all the Rajas and Rajas' sons who have
+tried have been put to death. You will be killed too, if you try. Do
+go away." But the prince would not listen to anything she said.
+
+The king sent for the prince to the old woman's house, and his
+servants brought the Raja's son to the king's court-house to the king.
+There the king gave him eighty pounds of mustard seed, and told him to
+crush all the oil out of it that day, and bring it next morning to him
+to the court-house. "Whoever wishes to marry my daughter," he said to
+the prince, "must first do all I tell him. If he cannot, then I have
+him killed. So if you cannot crush all the oil out of this mustard
+seed, you will die."
+
+The prince was very sorry when he heard this. "How can I crush the oil
+out of all this mustard seed in one day?" he said to himself; "and if
+I do not, the king will kill me." He took the mustard seed to the old
+woman's house, and did not know what to do. At last he remembered the
+Ant-Raja, and the moment he did so, the Ant-Raja and his ants came to
+him. "Why do you look so sad?" said the Ant-Raja.
+
+The prince showed him the mustard seed, and said to him, "How can I
+crush the oil out of all this mustard seed in one day? And if I do not
+take the oil to the king to-morrow morning, he will kill me."
+
+"Be happy," said the Ant-Raja; "lie down and sleep; we will crush all
+the oil out for you during the day, and to-morrow morning you shall
+take it to the king." The Raja's son lay down and slept, and the ants
+crushed out the oil for him. The prince was very glad when he saw the
+oil.
+
+The next morning he took it to the court-house to the king. But the
+king said, "You cannot yet marry my daughter. If you wish to do so,
+you must first fight with my two demons and kill them." The king a
+long time ago had caught two demons, and then, as he did not know what
+to do with them, he had shut them up in a cage. He was afraid to let
+them loose for fear they would eat up all the people in his country;
+and he did not know how to kill them. So all the kings and kings' sons
+who wanted to marry the Princess Labam had to fight with these
+demons; "for," said the king to himself, "perhaps the demons may be
+killed, and then I shall be rid of them."
+
+When he heard of the demons the Raja's son was very sad. "What can I
+do?" he said to himself. "How can I fight with these two demons?" Then
+he thought of his tiger: and the tiger and his wife came to him and
+said, "Why are you so sad?" The Raja's son answered, "The king has
+ordered me to fight with his two demons and kill them. How can I do
+this?" "Do not be frightened," said the tiger. "Be happy. I and my
+wife will fight with them for you."
+
+[Illustration:]
+
+Then the Raja's son took out of his bag two splendid coats. They were
+all gold and silver, and covered with pearls and diamonds. These he
+put on the tigers to make them beautiful, and he took them to the
+king, and said to him, "May these tigers fight your demons for me?"
+"Yes," said the king, who did not care in the least who killed his
+demons, provided they were killed. "Then call your demons," said the
+Raja's son, "and these tigers will fight them." The king did so, and
+the tigers and the demons fought and fought until the tigers had
+killed the demons.
+
+"That is good," said the king. "But you must do something else before
+I give you my daughter. Up in the sky I have a kettle-drum. You must
+go and beat it. If you cannot do this, I will kill you."
+
+The Raja's son thought of his little bed; so he went to the old
+woman's house and sat on his bed. "Little bed," he said, "up in the
+sky is the king's kettle-drum. I want to go to it." The bed flew up
+with him, and the Raja's son beat the drum, and the king heard him.
+Still, when he came down, the king would not give him his daughter.
+"You have," he said to the prince, "done the three things I told you
+to do; but you must do one thing more." "If I can, I will," said the
+Raja's son.
+
+Then the king showed him the trunk of a tree that was lying near his
+court-house. It was a very, very thick trunk. He gave the prince a wax
+hatchet, and said, "To-morrow morning you must cut this trunk in two
+with this wax hatchet."
+
+The Raja's son went back to the old woman's house. He was very sad,
+and thought that now the Raja would certainly kill him. "I had his oil
+crushed out by the ants," he said to himself. "I had his demons killed
+by the tigers. My bed helped me to beat his kettle-drum. But now what
+can I do? How can I cut that thick tree-trunk in two with a wax
+hatchet?"
+
+At night he went on his bed to see the princess. "To-morrow," he said
+to her, "your father will kill me." "Why?" asked the princess.
+
+"He has told me to cut a thick tree-trunk in two with a wax hatchet.
+How can I ever do that?" said the Raja's son. "Do not be afraid," said
+the princess; "do as I bid you, and you will cut it in two quite
+easily."
+
+Then she pulled out a hair from her head, and gave it to the prince.
+"To-morrow," she said, "when no one is near you, you must say to the
+tree-trunk, 'The Princess Labam commands you to let yourself be cut in
+two by this hair.' Then stretch the hair down the edge of the wax
+hatchet's blade."
+
+The prince next day did exactly as the princess had told him; and the
+minute the hair that was stretched down the edge of the hatchet-blade
+touched the tree-trunk it split into two pieces.
+
+The king said, "Now you can marry my daughter." Then the wedding took
+place. All the Rajas and kings of the countries round were asked to
+come to it, and there were great rejoicings. After a few days the
+prince's son said to his wife, "Let us go to my father's country." The
+Princess Labam's father gave them a quantity of camels and horses and
+rupees and servants; and they travelled in great state to the prince's
+country, where they lived happily.
+
+The prince always kept his bag, bowl, bed, and stick; only, as no one
+ever came to make war on him, he never needed to use the stick.
+
+
+
+
+The Lambikin
+
+
+Once upon a time there was a wee wee Lambikin, who frolicked about on
+his little tottery legs, and enjoyed himself amazingly.
+
+Now one day he set off to visit his Granny, and was jumping with joy
+to think of all the good things he should get from her, when who
+should he meet but a Jackal, who looked at the tender young morsel and
+said: "Lambikin! Lambikin! I'll EAT YOU!"
+
+[Illustration:]
+
+But Lambikin only gave a little frisk and said:
+
+    "To Granny's house I go,
+    Where I shall fatter grow,
+    Then you can eat me so."
+
+The Jackal thought this reasonable, and let Lambikin pass.
+
+By-and-by he met a Vulture, and the Vulture, looking hungrily at the
+tender morsel before him, said: "Lambikin! Lambikin! I'll EAT YOU!"
+
+[Illustration:]
+
+But Lambikin only gave a little frisk, and said:
+
+    "To Granny's house I go,
+    Where I shall fatter grow,
+    Then you can eat me so."
+
+The Vulture thought this reasonable, and let Lambikin pass.
+
+And by-and-by he met a Tiger, and then a Wolf, and a Dog, and an
+Eagle, and all these, when they saw the tender little morsel, said:
+"Lambikin! Lambikin! I'll EAT YOU!"
+
+[Illustration:]
+
+But to all of them Lambikin replied, with a little frisk:
+
+    "To Granny's house I go,
+    Where I shall fatter grow,
+    Then you can eat me so."
+
+At last he reached his Granny's house, and said, all in a great hurry,
+"Granny, dear, I've promised to get very fat; so, as people ought to
+keep their promises, please put me into the corn-bin _at once_."
+
+So his Granny said he was a good boy, and put him into the corn-bin,
+and there the greedy little Lambikin stayed for seven days, and ate,
+and ate, and ate, until he could scarcely waddle, and his Granny said
+he was fat enough for anything, and must go home. But cunning little
+Lambikin said that would never do, for some animal would be sure to
+eat him on the way back, he was so plump and tender.
+
+"I'll tell you what you must do," said Master Lambikin, "you must make
+a little drumikin out of the skin of my little brother who died, and
+then I can sit inside and trundle along nicely, for I'm as tight as a
+drum myself."
+
+[Illustration:]
+
+So his Granny made a nice little drumikin out of his brother's skin,
+with the wool inside, and Lambikin curled himself up snug and warm in
+the middle, and trundled away gaily. Soon he met with the Eagle, who
+called out:
+
+    "Drumikin! Drumikin!
+    Have you seen Lambikin?"
+
+And Mr. Lambikin, curled up in his soft warm nest, replied:
+
+    "Fallen into the fire, and so will you
+    On little Drumikin.  Tum-pa, tum-too!"
+
+"How very annoying!" sighed the Eagle, thinking regretfully of the
+tender morsel he had let slip.
+
+Meanwhile Lambikin trundled along, laughing to himself, and singing:
+
+    "Tum-pa, tum-too;
+    Tum-pa, tum-too!"
+
+Every animal and bird he met asked him the same question:
+
+    "Drumikin! Drumikin!
+    Have you seen Lambikin?"
+
+And to each of them the little slyboots replied:
+
+    "Fallen into the fire, and so will you
+    On little Drumikin. Tum-pa, tum too;
+    Tum-pa, tum-too; Tum-pa, tum-too!"
+
+Then they all sighed to think of the tender little morsel they had let
+slip.
+
+At last the Jackal came limping along, for all his sorry looks as
+sharp as a needle, and he too called out--
+
+    "Drumikin! Drumikin!
+    Have you seen Lambikin?"
+
+And Lambikin, curled up in his snug little nest, replied gaily:
+
+    "Fallen into the fire, and so will you
+    On little Drumikin! Tum-pa----"
+
+But he never got any further, for the Jackal recognised his voice at
+once, and cried: "Hullo! you've turned yourself inside out, have you?
+Just you come out of that!"
+
+Whereupon he tore open Drumikin and gobbled up Lambikin.
+
+
+
+
+Punchkin
+
+[Illustration:]
+
+
+Once upon a time there was a Raja who had seven beautiful daughters.
+They were all good girls; but the youngest, named Balna, was more
+clever than the rest. The Raja's wife died when they were quite little
+children, so these seven poor Princesses were left with no mother to
+take care of them.
+
+The Raja's daughters took it by turns to cook their father's dinner
+every day, whilst he was absent deliberating with his Ministers on the
+affairs of the nation.
+
+About this time the Prudhan died, leaving a widow and one daughter;
+and every day, every day, when the seven Princesses were preparing
+their father's dinner, the Prudhan's widow and daughter would come and
+beg for a little fire from the hearth. Then Balna used to say to her
+sisters, "Send that woman away; send her away. Let her get the fire at
+her own house. What does she want with ours? If we allow her to come
+here, we shall suffer for it some day."
+
+But the other sisters would answer, "Be quiet, Balna; why must you
+always be quarrelling with this poor woman? Let her take some fire if
+she likes." Then the Prudhan's widow used to go to the hearth and take
+a few sticks from it; and whilst no one was looking, she would quickly
+throw some mud into the midst of the dishes which were being prepared
+for the Raja's dinner.
+
+Now the Raja was very fond of his daughters. Ever since their mother's
+death they had cooked his dinner with their own hands, in order to
+avoid the danger of his being poisoned by his enemies. So, when he
+found the mud mixed up with his dinner, he thought it must arise from
+their carelessness, as it did not seem likely that any one should have
+put mud there on purpose; but being very kind he did not like to
+reprove them for it, although this spoiling of the curry was repeated
+many successive days.
+
+At last, one day, he determined to hide, and watch his daughters
+cooking, and see how it all happened; so he went into the next room,
+and watched them through a hole in the wall.
+
+There he saw his seven daughters carefully washing the rice and
+preparing the curry, and as each dish was completed, they put it by
+the fire ready to be cooked. Next he noticed the Prudhan's widow come
+to the door, and beg for a few sticks from the fire to cook her
+dinner with. Balna turned to her, angrily, and said, "Why don't you
+keep fuel in your own house, and not come here every day and take
+ours? Sisters, don't give this woman any more wood; let her buy it for
+herself."
+
+Then the eldest sister answered, "Balna, let the poor woman take the
+wood and the fire; she does us no harm." But Balna replied, "If you
+let her come here so often, maybe she will do us some harm, and make
+us sorry for it, some day."
+
+The Raja then saw the Prudhan's widow go to the place where all his
+dinner was nicely prepared, and, as she took the wood, she threw a
+little mud into each of the dishes.
+
+At this he was very angry, and sent to have the woman seized and
+brought before him. But when the widow came, she told him that she had
+played this trick because she wanted to gain an audience with him; and
+she spoke so cleverly, and pleased him so well with her cunning words,
+that instead of punishing her, the Raja married her, and made her his
+Ranee, and she and her daughter came to live in the palace.
+
+Now the new Ranee hated the seven poor Princesses, and wanted to get
+them, if possible, out of the way, in order that her daughter might
+have all their riches, and live in the palace as Princess in their
+place; and instead of being grateful to them for their kindness to
+her, she did all she could to make them miserable. She gave them
+nothing but bread to eat, and very little of that, and very little
+water to drink; so these seven poor little Princesses, who had been
+accustomed to have everything comfortable about them, and good food
+and good clothes all their lives long, were very miserable and
+unhappy; and they used to go out every day and sit by their dead
+mother's tomb and cry--and say:
+
+"Oh mother, mother, cannot you see your poor children, how unhappy we
+are, and how we are starved by our cruel step-mother?"
+
+One day, whilst they were thus sobbing and crying, lo and behold! a
+beautiful pomelo tree grew up out of the grave, covered with fresh
+ripe pomeloes, and the children satisfied their hunger by eating some
+of the fruit, and every day after this, instead of trying to eat the
+bad dinner their step-mother provided for them, they used to go out to
+their mother's grave and eat the pomeloes which grew there on the
+beautiful tree.
+
+Then the Ranee said to her daughter, "I cannot tell how it is, every
+day those seven girls say they don't want any dinner, and won't eat
+any; and yet they never grow thin nor look ill; they look better than
+you do. I cannot tell how it is." And she bade her watch the seven
+Princesses, and see if any one gave them anything to eat.
+
+So next day, when the Princesses went to their mother's grave, and
+were eating the beautiful pomeloes, the Prudhan's daughter followed
+them, and saw them gathering the fruit.
+
+Then Balna said to her sisters, "Do you not see that girl watching us?
+Let us drive her away, or hide the pomeloes, else she will go and tell
+her mother all about it, and that will be very bad for us."
+
+But the other sisters said, "Oh no, do not be unkind, Balna. The girl
+would never be so cruel as to tell her mother. Let us rather invite
+her to come and have some of the fruit." And calling her to them,
+they gave her one of the pomeloes.
+
+No sooner had she eaten it, however, than the Prudhan's daughter went
+home and said to her mother, "I do not wonder the seven Princesses
+will not eat the dinner you prepare for them, for by their mother's
+grave there grows a beautiful pomelo tree, and they go there every day
+and eat the pomeloes. I ate one, and it was the nicest I have ever
+tasted."
+
+The cruel Ranee was much vexed at hearing this, and all next day she
+stayed in her room, and told the Raja that she had a very bad
+headache. The Raja was deeply grieved, and said to his wife, "What can
+I do for you?" She answered, "There is only one thing that will make
+my headache well. By your dead wife's tomb there grows a fine pomelo
+tree; you must bring that here, and boil it, root and branch, and put
+a little of the water in which it has been boiled, on my forehead, and
+that will cure my headache." So the Raja sent his servants, and had
+the beautiful pomelo tree pulled up by the roots, and did as the Ranee
+desired; and when some of the water, in which it had been boiled, was
+put on her forehead, she said her headache was gone and she felt quite
+well.
+
+Next day, when the seven Princesses went as usual to the grave of
+their mother, the pomelo tree had disappeared. Then they all began to
+cry very bitterly.
+
+Now there was by the Ranee's tomb a small tank, and as they were
+crying they saw that the tank was filled with a rich cream-like
+substance, which quickly hardened into a thick white cake. At seeing
+this all the Princesses were very glad, and they ate some of the cake,
+and liked it; and next day the same thing happened, and so it went on
+for many days. Every morning the Princesses went to their mother's
+grave, and found the little tank filled with the nourishing cream-like
+cake. Then the cruel step-mother said to her daughter: "I cannot tell
+how it is, I have had the pomelo tree which used to grow by the
+Ranee's grave destroyed, and yet the Princesses grow no thinner, nor
+look more sad, though they never eat the dinner I give them. I cannot
+tell how it is!"
+
+And her daughter said, "I will watch."
+
+Next day, while the Princesses were eating the cream cake, who should
+come by but their step-mother's daughter. Balna saw her first, and
+said, "See, sisters, there comes that girl again. Let us sit round the
+edge of the tank and not allow her to see it, for if we give her some
+of our cake, she will go and tell her mother; and that will be very
+unfortunate for us."
+
+The other sisters, however, thought Balna unnecessarily suspicious,
+and instead of following her advice, they gave the Prudhan's daughter
+some of the cake, and she went home and told her mother all about it.
+
+The Ranee, on hearing how well the Princesses fared, was exceedingly
+angry, and sent her servants to pull down the dead Ranee's tomb, and
+fill the little tank with the ruins. And not content with this, she
+next day pretended to be very, very ill--in fact, at the point of
+death--and when the Raja was much grieved, and asked her whether it
+was in his power to procure her any remedy, she said to him: "Only one
+thing can save my life, but I know you will not do it." He replied,
+"Yes, whatever it is, I will do it." She then said, "To save my life,
+you must kill the seven daughters of your first wife, and put some of
+their blood on my forehead and on the palms of my hands, and their
+death will be my life." At these words the Raja was very sorrowful;
+but because he feared to break his word, he went out with a heavy
+heart to find his daughters.
+
+He found them crying by the ruins of their mother's grave.
+
+Then, feeling he could not kill them, the Raja spoke kindly to them,
+and told them to come out into the jungle with him; and there he made
+a fire and cooked some rice, and gave it to them. But in the
+afternoon, it being very hot, the seven Princesses all fell asleep,
+and when he saw they were fast asleep, the Raja, their father, stole
+away and left them (for he feared his wife), saying to himself: "It is
+better my poor daughters should die here, than be killed by their
+step-mother."
+
+He then shot a deer, and returning home, put some of its blood on the
+forehead and hands of the Ranee, and she thought then that he had
+really killed the Princesses, and said she felt quite well.
+
+Meantime the seven Princesses awoke, and when they found themselves
+all alone in the thick jungle they were much frightened, and began to
+call out as loud as they could, in hopes of making their father hear;
+but he was by that time far away, and would not have been able to hear
+them even had their voices been as loud as thunder.
+
+It so happened that this very day the seven young sons of a
+neighbouring Raja chanced to be hunting in that same jungle, and as
+they were returning home, after the day's sport was over, the youngest
+Prince said to his brothers: "Stop, I think I hear some one crying and
+calling out. Do you not hear voices? Let us go in the direction of
+the sound, and find out what it is."
+
+So the seven Princes rode through the wood until they came to the
+place where the seven Princesses sat crying and wringing their hands.
+At the sight of them the young Princes were very much astonished, and
+still more so on learning their story; and they settled that each
+should take one of these poor forlorn ladies home with him, and marry
+her.
+
+So the first and eldest Prince took the eldest Princess home with him,
+and married her.
+
+And the second took the second;
+
+And the third took the third;
+
+And the fourth took the fourth;
+
+And the fifth took the fifth;
+
+And the sixth took the sixth;
+
+And the seventh, and the handsomest of all, took the beautiful Balna.
+
+And when they got to their own land, there was great rejoicing
+throughout the kingdom, at the marriage of the seven young Princes to
+seven such beautiful Princesses.
+
+About a year after this Balna had a little son, and his uncles and
+aunts were so fond of the boy that it was as if he had seven fathers
+and seven mothers. None of the other Princes and Princesses had any
+children, so the son of the seventh Prince and Balna was acknowledged
+their heir by all the rest.
+
+They had thus lived very happily for some time, when one fine day the
+seventh Prince (Balna's husband) said he would go out hunting, and
+away he went; and they waited long for him, but he never came back.
+
+Then his six brothers said they would go and see what had become of
+him; and they went away, but they also did not return.
+
+And the seven Princesses grieved very much, for they feared that their
+kind husbands must have been killed.
+
+One day, not long after this had happened, as Balna was rocking her
+baby's cradle, and whilst her sisters were working in the room below,
+there came to the palace door a man in a long black dress, who said
+that he was a Fakir, and came to beg. The servants said to him, "You
+cannot go into the palace--the Raja's sons have all gone away; we
+think they must be dead, and their widows cannot be interrupted by
+your begging." But he said, "I am a holy man, you must let me in."
+Then the stupid servants let him walk through the palace, but they did
+not know that this was no Fakir, but a wicked Magician named Punchkin.
+
+Punchkin Fakir wandered through the palace, and saw many beautiful
+things there, till at last he reached the room where Balna sat singing
+beside her little boy's cradle. The Magician thought her more
+beautiful than all the other beautiful things he had seen, insomuch
+that he asked her to go home with him and to marry him. But she said,
+"My husband, I fear, is dead, but my little boy is still quite young;
+I will stay here and teach him to grow up a clever man, and when he is
+grown up he shall go out into the world, and try and learn tidings of
+his father. Heaven forbid that I should ever leave him, or marry you."
+At these words the Magician was very angry, and turned her into a
+little black dog, and led her away; saying, "Since you will not come
+with me of your own free will, I will make you." So the poor Princess
+was dragged away, without any power of effecting an escape, or of
+letting her sisters know what had become of her. As Punchkin passed
+through the palace gate the servants said to him, "Where did you get
+that pretty little dog?" And he answered, "One of the Princesses gave
+it to me as a present." At hearing which they let him go without
+further questioning.
+
+Soon after this, the six elder Princesses heard the little baby, their
+nephew, begin to cry, and when they went upstairs they were much
+surprised to find him all alone, and Balna nowhere to be seen. Then
+they questioned the servants, and when they heard of the Fakir and the
+little black dog, they guessed what had happened, and sent in every
+direction seeking them, but neither the Fakir nor the dog were to be
+found. What could six poor women do? They gave up all hopes of ever
+seeing their kind husbands, and their sister, and her husband, again,
+and devoted themselves thenceforward to teaching and taking care of
+their little nephew.
+
+Thus time went on, till Balna's son was fourteen years old. Then, one
+day, his aunts told him the history of the family; and no sooner did
+he hear it, than he was seized with a great desire to go in search of
+his father and mother and uncles, and if he could find them alive to
+bring them home again. His aunts, on learning his determination, were
+much alarmed and tried to dissuade him, saying, "We have lost our
+husbands, and our sister and her husband, and you are now our sole
+hope; if you go away, what shall we do?" But he replied, "I pray you
+not to be discouraged; I will return soon, and if it is possible bring
+my father and mother and uncles with me." So he set out on his
+travels; but for some months he could learn nothing to help him in
+his search.
+
+At last, after he had journeyed many hundreds of weary miles, and
+become almost hopeless of ever hearing anything further of his
+parents, he one day came to a country that seemed full of stones, and
+rocks, and trees, and there he saw a large palace with a high tower;
+hard by which was a Malee's little house.
+
+As he was looking about, the Malee's wife saw him, and ran out of the
+house and said, "My dear boy, who are you that dare venture to this
+dangerous place?" He answered, "I am a Raja's son, and I come in
+search of my father, and my uncles, and my mother whom a wicked
+enchanter bewitched."
+
+Then the Malee's wife said, "This country and this palace belong to a
+great enchanter; he is all powerful, and if any one displeases him, he
+can turn them into stones and trees. All the rocks and trees you see
+here were living people once, and the Magician turned them to what
+they now are. Some time ago a Raja's son came here, and shortly
+afterwards came his six brothers, and they were all turned into stones
+and trees; and these are not the only unfortunate ones, for up in that
+tower lives a beautiful Princess, whom the Magician has kept prisoner
+there for twelve years, because she hates him and will not marry him."
+
+Then the little Prince thought, "These must be my parents and my
+uncles. I have found what I seek at last." So he told his story to the
+Malee's wife, and begged her to help him to remain in that place
+awhile and inquire further concerning the unhappy people she
+mentioned; and she promised to befriend him, and advised his
+disguising himself lest the Magician should see him, and turn him
+likewise into stone. To this the Prince agreed. So the Malee's wife
+dressed him up in a saree, and pretended that he was her daughter.
+
+One day, not long after this, as the Magician was walking in his
+garden he saw the little girl (as he thought) playing about, and asked
+her who she was. She told him she was the Malee's daughter, and the
+Magician said, "You are a pretty little girl, and to-morrow you shall
+take a present of flowers from me to the beautiful lady who lives in
+the tower."
+
+The young Prince was much delighted at hearing this, and went
+immediately to inform the Malee's wife; after consultation with whom
+he determined that it would be more safe for him to retain his
+disguise, and trust to the chance of a favourable opportunity for
+establishing some communication with his mother, if it were indeed
+she.
+
+Now it happened that at Balna's marriage her husband had given her a
+small gold ring on which her name was engraved, and she had put it on
+her little son's finger when he was a baby, and afterwards when he was
+older his aunts had had it enlarged for him, so that he was still able
+to wear it. The Malee's wife advised him to fasten the well-known
+treasure to one of the bouquets he presented to his mother, and trust
+to her recognising it. This was not to be done without difficulty, as
+such a strict watch was kept over the poor Princess (for fear of her
+ever establishing communication with her friends), that though the
+supposed Malee's daughter was permitted to take her flowers every day,
+the Magician or one of his slaves was always in the room at the time.
+At last one day, however, opportunity favoured him, and when no one
+was looking, the boy tied the ring to a nosegay, and threw it at
+Balna's feet. It fell with a clang on the floor, and Balna, looking to
+see what made the strange sound, found the little ring tied to the
+flowers. On recognising it, she at once believed the story her son
+told her of his long search, and begged him to advise her as to what
+she had better do; at the same time entreating him on no account to
+endanger his life by trying to rescue her. She told him that for
+twelve long years the Magician had kept her shut up in the tower
+because she refused to marry him, and she was so closely guarded that
+she saw no hope of release.
+
+Now Balna's son was a bright, clever boy, so he said, "Do not fear,
+dear mother; the first thing to do is to discover how far the
+Magician's power extends, in order that we may be able to liberate my
+father and uncles, whom he has imprisoned in the form of rocks and
+trees. You have spoken to him angrily for twelve long years; now
+rather speak kindly. Tell him you have given up all hopes of again
+seeing the husband you have so long mourned, and say you are willing
+to marry him. Then endeavour to find out what his power consists in,
+and whether he is immortal, or can be put to death."
+
+Balna determined to take her son's advice; and the next day sent for
+Punchkin, and spoke to him as had been suggested.
+
+The Magician, greatly delighted, begged her to allow the wedding to
+take place as soon as possible.
+
+But she told him that before she married him he must allow her a
+little more time, in which she might make his acquaintance, and that,
+after being enemies so long, their friendship could but strengthen by
+degrees. "And do tell me," she said, "are you quite immortal? Can
+death never touch you? And are you too great an enchanter ever to feel
+human suffering?"
+
+"Why do you ask?" said he.
+
+"Because," she replied, "if I am to be your wife, I would fain know
+all about you, in order, if any calamity threatens you, to overcome,
+or if possible to avert it."
+
+"It is true," he added, "that I am not as others. Far, far away,
+hundreds of thousands of miles from this, there lies a desolate
+country covered with thick jungle. In the midst of the jungle grows a
+circle of palm trees, and in the centre of the circle stand six
+chattees full of water, piled one above another: below the sixth
+chattee is a small cage which contains a little green parrot; on the
+life of the parrot depends my life; and if the parrot is killed I must
+die. It is, however," he added, "impossible that the parrot should
+sustain any injury, both on account of the inaccessibility of the
+country, and because, by my appointment, many thousand genii surround
+the palm trees, and kill all who approach the place."
+
+Balna told her son what Punchkin had said; but at the same time
+implored him to give up all idea of getting the parrot.
+
+The Prince, however, replied, "Mother, unless I can get hold of that
+parrot, you, and my father, and uncles, cannot be liberated: be not
+afraid, I will shortly return. Do you, meantime, keep the Magician in
+good humour--still putting off your marriage with him on various
+pretexts; and before he finds out the cause of delay, I will be here."
+So saying, he went away.
+
+Many, many weary miles did he travel, till at last he came to a thick
+jungle; and, being very tired, sat down under a tree and fell asleep.
+He was awakened by a soft rustling sound, and looking about him, saw a
+large serpent which was making its way to an eagle's nest built in the
+tree under which he lay, and in the nest were two young eagles. The
+Prince seeing the danger of the young birds, drew his sword, and
+killed the serpent; at the same moment a rushing sound was heard in
+the air, and the two old eagles, who had been out hunting for food for
+their young ones, returned. They quickly saw the dead serpent and the
+young Prince standing over it; and the old mother eagle said to him,
+"Dear boy, for many years all our young ones have been devoured by
+that cruel serpent; you have now saved the lives of our children;
+whenever you are in need, therefore, send to us and we will help you;
+and as for these little eagles, take them, and let them be your
+servants."
+
+At this the Prince was very glad, and the two eaglets crossed their
+wings, on which he mounted; and they carried him far, far away over
+the thick jungles, until he came to the place where grew the circle of
+palm trees, in the midst of which stood the six chattees full of
+water. It was the middle of the day, and the heat was very great. All
+round the trees were the genii fast asleep; nevertheless, there were
+such countless thousands of them, that it would have been quite
+impossible for any one to walk through their ranks to the place; down
+swooped the strong-winged eaglets--down jumped the Prince; in an
+instant he had overthrown the six chattees full of water, and seized
+the little green parrot, which he rolled up in his cloak; while, as
+he mounted again into the air, all the genii below awoke, and finding
+their treasure gone, set up a wild and melancholy howl.
+
+Away, away flew the little eagles, till they came to their home in the
+great tree; then the Prince said to the old eagles, "Take back your
+little ones; they have done me good service; if ever again I stand in
+need of help, I will not fail to come to you." He then continued his
+journey on foot till he arrived once more at the Magician's palace,
+where he sat down at the door and began playing with the parrot.
+Punchkin saw him, and came to him quickly, and said, "My boy, where
+did you get that parrot? Give it to me, I pray you."
+
+But the Prince answered, "Oh no, I cannot give away my parrot, it is a
+great pet of mine; I have had it many years."
+
+Then the Magician said, "If it is an old favourite, I can understand
+your not caring to give it away; but come what will you sell it for?"
+
+"Sir," replied the Prince, "I will not sell my parrot."
+
+Then Punchkin got frightened, and said, "Anything, anything; name what
+price you will, and it shall be yours." The Prince answered, "Let the
+seven Raja's sons whom you turned into rocks and trees be instantly
+liberated."
+
+"It is done as you desire," said the Magician, "only give me my
+parrot." And with that, by a stroke of his wand, Balna's husband and
+his brothers resumed their natural shapes. "Now, give me my parrot,"
+repeated Punchkin.
+
+"Not so fast, my master," rejoined the Prince; "I must first
+beg that you will restore to life all whom you have thus imprisoned."
+
+[Illustration: Punchkin's Prisoners are set free.]
+
+The Magician immediately waved his wand again; and, whilst he cried,
+in an imploring voice, "Give me my parrot!" the whole garden became
+suddenly alive: where rocks, and stones, and trees had been before,
+stood Rajas, and Punts, and Sirdars, and mighty men on prancing
+horses, and jewelled pages, and troops of armed attendants.
+
+"Give me my parrot!" cried Punchkin. Then the boy took hold of the
+parrot, and tore off one of its wings; and as he did so the Magician's
+right arm fell off.
+
+Punchkin then stretched out his left arm, crying, "Give me my parrot!"
+The Prince pulled off the parrot's second wing, and the Magician's
+left arm tumbled off.
+
+"Give me my parrot!" cried he, and fell on his knees. The Prince
+pulled off the parrot's right leg, the Magician's right leg fell off:
+the Prince pulled off the parrot's left leg, down fell the Magician's
+left.
+
+Nothing remained of him save the limbless body and the head; but still
+he rolled his eyes, and cried, "Give me my parrot!" "Take your parrot,
+then," cried the boy, and with that he wrung the bird's neck, and
+threw it at the Magician; and, as he did so, Punchkin's head twisted
+round, and, with a fearful groan, he died!
+
+Then they let Balna out of the tower; and she, her son, and the seven
+Princes went to their own country, and lived very happily ever
+afterwards. And as to the rest of the world, every one went to his own
+house.
+
+
+
+
+The Broken Pot
+
+
+There lived in a certain place a Brahman, whose name was
+Svabhavak_ri_pa_n_a, which means "a born miser." He had collected a
+quantity of rice by begging, and after having dined off it, he filled
+a pot with what was left over. He hung the pot on a peg on the wall,
+placed his couch beneath, and looking intently at it all the night, he
+thought, "Ah, that pot is indeed brimful of rice. Now, if there should
+be a famine, I should certainly make a hundred rupees by it. With this
+I shall buy a couple of goats. They will have young ones every six
+months, and thus I shall have a whole herd of goats. Then, with the
+goats, I shall buy cows. As soon as they have calved, I shall sell the
+calves. Then, with the calves, I shall buy buffaloes; with the
+buffaloes, mares. When the mares have foaled, I shall have plenty of
+horses; and when I sell them, plenty of gold. With that gold I shall
+get a house with four wings. And then a Brahman will come to my house,
+and will give me his beautiful daughter, with a large dowry. She will
+have a son, and I shall call him Somasarman.
+
+[Illustration:]
+
+When he is old enough to be danced on his father's knee, I shall sit
+with a book at the back of the stable, and while I am reading, the boy
+will see me, jump from his mother's lap, and run towards me to be
+danced on my knee. He will come too near the horse's hoof, and, full
+of anger, I shall call to my wife, 'Take the baby; take him!' But she,
+distracted by some domestic work, does not hear me. Then I get up, and
+give her such a kick with my foot." While he thought this, he gave a
+kick with his foot, and broke the pot. All the rice fell over him, and
+made him quite white. Therefore, I say, "He who makes foolish plans
+for the future will be white all over, like the father of
+Somasarman."
+
+
+
+
+The Magic Fiddle
+
+
+Once upon a time there lived seven brothers and a sister. The brothers
+were married, but their wives did not do the cooking for the family.
+It was done by their sister, who stopped at home to cook. The wives
+for this reason bore their sister-in-law much ill-will, and at length
+they combined together to oust her from the office of cook and general
+provider, so that one of themselves might obtain it. They said, "She
+does not go out to the fields to work, but remains quietly at home,
+and yet she has not the meals ready at the proper time." They then
+called upon their Bonga, and vowing vows unto him they secured his
+good-will and assistance; then they said to the Bonga, "At midday when
+our sister-in-law goes to bring water, cause it thus to happen, that
+on seeing her pitcher the water shall vanish, and again slowly
+re-appear. In this way she will be delayed. Let the water not flow
+into her pitcher, and you may keep the maiden as your own."
+
+At noon when she went to bring water, it suddenly dried up before her,
+and she began to weep. Then after a while the water began slowly to
+rise. When it reached her ankles she tried to fill her pitcher, but it
+would not go under the water. Being frightened she began to wail and
+cry to her brother:
+
+[Illustration:]
+
+    "Oh! my brother, the water reaches to my ankles,
+    Still, Oh! my brother, the pitcher will not dip."
+
+The water continued to rise until it reached her knee, when she began
+to wail again:
+
+    "Oh! my brother, the water reaches to my knee,
+    Still, Oh! my brother, the pitcher will not dip."
+
+The water continued to rise, and when it reached her waist, she cried
+again:
+
+    "Oh! my brother, the water reaches to my waist,
+    Still, Oh! my brother, the pitcher will not dip."
+
+The water still rose, and when it reached her neck she kept on crying:
+
+    "Oh! my brother, the water reaches to my neck,
+    Still, Oh! my brother, the pitcher will not dip."
+
+At length the water became so deep that she felt herself drowning,
+then she cried aloud:
+
+    "Oh! my brother, the water measures a man's height,
+    Oh! my brother, the pitcher begins to fill."
+
+The pitcher filled with water, and along with it she sank and was
+drowned. The Bonga then transformed her into a Bonga like himself, and
+carried her off.
+
+After a time she re-appeared as a bamboo growing on the embankment of
+the tank in which she had been drowned. When the bamboo had grown to
+an immense size, a Jogi, who was in the habit of passing that way,
+seeing it, said to himself, "This will make a splendid fiddle." So one
+day he brought an axe to cut it down; but when he was about to begin,
+the bamboo called out, "Do not cut at the root, cut higher up." When
+he lifted his axe to cut high up the stem, the bamboo cried out, "Do
+not cut near the top, cut at the root." When the Jogi again prepared
+himself to cut at the root as requested, the bamboo said, "Do not cut
+at the root, cut higher up;" and when he was about to cut higher up,
+it again called out to him, "Do not cut high up, cut at the root." The
+Jogi by this time felt sure that a Bonga was trying to frighten him,
+so becoming angry he cut down the bamboo at the root, and taking it
+away made a fiddle out of it. The instrument had a superior tone and
+delighted all who heard it. The Jogi carried it with him when he went
+a-begging, and through the influence of its sweet music he returned
+home every evening with a full wallet.
+
+He now and then visited, when on his rounds, the house of the Bonga
+girl's brothers, and the strains of the fiddle affected them greatly.
+Some of them were moved even to tears, for the fiddle seemed to wail
+as one in bitter anguish. The elder brother wished to purchase it, and
+offered to support the Jogi for a whole year if he would consent to
+part with his wonderful instrument. The Jogi, however, knew its value,
+and refused to sell it.
+
+It so happened that the Jogi some time after went to the house of a
+village chief, and after playing a tune or two on his fiddle asked for
+something to eat. They offered to buy his fiddle and promised a high
+price for it, but he refused to sell it, as his fiddle brought to him
+his means of livelihood. When they saw that he was not to be prevailed
+upon, they gave him food and a plentiful supply of liquor. Of the
+latter he drank so freely that he presently became intoxicated. While
+he was in this condition, they took away his fiddle, and substituted
+their own old one for it. When the Jogi recovered, he missed his
+instrument, and suspecting that it had been stolen asked them to
+return it to him. They denied having taken it, so he had to depart,
+leaving his fiddle behind him. The chief's son, being a musician, used
+to play on the Jogi's fiddle, and in his hands the music it gave forth
+delighted the ears of all who heard it.
+
+When all the household were absent at their labours in the fields, the
+Bonga girl used to come out of the bamboo fiddle, and prepared the
+family meal. Having eaten her own share, she placed that of the
+chief's son under his bed, and covering it up to keep off the dust,
+re-entered the fiddle. This happening every day, the other members of
+the household thought that some girl friend of theirs was in this
+manner showing her interest in the young man, so they did not trouble
+themselves to find out how it came about. The young chief, however,
+was determined to watch, and see which of his girl friends was so
+attentive to his comfort. He said in his own mind, "I will catch her
+to-day, and give her a sound beating; she is causing me to be ashamed
+before the others." So saying, he hid himself in a corner in a pile of
+firewood. In a short time the girl came out of the bamboo fiddle, and
+began to dress her hair. Having completed her toilet, she cooked the
+meal of rice as usual, and having eaten some herself, she placed the
+young man's portion under his bed, as before, and was about to enter
+the fiddle again, when he, running out from his hiding-place, caught
+her in his arms. The Bonga girl exclaimed, "Fie! Fie! you may be a
+Dom, or you may be a Hadi of some other caste with whom I cannot
+marry." He said, "No. But from to-day, you and I are one." So they
+began lovingly to hold converse with each other. When the others
+returned home in the evening, they saw that she was both a human being
+and a Bonga, and they rejoiced exceedingly.
+
+Now in course of time the Bonga girl's family became very poor, and
+her brothers on one occasion came to the chief's house on a visit.
+
+The Bonga girl recognised them at once, but they did not know who she
+was. She brought them water on their arrival, and afterwards set
+cooked rice before them. Then sitting down near them, she began in
+wailing tones to upbraid them on account of the treatment she had been
+subjected to by their wives. She related all that had befallen her,
+and wound up by saying, "You must have known it all, and yet you did
+not interfere to save me." And that was all the revenge she took.
+
+[Illustration:]
+
+
+
+
+The Cruel Crane Outwitted
+
+[Illustration:]
+
+
+Long ago the Bodisat was born to a forest life as the Genius of a tree
+standing near a certain lotus pond.
+
+Now at that time the water used to run short at the dry season in a
+certain pond, not over large, in which there were a good many fish.
+And a crane thought on seeing the fish:
+
+"I must outwit these fish somehow or other and make a prey of them."
+
+And he went and sat down at the edge of the water, thinking how he
+should do it.
+
+When the fish saw him, they asked him, "What are you sitting there
+for, lost in thought?"
+
+"I am sitting thinking about you," said he.
+
+"Oh, sir! what are you thinking about us?" said they.
+
+"Why," he replied; "there is very little water in this pond, and but
+little for you to eat; and the heat is so great! So I was thinking,
+'What in the world will these fish do now?'"
+
+"Yes, indeed, sir! what _are_ we to do?" said they.
+
+"If you will only do as I bid you, I will take you in my beak to a
+fine large pond, covered with all the kinds of lotuses, and put you
+into it," answered the crane.
+
+"That a crane should take thought for the fishes is a thing unheard
+of, sir, since the world began. It's eating us, one after the other,
+that you're aiming at."
+
+"Not I! So long as you trust me, I won't eat you. But if you don't
+believe me that there is such a pond, send one of you with me to go
+and see it."
+
+Then they trusted him, and handed over to him one of their number--a
+big fellow, blind of one eye, whom they thought sharp enough in any
+emergency, afloat or ashore.
+
+Him the crane took with him, let him go in the pond, showed him the
+whole of it, brought him back, and let him go again close to the other
+fish. And he told them all the glories of the pond.
+
+And when they heard what he said, they exclaimed, "All right, sir! You
+may take us with you."
+
+Then the crane took the old purblind fish first to the bank of the
+other pond, and alighted in a Varana-tree growing on the bank there.
+But he threw it into a fork of the tree, struck it with his beak, and
+killed it; and then ate its flesh, and threw its bones away at the
+foot of the tree. Then he went back and called out:
+
+"I've thrown that fish in; let another one come."
+
+And in that manner he took all the fish, one by one, and ate them,
+till he came back and found no more!
+
+But there was still a crab left behind there; and the crane thought he
+would eat him too, and called out:
+
+"I say, good crab, I've taken all the fish away, and put them into a
+fine large pond. Come along. I'll take you too!"
+
+"But how will you take hold of me to carry me along?"
+
+"I'll bite hold of you with my beak."
+
+"You'll let me fall if you carry me like that. I won't go with you!"
+
+"Don't be afraid! I'll hold you quite tight all the way."
+
+Then said the crab to himself, "If this fellow once got hold of fish,
+he would never let them go in a pond! Now if he should really put me
+into the pond, it would be capital; but if he doesn't--then I'll cut
+his throat, and kill him!" So he said to him:
+
+"Look here, friend, you won't be able to hold me tight enough; but we
+crabs have a famous grip. If you let me catch hold of you round the
+neck with my claws, I shall be glad to go with you."
+
+And the other did not see that he was trying to outwit him, and
+agreed. So the crab caught hold of his neck with his claws as securely
+as with a pair of blacksmith's pincers, and called out, "Off with you,
+now!"
+
+And the crane took him and showed him the pond, and then turned off
+towards the Varana-tree.
+
+"Uncle!" cried the crab, "the pond lies that way, but you are taking
+me this way!"
+
+"Oh, that's it, is it?" answered the crane. "Your dear little uncle,
+your very sweet nephew, you call me! You mean me to understand, I
+suppose, that I am your slave, who has to lift you up and carry you
+about with him! Now cast your eye upon the heap of fish-bones lying at
+the root of yonder Varana-tree. Just as I have eaten those fish, every
+one of them, just so I will devour you as well!"
+
+"Ah! those fishes got eaten through their own stupidity," answered the
+crab; "but I'm not going to let you eat _me_. On the contrary, is it
+_you_ that I am going to destroy. For you in your folly have not seen
+that I was outwitting you. If we die, we die both together; for I will
+cut off this head of yours, and cast it to the ground!" And so saying,
+he gave the crane's neck a grip with his claws, as with a vice.
+
+Then gasping, and with tears trickling from his eyes, and trembling
+with the fear of death, the crane beseeched him, saying, "O my Lord!
+Indeed I did not intend to eat you. Grant me my life!"
+
+"Well, well! step down into the pond, and put me in there."
+
+And he turned round and stepped down into the pond, and placed the
+crab on the mud at its edge. But the crab cut through its neck as
+clean as one would cut a lotus-stalk with a hunting-knife, and then
+only entered the water!
+
+When the Genius who lived in the Varana-tree saw this strange affair,
+he made the wood resound with his plaudits, uttering in a pleasant
+voice the verse:
+
+    "The villain, though exceeding clever,
+    Shall prosper not by his villainy.
+    He may win indeed, sharp-witted in deceit,
+    But only as the Crane here from the Crab!"
+
+[Illustration:]
+
+
+
+
+Loving Laili
+
+
+Once there was a king called King Dantal, who had a great many rupees
+and soldiers and horses. He had also an only son called Prince Majnun,
+who was a handsome boy with white teeth, red lips, blue eyes, red
+cheeks, red hair, and a white skin. This boy was very fond of playing
+with the Wazir's son, Husain Mahamat, in King Dantal's garden, which
+was very large and full of delicious fruits, and flowers, and trees.
+They used to take their little knives there and cut the fruits and eat
+them. King Dantal had a teacher for them to teach them to read and
+write.
+
+One day, when they were grown two fine young men, Prince Majnun said
+to his father, "Husain Mahamat and I should like to go and hunt." His
+father said they might go, so they got ready their horses and all else
+they wanted for their hunting, and went to the Phalana country,
+hunting all the way, but they only founds jackals and birds.
+
+The Raja of the Phalana country was called Munsuk Raja, and he had a
+daughter named Laili, who was very beautiful; she had brown eyes and
+black hair.
+
+One night, some time before Prince Majnun came to her father's
+kingdom, as she slept, Khuda sent to her an angel in the form of a man
+who told her that she should marry Prince Majnun and no one else, and
+that this was Khuda's command to her. When Laili woke she told her
+father of the angel's visit to her as she slept; but her father paid
+no attention to her story. From that time she began repeating,
+"Majnun, Majnun; I want Majnun," and would say nothing else. Even as
+she sat and ate her food she kept saying, "Majnun, Majnun; I want
+Majnun." Her father used to get quite vexed with her. "Who is this
+Majnun? who ever heard of this Majnun?" he would say.
+
+"He is the man I am to marry," said Laili. "Khuda has ordered me to
+marry no one but Majnun." And she was half mad.
+
+Meanwhile, Majnun and Husain Mahamat came to hunt in the Phalana
+country; and as they were riding about, Laili came out on her horse to
+eat the air, and rode behind them. All the time she kept saying,
+"Majnun, Majnun; I want Majnun." The prince heard her, and turned
+round. "Who is calling me?" he asked. At this Laili looked at him, and
+the moment she saw him she fell deeply in love with him, and she said
+to herself, "I am sure that is the Prince Majnun that Khuda says I am
+to marry." And she went home to her father and said, "Father, I wish
+to marry the prince who has come to your kingdom; for I know he is the
+Prince Majnun I am to marry."
+
+"Very well, you shall have him for your husband," said Munsuk Raja.
+"We will ask him to-morrow." Laili consented to wait, although she was
+very impatient. As it happened, the prince left the Phalana kingdom
+that night, and when Laili heard he was gone, she went quite mad. She
+would not listen to a word her father, or her mother, or her servants
+said to her, but went off into the jungle, and wandered from jungle to
+jungle, till she got farther and farther away from her own country.
+All the time she kept saying, "Majnun, Majnun; I want Majnun;" and so
+she wandered about for twelve years.
+
+At the end of the twelve years she met a fakir--he was really an
+angel, but she did not know this--who asked her, "Why do you always
+say, 'Majnun, Majnun; I want Majnun'?" She answered, "I am the
+daughter of the king of the Phalana country, and I want to find Prince
+Majnun; tell me where his kingdom is."
+
+"I think you will never get there," said the fakir, "for it is very
+far from hence, and you have to cross many rivers to reach it." But
+Laili said she did not care; she must see Prince Majnun. "Well," said
+the fakir, "when you come to the Bhagirathi river you will see a big
+fish, a Rohu; and you must get him to carry you to Prince Majnun's
+country, or you will never reach it."
+
+She went on and on, and at last she came to the Bhagirathi river.
+There was a great big fish called the Rohu fish. It was yawning just
+as she got up to it, and she instantly jumped down its throat into its
+stomach. All the time she kept saying, "Majnun, Majnun." At this the
+Rohu fish was greatly alarmed and swam down the river as fast as he
+could. By degrees he got tired and went slower, and a crow came and
+perched on his back, and said "Caw, caw." "Oh, Mr. Crow," said the
+poor fish "do see what is in my stomach that makes such a noise."
+
+"Very well," said the crow, "open your mouth wide, and I'll fly down
+and see." So the Rohu opened his jaws and the crow flew down, but he
+came up again very quickly. "You have a Rakshas in your stomach," said
+the crow, and he flew away. This news did not comfort the poor Rohu,
+and he swam on and on till he came to Prince Majnun's country. There
+he stopped. And a jackal came down to the river to drink. "Oh,
+jackal," said the Rohu, "do tell me what I have inside me."
+
+[Illustration:]
+
+"How can I tell?" said the jackal. "I cannot see unless I go inside
+you." So the Rohu opened his mouth wide, and the jackal jumped down
+his throat; but he came up very quickly, looking much frightened and
+saying, "You have a Rakshas in your stomach, and if I don't run away
+quickly, I am afraid it will eat me." So off he ran. After the jackal
+came an enormous snake. "Oh," says the fish, "do tell me what I have
+in my stomach, for it rattles about so, and keeps saying, 'Majnun,
+Majnun; I want Majnun.'"
+
+The snake said, "Open your mouth wide, and I'll go down and see what
+it is." The snake went down: when he returned he said, "You have a
+Rakshas in your stomach, but if you will let me cut you open, it will
+come out of you." "If you do that, I shall die," said the Rohu. "Oh,
+no," said the snake, "you will not, for I will give you a medicine
+that will make you quite well again." So the fish agreed, and the
+snake got a knife and cut him open, and out jumped Laili.
+
+She was now very old. Twelve years she had wandered about the jungle,
+and for twelve years she had lived inside her Rohu; and she was no
+longer beautiful, and had lost her teeth. The snake took her on his
+back and carried her into the country, and there he put her down, and
+she wandered on and on till she got to Majnun's court-house, where
+King Majnun was sitting. There some men heard her crying, "Majnun,
+Majnun; I want Majnun," and they asked her what she wanted. "I want
+King Majnun," she said.
+
+So they went in and said to Prince Majnun, "An old woman outside says
+she wants you." "I cannot leave this place," said he; "send her in
+here." They brought her in and the prince asked her what she wanted.
+"I want to marry you," she answered. "Twenty-four years ago you came
+to my father the Phalana Raja's country, and I wanted to marry you
+then; but you went away without marrying me. Then I went mad, and I
+have wandered about all these years looking for you." Prince Majnun
+said, "Very good."
+
+"Pray to Khuda," said Laili, "to make us both young again, and then we
+shall be married." So the prince prayed to Khuda, and Khuda said to
+him, "Touch Laili's clothes and they will catch fire, and when they
+are on fire, she and you will become young again." When he touched
+Laili's clothes they caught fire, and she and he became young again.
+And there were great feasts, and they were married, and travelled to
+the Phalana country to see her father and mother.
+
+Now Laili's father and mother had wept so much for their daughter that
+they had become quite blind, and her father kept always repeating,
+"Laili, Laili, Laili." When Laili saw their blindness, she prayed to
+Khuda to restore their sight to them, which he did. As soon as the
+father and mother saw Laili, they hugged her and kissed her, and then
+they had the wedding all over again amid great rejoicings. Prince
+Majnun and Laili stayed with Munsuk Raja and his wife for three years,
+and then they returned to King Dantal, and lived happily for some time
+with him.
+
+They used to go out hunting, and they often went from country to
+country to eat the air and amuse themselves.
+
+One day Prince Majnun said to Laili, "Let us go through this jungle."
+"No, no," said Laili; "if we go through this jungle, some harm will
+happen to me." But Prince Majnun laughed, and went into the jungle.
+And as they were going through it, Khuda thought, "I should like to
+know how much Prince Majnun loves his wife. Would he be very sorry if
+she died? And would he marry another wife? I will see." So he sent one
+of his angels in the form of a fakir into the jungle; and the angel
+went up to Laili, and threw some powder in her face, and instantly she
+fell to the ground a heap of ashes.
+
+Prince Majnun was in great sorrow and grief when he saw his dear Laili
+turned into a little heap of ashes; and he went straight home to his
+father, and for a long, long time he would not be comforted. After a
+great many years he grew more cheerful and happy, and began to go
+again into his father's beautiful garden with Husain Mahamat. King
+Dantal wished his son to marry again. "I will only have Laili for my
+wife; I will not marry any other woman," said Prince Majnun.
+
+"How can you marry Laili? Laili is dead. She will never come back to
+you," said the father.
+
+"Then I'll not have any wife at all," said Prince Majnun.
+
+Meanwhile Laili was living in the jungle where her husband had left
+her a little heap of ashes. As soon as Majnun had gone, the fakir had
+taken her ashes and made them quite clean, and then he had mixed clay
+and water with the ashes, and made the figure of a woman with them,
+and so Laili regained her human form, and Khuda sent life into it. But
+Laili had become once more a hideous old woman, with a long, long
+nose, and teeth like tusks; just such an old woman, excepting her
+teeth, as she had been when she came out of the Rohu fish; and she
+lived in the jungle, and neither ate nor drank, and she kept on
+saying, "Majnun, Majnun; I want Majnun."
+
+At last the angel who had come as a fakir and thrown the powder at
+her, said to Khuda, "Of what use is it that this woman should sit in
+the jungle crying, crying for ever, 'Majnun, Majnun; I want Majnun,'
+and eating and drinking nothing? Let me take her to Prince Majnun."
+"Well," said Khuda, "you may do so; but tell her that she must not
+speak to Majnun if he is afraid of her when he sees her; and that if
+he is afraid when he sees her, she will become a little white dog the
+next day. Then she must go to the palace, and she will only regain her
+human shape when Prince Majnun loves her, feeds her with his own food,
+and lets her sleep in his bed."
+
+So the angel came to Laili again as a fakir and carried her to King
+Dantal's garden. "Now," he said, "it is Khuda's command that you stay
+here till Prince Majnun comes to walk in the garden, and then you may
+show yourself to him. But you must not speak to him, if he is afraid
+of you; and should he be afraid of you, you will the next day become a
+little white dog." He then told her what she must do as a little dog
+to regain her human form.
+
+Laili stayed in the garden, hidden in the tall grass, till Prince
+Majnun and Husain Mahamat came to walk in the garden. King Dantal was
+now a very old man, and Husain Mahamat, though he was really only as
+old as Prince Majnun, looked a great deal older than the prince, who
+had been made quite young again when he married Laili.
+
+As Prince Majnun and the Wazir's son walked in the garden, they
+gathered the fruit as they had done as little children, only they bit
+the fruit with their teeth; they did not cut it. While Majnun was busy
+eating a fruit in this way, and was talking to Husain Mahamat, he
+turned towards him and saw Laili walking behind the Wazir's son. "Oh,
+look, look!" he cried, "see what is following you; it is a Rakshas or
+a demon, and I am sure it is going to eat us." Laili looked at him
+beseechingly with all her eyes, and trembled with age and eagerness;
+but this only frightened Majnun the more. "It is a Rakshas, a
+Rakshas!" he cried, and he ran quickly to the palace with the Wazir's
+son; and as they ran away, Laili disappeared into the jungle. They ran
+to King Dantal, and Majnun told him there was a Rakshas or a demon in
+the garden that had come to eat them.
+
+"What nonsense," said his father. "Fancy two grown men being so
+frightened by an old ayah or a fakir! And if it had been a Rakshas, it
+would not have eaten you." Indeed King Dantal did not believe Majnun
+had seen anything at all, till Husain Mahamat said the prince was
+speaking the exact truth. They had the garden searched for the
+terrible old woman, but found nothing, and King Dantal told his son he
+was very silly to be so much frightened. However, Prince Majnun would
+not walk in the garden any more.
+
+The next day Laili turned into a pretty little dog; and in this shape
+she came into the palace, where Prince Majnun soon became very fond of
+her. She followed him everywhere, went with him when he was out
+hunting, and helped him to catch his game, and Prince Majnun fed her
+with milk, or bread, or anything else he was eating, and at night the
+little dog slept in his bed.
+
+But one night the little dog disappeared, and in its stead there lay
+the little old woman who had frightened him so much in the garden; and
+now Prince Majnun was quite sure she was a Rakshas, or a demon, or
+some such horrible thing come to eat him; and in his terror he cried
+out, "What do you want? Oh, do not eat me; do not eat me!" Poor Laili
+answered, "Don't you know me? I am your wife Laili, and I want to
+marry you. Don't you remember how you would go through that jungle,
+though I begged and begged you not to go, for I told you that harm
+would happen to me, and then a fakir came and threw powder in my face,
+and I became a heap of ashes. But Khuda gave me my life again, and
+brought me here, after I had stayed a long, long while in the jungle
+crying for you, and now I am obliged to be a little dog; but if you
+will marry me, I shall not be a little dog any more." Majnun, however,
+said "How can I marry an old woman like you? how can you be Laili? I
+am sure you are a Rakshas or a demon come to eat me," and he was in
+great terror.
+
+In the morning the old woman had turned into the little dog, and the
+prince went to his father and told him all that had happened. "An old
+woman! an old woman! always an old woman!" said his father. "You do
+nothing but think of old women. How can a strong man like you be so
+easily frightened?" However, when he saw that his son was really in
+great terror, and that he really believed the old woman would came
+back at night, he advised him to say to her, "I will marry you if you
+can make yourself a young girl again. How can I marry such an old
+woman as you are?"
+
+That night as he lay trembling in bed the little old woman lay there
+in place of the dog, crying "Majnun, Majnun, I want to marry you. I
+have loved you all these long, long years. When I was in my father's
+kingdom a young girl, I knew of you, though you knew nothing of me,
+and we should have been married then if you had not gone away so
+suddenly, and for long, long years I followed you." "Well," said
+Majnun, "if you can make yourself a young girl again, I will marry
+you."
+
+Laili said, "Oh, that is quite easy. Khuda will make me a young girl
+again. In two days' time you must go into the garden, and there you
+will see a beautiful fruit. You must gather it and bring it into your
+room and cut it open yourself very gently, and you must not open it
+when your father or anybody else is with you, but when you are quite
+alone; for I shall be in the fruit quite naked, without any clothes at
+all on." In the morning Laili took her little dog's form, and
+disappeared in the garden.
+
+Prince Majnun told all this to his father, who told him to do all the
+old woman had bidden him. In two days' time he and the Wazir's son
+walked in the garden, and there they saw a large, lovely red fruit.
+"Oh!" said the Prince, "I wonder shall I find my wife in that fruit."
+Husain Mahamat wanted him to gather it and see, but he would not till
+he had told his father, who said, "That must be the fruit; go and
+gather it." So Majnun went back and broke the fruit off its stalk; and
+he said to his father, "Come with me to my room while I open it; I am
+afraid to open it alone, for perhaps I shall find a Rakshas in it that
+will eat me."
+
+"No," said King Dantal; "remember, Laili will be naked; you must go
+alone and do not be afraid if, after all, a Rakshas is in the fruit,
+for I will stay outside the door, and you have only to call me with a
+loud voice, and I will come to you, so the Rakshas will not be able to
+eat you."
+
+Then Majnun took the fruit and began to cut it open tremblingly, for
+he shook with fear; and when he had cut it, out stepped Laili, young
+and far more beautiful than she had ever been. At the sight of her
+extreme beauty, Majnun fell backwards fainting on the floor.
+
+Laili took off his turban and wound it all round herself like a sari
+(for she had no clothes at all on), and then she called King Dantal,
+and said to him sadly, "Why has Majnun fallen down like this? Why will
+he not speak to me? He never used to be afraid of me; and he has seen
+me so many, many times."
+
+King Dantal answered, "It is because you are so beautiful. You are
+far, far more beautiful than you ever were. But he will be very happy
+directly." Then the King got some water, and they bathed Majnun's face
+and gave him some to drink, and he sat up again.
+
+Then Laili said, "Why did you faint? Did you not see I am Laili?"
+
+"Oh!" said Prince Majnun, "I see you are Laili come back to me, but
+your eyes have grown so wonderfully beautiful, that I fainted when I
+saw them." Then they were all very happy, and King Dantal had all the
+drums in the place beaten, and had all the musical instruments played
+on, and they made a grand wedding-feast, and gave presents to the
+servants, and rice and quantities of rupees to the fakirs.
+
+After some time had passed very happily, Prince Majnun and his wife
+went out to eat the air. They rode on the same horse, and had only a
+groom with them. They came to another kingdom, to a beautiful garden.
+"We must go into that garden and see it," said Majnun.
+
+"No, no," said Laili; "it belongs to a bad Raja, Chumman Basa, a very
+wicked man." But Majnun insisted on going in, and in spite of all
+Laili could say, he got off the horse to look at the flowers. Now, as
+he was looking at the flowers, Laili saw Chumman Basa coming towards
+them, and she read in his eyes that he meant to kill her husband and
+seize her. So she said to Majnun, "Come, come, let us go; do not go
+near that bad man. I see in his eyes, and I feel in my heart, that he
+will kill you to seize me."
+
+"What nonsense," said Majnun. "I believe he is a very good Raja.
+Anyhow, I am so near to him that I could not get away."
+
+"Well," said Laili, "it is better that you should be killed than I,
+for if I were to be killed a second time, Khuda would not give me my
+life again; but I can bring you to life if you are killed." Now
+Chumman Basa had come quite near, and seemed very pleasant, so thought
+Prince Majnun; but when he was speaking to Majnun, he drew his
+scimitar and cut off the prince's head at one blow.
+
+Laili sat quite still on her horse, and as the Raja came towards her
+she said, "Why did you kill my husband?"
+
+"Because I want to take you," he answered.
+
+"You cannot," said Laili.
+
+"Yes, I can," said the Raja.
+
+"Take me, then," said Laili to Chumman Basa; so he came quite close
+and put out his hand to take hers to lift her off her horse. But she
+put her hand in her pocket and pulled out a tiny knife, only as long
+as her hand was broad, and this knife unfolded itself in one instant
+till it was such a length! and then Laili made a great sweep with her
+arm and her long, long knife, and off came Chumman Basa's head at one
+touch.
+
+Then Laili slipped down off her horse, and she went to Majnun's dead
+body, and she cut her little finger inside her hand straight down from
+the top of her nail to her palm, and out of this gushed blood like
+healing medicine. Then she put Majnun's head on his shoulders, and
+smeared her healing blood all over the wound, and Majnun woke up and
+said, "What a delightful sleep I have had! Why, I feel as if I had
+slept for years!" Then he got up and saw the Raja's dead body by
+Laili's horse.
+
+"What's that?" said Majnun.
+
+"That is the wicked Raja who killed you to seize me, just as I said he
+would."
+
+"Who killed him?" asked Majnun.
+
+"I did," answered Laili, "and it was I who brought you to life."
+
+"Do bring the poor man to life if you know how to do so," said Majnun.
+
+"No," said Laili, "for he is a wicked man, and will try to do you
+harm." But Majnun asked her for such a long time, and so earnestly to
+bring the wicked Raja to life, that at least she said, "Jump up on the
+horse, then, and go far away with the groom."
+
+"What will you do," said Majnun, "if I leave you? I cannot leave you."
+
+"I will take care of myself," said Laili; "but this man is so wicked,
+he may kill you again if you are near him." So Majnun got up on the
+horse, and he and the groom went a long way off and waited for Laili.
+Then she set the wicked Raja's head straight on his shoulders, and
+she squeezed the wound in her finger till a little blood-medicine
+came out of it. Then she smeared this over the place where her knife
+had passed, and just as she saw the Raja opening his eyes, she began
+to run, and she ran, and ran so fast, that she outran the Raja, who
+tried to catch her; and she sprang up on the horse behind her husband,
+and they rode so fast, so fast, till they reached King Dantal's
+palace.
+
+[Illustration: How Loving Laili became young again]
+
+There Prince Majnun told everything to his father, who was horrified
+and angry. "How lucky for you that you have such a wife," he said.
+"Why did you not do what she told you? But for her, you would be now
+dead." Then he made a great feast out of gratitude for his son's
+safety, and gave many, many rupees to the fakirs. And he made so much
+of Laili. He loved her dearly; he could not do enough for her. Then he
+built a splendid palace for her and his son, with a great deal of
+ground about it, and lovely gardens, and gave them great wealth, and
+heaps of servants to wait on them. But he would not allow any but
+their servants to enter their gardens and palace, and he would not
+allow Majnun to go out of them, nor Laili; "for," said King Dantal,
+"Laili is so beautiful, that perhaps some one may kill my son to take
+her away."
+
+
+
+
+The Tiger, the Brahman, and the Jackal
+
+[Illustration:]
+
+
+Once upon a time, a tiger was caught in a trap. He tried in vain to
+get out through the bars, and rolled and bit with rage and grief when
+he failed.
+
+By chance a poor Brahman came by. "Let me out of this cage, oh pious
+one!" cried the tiger.
+
+"Nay, my friend," replied the Brahman mildly, "you would probably eat
+me if I did."
+
+"Not at all!" swore the tiger with many oaths; "on the contrary, I
+should be for ever grateful, and serve you as a slave!"
+
+Now when the tiger sobbed and sighed and wept and swore, the pious
+Brahman's heart softened, and at last he consented to open the door of
+the cage. Out popped the tiger, and, seizing the poor man, cried,
+"What a fool you are! What is to prevent my eating you now, for after
+being cooped up so long I am just terribly hungry!"
+
+In vain the Brahman pleaded for his life; the most he could gain was a
+promise to abide by the decision of the first three things he chose to
+question as to the justice of the tiger's action.
+
+So the Brahman first asked a _pipal_ tree what it thought of the
+matter, but the _pipal_ tree replied coldly, "What have you to
+complain about? Don't I give shade and shelter to every one who passes
+by, and don't they in return tear down my branches to feed their
+cattle? Don't whimper--be a man!"
+
+Then the Brahman, sad at heart, went further afield till he saw a
+buffalo turning a well-wheel; but he fared no better from it, for it
+answered, "You are a fool to expect gratitude! Look at me! Whilst I
+gave milk they fed me on cotton-seed and oil-cake, but now I am dry
+they yoke me here, and give me refuse as fodder!"
+
+The Brahman, still more sad, asked the road to give him its opinion.
+
+"My dear sir," said the road, "how foolish you are to expect anything
+else! Here am I, useful to everybody, yet all, rich and poor, great
+and small, trample on me as they go past, giving me nothing but the
+ashes of their pipes and the husks of their grain!"
+
+On this the Brahman turned back sorrowfully, and on the way he met a
+jackal, who called out, "Why, what's the matter, Mr. Brahman? You look
+as miserable as a fish out of water!"
+
+The Brahman told him all that had occurred. "How very confusing!" said
+the jackal, when the recital was ended; "would you mind telling me
+over again, for everything has got so mixed up?"
+
+The Brahman told it all over again, but the jackal shook his head in a
+distracted sort of way, and still could not understand.
+
+"It's very odd," said he, sadly, "but it all seems to go in at one ear
+and out at the other! I will go to the place where it all happened,
+and then perhaps I shall be able to give a judgment."
+
+So they returned to the cage, by which the tiger was waiting for the
+Brahman, and sharpening his teeth and claws.
+
+"You've been away a long time!" growled the savage beast, "but now let
+us begin our dinner."
+
+"_Our_ dinner!" thought the wretched Brahman, as his knees knocked
+together with fright; "what a remarkably delicate way of putting it!"
+
+"Give me five minutes, my lord!" he pleaded, "in order that I may
+explain matters to the jackal here, who is somewhat slow in his wits."
+
+The tiger consented, and the Brahman began the whole story over again,
+not missing a single detail, and spinning as long a yarn as possible.
+
+"Oh, my poor brain! oh, my poor brain!" cried the jackal, wringing its
+paws. "Let me see! how did it all begin? You were in the cage, and the
+tiger came walking by----"
+
+"Pooh!" interrupted the tiger, "what a fool you are! _I_ was in the
+cage."
+
+"Of course!" cried the jackal, pretending to tremble with fright;
+"yes! I was in the cage--no I wasn't--dear! dear! where are my wits?
+Let me see--the tiger was in the Brahman, and the cage came walking
+by----no, that's not it, either! Well, don't mind me, but begin your
+dinner, for I shall never understand!"
+
+"Yes, you shall!" returned the tiger, in a rage at the jackal's
+stupidity; "I'll _make_ you understand! Look here--I am the tiger----"
+
+"Yes, my lord!"
+
+"And that is the Brahman----"
+
+"Yes, my lord!"
+
+"And that is the cage----"
+
+"Yes, my lord!"
+
+"And I was in the cage--do you understand?"
+
+"Yes--no---- Please, my lord----"
+
+"Well?" cried the tiger impatiently.
+
+"Please, my lord!--how did you get in?"
+
+"How!--why in the usual way, of course!"
+
+"Oh, dear me!--my head is beginning to whirl again! Please don't be
+angry, my lord, but what is the usual way?"
+
+At this the tiger lost patience, and, jumping into the cage, cried,
+"This way! Now do you understand how it was?"
+
+"Perfectly!" grinned the jackal, as he dexterously shut the door, "and
+if you will permit me to say so, I think matters will remain as they
+were!"
+
+
+
+
+The Soothsayer's Son
+
+
+A soothsayer when on his deathbed wrote out the horoscope of his
+second son, whose name was Gangazara, and bequeathed it to him as his
+only property, leaving the whole of his estate to his eldest son. The
+second son thought over the horoscope, and said to himself:
+
+"Alas! am I born to this only in the world? The sayings of my father
+never failed. I have seen them prove true to the last word while he
+was living; and how has he fixed my horoscope! 'FROM MY BIRTH
+POVERTY!' Nor is that my only fate. 'FOR TEN YEARS, IMPRISONMENT'--a
+fate harder than poverty; and what comes next? 'DEATH ON THE
+SEA-SHORE'; which means that I must die away from home, far from
+friends and relatives on a sea-coast. Now comes the most curious part
+of the horoscope, that I am to 'HAVE SOME HAPPINESS AFTERWARDS!' What
+this happiness is, is an enigma to me."
+
+Thus thought he, and after all the funeral obsequies of his father
+were over, took leave of his elder brother, and started for Benares.
+He went by the middle of the Deccan, avoiding both the coasts, and
+went on journeying and journeying for weeks and months, till at last
+he reached the Vindhya mountains. While passing that desert he had to
+journey for a couple of days through a sandy plain, with no signs of
+life or vegetation. The little store of provision with which he was
+provided for a couple of days, at last was exhausted. The chombu,
+which he carried always full, filling it with the sweet water from the
+flowing rivulet or plenteous tank, he had exhausted in the heat of the
+desert. There was not a morsel in his hand to eat; nor a drop of water
+to drink. Turn his eyes wherever he might he found a vast desert, out
+of which he saw no means of escape. Still he thought within himself,
+"Surely my father's prophecy never proved untrue. I must survive this
+calamity to find my death on some sea-coast." So thought he, and this
+thought gave him strength of mind to walk fast and try to find a drop
+of water somewhere to slake his dry throat.
+
+At last he succeeded; heaven threw in his way a ruined well. He
+thought he could collect some water if he let down his chombu with the
+string that he always carried noosed to the neck of it. Accordingly he
+let it down; it went some way and stopped, and the following words
+came from the well: "Oh, relieve me! I am the king of tigers, dying
+here of hunger. For the last three days I have had nothing. Fortune
+has sent you here. If you assist me now you will find a sure help in
+me throughout your life. Do not think that I am a beast of prey. When
+you have become my deliverer I will never touch you. Pray, kindly lift
+me up." Gangazara thought: "Shall I take him out or not? If I take him
+out he may make me the first morsel of his hungry mouth. No; that he
+will not do. For my father's prophecy never came untrue. I must die on
+a sea coast, and not by a tiger." Thus thinking, he asked the
+tiger-king to hold tight to the vessel, which he accordingly did, and
+he lifted him up slowly. The tiger reached the top of the well and
+felt himself on safe ground. True to his word, he did no harm to
+Gangazara. On the other hand, he walked round his patron three times,
+and standing before him, humbly spoke the following words: "My
+life-giver, my benefactor! I shall never forget this day, when I
+regained my life through your kind hands. In return for this kind
+assistance I pledge my oath to stand by you in all calamities.
+Whenever you are in any difficulty just think of me. I am there with
+you ready to oblige you by all the means that I can. To tell you
+briefly how I came in here: Three days ago I was roaming in yonder
+forest, when I saw a goldsmith passing through it. I chased him. He,
+finding it impossible to escape my claws, jumped into this well, and
+is living to this moment in the very bottom of it. I also jumped in,
+but found myself on the first ledge of the well; he is on the last and
+fourth ledge. In the second lives a serpent half-famished with hunger.
+On the third lies a rat, also half-famished, and when you again begin
+to draw water these may request you first to release them. In the same
+way the goldsmith also may ask you. I beg you, as your bosom friend,
+never assist that wretched man, though he is your relation as a human
+being. Goldsmiths are never to be trusted. You can place more faith in
+me, a tiger, though I feast sometimes upon men, in a serpent, whose
+sting makes your blood cold the very next moment, or in a rat, which
+does a thousand pieces of mischief in your house. But never trust a
+goldsmith. Do not release him; and if you do, you shall surely repent
+of it one day or other." Thus advising, the hungry tiger went away
+without waiting for an answer.
+
+[Illustration:]
+
+Gangazara thought several times of the eloquent way in which the tiger
+spoke, and admired his fluency of speech. But still his thirst was not
+quenched. So he let down his vessel again, which was now caught hold
+of by the serpent, who addressed him thus: "Oh, my protector! Lift me
+up. I am the king of serpents, and the son of Adisesha, who is now
+pining away in agony for my disappearance. Release me now. I shall
+ever remain your servant, remember your assistance, and help you
+throughout life in all possible ways. Oblige me: I am dying."
+Gangazara, calling again to mind the "DEATH ON THE SEA-SHORE" of the
+prophecy lifted him up. He, like the tiger-king, walked round him
+thrice, and prostrating himself before him spoke thus: "Oh, my
+life-giver, my father, for so I must call you, as you have given me
+another birth. I was three days ago basking myself in the morning sun,
+when I saw a rat running before me. I chased him. He fell into this
+well. I followed him, but instead of falling on the third storey where
+he is now lying, I fell into the second. I am going away now to see my
+father. Whenever you are in any difficulty just think of me. I will be
+there by your side to assist you by all possible means." So saying,
+the Nagaraja glided away in zigzag movements, and was out of sight in
+a moment.
+
+The poor son of the Soothsayer, who was now almost dying of thirst,
+let down his vessel for a third time. The rat caught hold of it, and
+without discussing he lifted up the poor animal at once. But it would
+not go away without showing its gratitude: "Oh, life of my life! My
+benefactor! I am the king of rats. Whenever you are in any calamity
+just think of me. I will come to you, and assist you. My keen ears
+overheard all that the tiger-king told you about the goldsmith, who is
+in the fourth storey. It is nothing but a sad truth that goldsmiths
+ought never to be trusted. Therefore, never assist him as you have
+done to us all. And if you do, you will suffer for it. I am hungry;
+let me go for the present." Thus taking leave of his benefactor, the
+rat, too, ran away.
+
+Gangazara for a while thought upon the repeated advice given by the
+three animals about releasing the goldsmith: "What wrong would there
+be in my assisting him? Why should I not release him also?" So
+thinking to himself, Gangazara let down the vessel again. The
+goldsmith caught hold of it, and demanded help. The Soothsayer's son
+had no time to lose; he was himself dying of thirst. Therefore he
+lifted the goldsmith up, who now began his story. "Stop for a while,"
+said Gangazara, and after quenching his thirst by letting down his
+vessel for the fifth time, still fearing that some one might remain in
+the well and demand his assistance, he listened to the goldsmith, who
+began as follows: "My dear friend, my protector, what a deal of
+nonsense these brutes have been talking to you about me; I am glad you
+have not followed their advice. I am just now dying of hunger. Permit
+me to go away. My name is Manikkasari. I live in the East main street
+of Ujjaini, which is twenty kas to the south of this place, and so
+lies on your way when you return from Benares. Do not forget to come
+to me and receive my kind remembrances of your assistance, on your way
+back to your country." So saying, the goldsmith took his leave, and
+Gangazara also pursued his way north after the above adventures.
+
+He reached Benares, and lived there for more than ten years, and quite
+forgot the tiger, serpent, rat, and goldsmith. After ten years of
+religious life, thoughts of home and of his brother rushed into his
+mind. "I have secured enough merit now by my religious observances.
+Let me return home." Thus thought Gangazara within himself, and very
+soon he was on his way back to his country. Remembering the prophecy
+of his father he returned by the same way by which he went to Benares
+ten years before. While thus retracing his steps he reached the ruined
+well where he had released the three brute kings and the goldsmith. At
+once the old recollections rushed into his mind, and he thought of the
+tiger to test his fidelity. Only a moment passed, and the tiger-king
+came running before him carrying a large crown in his mouth, the
+glitter of the diamonds of which for a time outshone even the bright
+rays of the sun. He dropped the crown at his life-giver's feet, and,
+putting aside all his pride, humbled himself like a pet cat to the
+strokes of his protector, and began in the following words: "My
+life-giver! How is it that you have forgotten me, your poor servant,
+for such a long time? I am glad to find that I still occupy a corner
+in your mind. I can never forget the day when I owed my life to your
+lotus hands. I have several jewels with me of little value. This
+crown, being the best of all, I have brought here as a single ornament
+of great value, which you can carry with you and dispose of in your
+own country." Gangazara looked at the crown, examined it over and
+over, counted and recounted the gems, and thought within himself that
+he would become the richest of men by separating the diamonds and
+gold, and selling them in his own country. He took leave of the
+tiger-king, and after his disappearance thought of the kings of
+serpents and rats, who came in their turn with their presents, and
+after the usual greetings and exchange of words took their leave.
+Gangazara was extremely delighted at the faithfulness with which the
+brute beasts behaved, and went on his way to the south. While going
+along he spoke to himself thus: "These beasts have been very faithful
+in their assistance. Much more, therefore, must Manikkasari be
+faithful. I do not want anything from him now. If I take this crown
+with me as it is, it occupies much space in my bundle. It may also
+excite the curiosity of some robbers on the way. I will go now to
+Ujjaini on my way. Manikkasari requested me to see him without failure
+on my return journey. I shall do so, and request him to have the crown
+melted, the diamonds and gold separated. He must do that kindness at
+least for me. I shall then roll up these diamonds and gold ball in my
+rags, and wend my way homewards." Thus thinking and thinking, he
+reached Ujjaini. At once he inquired for the house of his goldsmith
+friend, and found him without difficulty. Manikkasari was extremely
+delighted to find on his threshold him who ten years before,
+notwithstanding the advice repeatedly given him by the sage-looking
+tiger, serpent, and rat, had relieved him from the pit of death.
+Gangazara at once showed him the crown that he received from the
+tiger-king, told him how he got it, and requested his kind assistance
+to separate the gold and diamonds. Manikkasari agreed to do so, and
+meanwhile asked his friend to rest himself for a while to have his
+bath and meals; and Gangazara, who was very observant of his religious
+ceremonies, went direct to the river to bathe.
+
+How came the crown in the jaws of the tiger? The king of Ujjaini had a
+week before gone with all his hunters on a hunting expedition. All of
+a sudden the tiger-king started from the wood, seized the king, and
+vanished.
+
+When the king's attendants informed the prince about the death of his
+father he wept and wailed, and gave notice that he would give half of
+his kingdom to any one who should bring him news about the murderer of
+his father. The goldsmith knew full well that it was a tiger that
+killed the king, and not any hunter's hands, since he had heard from
+Gangazara how he obtained the crown. Still, he resolved to denounce
+Gangazara as the king's murderer, so, hiding the crown under his
+garments, he flew to the palace. He went before the prince and
+informed him that the assassin was caught, and placed the crown before
+him. The prince took it into his hands, examined it, and at once gave
+half the kingdom to Manikkasari, and then inquired about the murderer.
+"He is bathing in the river, and is of such and such appearance," was
+the reply. At once four armed soldiers flew to the river, and bound
+the poor Brahman hand and foot, while he, sitting in meditation, was
+without any knowledge of the fate that hung over him. They brought
+Gangazara to the presence of the prince, who turned his face away from
+the supposed murderer, and asked his soldiers to throw him into a
+dungeon. In a minute, without knowing the cause, the poor Brahman
+found himself in the dark dungeon.
+
+It was a dark cellar underground, built with strong stone walls, into
+which any criminal guilty of a capital offence was ushered to breathe
+his last there without food and drink. Such was the cellar into which
+Gangazara was thrust. What were his thoughts when he reached that
+place? "It is of no use to accuse either the goldsmith or the prince
+now. We are all the children of fate. We must obey her commands. This
+is but the first day of my father's prophecy. So far his statement is
+true. But how am I going to pass ten years here? Perhaps without
+anything to sustain life I may drag on my existence for a day or two.
+But how pass ten years? That cannot be, and I must die. Before death
+comes let me think of my faithful brute friends."
+
+So pondered Gangazara in the dark cell underground, and at that moment
+thought of his three friends. The tiger-king, serpent-king, and
+rat-king assembled at once with their armies at a garden near the
+dungeon, and for a while did not know what to do. They held their
+council, and decided to make an underground passage from the inside
+of a ruined well to the dungeon. The rat raja issued an order at once
+to that effect to his army. They, with their teeth, bored the ground a
+long way to the walls of the prison. After reaching it they found that
+their teeth could not work on the hard stones. The bandicoots were
+then specially ordered for the business; they, with their hard teeth,
+made a small slit in the wall for a rat to pass and repass without
+difficulty. Thus a passage was effected.
+
+The rat raja entered first to condole with his protector on his
+misfortune, and undertook to supply his protector with provisions.
+"Whatever sweetmeats or bread are prepared in any house, one and all
+of you must try to bring whatever you can to our benefactor. Whatever
+clothes you find hanging in a house, cut down, dip the pieces in
+water, and bring the wet bits to our benefactor. He will squeeze them
+and gather water for drink! and the bread and sweetmeats shall form
+his food." Having issued these orders, the king of the rats took leave
+of Gangazara. They, in obedience to their king's order, continued to
+supply him with provisions and water.
+
+The snake-king said: "I sincerely condole with you in your calamity;
+the tiger-king also fully sympathises with you, and wants me to tell
+you so, as he cannot drag his huge body here as we have done with our
+small ones. The king of the rats has promised to do his best to
+provide you with food. We would now do what we can for your release.
+From this day we shall issue orders to our armies to oppress all the
+subjects of this kingdom. The deaths by snake-bite and tigers shall
+increase a hundredfold from this day, and day by day it shall continue
+to increase till your release. Whenever you hear people near you, you
+had better bawl out so as to be heard by them: 'The wretched prince
+imprisoned me on the false charge of having killed his father, while
+it was a tiger that killed him. From that day these calamities have
+broken out in his dominions. If I were released I would save all by my
+powers of healing poisonous wounds and by incantations.' Some one may
+report this to the king, and if he knows it, you will obtain your
+liberty." Thus comforting his protector in trouble, he advised him to
+pluck up courage, and took leave of him. From that day tigers and
+serpents, acting under the orders of their kings, united in killing as
+many persons and cattle as possible. Every day people were carried
+away by tigers or bitten by serpents. Thus passed months and years.
+Gangazara sat in the dark cellar, without the sun's light falling upon
+him, and feasted upon the breadcrumbs and sweetmeats that the rats so
+kindly supplied him with. These delicacies had completely changed his
+body into a red, stout, huge, unwieldy mass of flesh. Thus passed full
+ten years, as prophesied in the horoscope.
+
+Ten complete years rolled away in close imprisonment. On the last
+evening of the tenth year one of the serpents got into the bed-chamber
+of the princess and sucked her life. She breathed her last. She was
+the only daughter of the king. The king at once sent for all the
+snake-bite curers. He promised half his kingdom and his daughter's
+hand to him who would restore her to life. Now a servant of the king
+who had several times overheard Gangazara's cries, reported the matter
+to him. The king at once ordered the cell to be examined. There was
+the man sitting in it. How had he managed to live so long in the cell?
+Some whispered that he must be a divine being. Thus they discussed,
+while they brought Gangazara to the king.
+
+The king no sooner saw Gangazara than he fell on the ground. He was
+struck by the majesty and grandeur of his person. His ten years'
+imprisonment in the deep cell underground had given a sort of lustre
+to his body. His hair had first to be cut before his face could be
+seen. The king begged forgiveness for his former fault, and requested
+him to revive his daughter.
+
+"Bring me within an hour all the corpses of men and cattle, dying and
+dead, that remain unburnt or unburied within the range of your
+dominions; I shall revive them all," were the only words that
+Gangazara spoke.
+
+Cartloads of corpses of men and cattle began to come in every minute.
+Even graves, it is said, were broken open, and corpses buried a day or
+two before were taken out and sent for their revival. As soon as all
+were ready, Gangazara took a vessel full of water and sprinkled it
+over them all, thinking only of his snake-king and tiger-king. All
+rose up as if from deep slumber, and went to their respective homes.
+The princess, too, was restored to life. The joy of the king knew no
+bounds. He cursed the day on which he imprisoned him, blamed himself
+for having believed the word of a goldsmith, and offered him the hand
+of his daughter and the whole kingdom, instead of half, as he
+promised. Gangazara would not accept anything, but asked the king to
+assemble all his subjects in a wood near the town. "I shall there call
+in all the tigers and serpents, and give them a general order."
+
+When the whole town was assembled, just at the dusk of evening,
+Gangazara sat dumb for a moment, and thought upon the Tiger King and
+the Serpent King, who came with all their armies. People began to take
+to their heels at the sight of tigers. Gangazara assured them of
+safety, and stopped them.
+
+The grey light of the evening, the pumpkin colour of Gangazara, the
+holy ashes scattered lavishly over his body, the tigers and snakes
+humbling themselves at his feet, gave him the true majesty of the god
+Gangazara. For who else by a single word could thus command vast
+armies of tigers and serpents, said some among the people. "Care not
+for it; it may be by magic. That is not a great thing. That he revived
+cartloads of corpses shows him to be surely Gangazara," said others.
+
+"Why should you, my children, thus trouble these poor subjects of
+Ujjaini? Reply to me, and henceforth desist from your ravages." Thus
+said the Soothsayer's son, and the following reply came from the king
+of the tigers: "Why should this base king imprison your honour,
+believing the mere word of a goldsmith that your honour killed his
+father? All the hunters told him that his father was carried away by a
+tiger. I was the messenger of death sent to deal the blow on his neck.
+I did it, and gave the crown to your honour. The prince makes no
+inquiry, and at once imprisons your honour. How can we expect justice
+from such a stupid king as that? Unless he adopt a better standard of
+justice we will go on with our destruction."
+
+The king heard, cursed the day on which he believed in the word of a
+goldsmith, beat his head, tore his hair, wept and wailed for his
+crime, asked a thousand pardons, and swore to rule in a just way from
+that day. The serpent-king and tiger-king also promised to observe
+their oath as long as justice prevailed, and took their leave. The
+goldsmith fled for his life. He was caught by the soldiers of the
+king, and was pardoned by the generous Gangazara, whose voice now
+reigned supreme. All returned to their homes.
+
+The king again pressed Gangazara to accept the hand of his daughter.
+He agreed to do so, not then, but some time afterwards. He wished to
+go and see his elder brother first, and then to return and marry the
+princess. The king agreed; and Gangazara left the city that very day
+on his way home.
+
+It so happened that unwittingly he took a wrong road, and had to pass
+near a sea-coast. His elder brother was also on his way up to Benares
+by that very same route. They met and recognised each other, even at a
+distance. They flew into each other's arms. Both remained still for a
+time almost unconscious with joy. The pleasure of Gangazara was so
+great that he died of joy.
+
+The elder brother was a devout worshipper of Ganesa. That was a
+Friday, a day very sacred to that god. The elder brother took the
+corpse to the nearest Ganesa temple and called upon him. The god came,
+and asked him what he wanted. "My poor brother is dead and gone; and
+this is his corpse. Kindly keep it in your charge till I finish
+worshipping you. If I leave it anywhere else the devils may snatch it
+away when I am absent worshipping you; after finishing the rites I
+shall burn him." Thus said the elder brother, and, giving the corpse
+to the god Ganesa, he went to prepare himself for that deity's
+ceremonials. Ganesa made over the corpse to his Ganas, asking them to
+watch over it carefully. But instead of that they devoured it.
+
+The elder brother, after finishing the puja, demanded his brother's
+corpse of the god. The god called his Ganas, who came to the front
+blinking, and fearing the anger of their master. The god was greatly
+enraged. The elder brother was very angry. When the corpse was not
+forthcoming he cuttingly remarked, "Is this, after all, the return for
+my deep belief in you? You are unable even to return my brother's
+corpse." Ganesa was much ashamed at the remark. So he, by his divine
+power, gave him a living Gangazara instead of the dead corpse. Thus
+was the second son of the Soothsayer restored to life.
+
+The brothers had a long talk about each other's adventures. They both
+went to Ujjaini, where Gangazara married the princess, and succeeded
+to the throne of that kingdom. He reigned for a long time, conferring
+several benefits upon his brother. And so the horoscope was fully
+fulfilled.
+
+[Illustration:]
+
+
+
+
+Harisarman
+
+
+There was a certain Brahman in a certain village, named Harisarman. He
+was poor and foolish and in evil case for want of employment, and he
+had very many children, that he might reap the fruit of his misdeeds
+in a former life. He wandered about begging with his family, and at
+last he reached a certain city, and entered the service of a rich
+householder called Sthuladatta. His sons became keepers of
+Sthuladatta's cows and other property, and his wife a servant to him,
+and he himself lived near his house, performing the duty of an
+attendant. One day there was a feast on account of the marriage of the
+daughter of Sthuladatta, largely attended by many friends of the
+bridegroom, and merry-makers. Harisarman hoped that he would be able
+to fill himself up to the throat with ghee and flesh and other
+dainties, and get the same for his family, in the house of his patron.
+While he was anxiously expecting to be fed, no one thought of him.
+
+[Illustration:]
+
+Then he was distressed at getting nothing to eat, and he said to his
+wife at night, "It is owing to my poverty and stupidity that I am
+treated with such disrespect here; so I will pretend by means of an
+artifice to possess a knowledge of magic, so that I may become an
+object of respect to this Sthuladatta; so, when you get an
+opportunity, tell him that I possess magical knowledge." He said this
+to her, and after turning the matter over in his mind, while people
+were asleep he took away from the house of Sthuladatta a horse on
+which his master's son-in-law rode. He placed it in concealment at
+some distance, and in the morning the friends of the bridegroom could
+not find the horse, though they searched in every direction. Then,
+while Sthuladatta was distressed at the evil omen, and searching for
+the thieves who had carried off the horse, the wife of Harisarman came
+and said to him, "My husband is a wise man, skilled in astrology and
+magical sciences; he can get the horse back for you; why do you not
+ask him?" When Sthuladatta heard that, he called Harisarman, who
+said, "Yesterday I was forgotten, but to-day, now the horse is stolen,
+I am called to mind," and Sthuladatta then propitiated the Brahman
+with these words--"I forgot you, forgive me"--and asked him to tell
+him who had taken away their horse. Then Harisarman drew all kinds of
+pretended diagrams, and said: "The horse has been placed by thieves on
+the boundary line south from this place. It is concealed there, and
+before it is carried off to a distance, as it will be at close of day,
+go quickly and bring it." When they heard that, many men ran and
+brought the horse quickly, praising the discernment of Harisarman.
+Then Harisarman was honoured by all men as a sage, and dwelt there in
+happiness, honoured by Sthuladatta.
+
+Now, as days went on, much treasure, both of gold and jewels, had been
+stolen by a thief from the palace of the king. As the thief was not
+known, the king quickly summoned Harisarman on account of his
+reputation for knowledge of magic. And he, when summoned, tried to
+gain time, and said, "I will tell you to-morrow," and then he was
+placed in a chamber by the king, and carefully guarded. And he was sad
+because he had pretended to have knowledge. Now in that palace there
+was a maid named Jihva (which means Tongue), who, with the assistance
+of her brother, had stolen that treasure from the interior of the
+palace. She, being alarmed at Harisarman's knowledge, went at night
+and applied her ear to the door of that chamber in order to find out
+what he was about. And Harisarman, who was alone inside, was at that
+very moment blaming his own tongue, that had made a vain assumption of
+knowledge. He said: "O Tongue, what is this that you have done
+through your greediness? Wicked one, you will soon receive punishment
+in full." When Jihva heard this, she thought, in her terror, that she
+had been discovered by this wise man, and she managed to get in where
+he was, and falling at his feet, she said to the supposed wizard:
+"Brahman, here I am, that Jihva whom you have discovered to be the
+thief of the treasure, and after I took it I buried it in the earth in
+a garden behind the palace, under a pomegranate tree. So spare me, and
+receive the small quantity of gold which is in my possession."
+
+When Harisarman heard that, he said to her proudly: "Depart, I know
+all this; I know the past, present and future; but I will not denounce
+you, being a miserable creature that has implored my protection. But
+whatever gold is in your possession you must give back to me." When he
+said this to the maid, she consented, and departed quickly. But
+Harisarman reflected in his astonishment: "Fate brings about, as if in
+sport, things impossible, for when calamity was so near, who would
+have thought chance would have brought us success? While I was blaming
+my jihva, the thief Jihva suddenly flung herself at my feet. Secret
+crimes manifest themselves by means of fear." Thus thinking, he passed
+the night happily in the chamber. And in the morning he brought the
+king, by some skilful parade of pretended knowledge into the garden,
+and led him up to the treasure, which was buried under the pomegranate
+tree, and said that the thief had escaped with a part of it. Then the
+king was pleased, and gave him the revenue of many villages.
+
+But the minister, named Devajnanin, whispered in the king's ear: "How
+can a man possess such knowledge unattainable by men, without having
+studied the books of magic; you may be certain that this is a specimen
+of the way he makes a dishonest livelihood, by having a secret
+intelligence with thieves. It will be much better to test him by some
+new artifice." Then the king of his own accord brought a covered
+pitcher into which he had thrown a frog, and said to Harisarman,
+"Brahman, if you can guess what there is in this pitcher, I will do
+you great honour to-day." When the Brahman Harisarman heard that, he
+thought that his last hour had come, and he called to mind the pet
+name of "Froggie" which his father had given him in his childhood in
+sport, and, impelled by luck, he called to himself by his pet name,
+lamenting his hard fate, and suddenly called out: "This is a fine
+pitcher for you, Froggie; it will soon become the swift destroyer of
+your helpless self." The people there, when they heard him say that,
+raised a shout of applause, because his speech chimed in so well with
+the object presented to him, and murmured, "Ah! a great sage, he knows
+even about the frog!" Then the king, thinking that this was all due to
+knowledge of divination, was highly delighted, and gave Harisarman the
+revenue of more villages, with gold, an umbrella, and state carriages
+of all kinds. So Harisarman prospered in the world.
+
+
+
+
+The Charmed Ring
+
+
+A merchant started his son in life with three hundred rupees, and bade
+him go to another country and try his luck in trade. The son took the
+money and departed. He had not gone far before he came across some
+herdsmen quarrelling over a dog, that some of them wished to kill.
+"Please do not kill the dog," pleaded the young and tender-hearted
+fellow; "I will give you one hundred rupees for it." Then and there,
+of course, the bargain was concluded, and the foolish fellow took the
+dog, and continued his journey. He next met with some people fighting
+about a cat. Some of them wanted to kill it, but others not. "Oh!
+please do not kill it," said he; "I will give you one hundred rupees
+for it." Of course they at once gave him the cat and took the money.
+He went on till he reached a village, where some folk were quarrelling
+over a snake that had just been caught. Some of them wished to kill
+it, but others did not. "Please do not kill the snake," said he; "I
+will give you one hundred rupees." Of course the people agreed, and
+were highly delighted.
+
+What a fool the fellow was! What would he do now that all his money
+was gone? What could he do except return to his father? Accordingly he
+went home.
+
+"You fool! You scamp!" exclaimed his father when he had heard how his
+son had wasted all the money that had been given to him. "Go and live
+in the stables and repent of your folly. You shall never again enter
+my house."
+
+So the young man went and lived in the stables. His bed was the grass
+spread for the cattle, and his companions were the dog, the cat, and
+the snake, which he had purchased so dearly. These creatures got very
+fond of him, and would follow him about during the day, and sleep by
+him at night; the cat used to sleep at his feet, the dog at his head,
+and the snake over his body, with its head hanging on one side and its
+tail on the other.
+
+One day the snake in course of conversation said to its master, "I am
+the son of Raja Indrasha. One day, when I had come out of the ground
+to drink the air, some people seized me, and would have slain me had
+you not most opportunely arrived to my rescue. I do not know how I
+shall ever be able to repay you for your great kindness to me. Would
+that you knew my father! How glad he would be to see his son's
+preserver!"
+
+"Where does he live? I should like to see him, if possible," said the
+young man.
+
+"Well said!" continued the snake. "Do you see yonder mountain? At the
+bottom of that mountain there is a sacred spring. If you will come
+with me and dive into that spring, we shall both reach my father's
+country. Oh! how glad he will be to see you! He will wish to reward
+you, too. But how can he do that? However, you may be pleased to
+accept something at his hand. If he asks you what you would like, you
+would, perhaps, do well to reply, 'The ring on your right hand, and
+the famous pot and spoon which you possess.' With these in your
+possession, you would never need anything, for the ring is such that a
+man has only to speak to it, and immediately a beautiful furnished
+mansion will be provided for him, while the pot and the spoon will
+supply him with all manner of the rarest and most delicious foods."
+
+Attended by his three companions the man walked to the well and
+prepared to jump in, according to the snake's directions. "O master!"
+exclaimed the cat and dog, when they saw what he was going to do.
+"What shall we do? Where shall we go?"
+
+"Wait for me here," he replied. "I am not going far. I shall not be
+long away." On saying this, he dived into the water and was lost to
+sight.
+
+"Now what shall we do?" said the dog to the cat.
+
+"We must remain here," replied the cat, "as our master ordered. Do not
+be anxious about food. I will go to the people's houses and get plenty
+of food for both of us." And so the cat did, and they both lived very
+comfortably till their master came again and joined them.
+
+The young man and the snake reached their destination in safety; and
+information of their arrival was sent to the Raja. His highness
+commanded his son and the stranger to appear before him. But the snake
+refused, saying that it could not go to its father till it was
+released from this stranger, who had saved it from a most terrible
+death, and whose slave it therefore was. Then the Raja went and
+embraced his son, and saluting the stranger welcomed him to his
+dominions. The young man stayed there a few days, during which he
+received the Raja's right-hand ring, and the pot and spoon, in
+recognition of His Highness's gratitude to him for having delivered
+his son. He then returned. On reaching the top of the spring he found
+his friends, the dog and the cat, waiting for him. They told one
+another all they had experienced since they had last seen each other,
+and were all very glad. Afterwards they walked together to the river
+side, where it was decided to try the powers of the charmed ring and
+pot and spoon.
+
+The merchant's son spoke to the ring, and immediately a beautiful
+house and a lovely princess with golden hair appeared. He spoke to the
+pot and spoon, also, and the most delicious dishes of food were
+provided for them. So he married the princess, and they lived very
+happily for several years, until one morning the princess, while
+arranging her toilet, put the loose hairs into a hollow bit of reed
+and threw them into the river that flowed along under the window. The
+reed floated on the water for many miles, and was at last picked up by
+the prince of that country, who curiously opened it and saw the golden
+hair. On finding it the prince rushed off to the palace, locked
+himself up in his room, and would not leave it. He had fallen
+desperately in love with the woman whose hair he had picked up, and
+refused to eat, or drink, or sleep, or move, till she was brought to
+him. The king, his father, was in great distress about the matter, and
+did not know what to do. He feared lest his son should die and leave
+him without an heir. At last he determined to seek the counsel of his
+aunt, who was an ogress. The old woman consented to help him, and
+bade him not to be anxious, as she felt certain that she would succeed
+in getting the beautiful woman for his son's wife.
+
+She assumed the shape of a bee and went along buzzing, and buzzing,
+and buzzing. Her keen sense of smell soon brought her to the beautiful
+princess, to whom she appeared as an old hag, holding in one hand a
+stick by way of support. She introduced herself to the beautiful
+princess and said, "I am your aunt, whom you have never seen before,
+because I left the country just after your birth." She also embraced
+and kissed the princess by way of adding force to her words. The
+beautiful princess was thoroughly deceived. She returned the ogress's
+embrace, and invited her to come and stay in the house as long as she
+could, and treated her with such honour and attention, that the ogress
+thought to herself, "I shall soon accomplish my errand." When she had
+been in the house three days, she began to talk of the charmed ring,
+and advised her to keep it instead of her husband, because the latter
+was constantly out shooting and on other such-like expeditions, and
+might lose it. Accordingly the beautiful princess asked her husband
+for the ring, and he readily gave it to her.
+
+The ogress waited another day before she asked to see the precious
+thing. Doubting nothing, the beautiful princess complied, when the
+ogress seized the ring, and reassuming the form of a bee flew away
+with it to the palace, where the prince was lying nearly on the point
+of death. "Rise up. Be glad. Mourn no more," she said to him. "The
+woman for whom you yearn will appear at your summons. See, here is the
+charm, whereby you may bring her before you." The prince was almost
+mad with joy when he heard these words, and was so desirous of seeing
+the beautiful princess, that he immediately spoke to the ring, and the
+house with its fair occupant descended in the midst of the palace
+garden. He at once entered the building, and telling the beautiful
+princess of his intense love, entreated her to be his wife. Seeing no
+escape from the difficulty, she consented on the condition that he
+would wait one month for her.
+
+Meanwhile the merchant's son had returned from hunting and was
+terribly distressed not to find his house and wife. There was the
+place only, just as he knew it before he had tried the charmed ring
+which Raja Indrasha had given him. He sat down and determined to put
+an end to himself. Presently the cat and dog came up. They had gone
+away and hidden themselves, when they saw the house and everything
+disappear. "O master!" they said, "stay your hand. Your trial is
+great, but it can be remedied. Give us one month, and we will go and
+try to recover your wife and house."
+
+"Go," said he, "and may the great God aid your efforts. Bring back my
+wife, and I shall live."
+
+So the cat and dog started off at a run, and did not stop till they
+reached the place whither their mistress and the house had been taken.
+"We may have some difficulty here," said the cat. "Look, the king has
+taken our master's wife and house for himself. You stay here. I will
+go to the house and try to see her." So the dog sat down, and the cat
+climbed up to the window of the room, wherein the beautiful princess
+was sitting, and entered. The princess recognised the cat, and
+informed it of all that had happened to her since she had left them.
+
+"But is there no way of escape from the hands of these people?" she
+asked.
+
+"Yes," replied the cat, "if you can tell me where the charmed ring
+is."
+
+"The ring is in the stomach of the ogress," she said.
+
+"All right," said the cat, "I will recover it. If we once get it,
+everything is ours." Then the cat descended the wall of the house, and
+went and laid down by a rat's hole and pretended she was dead. Now at
+that time a great wedding chanced to be going on among the rat
+community of that place, and all the rats of the neighbourhood were
+assembled in that one particular mine by which the cat had lain down.
+The eldest son of the king of the rats was about to be married. The
+cat got to know of this, and at once conceived the idea of seizing the
+bridegroom and making him render the necessary help. Consequently,
+when the procession poured forth from the hole squealing and jumping
+in honour of the occasion, it immediately spotted the bridegroom and
+pounced down on him. "Oh! let me go, let me go," cried the terrified
+rat. "Oh! let him go," squealed all the company. "It is his wedding
+day."
+
+"No, no," replied the cat. "Not unless you do something for me.
+Listen. The ogress, who lives in that house with the prince and his
+wife, has swallowed a ring, which I very much want. If you will
+procure it for me, I will allow the rat to depart unharmed. If you do
+not, then your prince dies under my feet."
+
+"Very well, we agree," said they all. "Nay, if we do not get the ring
+for you, devour us all."
+
+[Illustration: THE CHARMED RING]
+
+This was rather a bold offer. However, they accomplished the
+thing. At midnight, when the ogress was sound asleep, one of the rats
+went to her bedside, climbed up on her face, and inserted its tail
+into her throat; whereupon the ogress coughed violently, and the ring
+came out and rolled on to the floor. The rat immediately seized the
+precious thing and ran off with it to its king, who was very glad, and
+went at once to the cat and released its son.
+
+As soon as the cat received the ring, she started back with the dog to
+go and tell their master the good tidings. All seemed safe now. They
+had only to give the ring to him, and he would speak to it, and the
+house and beautiful princess would again be with them, and everything
+would go on as happily as before. "How glad master will be!" they
+thought, and ran as fast as their legs could carry them. Now, on the
+way they had to cross a stream. The dog swam, and the cat sat on its
+back. Now the dog was jealous of the cat, so he asked for the ring,
+and threatened to throw the cat into the water if it did not give it
+up; whereupon the cat gave up the ring. Sorry moment, for the dog at
+once dropped it, and a fish swallowed it.
+
+"Oh! what shall I do? what shall I do?" said the dog.
+
+"What is done is done," replied the cat. "We must try to recover it,
+and if we do not succeed we had better drown ourselves in this stream.
+I have a plan. You go and kill a small lamb, and bring it here to me."
+
+"All right," said the dog, and at once ran off. He soon came back with
+a dead lamb, and gave it to the cat. The cat got inside the lamb and
+lay down, telling the dog to go away a little distance and keep quiet.
+Not long after this a nadhar, a bird whose look can break the bones
+of a fish, came and hovered over the lamb, and eventually pounced down
+on it to carry it away. On this the cat came out and jumped on to the
+bird, and threatened to kill it if it did not recover the lost ring.
+This was most readily promised by the nadhar, who immediately flew off
+to the king of the fishes, and ordered it to make inquiries and to
+restore the ring. The king of the fishes did so, and the ring was
+found and carried back to the cat.
+
+"Come along now; I have got the ring," said the cat to the dog.
+
+"No, I will not," said the dog, "unless you let me have the ring. I
+can carry it as well as you. Let me have it or I will kill you." So
+the cat was obliged to give up the ring. The careless dog very soon
+dropped it again. This time it was picked up and carried off by a
+kite.
+
+"See, see, there it goes--away to that big tree," the cat exclaimed.
+
+"Oh! oh! what have I done?" cried the dog.
+
+"You foolish thing, I knew it would be so," said the cat. "But stop
+your barking, or you will frighten away the bird to some place where
+we shall not be able to trace it."
+
+The cat waited till it was quite dark, and then climbed the tree,
+killed the kite, and recovered the ring. "Come along," it said to the
+dog when it reached the ground. "We must make haste now. We have been
+delayed. Our master will die from grief and suspense. Come on."
+
+The dog, now thoroughly ashamed of itself, begged the cat's pardon for
+all the trouble it had given. It was afraid to ask for the ring the
+third time, so they both reached their sorrowing master in safety and
+gave him the precious charm. In a moment his sorrow was turned into
+joy. He spoke to the ring, and his beautiful wife and house
+reappeared, and he and everybody were as happy as ever they could be.
+
+
+
+
+The Talkative Tortoise
+
+
+The future Buddha was once born in a minister's family, when
+Brahma-datta was reigning in Benares; and when he grew up, he became
+the king's adviser in things temporal and spiritual.
+
+Now this king was very talkative; while he was speaking, others had no
+opportunity for a word. And the future Buddha, wanting to cure this
+talkativeness of his, was constantly seeking for some means of doing
+so.
+
+At that time there was living, in a pond in the Himalaya mountains, a
+tortoise. Two young hamsas, or wild ducks, who came to feed there,
+made friends with him. And one day, when they had become very intimate
+with him, they said to the tortoise:

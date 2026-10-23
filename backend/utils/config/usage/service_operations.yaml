@@ -1,0 +1,126 @@
+# Service Operations Configuration, ported verbatim from
+# fs-agent-usage-limits' config/service_operations.yaml.
+# Defines available operations and labels for each service_type, used by
+# GET /v1/{knowledge_id}/usage/analytics/service-options.
+
+service_types:
+  orchestrator:
+    display_name: "Orchestrator"
+    description: "Task orchestration and workflow management"
+    operations:
+      llm_call:
+        display_name: "LLM Call"
+        labels:
+          - label: query_refinement
+            display_name: "Query Refinement"
+          - label: supervisor_routing
+            display_name: "Supervisor Routing"
+          - label: rag_agent
+            display_name: "RAG Agent"
+          - label: final_answer_generation
+            display_name: "Final Answer Generation"
+
+  nl2sql:
+    display_name: "NL2SQL"
+    description: "Natural language to SQL conversion"
+    operations:
+      llm_call:
+        display_name: "LLM Call"
+        labels:
+          - label: supervisor_routing
+            display_name: "Supervisor Routing"
+          - label: high_cardinality_entity_extraction
+            display_name: "High Cardinality Entity Extraction"
+          - label: sql_generation
+            display_name: "SQL Generation"
+          - label: pandas_agent_routing
+            display_name: "Pandas Agent Routing"
+          - label: pandas_agent
+            display_name: "Pandas Agent"
+          - label: chart_generation
+            display_name: "Chart Generation"
+          - label: final_answer_generation
+            display_name: "Final Answer Generation"
+      embedding_generation:
+        display_name: "Embedding Generation"
+        labels:
+          - label: fewshot_indexing
+            display_name: "Few-Shot Indexing"
+          - label: fewshot_retrieval
+            display_name: "Few-Shot Retrieval"
+          - label: high_cardinality_indexing
+            display_name: "High Cardinality Indexing"
+          - label: high_cardinality_retrieval
+            display_name: "High Cardinality Retrieval"
+      db_query:
+        display_name: "Database Query"
+        labels:
+          - label: nl2sql_db_execution
+            display_name: "NL2SQL DB Execution"
+      code_execution:
+        display_name: "Code Execution"
+        labels:
+          - label: pandas_execution
+            display_name: "Pandas Execution"
+
+  integrations:
+    display_name: "Integrations"
+    description: "Third-party integrations"
+    operations:
+      llm_call:
+        display_name: "LLM Call"
+        labels:
+          - label: odoo_agent
+            display_name: "Odoo Agent"
+          - label: freshdesk_agent
+            display_name: "Freshdesk Agent"
+
+  knowledge:
+    display_name: "Knowledge"
+    description: "Knowledge base and document management"
+    operations:
+      data_ingestion:
+        display_name: "Data Ingestion"
+        labels:
+          - label: file_processing
+            display_name: "File Processing"
+          - label: weblink_processing
+            display_name: "Weblink Processing"
+          - label: raw_text_processing
+            display_name: "Raw Text Processing"
+      llm_call:
+        display_name: "LLM Call"
+        labels:
+          - label: document_enrichment
+            display_name: "Document Enrichment"
+      embedding_generation:
+        display_name: "Embedding Generation"
+        labels:
+          - label: content_embedding
+            display_name: "Content Embedding"
+          - label: query_embedding
+            display_name: "Query Embedding"
+      vector_db_write:
+        display_name: "Vector DB Write"
+        labels:
+          - label: vector_indexing
+            display_name: "Vector Indexing"
+      llm_generation:
+        display_name: "LLM Generation"
+        labels:
+          - label: rag_agent
+            display_name: "RAG Agent"
+          - label: generate_answer
+            display_name: "Generate Answer"
+          - label: refine_query
+            display_name: "Refine Query"
+
+  actions:
+    display_name: "Actions"
+    description: "Custom actions and integrations"
+    operations: {}
+
+  dashboard:
+    display_name: "Dashboard"
+    description: "Analytics dashboard and reporting"
+    operations: {}

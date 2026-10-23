@@ -1,0 +1,958 @@
+E-text prepared by Delphine Lettau, Charles Franks, and the Online
+Distributed Proofreading Team and revised by Sankar Viswanathan, Fritz
+Ohrenschall, Sania Ali Mirza, and the Online Distributed Proofreading Team
+(http://www.pgdp.net) using page images generously made available by
+Internet Archive (http://archive.org)
+
+
+
+Note: Project Gutenberg also has an HTML version of this
+      file which includes the lovely original illustrations.
+      See 7128-h.htm or 7128-h.zip:
+      (https://www.gutenberg.org/cache/epub/7128/pg7128-images.html)
+      or
+      (https://www.gutenberg.org/files/7128/7128-h.zip)
+
+
+      Images of the original pages are available through
+      Internet Archive. See
+      http://archive.org/details/indiantales00jacorich
+
+
+Transcriber's note:
+
+      A letter following a carat character is superscripted.
+      For example, in "2^e" the "e" is superscripted.
+
+
+
+
+
+[Illustration: Indian Fairy Tales]
+
+[Illustration:]
+
+[Illustration: PRINCESS LABAM]
+
+
+INDIAN FAIRY TALES
+
+Selected and Edited by
+
+JOSEPH JACOBS
+
+Editor of "Folk Lore"
+
+Illustrated by John D. Batten
+
+[Illustration:]
+
+
+
+
+
+
+London
+David Nutt, 270, 271 Strand
+1892
+
+
+
+
+_Only One Hundred and Sixty Copies of this
+Edition on Japanese Vellum Paper have been printed,
+of which One Hundred and Fifty are for Sale.
+
+This is No. 147_
+
+
+_The Illustrations in this Book were coloured by hand by
+Miss Gloria Cardew._
+
+
+
+
+   _TO
+   MY DEAR LITTLE PHIL_
+
+
+
+
+Preface
+
+
+From the extreme West of the Indo-European world, we go this year to
+the extreme East. From the soft rain and green turf of Gaeldom, we
+seek the garish sun and arid soil of the Hindoo. In the Land of Ire,
+the belief in fairies, gnomes, ogres and monsters is all but dead; in
+the Land of Ind it still flourishes in all the vigour of animism.
+
+Soils and national characters differ; but fairy tales are the same in
+plot and incidents, if not in treatment. The majority of the tales in
+this volume have been known in the West in some form or other, and the
+problem arises how to account for their simultaneous existence in
+farthest West and East. Some--as Benfey in Germany, M. Cosquin in
+France, and Mr. Clouston in England--have declared that India is the
+Home of the Fairy Tale, and that all European fairy tales have been
+brought from thence by Crusaders, by Mongol missionaries, by Gipsies,
+by Jews, by traders, by travellers. The question is still before the
+courts, and one can only deal with it as an advocate. So far as my
+instructions go, I should be prepared, within certain limits, to hold
+a brief for India. So far as the children of Europe have their fairy
+stories in common, these--and they form more than a third of the
+whole--are derived from India. In particular, the majority of the
+Drolls or comic tales and jingles can be traced, without much
+difficulty, back to the Indian peninsula.
+
+Certainly there is abundant evidence of the early transmission by
+literary means of a considerable number of drolls and folk-tales from
+India about the time of the Crusaders. The collections known in Europe
+by the titles of _The Fables of Bidpai_, _The Seven Wise Masters_,
+_Gesta Romanorum_, and _Barlaam and Josaphat_, were extremely popular
+during the Middle Ages, and their contents passed on the one hand into
+the _Exempla_ of the monkish preachers, and on the other into the
+_Novelle_ of Italy, thence, after many days, to contribute their quota
+to the Elizabethan Drama. Perhaps nearly one-tenth of the main
+incidents of European folk-tales can be traced to this source.
+
+There are even indications of an earlier literary contact between
+Europe and India, in the case of one branch of the folk-tale, the
+Fable or Beast Droll. In a somewhat elaborate discussion[1] I have
+come to the conclusion that a goodly number of the fables that pass
+under the name of the Samian slave, Æsop, were derived from India,
+probably from the same source whence the same tales were utilised in
+the Jatakas, or Birth-stories of Buddha. These Jatakas contain a large
+quantity of genuine early Indian folk-tales, and form the earliest
+collection of folk-tales in the world, a sort of Indian Grimm,
+collected more than two thousand years before the good German brothers
+went on their quest among the folk with such delightful results. For
+this reason I have included a considerable number of them in this
+volume; and shall be surprised if tales that have roused the laughter
+and wonder of pious Buddhists for the last two thousand years, cannot
+produce the same effect on English children. The Jatakas have been
+fortunate in their English translators, who render with vigour and
+point; and I rejoice in being able to publish the translation of two
+new Jatakas, kindly done into English for this volume by Mr. W. H. D.
+Rouse, of Christ's College, Cambridge. In one of these I think I have
+traced the source of the Tar Baby incident in "Uncle Remus."
+
+[Footnote 1: "History of the Æsopic Fable," the introductory volume to
+my edition of Caxton's _Fables of Esope_ (London, Nutt, 1889).]
+
+Though Indian fairy tales are the earliest in existence, yet they are
+also from another point of view the youngest. For it is only about
+twenty-five years ago that Miss Frere began the modern collection of
+Indian folk-tales with her charming "Old Deccan Days" (London, John
+Murray, 1868; fourth edition, 1889). Her example has been followed by
+Miss Stokes, by Mrs. Steel, and Captain (now Major) Temple, by the
+Pandit Natesa Sastri, by Mr. Knowles and Mr. Campbell, as well as
+others who have published folk-tales in such periodicals as the
+_Indian Antiquary_ and _The Orientalist_. The story-store of modern
+India has been well dipped into during the last quarter of a century,
+though the immense range of the country leaves room for any number of
+additional workers and collections. Even so far as the materials
+already collected go, a large number of the commonest incidents in
+European folk-tales have been found in India. Whether brought there or
+born there, we have scarcely any criterion for judging; but as some of
+those still current among the folk in India can be traced back more
+than a millennium, the presumption is in favour of an Indian origin.
+
+From all these sources--from the Jatakas, from the Bidpai, and from
+the more recent collections--I have selected those stories which throw
+most light on the origin of Fable and Folk-tales, and at the same time
+are most likely to attract English children. I have not, however,
+included too many stories of the Grimm types, lest I should repeat
+the contents of the two preceding volumes of this series. This has to
+some degree weakened the case for India as represented by this book.
+The need of catering for the young ones has restricted my selection
+from the well-named "Ocean of the Streams of Story," _Katha-Sarit
+Sagara_ of Somadeva. The stories existing in Pali and Sanskrit I have
+taken from translations, mostly from the German of Benfey or the
+vigorous English of Professor Rhys-Davids, whom I have to thank for
+permission to use his versions of the Jatakas.
+
+I have been enabled to make this book a representative collection of
+the Fairy Tales of Ind by the kindness of the original collectors or
+their publishers. I have especially to thank Miss Frere, who kindly
+made an exception in my favour, and granted me the use of that fine
+story, "Punchkin," and that quaint myth, "How Sun, Moon, and Wind went
+out to Dinner." Miss Stokes has been equally gracious in granting me
+the use of characteristic specimens from her "Indian Fairy Tales." To
+Major Temple I owe the advantage of selecting from his admirable
+_Wideawake Stories_, and Messrs. Kegan Paul, Trench & Co. have allowed
+me to use Mr. Knowles' "Folk-tales of Kashmir," in their Oriental
+Library; and Messrs. W. H. Allen have been equally obliging with
+regard to Mrs. Kingscote's "Tales of the Sun." Mr. M. L. Dames has
+enabled me add to the published story-store of India by granting me
+the use of one from his inedited collection of Baluchi folk-tales.
+
+I have again to congratulate myself on the co-operation of my friend
+Mr. J. D. Batten in giving beautiful or amusing form to the creations
+of the folk fancy of the Hindoos. It is no slight thing to embody, as
+he has done, the glamour and the humour both of the Celt and of the
+Hindoo. It is only a further proof that Fairy Tales are something more
+than Celtic or Hindoo. They are human.
+
+JOSEPH JACOBS.
+
+
+
+
+Contents
+
+
+                                                    PAGE
+
+I.      THE LION AND THE CRANE                        1
+
+II.     HOW THE RAJA'S SON WON THE PRINCESS LABAM     3
+
+III.    THE LAMBIKIN                                 17
+
+IV.     PUNCHKIN                                     21
+
+V.      THE BROKEN POT                               38
+
+VI.     THE MAGIC FIDDLE                             40
+
+VII.    THE CRUEL CRANE OUTWITTED                    46
+
+VIII.   LOVING LAILI                                 51
+
+IX.     THE TIGER, THE BRAHMAN, AND THE JACKAL       66
+
+X.      THE SOOTHSAYER'S SON                         70
+
+XI.     HARISARMAN                                   85
+
+XII.    THE CHARMED RING                             90
+
+XIII.   THE TALKATIVE TORTOISE                      100
+
+XIV.    A LAC OF RUPEES FOR A PIECE OF ADVICE       103
+
+XV.     THE GOLD-GIVING SERPENT                     112
+
+XVI.    THE SON OF SEVEN QUEENS                     115
+
+XVII.   A LESSON FOR KINGS                          127
+
+XVIII.  PRIDE GOETH BEFORE A FALL                   132
+
+XIX.    RAJA RASALU                                 136
+
+XX.     THE ASS IN THE LION'S SKIN                  150
+
+XXI.    THE FARMER AND THE MONEY-LENDER             152
+
+XXII.   THE BOY WHO HAD A MOON ON HIS FOREHEAD
+            AND A STAR ON HIS CHIN                  156
+
+XXIII.  THE PRINCE AND THE FAKIR                    179
+
+XXIV.   WHY THE FISH LAUGHED                        186
+
+XXV.    THE DEMON WITH THE MATTED HAIR              194
+
+XXVI.   THE IVORY CITY AND ITS FAIRY PRINCESS       199
+
+XXVII.  SUN, MOON, AND WIND GO OUT TO DINNER        218
+
+XXVIII. HOW THE WICKED SONS WERE DUPED              221
+
+XXIX.   THE PIGEON AND THE CROW                     223
+
+        NOTES AND REFERENCES                        227
+
+       *       *       *       *       *
+
+
+
+
+Full-page Illustrations
+
+
+PRINCESS LABAM                              _Frontispiece_
+
+THE LION AND THE CRANE          _To face page_       2
+
+PUNCHKIN                                 "          36
+
+LOVING LAILI                             "          64
+
+THE CHARMED RING                         "          96
+
+THE SON OF SEVEN QUEENS                  "         120
+
+RAJA RASALU                              "         146
+
+BOY WITH MOON ON FOREHEAD                "         165
+
+DEMON WITH MATTED HAIR                   "         196
+
+       *       *       *       *       *
+
+     [Plates, vignettes, initials, and cuts are from "process"
+     blocks supplied by Messrs. J. C. Drummond & Co. of Covent
+     Garden.]
+
+       *       *       *       *       *
+
+
+
+
+The Lion and the Crane
+
+
+The Bodhisatta was at one time born in the region of Himavanta as a
+white crane; now Brahmadatta was at that time reigning in Benares. Now
+it chanced that as a lion was eating meat a bone stuck in his throat.
+The throat became swollen, he could not take food, his suffering was
+terrible. The crane seeing him, as he was perched on a tree looking
+for food, asked, "What ails thee, friend?" He told him why. "I could
+free thee from that bone, friend, but dare not enter thy mouth for
+fear thou mightest eat me." "Don't be afraid, friend, I'll not eat
+thee; only save my life." "Very well," says he, and caused him to lie
+down on his left side. But thinking to himself, "Who knows what this
+fellow will do," he placed a small stick upright between his two jaws
+that he could not close his mouth, and inserting his head inside his
+mouth struck one end of the bone with his beak. Whereupon the bone
+dropped and fell out. As soon as he had caused the bone to fall, he
+got out of the lion's mouth, striking the stick with his beak so that
+it fell out, and then settled on a branch. The lion gets well, and
+one day was eating a buffalo he had killed. The crane thinking "I will
+sound him," settled on a branch just over him, and in conversation
+spoke this first verse:
+
+    "A service have we done thee
+      To the best of our ability,
+    King of the Beasts! Your Majesty!
+      What return shall we get from thee?"
+
+In reply the Lion spoke the second verse:
+
+    "As I feed on blood,
+      And always hunt for prey,
+    'Tis much that thou art still alive
+      Having once been between my teeth."
+
+Then in reply the crane said the two other verses:
+
+    "Ungrateful, doing no good,
+      Not doing as he would be done by,
+    In him there is no gratitude,
+      To serve him is useless.
+
+    "His friendship is not won
+      By the clearest good deed.
+    Better softly withdraw from him,
+      Neither envying nor abusing."
+
+And having thus spoken the crane flew away.
+
+_And when the great Teacher, Gautama the Buddha, told this tale, he
+used to add: "Now at that time the lion was Devadatta the Traitor, but
+the white crane was I myself."_
+
+[Illustration: THE LION AND THE CRANE]
+
+
+
+
+How the Raja's Son won the Princess Labam.
+
+
+In a country there was a Raja who had an only son who every day went
+out to hunt. One day the Rani, his mother, said to him, "You can hunt
+wherever you like on these three sides; but you must never go to the
+fourth side." This she said because she knew if he went on the fourth
+side he would hear of the beautiful Princess Labam, and that then he
+would leave his father and mother and seek for the princess.
+
+The young prince listened to his mother, and obeyed her for some time;
+but one day, when he was hunting on the three sides where he was
+allowed to go, he remembered what she had said to him about the fourth
+side, and he determined to go and see why she had forbidden him to
+hunt on that side. When he got there, he found himself in a jungle,
+and nothing in the jungle but a quantity of parrots, who lived in it.
+The young Raja shot at some of them, and at once they all flew away up
+to the sky. All, that is, but one, and this was their Raja, who was
+called Hiraman parrot.
+
+When Hiraman parrot found himself left alone, he called out to the
+other parrots, "Don't fly away and leave me alone when the Raja's son
+shoots. If you desert me like this, I will tell the Princess Labam."
+
+Then the parrots all flew back to their Raja, chattering. The prince
+was greatly surprised, and said, "Why, these birds can talk!" Then he
+said to the parrots, "Who is the Princess Labam? Where does she live?"
+But the parrots would not tell him where she lived. "You can never get
+to the Princess Labam's country." That is all they would say.
+
+The prince grew very sad when they would not tell him anything more;
+and he threw his gun away, and went home. When he got home, he would
+not speak or eat, but lay on his bed for four or five days, and seemed
+very ill.
+
+At last he told his father and mother that he wanted to go and see the
+Princess Labam. "I must go," he said; "I must see what she is like.
+Tell me where her country is."
+
+"We do not know where it is," answered his father and mother.
+
+"Then I must go and look for it," said the prince.
+
+"No, no," they said, "you must not leave us. You are our only son.
+Stay with us. You will never find the Princess Labam."
+
+"I must try and find her," said the prince. "Perhaps God will show me
+the way. If I live and I find her, I will come back to you; but
+perhaps I shall die, and then I shall never see you again. Still I
+must go."
+
+So they had to let him go, though they cried very much at parting with
+him. His father gave him fine clothes to wear, and a fine horse. And
+he took his gun, and his bow and arrows, and a great many other
+weapons, "for," he said, "I may want them." His father, too, gave him
+plenty of rupees.
+
+Then he himself got his horse all ready for the journey, and he said
+good-bye to his father and mother; and his mother took her
+handkerchief and wrapped some sweetmeats in it, and gave it to her
+son. "My child," she said to him, "When you are hungry eat some of
+these sweetmeats."
+
+He then set out on his journey, and rode on and on till he came to a
+jungle in which were a tank and shady trees. He bathed himself and his
+horse in the tank, and then sat down under a tree. "Now," he said to
+himself, "I will eat some of the sweetmeats my mother gave me, and I
+will drink some water, and then I will continue my journey." He opened
+his handkerchief, and took out a sweetmeat. He found an ant in it. He
+took out another. There was an ant in that one too. So he laid the two
+sweetmeats on the ground, and he took out another, and another, and
+another, until he had taken them all out; but in each he found an ant.
+"Never mind," he said, "I won't eat the sweetmeats; the ants shall eat
+them." Then the Ant-Raja came and stood before him and said, "You have
+been good to us. If ever you are in trouble, think of me and we will
+come to you."
+
+The Raja's son thanked him, mounted his horse and continued his
+journey. He rode on and on until he came to another jungle, and there
+he saw a tiger who had a thorn in his foot, and was roaring loudly
+from the pain.
+
+"Why do you roar like that?" said the young Raja. "What is the matter
+with you?"
+
+"I have had a thorn in my foot for twelve years," answered the tiger,
+"and it hurts me so; that is why I roar."
+
+"Well," said the Raja's son, "I will take it out for you. But
+perhaps, as you are a tiger, when I have made you well, you will eat
+me?"
+
+[Illustration:]
+
+"Oh, no," said the tiger, "I won't eat you. Do make me well."
+
+Then the prince took a little knife from his pocket, and cut the thorn
+out of the tiger's foot; but when he cut, the tiger roared louder than
+ever--so loud that his wife heard him in the next jungle, and came
+bounding along to see what was the matter. The tiger saw her coming,
+and hid the prince in the jungle, so that she should not see him.
+
+[Illustration:]
+
+"What man hurt you that you roared so loud?" said the wife.
+
+"No one hurt me," answered the husband; "but a Raja's son came and
+took the thorn out of my foot."
+
+"Where is he? Show him to me," said his wife.
+
+"If you promise not to kill him, I will call him," said the tiger.
+
+"I won't kill him; only let me see him," answered his wife.
+
+Then the tiger called the Raja's son, and when he came the tiger and
+his wife made him a great many salaams. Then they gave him a good
+dinner, and he stayed with them for three days. Every day he looked at
+the tiger's foot, and the third day it was quite healed. Then he said
+good-bye to the tigers, and the tiger said to him, "If ever you are in
+trouble, think of me, and we will come to you."
+
+The Raja's son rode on and on till he came to a third jungle. Here he
+found four fakirs whose teacher and master had died, and had left four
+things,--a bed, which carried whoever sat on it whithersoever he
+wished to go; a bag, that gave its owner whatever he wanted, jewels,
+food, or clothes; a stone bowl that gave its owner as much water as he
+wanted, no matter how far he might be from a tank; and a stick and
+rope, to which its owner had only to say, if any one came to make war
+on him, "Stick, beat as many men and soldiers as are here," and the
+stick would beat them and the rope would tie them up.
+
+The four fakirs were quarrelling over these four things. One said, "I
+want this;" another said, "You cannot have it, for I want it;" and so
+on.
+
+The Raja's son said to them, "Do not quarrel for these things. I will
+shoot four arrows in four different directions. Whichever of you gets
+to my first arrow, shall have the first thing--the bed. Whosoever gets
+to the second arrow, shall have the second thing--the bag. He who gets
+to the third arrow, shall have the third thing--the bowl. And he who
+gets to the fourth arrow, shall have the last things--the stick and
+rope." To this they agreed, and the prince shot off his first arrow.
+Away raced the fakirs to get it. When they brought it back to him he
+shot off the second, and when they had found and brought it to him he
+shot off his third, and when they had brought him the third he shot
+off the fourth.
+
+While they were away looking for the fourth arrow the Raja's son let
+his horse loose in the jungle, and sat on the bed, taking the bowl,
+the stick and rope, and the bag with him. Then he said, "Bed, I wish
+to go to the Princess Labam's country." The little bed instantly rose
+up into the air and began to fly, and it flew and flew till it came to
+the Princess Labam's country, where it settled on the ground. The
+Raja's son asked some men he saw, "Whose country is this?"
+
+"The Princess Labam's country," they answered. Then the prince went on
+till he came to a house where he saw an old woman.
+
+"Who are you?" she said. "Where do you come from?"
+
+"I come from a far country," he said; "do let me stay with you
+to-night."
+
+"No," she answered, "I cannot let you stay with me; for our king has
+ordered that men from other countries may not stay in his country. You
+cannot stay in my house."
+
+"You are my aunty," said the prince; "let me remain with you for this
+one night. You see it is evening, and if I go into the jungle, then
+the wild beasts will eat me."
+
+"Well," said the old woman, "you may stay here to-night; but to-morrow
+morning you must go away, for if the king hears you have passed the
+night in my house, he will have me seized and put into prison."
+
+Then she took him into her house, and the Raja's son was very glad.
+The old woman began preparing dinner, but he stopped her, "Aunty," he
+said, "I will give you food." He put his hand into his bag, saying,
+"Bag, I want some dinner," and the bag gave him instantly a delicious
+dinner, served up on two gold plates. The old woman and the Raja's son
+then dined together.
+
+When they had finished eating, the old woman said, "Now I will fetch
+some water."
+
+"Don't go," said the prince. "You shall have plenty of water
+directly." So he took his bowl and said to it, "Bowl, I want some
+water," and then it filled with water. When it was full, the prince
+cried out, "Stop, bowl," and the bowl stopped filling. "See, aunty,"
+he said, "with this bowl I can always get as much water as I want."
+
+By this time night had come. "Aunty," said the Raja's son, "why don't
+you light a lamp?"
+
+"There is no need," she said. "Our king has forbidden the people in
+his country to light any lamps; for, as soon as it is dark, his
+daughter, the Princess Labam, comes and sits on her roof, and she
+shines so that she lights up all the country and our houses, and we
+can see to do our work as if it were day."
+
+When it was quite black night the princess got up. She dressed herself
+in her rich clothes and jewels, and rolled up her hair, and across her
+head she put a band of diamonds and pearls. Then she shone like the
+moon, and her beauty made night day. She came out of her room, and sat
+on the roof of her palace. In the daytime she never came out of her
+house; she only came out at night. All the people in her father's
+country then went about their work and finished it.
+
+The Raja's son watched the princess quietly, and was very happy. He
+said to himself, "How lovely she is!"
+
+At midnight, when everybody had gone to bed, the princess came down
+from her roof, and went to her room; and when she was in bed and
+asleep, the Raja's son got up softly, and sat on his bed. "Bed," he
+said to it, "I want to go to the Princess Labam's bed-room." So the
+little bed carried him to the room where she lay fast asleep.
+
+The young Raja took his bag and said, "I want a great deal of
+betel-leaf," and it at once gave him quantities of betel-leaf. This he
+laid near the princess's bed, and then his little bed carried him back
+to the old woman's house.
+
+Next morning all the princess's servants found the betel-leaf, and
+began to eat it. "Where did you get all that betel-leaf?" asked the
+princess.
+
+"We found it near your bed," answered the servants. Nobody knew the
+prince had come in the night and put it all there.
+
+In the morning the old woman came to the Raja's son. "Now it is
+morning," she said, "and you must go; for if the king finds out all I
+have done for you, he will seize me."
+
+"I am ill to-day, dear aunty," said the prince; "do let me stay till
+to-morrow morning."
+
+"Good," said the old woman. So he stayed, and they took their dinner
+out of the bag, and the bowl gave them water.
+
+When night came the princess got up and sat on her roof, and at twelve
+o'clock, when every one was in bed, she went to her bed-room, and was
+soon fast asleep. Then the Raja's son sat on his bed, and it carried
+him to the princess. He took his bag and said, "Bag, I want a most
+lovely shawl." It gave him a splendid shawl, and he spread it over the
+princess as she lay asleep. Then he went back to the old woman's house
+and slept till morning.
+
+In the morning, when the princess saw the shawl she was delighted.
+"See, mother," she said; "Khuda must have given me this shawl, it is
+so beautiful." Her mother was very glad too.
+
+"Yes, my child," she said; "Khuda must have given you this splendid
+shawl."
+
+When it was morning the old woman said to the Raja's son, "Now you
+must really go."
+
+"Aunty," he answered, "I am not well enough yet. Let me stay a few
+days longer. I will remain hidden in your house, so that no one may
+see me." So the old woman let him stay.
+
+When it was black night, the princess put on her lovely clothes and
+jewels, and sat on her roof. At midnight she went to her room and went
+to sleep. Then the Raja's son sat on his bed and flew to her bed-room.
+There he said to his bag, "Bag, I want a very, very beautiful ring."
+The bag gave him a glorious ring. Then he took the Princess Labam's
+hand gently to put on the ring, and she started up very much
+frightened.
+
+"Who are you?" she said to the prince. "Where do you come from? Why do
+you come to my room?"
+
+"Do not be afraid, princess," he said; "I am no thief. I am a great
+Raja's son. Hiraman parrot, who lives in the jungle where I went to
+hunt, told me your name, and then I left my father and mother, and
+came to see you."
+
+"Well," said the princess, "as you are the son of such a great Raja,
+I will not have you killed, and I will tell my father and mother that
+I wish to marry you."
+
+The prince then returned to the old woman's house; and when morning
+came the princess said to her mother, "The son of a great Raja has
+come to this country, and I wish to marry him." Her mother told this
+to the king.
+
+"Good," said the king; "but if this Raja's son wishes to marry my
+daughter, he must first do whatever I bid him. If he fails I will kill
+him. I will give him eighty pounds weight of mustard seed, and out of
+this he must crush the oil in one day. If he cannot do this he shall
+die."
+
+In the morning the Raja's son told the old woman that he intended to
+marry the princess. "Oh," said the old woman, "go away from this
+country, and do not think of marrying her. A great many Rajas and
+Rajas' sons have come here to marry her, and her father has had them
+all killed. He says whoever wishes to marry his daughter must first do
+whatever he bids him. If he can, then he shall marry the princess; if
+he cannot, the king will have him killed. But no one can do the things
+the king tells him to do; so all the Rajas and Rajas' sons who have
+tried have been put to death. You will be killed too, if you try. Do
+go away." But the prince would not listen to anything she said.
+
+The king sent for the prince to the old woman's house, and his
+servants brought the Raja's son to the king's court-house to the king.
+There the king gave him eighty pounds of mustard seed, and told him to
+crush all the oil out of it that day, and bring it next morning to him
+to the court-house. "Whoever wishes to marry my daughter," he said to
+the prince, "must first do all I tell him. If he cannot, then I have
+him killed. So if you cannot crush all the oil out of this mustard
+seed, you will die."
+
+The prince was very sorry when he heard this. "How can I crush the oil
+out of all this mustard seed in one day?" he said to himself; "and if
+I do not, the king will kill me." He took the mustard seed to the old
+woman's house, and did not know what to do. At last he remembered the
+Ant-Raja, and the moment he did so, the Ant-Raja and his ants came to
+him. "Why do you look so sad?" said the Ant-Raja.
+
+The prince showed him the mustard seed, and said to him, "How can I
+crush the oil out of all this mustard seed in one day? And if I do not
+take the oil to the king to-morrow morning, he will kill me."
+
+"Be happy," said the Ant-Raja; "lie down and sleep; we will crush all
+the oil out for you during the day, and to-morrow morning you shall
+take it to the king." The Raja's son lay down and slept, and the ants
+crushed out the oil for him. The prince was very glad when he saw the
+oil.
+
+The next morning he took it to the court-house to the king. But the
+king said, "You cannot yet marry my daughter. If you wish to do so,
+you must first fight with my two demons and kill them." The king a
+long time ago had caught two demons, and then, as he did not know what
+to do with them, he had shut them up in a cage. He was afraid to let
+them loose for fear they would eat up all the people in his country;
+and he did not know how to kill them. So all the kings and kings' sons
+who wanted to marry the Princess Labam had to fight with these
+demons; "for," said the king to himself, "perhaps the demons may be
+killed, and then I shall be rid of them."
+
+When he heard of the demons the Raja's son was very sad. "What can I
+do?" he said to himself. "How can I fight with these two demons?" Then
+he thought of his tiger: and the tiger and his wife came to him and
+said, "Why are you so sad?" The Raja's son answered, "The king has
+ordered me to fight with his two demons and kill them. How can I do
+this?" "Do not be frightened," said the tiger. "Be happy. I and my
+wife will fight with them for you."
+
+[Illustration:]
+
+Then the Raja's son took out of his bag two splendid coats. They were
+all gold and silver, and covered with pearls and diamonds. These he
+put on the tigers to make them beautiful, and he took them to the
+king, and said to him, "May these tigers fight your demons for me?"
+"Yes," said the king, who did not care in the least who killed his
+demons, provided they were killed. "Then call your demons," said the
+Raja's son, "and these tigers will fight them." The king did so, and
+the tigers and the demons fought and fought until the tigers had
+killed the demons.
+
+"That is good," said the king. "But you must do something else before
+I give you my daughter. Up in the sky I have a kettle-drum. You must
+go and beat it. If you cannot do this, I will kill you."
+
+The Raja's son thought of his little bed; so he went to the old
+woman's house and sat on his bed. "Little bed," he said, "up in the
+sky is the king's kettle-drum. I want to go to it." The bed flew up
+with him, and the Raja's son beat the drum, and the king heard him.
+Still, when he came down, the king would not give him his daughter.
+"You have," he said to the prince, "done the three things I told you
+to do; but you must do one thing more." "If I can, I will," said the
+Raja's son.
+
+Then the king showed him the trunk of a tree that was lying near his
+court-house. It was a very, very thick trunk. He gave the prince a wax
+hatchet, and said, "To-morrow morning you must cut this trunk in two
+with this wax hatchet."
+
+The Raja's son went back to the old woman's house. He was very sad,
+and thought that now the Raja would certainly kill him. "I had his oil
+crushed out by the ants," he said to himself. "I had his demons killed
+by the tigers. My bed helped me to beat his kettle-drum. But now what
+can I do? How can I cut that thick tree-trunk in two with a wax
+hatchet?"
+
+At night he went on his bed to see the princess. "To-morrow," he said
+to her, "your father will kill me." "Why?" asked the princess.
+
+"He has told me to cut a thick tree-trunk in two with a wax hatchet.
+How can I ever do that?" said the Raja's son. "Do not be afraid," said
+the princess; "do as I bid you, and you will cut it in two quite
+easily."
+
+Then she pulled out a hair from her head, and gave it to the prince.
+"To-morrow," she said, "when no one is near you, you must say to the
+tree-trunk, 'The Princess Labam commands you to let yourself be cut in
+two by this hair.' Then stretch the hair down the edge of the wax
+hatchet's blade."
+
+The prince next day did exactly as the princess had told him; and the
+minute the hair that was stretched down the edge of the hatchet-blade
+touched the tree-trunk it split into two pieces.
+
+The king said, "Now you can marry my daughter." Then the wedding took
+place. All the Rajas and kings of the countries round were asked to
+come to it, and there were great rejoicings. After a few days the
+prince's son said to his wife, "Let us go to my father's country." The
+Princess Labam's father gave them a quantity of camels and horses and
+rupees and servants; and they travelled in great state to the prince's
+country, where they lived happily.
+
+The prince always kept his bag, bowl, bed, and stick; only, as no one
+ever came to make war on him, he never needed to use the stick.
+
+
+
+
+The Lambikin
+
+
+Once upon a time there was a wee wee Lambikin, who frolicked about on
+his little tottery legs, and enjoyed himself amazingly.
+
+Now one day he set off to visit his Granny, and was jumping with joy
+to think of all the good things he should get from her, when who
+should he meet but a Jackal, who looked at the tender young morsel and
+said: "Lambikin! Lambikin! I'll EAT YOU!"
+
+[Illustration:]
+
+But Lambikin only gave a little frisk and said:
+
+    "To Granny's house I go,
+    Where I shall fatter grow,
+    Then you can eat me so."
+
+The Jackal thought this reasonable, and let Lambikin pass.
+
+By-and-by he met a Vulture, and the Vulture, looking hungrily at the
+tender morsel before him, said: "Lambikin! Lambikin! I'll EAT YOU!"
+
+[Illustration:]
+
+But Lambikin only gave a little frisk, and said:
+
+    "To Granny's house I go,
+    Where I shall fatter grow,
+    Then you can eat me so."
+
+The Vulture thought this reasonable, and let Lambikin pass.
+
+And by-and-by he met a Tiger, and then a Wolf, and a Dog, and an
+Eagle, and all these, when they saw the tender little morsel, said:
+"Lambikin! Lambikin! I'll EAT YOU!"
+
+[Illustration:]
+
+But to all of them Lambikin replied, with a little frisk:
+
+    "To Granny's house I go,
+    Where I shall fatter grow,
+    Then you can eat me so."
+
+At last he reached his Granny's house, and said, all in a great hurry,
+"Granny, dear, I've promised to get very fat; so, as people ought to
+keep their promises, please put me into the corn-bin _at once_."
+
+So his Granny said he was a good boy, and put him into the corn-bin,
+and there the greedy little Lambikin stayed for seven days, and ate,
+and ate, and ate, until he could scarcely waddle, and his Granny said
+he was fat enough for anything, and must go home. But cunning little
+Lambikin said that would never do, for some animal would be sure to
+eat him on the way back, he was so plump and tender.
+
+"I'll tell you what you must do," said Master Lambikin, "you must make
+a little drumikin out of the skin of my little brother who died, and
+then I can sit inside and trundle along nicely, for I'm as tight as a
+drum myself."
+
+[Illustration:]
+
+So his Granny made a nice little drumikin out of his brother's skin,
+with the wool inside, and Lambikin curled himself up snug and warm in
+the middle, and trundled away gaily. Soon he met with the Eagle, who
+called out:
+
+    "Drumikin! Drumikin!
+    Have you seen Lambikin?"
+
+And Mr. Lambikin, curled up in his soft warm nest, replied:
+
+    "Fallen into the fire, and so will you
+    On little Drumikin.  Tum-pa, tum-too!"
+
+"How very annoying!" sighed the Eagle, thinking regretfully of the
+tender morsel he had let slip.
+
+Meanwhile Lambikin trundled along, laughing to himself, and singing:
+
+    "Tum-pa, tum-too;
+    Tum-pa, tum-too!"
+
+Every animal and bird he met asked him the same question:
+
+    "Drumikin! Drumikin!
+    Have you seen Lambikin?"
+
+And to each of them the little slyboots replied:
+
+    "Fallen into the fire, and so will you
+    On little Drumikin. Tum-pa, tum too;
+    Tum-pa, tum-too; Tum-pa, tum-too!"
+
+Then they all sighed to think of the tender little morsel they had let
+slip.
+
+At last the Jackal came limping along, for all his sorry looks as
+sharp as a needle, and he too called out--
+
+    "Drumikin! Drumikin!
+    Have you seen Lambikin?"
+
+And Lambikin, curled up in his snug little nest, replied gaily:
+
+    "Fallen into the fire, and so will you
+    On little Drumikin! Tum-pa----"
+
+But he never got any further, for the Jackal recognised his voice at
+once, and cried: "Hullo! you've turned yourself inside out, have you?
+Just you come out of that!"
+
+Whereupon he tore open Drumikin and gobbled up Lambikin.
+
+
+
+
+Punchkin
+
+[Illustration:]
+
+
+Once upon a time there was a Raja who had seven beautiful daughters.
+They were all good girls; but the youngest, named Balna, was more
+clever than the rest. The Raja's wife died when they were quite little
+children, so these seven poor Princesses were left with no mother to
+take care of them.
+
+The Raja's daughters took it by turns to cook their father's dinner
+every day, whilst he was absent deliberating with his Ministers on the
+affairs of the nation.
+
+About this time the Prudhan died, leaving a widow and one daughter;
+and every day, every day, when the seven Princesses were preparing
+their father's dinner, the Prudhan's widow and daughter would come and
+beg for a little fire from the hearth. Then Balna used to say to her
+sisters, "Send that woman away; send her away. Let her get the fire at
+her own house. What does she want with ours? If we allow her to come
+here, we shall suffer for it some day."
+
+But the other sisters would answer, "Be quiet, Balna; why must you
+always be quarrelling with this poor woman? Let her take some fire if
+she likes." Then the Prudhan's widow used to go to the hearth and take
+a few sticks from it; and whilst no one was looking, she would quickly
+throw some mud into the midst of the dishes which were being prepared
+for the Raja's dinner.
+
+Now the Raja was very fond of his daughters. Ever since their mother's
+death they had cooked his dinner with their own hands, in order to
+avoid the danger of his being poisoned by his enemies. So, when he
+found the mud mixed up with his dinner, he thought it must arise from
+their carelessness, as it did not seem likely that any one should have
+put mud there on purpose; but being very kind he did not like to
+reprove them for it, although this spoiling of the curry was repeated
+many successive days.
+
+At last, one day, he determined to hide, and watch his daughters
+cooking, and see how it all happened; so he went into the next room,
+and watched them through a hole in the wall.
+
+There he saw his seven daughters carefully washing the rice and
+preparing the curry, and as each dish was completed, they put it by
+the fire ready to be cooked. Next he noticed the Prudhan's widow come
+to the door, and beg for a few sticks from the fire to cook her
+dinner with. Balna turned to her, angrily, and said, "Why don't you
+keep fuel in your own house, and not come here every day and take
+ours? Sisters, don't give this woman any more wood; let her buy it for
+herself."
+
+Then the eldest sister answered, "Balna, let the poor woman take the
+wood and the fire; she does us no harm." But Balna replied, "If you
+let her come here so often, maybe she will do us some harm, and make
+us sorry for it, some day."
+
+The Raja then saw the Prudhan's widow go to the place where all his
+dinner was nicely prepared, and, as she took the wood, she threw a
+little mud into each of the dishes.

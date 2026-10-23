@@ -1,0 +1,6 @@
+# Optional fixture regeneration, separate from application runtime.
+reportlab==5.0.1
+pymupdf==1.28.2
+Pillow>=11.1,<12
+pdfplumber==0.11.10
+pypdf==6.16.2

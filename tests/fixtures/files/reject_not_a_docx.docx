@@ -1,0 +1,2 @@
+This file has a .docx extension but is plain text, not a zip archive.
+get_docx_page_count_from_bytes raises BadZipFile on it.

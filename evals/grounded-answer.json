@@ -1,0 +1,10 @@
+{
+  "fixture": "examples/northstar-policy.txt",
+  "question": "What is Northstar Research's daily meal reimbursement limit, and when must receipts be submitted?",
+  "expected_facts": {
+    "daily_meal_limit_inr": 2450,
+    "receipt_deadline_calendar_days": 14
+  },
+  "required_evidence": "The returned object ID and retrieved text must match the newly uploaded fixture.",
+  "scope": "Installation and grounded-answer control, not a general accuracy benchmark."
+}

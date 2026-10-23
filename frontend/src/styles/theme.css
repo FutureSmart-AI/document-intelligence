@@ -1,0 +1,501 @@
+/* Document Intelligence design tokens, imported by `../app/globals.css`.
+ *
+ * Everything here is either a token or a `.di-*`/`.tnum` class, and nothing
+ * targets a bare element outside `.di-root`, so the shared views under
+ * `src/platform/` keep their own literal palette next to the product's.
+ *
+ * Three theme states, matching the design artifact: the light default on bare
+ * `:root`, the system-dark override guarded so an explicit light choice still
+ * wins, and the explicit `[data-theme="dark"]` the topbar toggle stamps.
+ */
+
+:root {
+  /* Surfaces — the artifact's plane, card and sunken card. */
+  --di-bg: #f5f7fc;
+  --di-surface: #ffffff;
+  --di-sunken: #f7f9fd;
+  --di-raised: #ffffff;
+
+  /* Hairlines */
+  --di-line: #e3e9f2;
+  --di-line-soft: #edf1f7;
+  --di-line-strong: #d5dde9;
+
+  /* Text */
+  --di-ink: #111827;
+  --di-ink-2: #4b5563;
+  --di-ink-3: #6b7280;
+
+  /* FutureSmart blue */
+  --di-accent: #2563eb;
+  --di-accent-strong: #1d4ed8;
+  --di-accent-soft: #eaf1fe;
+  --di-accent-soft-2: #dce8fd;
+  --di-accent-soft-text: #1d4ed8;
+  --di-accent-contrast: #ffffff;
+
+  /* Status. Blue and amber sit far enough apart to carry meaning on their own;
+   * ok-green and err-red do not — they collapse under deuteranopia — so a
+   * pass/fail pair is always a badge with an icon and a label, never two
+   * touching fills. */
+  --di-success-bg: #e7f6ec;
+  --di-success-text: #15803d;
+  --di-success-dot: #1d7a4e;
+  --di-warn-bg: #fdf4e3;
+  --di-warn-text: #92660a;
+  --di-warn-dot: #b87c15;
+  /* Categorical chart series, in draw order.
+   *
+   * Not picked by eye: each step was run through the dataviz validator (OKLab
+   * CVD separation, lightness band, chroma floor, contrast against this mode's
+   * surface) and the dark steps are their own values rather than a flip of
+   * these. The status tokens above are deliberately not reused here — a series
+   * painted in the danger red would read as a failure. */
+  --di-series-1: #2563eb;
+  --di-series-2: #b87c15;
+  --di-series-3: #7c3aed;
+  --di-series-4: #0f9488;
+
+  --di-danger-bg: #fceaea;
+  --di-danger-text: #b91c1c;
+  --di-danger-dot: #d13a3a;
+
+  /* Elevation */
+  --di-shadow-pop:
+    0 12px 32px -12px rgba(17, 24, 39, 0.22),
+    0 2px 8px -2px rgba(17, 24, 39, 0.07);
+  --di-shadow-card:
+    0 1px 2px rgba(17, 24, 39, 0.05), 0 0 0 1px rgba(17, 24, 39, 0.04);
+
+  /* Type. The `--font-di-*` variables are published by `next/font` in each
+   * build that renders this product; the quoted names are the fallback for any
+   * surface reached before those load. */
+  --di-font-display:
+    var(--font-di-display, "Plus Jakarta Sans"), "Segoe UI", Helvetica,
+    sans-serif;
+  --di-font-body:
+    var(--font-di-body, "Manrope"), "Segoe UI", Helvetica, Arial, sans-serif;
+  --di-font-mono:
+    var(--font-di-mono, "JetBrains Mono"), ui-monospace, Menlo, Consolas,
+    monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --di-bg: #0f1218;
+    --di-surface: #161a23;
+    --di-sunken: #1c212c;
+    --di-raised: #232936;
+    --di-line: #2a3140;
+    --di-line-soft: #232935;
+    --di-line-strong: #303845;
+    --di-ink: #eef2f8;
+    --di-ink-2: #a8b2c3;
+    --di-ink-3: #8a94a6;
+    --di-accent: #5a8af0;
+    --di-accent-strong: #8ab0ff;
+    --di-accent-soft: #182238;
+    --di-accent-soft-2: #1e2b45;
+    --di-accent-soft-text: #8ab0ff;
+    --di-accent-contrast: #0e1420;
+    --di-success-bg: #13251a;
+    --di-success-text: #2fa968;
+    --di-success-dot: #2fa968;
+    --di-warn-bg: #241d0f;
+    --di-warn-text: #c98500;
+    --di-warn-dot: #c98500;
+    --di-series-1: #4f83e8;
+    --di-series-2: #b5852c;
+    --di-series-3: #8b6ff5;
+    --di-series-4: #14a89b;
+    --di-series-1: #4f83e8;
+    --di-series-2: #b5852c;
+    --di-series-3: #8b6ff5;
+    --di-series-4: #14a89b;
+    --di-danger-bg: #2a1717;
+    --di-danger-text: #e06055;
+    --di-danger-dot: #e06055;
+    --di-shadow-pop:
+      0 14px 36px -14px rgba(0, 0, 0, 0.7), 0 2px 8px -2px rgba(0, 0, 0, 0.3);
+    --di-shadow-card:
+      0 1px 2px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+}
+
+:root[data-theme="dark"] {
+  --di-bg: #0f1218;
+  --di-surface: #161a23;
+  --di-sunken: #1c212c;
+  --di-raised: #232936;
+  --di-line: #2a3140;
+  --di-line-soft: #232935;
+  --di-line-strong: #303845;
+  --di-ink: #eef2f8;
+  --di-ink-2: #a8b2c3;
+  --di-ink-3: #8a94a6;
+  --di-accent: #5a8af0;
+  --di-accent-strong: #8ab0ff;
+  --di-accent-soft: #182238;
+  --di-accent-soft-2: #1e2b45;
+  --di-accent-soft-text: #8ab0ff;
+  --di-accent-contrast: #0e1420;
+  --di-success-bg: #13251a;
+  --di-success-text: #2fa968;
+  --di-success-dot: #2fa968;
+  --di-warn-bg: #241d0f;
+  --di-warn-text: #c98500;
+  --di-warn-dot: #c98500;
+  --di-danger-bg: #2a1717;
+  --di-danger-text: #e06055;
+  --di-danger-dot: #e06055;
+  --di-shadow-pop:
+    0 14px 36px -14px rgba(0, 0, 0, 0.7), 0 2px 8px -2px rgba(0, 0, 0, 0.3);
+  --di-shadow-card:
+    0 1px 2px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+/* `inline` keeps the generated utilities pointing at the custom properties above
+ * rather than resolving them once at build time, which is what lets the toggle
+ * repaint the product without a reload. */
+@theme inline {
+  --color-bg: var(--di-bg);
+  --color-surface: var(--di-surface);
+  --color-sunken: var(--di-sunken);
+  --color-raised: var(--di-raised);
+  --color-line: var(--di-line);
+  --color-line-soft: var(--di-line-soft);
+  --color-line-strong: var(--di-line-strong);
+  --color-ink: var(--di-ink);
+  --color-ink-2: var(--di-ink-2);
+  --color-ink-3: var(--di-ink-3);
+  --color-accent: var(--di-accent);
+  --color-accent-strong: var(--di-accent-strong);
+  --color-accent-soft: var(--di-accent-soft);
+  --color-accent-soft-2: var(--di-accent-soft-2);
+  --color-accent-softtext: var(--di-accent-soft-text);
+  --color-accent-contrast: var(--di-accent-contrast);
+  --color-success-bg: var(--di-success-bg);
+  --color-success-text: var(--di-success-text);
+  --color-success-dot: var(--di-success-dot);
+  --color-warn-bg: var(--di-warn-bg);
+  --color-warn-text: var(--di-warn-text);
+  --color-warn-dot: var(--di-warn-dot);
+  --color-series-1: var(--di-series-1);
+  --color-series-2: var(--di-series-2);
+  --color-series-3: var(--di-series-3);
+  --color-series-4: var(--di-series-4);
+  --color-danger-bg: var(--di-danger-bg);
+  --color-danger-text: var(--di-danger-text);
+  --color-danger-dot: var(--di-danger-dot);
+
+  --shadow-card: var(--di-shadow-card);
+  --shadow-pop: var(--di-shadow-pop);
+
+  --radius-di-sm: 6px;
+  --radius-di-md: 8px;
+  /* Cards, tiles and dialogs — the 16px the NL2SQL dashboard rounds its cards
+   * to, so the two products' surfaces read as one set. */
+  --radius-di-lg: 16px;
+}
+
+/* ── shared-component scope ────────────────────────────────────────────────
+ * Where this product mounts the agent UI's own feature components.
+ *
+ * Those components are painted in literal Tailwind utilities — `text-slate-500`,
+ * `bg-indigo-50` — which Tailwind v4 compiles to `color: var(--color-slate-500)`
+ * with the palette declared on `:root` inside `@layer theme`. Redefining those
+ * variables in an unlayered block therefore repaints every one of those
+ * utilities **inside this subtree only**, with no edit to the shared files and
+ * no fork of them. It is the same mechanism `apps/nl2sql` uses for its own
+ * dashboard.
+ *
+ * `.di-analytics` wraps the reused analytics page. Add the class to any further
+ * surface that mounts agent-UI components; anything drawn from this app's own
+ * `ui.tsx` needs nothing here, because it is already painted in `--di-*`.
+ */
+.di-analytics {
+  /* Neutral ramp — this product's plane, card, hairline and ink values in the
+   * slots the shared markup already asks for. */
+  --color-slate-50: var(--di-sunken);
+  --color-slate-100: var(--di-line-soft);
+  --color-slate-200: var(--di-line);
+  --color-slate-300: var(--di-line-strong);
+  --color-slate-400: var(--di-ink-3);
+  --color-slate-500: var(--di-ink-2);
+  --color-slate-600: var(--di-ink-2);
+  --color-slate-700: var(--di-ink);
+  --color-slate-800: var(--di-ink);
+  --color-slate-900: var(--di-ink);
+  --color-gray-50: var(--di-sunken);
+  --color-gray-100: var(--di-line-soft);
+  --color-gray-200: var(--di-line);
+  --color-gray-300: var(--di-line-strong);
+  --color-gray-400: var(--di-ink-3);
+  --color-gray-500: var(--di-ink-2);
+  --color-gray-600: var(--di-ink-2);
+  --color-gray-700: var(--di-ink);
+  --color-gray-800: var(--di-ink);
+  --color-gray-900: var(--di-ink);
+  --color-white: var(--di-surface);
+
+  /* Accent. The product is FutureSmart blue throughout, so the indigo, blue and
+   * sky utilities the shared page mixes all land on the one hue. */
+  --color-indigo-50: var(--di-accent-soft);
+  --color-indigo-100: var(--di-accent-soft-2);
+  --color-indigo-200: var(--di-accent-soft-2);
+  --color-indigo-300: var(--di-series-1);
+  --color-indigo-400: var(--di-series-1);
+  --color-indigo-500: var(--di-accent);
+  --color-indigo-600: var(--di-accent);
+  --color-indigo-700: var(--di-accent-soft-text);
+  --color-indigo-800: var(--di-accent-strong);
+  --color-indigo-900: var(--di-accent-strong);
+  --color-blue-50: var(--di-accent-soft);
+  --color-blue-100: var(--di-accent-soft-2);
+  --color-blue-200: var(--di-accent-soft-2);
+  --color-blue-500: var(--di-accent);
+  --color-blue-600: var(--di-accent);
+  --color-blue-700: var(--di-accent-soft-text);
+  --color-blue-900: var(--di-accent-strong);
+  --color-sky-50: var(--di-accent-soft);
+  --color-sky-100: var(--di-accent-soft-2);
+  --color-sky-500: var(--di-series-1);
+  --color-sky-600: var(--di-accent);
+  --color-sky-700: var(--di-accent-soft-text);
+
+  /* Warning — the product's amber, and the colour of a pending state. */
+  --color-amber-50: var(--di-warn-bg);
+  --color-amber-100: var(--di-warn-bg);
+  --color-amber-200: var(--di-warn-dot);
+  --color-amber-500: var(--di-warn-dot);
+  --color-amber-600: var(--di-warn-dot);
+  --color-amber-700: var(--di-warn-text);
+  --color-amber-800: var(--di-warn-text);
+  --color-yellow-50: var(--di-warn-bg);
+  --color-yellow-600: var(--di-warn-dot);
+  --color-yellow-700: var(--di-warn-text);
+  --color-orange-50: var(--di-warn-bg);
+  --color-orange-100: var(--di-warn-bg);
+  --color-orange-600: var(--di-warn-dot);
+  --color-orange-700: var(--di-warn-text);
+
+  /* Success */
+  --color-emerald-50: var(--di-success-bg);
+  --color-emerald-100: var(--di-success-bg);
+  --color-emerald-200: var(--di-success-dot);
+  --color-emerald-400: var(--di-success-dot);
+  --color-emerald-500: var(--di-series-4);
+  --color-emerald-600: var(--di-success-text);
+  --color-emerald-700: var(--di-success-text);
+  --color-green-50: var(--di-success-bg);
+  --color-green-100: var(--di-success-bg);
+  --color-green-500: var(--di-series-4);
+  --color-green-600: var(--di-success-text);
+  --color-green-700: var(--di-success-text);
+  --color-teal-500: var(--di-series-4);
+
+  /* Failure */
+  --color-rose-50: var(--di-danger-bg);
+  --color-rose-100: var(--di-danger-bg);
+  --color-rose-200: var(--di-danger-dot);
+  --color-rose-500: var(--di-danger-dot);
+  --color-rose-600: var(--di-danger-text);
+  --color-rose-700: var(--di-danger-text);
+  --color-red-50: var(--di-danger-bg);
+  --color-red-100: var(--di-danger-bg);
+  --color-red-200: var(--di-danger-dot);
+  --color-red-500: var(--di-danger-dot);
+  --color-red-600: var(--di-danger-text);
+  --color-red-700: var(--di-danger-text);
+
+  /* Third series — the shared page's violet slots. */
+  --color-violet-50: var(--di-accent-soft);
+  --color-violet-100: var(--di-accent-soft-2);
+  --color-violet-200: var(--di-accent-soft-2);
+  --color-violet-500: var(--di-series-3);
+  --color-violet-600: var(--di-series-3);
+  --color-violet-700: var(--di-series-3);
+  --color-purple-50: var(--di-accent-soft);
+  --color-purple-100: var(--di-accent-soft-2);
+  --color-purple-500: var(--di-series-3);
+  --color-purple-600: var(--di-series-3);
+  --color-purple-700: var(--di-series-3);
+}
+
+/* Numeric columns line up when the digits are all one width. */
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Scoped to the product's own subtree so mounting it inside the agent UI cannot
+ * restyle that application's forms, selection or focus rings. */
+.di-root {
+  color: var(--di-ink);
+  font-family: var(--di-font-body);
+  font-size: 14px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+
+  /* `font-sans` / `font-mono` utilities inside the product resolve to the same
+   * faces, and so does anything that inherits from here. */
+  --font-sans: var(--di-font-body);
+  --font-mono: var(--di-font-mono);
+}
+
+/* Headings carry the display face; body copy and controls stay on the body
+ * face. `.di-display` is for the title-shaped elements that are not headings —
+ * a collection's name on its card, a field key, a conversation's subject. */
+.di-root :is(h1, h2, h3, h4),
+.di-root .di-display {
+  font-family: var(--di-font-display);
+  letter-spacing: -0.018em;
+}
+.di-root :is(input, select, textarea, button) {
+  font-family: inherit;
+}
+.di-root input,
+.di-root select,
+.di-root textarea {
+  color: var(--di-ink);
+}
+.di-root select option {
+  background: var(--di-surface);
+  color: var(--di-ink);
+}
+.di-root ::selection {
+  background: var(--di-accent-soft);
+  color: var(--di-accent-soft-text);
+}
+.di-root :focus-visible {
+  outline: 2px solid var(--di-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Markdown answers in the chat thread, and the static hero answer on the public
+ * page. Sized to the artifact's `.md-body` rules. */
+.di-md {
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+.di-md h1 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 2px 0 8px;
+}
+.di-md h2 {
+  font-size: 14.5px;
+  font-weight: 700;
+  margin: 14px 0 6px;
+}
+.di-md p {
+  margin: 6px 0;
+}
+.di-md ul {
+  margin: 6px 0 6px 18px;
+  list-style: disc;
+}
+.di-md li {
+  margin: 3px 0;
+}
+.di-md a {
+  color: var(--di-accent);
+}
+.di-md code {
+  font-family: var(--di-font-mono);
+  font-size: 12px;
+  background: var(--di-sunken);
+  border: 1px solid var(--di-line-soft);
+  border-radius: 4px;
+  padding: 1px 4px;
+}
+.di-md blockquote {
+  border-left: 3px solid var(--di-line-strong);
+  padding: 2px 0 2px 12px;
+  margin: 10px 0;
+  color: var(--di-ink-2);
+  font-style: italic;
+}
+
+/* The three dots after a run stage that is still going. */
+@keyframes di-thinking-dot {
+  0%,
+  72%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.32;
+  }
+  36% {
+    transform: translateY(-3px);
+    opacity: 1;
+  }
+}
+.di-thinking-dot {
+  animation: di-thinking-dot 1.25s ease-in-out infinite;
+}
+.di-thinking-dot-2 {
+  animation-delay: 160ms;
+}
+.di-thinking-dot-3 {
+  animation-delay: 320ms;
+}
+
+/* The label of a stage that is still going: a highlight sweeping across the
+ * word, so the row reads as working rather than as a step that has stalled.
+ *
+ * The highlight is a literal white rather than a surface token: on this
+ * product's white card the band reads as the letters thinning out as it passes
+ * and filling back in behind it, and on the dark theme's card it reads as a
+ * glow. Either way it is the sweep that carries the motion, not the colour. */
+@keyframes di-shimmer-text {
+  from {
+    background-position: 160% 0;
+  }
+  to {
+    background-position: -60% 0;
+  }
+}
+.di-shimmer-text {
+  background: linear-gradient(
+    100deg,
+    var(--di-ink) 0%,
+    var(--di-ink) 38%,
+    #ffffff 50%,
+    var(--di-ink) 62%,
+    var(--di-ink) 100%
+  );
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: di-shimmer-text 1.9s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .di-thinking-dot {
+    animation: none;
+    opacity: 0.75;
+  }
+  /* Back to a plain colour: a clipped gradient frozen mid-sweep leaves half
+     the word in the highlight and half out. */
+  .di-shimmer-text {
+    background: none;
+    animation: none;
+    color: var(--di-ink);
+  }
+}
+
+@keyframes di-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.di-spinner {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: 2px solid var(--di-warn-bg);
+  border-top-color: var(--di-warn-text);
+  animation: di-spin 0.8s linear infinite;
+  display: inline-block;
+}

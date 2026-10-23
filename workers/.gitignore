@@ -1,0 +1,43 @@
+# Ignore environment variables file
+.env
+
+# Ignore Python cache files
+__pycache__/
+
+# Ignore Python cache directories everywhere (both cases)
+**/__pycache__/
+
+# Ignore ChromaDB index directory
+chroma_db_index/
+user_memory_index/
+
+# Ignore Python virtual environment
+myenv/
+logs/
+venv/
+
+test.ipynb
+test/
+.codegpt
+guide/
+celery_logs/
+requirements-clean.txt
+# docker-compose-localstack.yml
+# localstack_script/
+.cursor/
+uploads/
+cluade-logs/
+.continue/mcpServers/new-mcp-server.yaml
+.codex
+.claude/settings.local.json
+.claude/skills/
+claude-logs/
+
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+**/__pycache__/
+
+!**/.env.example

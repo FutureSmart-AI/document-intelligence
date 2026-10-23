@@ -1,0 +1,30 @@
+# Optional durable S3/SQS for a dedicated development host with a workload role.
+# Compose >=2.24.4 is required for !override. ECS remains the production target.
+x-aws-environment: &aws-environment
+  AWS_ENDPOINT_URL: ""
+  AWS_REGION: ${AWS_REGION:-us-east-1}
+  AWS_ACCESS_KEY_ID: ""
+  AWS_SECRET_ACCESS_KEY: ""
+  SQS_AWS_ACCESS_KEY_ID: ""
+  SQS_AWS_SECRET_ACCESS_KEY: ""
+  SQS_AWS_REGION: ${AWS_REGION:-us-east-1}
+  SQS_QUEUE_URL: ${SQS_QUEUE_URL:?Configure your private .env.aws}
+  BUCKET_NAME: ${BUCKET_NAME:?Configure your private .env.aws}
+  CELERY_BROKER_URL: sqs://
+
+services:
+  localstack:
+    profiles: [emulator]
+  api-init:
+    environment: *aws-environment
+  worker-init:
+    environment: *aws-environment
+  api:
+    environment: *aws-environment
+    depends_on: !override
+      worker-init: {condition: service_completed_successfully}
+  worker:
+    environment: *aws-environment
+  ui:
+    volumes:
+      - ./deploy/nginx.aws.conf:/etc/nginx/conf.d/default.conf:ro

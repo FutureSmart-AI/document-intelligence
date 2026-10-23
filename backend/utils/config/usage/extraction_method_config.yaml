@@ -1,0 +1,52 @@
+# Extraction Method & Scrape Method Configuration, ported verbatim from
+# fs-agent-usage-limits' config/extraction_method_config.yaml.
+#
+# Maps each extraction_method / scrape_method value to its service model, provider,
+# pricing service_type, pricing_model, and the metric key used for cost calculation.
+# Adding a new extraction_method here needs no Python change (see
+# utils/usage/cost_calculator.py).
+
+extraction_methods:
+
+  llama_parse:
+    model: "llamaparse"
+    provider: "llamaindex"
+    display_name: "LlamaParse"
+    service_type: "document_parser"
+    pricing_model: "credit_based"
+    metric_key: "llama_parse_page_count"
+
+  whisper_openai:
+    model: "whisper-1"
+    provider: "openai"
+    display_name: "Whisper (OpenAI)"
+    service_type: "transcription"
+    pricing_model: "per_minute"
+    metric_key: "audio_seconds"
+
+  whisper_groq:
+    model: "whisper-large-v3-turbo"
+    provider: "groq"
+    display_name: "Whisper (Groq)"
+    service_type: "transcription"
+    pricing_model: "per_minute"
+    metric_key: "audio_seconds"
+
+
+scrape_methods:
+
+  firecrawl_crawl:
+    model: "firecrawl"
+    provider: "firecrawl"
+    display_name: "Firecrawl Crawl"
+    service_type: "web_scraping"
+    pricing_model: "per_page"
+    metric_key: "processed_page_count"
+
+  firecrawl_scrape:
+    model: "firecrawl"
+    provider: "firecrawl"
+    display_name: "Firecrawl Scrape"
+    service_type: "web_scraping"
+    pricing_model: "per_page"
+    metric_key: "processed_page_count"

@@ -1,0 +1,14 @@
+FROM oven/bun:1.4.0 AS build
+WORKDIR /app
+COPY package.json bun.lock ./
+RUN bun install --frozen-lockfile
+COPY . .
+ENV NEXT_PUBLIC_AUTH_MODE=standalone
+RUN bun run build
+
+FROM nginx:1.28-alpine
+COPY deploy/standalone.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /app/out /usr/share/nginx/html
+# Static export assetPrefix requires the product's own asset directory.
+RUN cp -r /usr/share/nginx/html/_next /usr/share/nginx/html/document-intelligence/_next
+EXPOSE 80

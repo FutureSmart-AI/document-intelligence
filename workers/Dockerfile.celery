@@ -1,0 +1,62 @@
+FROM python:3.11-slim
+
+# ── Python & thread-related env vars ────────────────────────────────────────────
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    OMP_NUM_THREADS=1 \
+    MKL_NUM_THREADS=1
+
+# ── App-specific env vars ──────────────────────────────────────────────────────
+ARG MODE
+ENV MODE=${MODE}
+# Broker and backend are NOT hardcoded here — they are resolved at runtime by
+# celery_setup_env.py loading .env.dev (MODE=DEV) or .env.prod (MODE=PROD).
+# Hardcoding them here would bake prod credentials into the staging image and
+# override the per-environment config via the CLI --broker/--result-backend flags.
+
+# ── System deps ────────────────────────────────────────────────────────────────
+WORKDIR /app
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends gcc \
+ && rm -rf /var/lib/apt/lists/*
+
+# ── Python deps ────────────────────────────────────────────────────────────────
+COPY requirements_celery.txt .
+RUN pip install --upgrade pip \
+ && pip install pip-tools \
+ && pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu \
+ && pip install --no-cache-dir -r requirements_celery.txt
+
+# ── Project code ───────────────────────────────────────────────────────────────
+COPY . .
+
+# ── Entrypoint ─────────────────────────────────────────────────────────────────
+# Prints the broker URL so you can verify the container received the correct env
+# vars, then starts the Celery worker with global options placed *before* the
+# `worker` sub-command.
+#
+# NOTE: this `celery ... worker` invocation does NOT run celery_worker.py's
+# __main__ block, so the queues must be listed explicitly here. Without --queues
+# Celery consumes only task_default_queue (the indexing queue) and the reports
+# queue is never read. Keep this list in sync with config.QUEUE_NAME /
+# config.REPORTS_QUEUE_NAME.
+#
+# The same image runs one of two roles, chosen by env var:
+#   RUN_MIGRATIONS=true -> run DB migrations and exit
+#   (default)           -> run the gevent worker consuming both queues
+#
+# (Report scheduling is owned by the dashboard service, which queues runs on a
+# schedule itself — so there is no Celery Beat process here.)
+# REPORTS_QUEUE_URL is set in prod but not staging — include the reports queue
+# only when the env var is present so the staging worker doesn't try to resolve
+# a queue that has no predefined_queues entry.
+#
+# Per-service overrides (set per ECS task definition so one image runs several
+# single-lane services):
+#   WORKER_QUEUES      — explicit comma-separated queue list. When set it wins
+#                        outright, so a service can listen to reports ONLY (which
+#                        the REPORTS_QUEUE_URL heuristic alone cannot express).
+#                        When unset, fall back to the legacy heuristic below.
+#   WORKER_CONCURRENCY — slots for this service; defaults to 2 (the tested-safe
+#                        value previously hardcoded in config.py worker_concurrency).
+CMD ["sh", "-c", "if [ \"$RUN_MIGRATIONS\" = \"true\" ]; then echo \"Initialize the fresh database with the Knowledge bootstrap service\" >&2; exit 1; else if [ -n \"$WORKER_QUEUES\" ]; then QUEUES=\"$WORKER_QUEUES\"; else QUEUES=fs-agent-workers.fifo; if [ -n \"$REPORTS_QUEUE_URL\" ]; then QUEUES=\"$QUEUES,fs-agent-report-jobs-queue.fifo\"; fi; fi; CONCURRENCY=${WORKER_CONCURRENCY:-2}; echo \"MODE=$MODE, queues=$QUEUES, concurrency=$CONCURRENCY\" && celery -A celery_workers.celery_worker worker --pool=gevent --queues=$QUEUES --concurrency=$CONCURRENCY --loglevel=info; fi"]

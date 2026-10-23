@@ -1,0 +1,33 @@
+{
+  "default": "openai-v1",
+  "profiles": {
+    "openai-v1": {
+      "description": "One OPENAI_API_KEY runs ingestion, enrichment, extraction, retrieval checks and chat.",
+      "required_keys": ["OPENAI_API_KEY"],
+      "settings": {
+        "ENRICHMENT_MODEL": "gpt-5.4-mini",
+        "ENRICHMENT_FALLBACK_MODEL": "gpt-5.4-nano",
+        "FOLLOW_UP_LLM_PROVIDER": "openai",
+        "FOLLOW_UP_LLM_MODEL": "gpt-5.4-nano",
+        "RAG_RETRIEVAL_VERIFIER_PROVIDER": "openai",
+        "RAG_RETRIEVAL_VERIFIER_MODEL": "gpt-5.4-nano",
+        "TRANSCRIPT_PROVIDER": "openai",
+        "EXTRACTION_VALIDATION_LLM_ENABLED": "false"
+      }
+    },
+    "openai-groq-v1": {
+      "description": "Previous hosted default: Groq openai/gpt-oss-120b enrichment with an OpenAI fallback.",
+      "required_keys": ["OPENAI_API_KEY", "GROQ_API_KEY"],
+      "settings": {
+        "ENRICHMENT_MODEL": "openai/gpt-oss-120b",
+        "ENRICHMENT_FALLBACK_MODEL": "gpt-5.4-nano",
+        "FOLLOW_UP_LLM_PROVIDER": "openai",
+        "FOLLOW_UP_LLM_MODEL": "gpt-5.4-nano",
+        "RAG_RETRIEVAL_VERIFIER_PROVIDER": "openai",
+        "RAG_RETRIEVAL_VERIFIER_MODEL": "gpt-5.4-nano",
+        "TRANSCRIPT_PROVIDER": "openai",
+        "EXTRACTION_VALIDATION_LLM_ENABLED": "false"
+      }
+    }
+  }
+}

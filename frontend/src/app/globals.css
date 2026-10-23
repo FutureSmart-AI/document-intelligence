@@ -1,0 +1,32 @@
+/* Global stylesheet for the Document Intelligence UI.
+ *
+ * The product's tokens and its `.di-*` classes live in `../styles/theme.css`.
+ * What stays here is the document background and the reduced-motion rule.
+ */
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@import "../styles/theme.css";
+
+/* Tailwind v4 scans the whole repository by default, which now includes the
+ * shared UI kit under `src/platform/`, so no extra `@source` is needed. */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--di-bg);
+  color: var(--di-ink);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

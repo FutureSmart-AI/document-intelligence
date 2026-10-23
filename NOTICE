@@ -1,0 +1,14 @@
+FutureSmart Document Intelligence
+Copyright 2026 FutureSmart AI
+
+Licensed under the Apache License, Version 2.0. See LICENSE.
+
+This product includes Manrope, Plus Jakarta Sans, and JetBrains Mono fonts.
+Their original copyrights and SIL Open Font License 1.1 notices are retained
+in frontend/src/fonts/. These font licenses remain separate from the project
+license. Font source URLs and notice digests are in licenses.json there.
+
+Test fixtures in tests/fixtures/sources/ are public-domain texts; their
+provenance is listed in tests/fixtures/sources/SOURCES.md. The optional fixture
+generator's PyMuPDF dependency (tests/fixtures/requirements.txt) is AGPL-3.0 and
+is not part of any runtime image.

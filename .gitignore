@@ -1,0 +1,33 @@
+# Private runtime configuration and operator files
+.env
+.env.*
+**/.env
+**/.env.*
+!.env.example
+!**/.env.example
+*.pem
+*.key
+private/
+local/
+.artifacts/
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+# Frontend
+node_modules/
+.next/
+out/
+coverage/
+playwright-report/
+test-results/
+# Generated logs and editor state
+*.log
+.DS_Store
+.idea/
+.vscode/
+.claude/
+.codex/

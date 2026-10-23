@@ -1,0 +1,92 @@
+# Default owner (billing/tenant) configuration, ported verbatim from
+# fs-agent-usage-limits' config/owner_defaults.yaml. Applies account-wide,
+# across every knowledge_id an owner has — see the terminology exception
+# documented in utils/models/usage_owner_config.py and decisions.md.
+
+default_tier: trial
+default_base_tier: null
+
+platform_limits:
+  max_agents: 10
+  max_team_members: 5
+  # Kept in sync with MAX_FILE_SIZE in utils/validation/file_validation_utils.py —
+  # that constant is the one actually enforced today, this value is descriptive only
+  # until it is wired up (see docs/plan/usage-and-limits/limits.md). Reduced from 10
+  # to 5 on 2026-09-03: pages are already capped at 10 (MAX_PDF_PAGES), and a typical
+  # business document (resume/contract/report) at that page count runs well under
+  # 5MB even scanned — 50MB was never a meaningful ceiling at a 10-page cap.
+  max_file_size_mb: 5
+  max_indexed_characters: 1000000
+  # Standing cap on knowledge items — any ingested unit, not just uploaded files
+  # (not monthly). See utils/models/usage_owner_config.py. Reduced from 500 to 120
+  # on 2026-09-03: sized to the reduced max_documents (50) + max_urls (10)
+  # below, plus buffer for pasted-text items, which have no sub-cap of their own.
+  max_knowledge_items: 120
+  # New conversations (distinct chat sessions) per calendar month. Continuing an
+  # existing session is free — only starting a new one consumes this. Set to 30 per
+  # the product decision on 2026-08-20; raised to 100 on 2026-08-25.
+  max_conversations_per_month: 100
+  # Total messages per calendar month across every conversation. Deliberately not a
+  # per-conversation cap — cutting someone off mid-thread is a worse experience than
+  # letting a long thread run and refusing the next new one. Originally sized against
+  # the conversation cap at ~16 turns/conversation (30 conversations x 16 ≈ 500); not
+  # rescaled when the conversation cap was raised to 100, so treat this ratio as
+  # stale rather than load-bearing.
+  max_messages_per_month: 500
+  max_llm_tokens_per_month: 1000000
+  # Sub-caps of max_knowledge_items above, not additional totals — the combined
+  # item ceiling still applies regardless of how it splits between these two.
+  # Added 2026-08-26 on explicit product direction (documents and URLs each need
+  # their own ceiling, not just a combined one). Reduced from 400/100 to 50/10 on
+  # 2026-09-03 — 500/400/100 were sized generously with no real usage
+  # data behind them; this leaves room under the 120 shared cap for the third
+  # source (pasted text), which has no cap of its own.
+  max_documents: 50
+  max_urls: 10
+  # A second, tighter window on the same activity max_messages_per_month gates —
+  # both apply. 50/day comfortably covers a normal day at the 500/month average
+  # (~16/day) while still catching a single-day spike that would otherwise blow
+  # through a whole month's allowance in one session.
+  max_messages_per_day: 50
+  # Estimated cost ceiling — reporting-only, see max_cost_usd_per_month's docstring
+  # on OwnerPlatformLimits for why nothing enforces it. Reduced from $50 to $10 on
+  # 2026-09-03 — $50 was a placeholder sized against no real cost data
+  # (usage_service_pricing was unseeded as of 2026-08-26). Still a placeholder;
+  # revisit once real blended cost-per-token data exists to size it against.
+  max_cost_usd_per_month: 10.0
+
+default_models:
+  llm: "groq/openai/gpt-oss-120b"
+  embedding: "openai/text-embedding-3-small"
+  enrichment_llm: "groq/openai/gpt-oss-120b"
+
+services:
+  knowledge:
+    enabled: true
+    description: "Knowledge base and document management"
+    default_features: {}
+
+  nl2sql:
+    enabled: false
+    description: "Natural language to SQL conversion"
+    default_features: {}
+
+  actions:
+    enabled: true
+    description: "Custom actions and integrations"
+    default_features: {}
+
+  integrations:
+    enabled: false
+    description: "Third-party integrations"
+    default_features: {}
+
+  dashboard:
+    enabled: true
+    description: "Analytics dashboard and reporting"
+    default_features: {}
+
+  orchestrator:
+    enabled: true
+    description: "Task orchestration and workflow management"
+    default_features: {}

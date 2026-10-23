@@ -1,0 +1,122 @@
+name: di-standalone
+
+x-runtime: &runtime
+  env_file: .env
+  restart: unless-stopped
+  environment: &environment
+    MODE: STANDALONE
+    AUTH_MODE: standalone
+    POSTGRES_HOST: postgres
+    POSTGRES_PORT: 5432
+    POSTGRES_DB_NAME: di_standalone
+    POSTGRES_USER: di
+    QDRANT_URL: http://qdrant:6333
+    AWS_ENDPOINT_URL: http://localstack:4566
+    AWS_REGION: us-east-1
+    AWS_ACCESS_KEY_ID: test
+    AWS_SECRET_ACCESS_KEY: test
+    SQS_AWS_REGION: us-east-1
+    SQS_AWS_ACCESS_KEY_ID: test
+    SQS_AWS_SECRET_ACCESS_KEY: test
+    SQS_QUEUE_NAME: di-ingestion.fifo
+    SQS_QUEUE_URL: http://localstack:4566/000000000000/di-ingestion.fifo
+    CELERY_BROKER_URL: sqs://test:test@localstack:4566
+    CELERY_RESULT_BACKEND: redis://redis:6379/0
+    BUCKET_NAME: di-documents
+    KNOWLEDGE_API_BASE_URL: http://api:8000/api/knowledge
+    KNOWLEDGE_API_KEY: ${FASTAPI_SECRET_KEY:?Run configure.py first}
+    BYOK_PLATFORM_FALLBACK: "false"
+    LANGCHAIN_TRACING_V2: "false"
+    LANGSMITH_TRACING: "false"
+    COST_SWEEPER_ENABLED: "false"
+    CHAT_COST_FINALIZE_ENABLED: "false"
+    CONNECTOR_RUNNER_INPROCESS: "false"
+    REPORTS_SCHEDULER_ENABLED: "false"
+
+services:
+  postgres:
+    image: postgres:16.6
+    environment:
+      POSTGRES_DB: di_standalone
+      POSTGRES_USER: di
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Run configure.py first}
+    volumes: [postgres-data:/var/lib/postgresql/data]
+    healthcheck:
+      test: [CMD-SHELL, pg_isready -U di -d di_standalone]
+      interval: 3s
+      retries: 30
+  qdrant:
+    image: qdrant/qdrant:v1.15.1
+    volumes: [qdrant-data:/qdrant/storage]
+  redis:
+    image: redis:7.4.2-alpine
+    healthcheck:
+      test: [CMD, redis-cli, ping]
+      interval: 3s
+      retries: 30
+  localstack:
+    image: localstack/localstack:4.7.0
+    environment:
+      SERVICES: s3,sqs
+      SQS_ENDPOINT_STRATEGY: path
+      AWS_DEFAULT_REGION: us-east-1
+    volumes:
+      - ./deploy/init-aws.sh:/etc/localstack/init/ready.d/init-aws.sh:ro
+    healthcheck:
+      test: [CMD-SHELL, 'awslocal sqs get-queue-url --queue-name di-ingestion.fifo >/dev/null && awslocal s3api head-bucket --bucket di-documents']
+      interval: 5s
+      retries: 30
+  api-init:
+    <<: *runtime
+    restart: "no"
+    build:
+      context: .
+      dockerfile: deploy/docker/api.Dockerfile
+    command: [python, -m, scripts.bootstrap_standalone]
+    depends_on:
+      postgres: {condition: service_healthy}
+  worker-init:
+    <<: *runtime
+    restart: "no"
+    build:
+      context: ./workers
+      dockerfile: Dockerfile.celery
+    command: [python, -m, services.bootstrap_standalone]
+    depends_on:
+      api-init: {condition: service_completed_successfully}
+  api:
+    ports: ["127.0.0.1:${DI_API_PORT:-8000}:8000"]
+    <<: *runtime
+    build:
+      context: .
+      dockerfile: deploy/docker/api.Dockerfile
+    command: [uvicorn, main:app, --host, 0.0.0.0, --port, "8000"]
+    depends_on:
+      worker-init: {condition: service_completed_successfully}
+      localstack: {condition: service_healthy}
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 5s
+      retries: 30
+  worker:
+    <<: *runtime
+    build:
+      context: ./workers
+      dockerfile: Dockerfile.celery
+    command: [celery, -A, celery_workers.celery_worker, worker, --pool=solo, --concurrency=1, --queues=di-ingestion.fifo, --loglevel=info]
+    depends_on:
+      api: {condition: service_healthy}
+      qdrant: {condition: service_started}
+      redis: {condition: service_healthy}
+  ui:
+    profiles: [ui]
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.standalone
+    ports: ["127.0.0.1:${DI_PORT:-8086}:80"]
+    depends_on:
+      api: {condition: service_healthy}
+
+volumes:
+  postgres-data:
+  qdrant-data:

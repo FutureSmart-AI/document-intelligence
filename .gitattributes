@@ -1,0 +1,14 @@
+*.sh text eol=lf
+
+# Preserve imported source snapshot bytes.
+frontend/** -text
+workers/** -text
+frontend/**/*.sh text eol=lf
+workers/**/*.sh text eol=lf
+
+# Preserve imported worker regression bytes after layout move.
+tests/worker/** -text
+
+# Private product memory must not enter a public source snapshot.
+internal export-ignore
+internal/** export-ignore
