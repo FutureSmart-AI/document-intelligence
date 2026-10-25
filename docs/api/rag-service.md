@@ -1,5 +1,10 @@
 # RAG service API
 
+> Using the hosted product? The [developer docs](https://futuresmart.ai/docs/document-intelligence)
+> have a quickstart, API key guidance, streaming, errors and the full
+> [API reference](https://futuresmart.ai/docs/document-intelligence/api-reference).
+> This page covers a local or self-hosted installation.
+
 Use the same stack and ingestion workers as the full product. Start without
 the `ui` profile, or stop `ui` before service-only verification. All routes below
 are relative to the **direct API**, `http://localhost:8000` in Compose. A deployed
