@@ -14,6 +14,7 @@ capabilities through APIs.
 
 **[Try the Live Application](https://futuresmart.ai/solutions/document-intelligence)** ·
 **[View Installation Guide](#install)** ·
+**[Developer docs](https://futuresmart.ai/docs/document-intelligence)** ·
 **[Explore the API](docs/api/rag-service.md)**
 
 Open source · Apache-2.0 · Self-hostable · API accessible
@@ -33,7 +34,9 @@ documents and get answers grounded in them, with the documents each answer used.
 **Document Intelligence APIs.** Use ingestion, extraction configuration, search
 and grounded chat from your own applications through the
 [documented REST API](docs/api/rag-service.md). The search API returns the
-matching passages themselves.
+matching passages themselves. For the hosted product, the
+[developer docs](https://futuresmart.ai/docs/document-intelligence) cover API keys,
+adding documents, search, chat, extracted fields and the full API reference.
 
 ## Who it is for
 
