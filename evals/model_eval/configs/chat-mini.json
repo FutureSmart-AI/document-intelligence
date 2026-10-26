@@ -1,0 +1,15 @@
+{
+  "profile": "openai-v1",
+  "suites": ["rag"],
+  "about": "Chat candidate: retrieval agent and answer on gpt-5.4-mini (the chat-config row default) instead of gpt-5.6-luna. Extraction as baseline (its RAG suite reuses the baseline collections).",
+  "settings": {
+    "ENRICHMENT_MODEL": "gpt-5.4-nano", "ENRICHMENT_FALLBACK_MODEL": "gpt-5.4-nano", "ENRICHMENT_REASONING_EFFORT": "medium",
+    "RAG_CHAT_AGENT_LLM_PROVIDER": "openai", "RAG_CHAT_AGENT_LLM_MODEL": "gpt-5.4-mini",
+    "RAG_CHAT_ANSWER_LLM_PROVIDER": "openai", "RAG_CHAT_ANSWER_LLM_MODEL": "gpt-5.4-mini",
+    "RAG_CHAT_REFINED_QUERY_LLM_PROVIDER": "openai", "RAG_CHAT_REFINED_QUERY_LLM_MODEL": "gpt-5.4-nano",
+    "RAG_RETRIEVAL_VERIFIER_PROVIDER": "openai", "RAG_RETRIEVAL_VERIFIER_MODEL": "gpt-5.4-nano",
+    "FOLLOW_UP_LLM_PROVIDER": "openai", "FOLLOW_UP_LLM_MODEL": "gpt-5.4-nano",
+    "CHART_EXTRACTION_MODEL": "gpt-5.4-mini", "CHART_RENDER_PROVIDER": "openai", "CHART_RENDER_MODEL": "gpt-5.4-mini",
+    "RAG_FALLBACK_PROVIDER": "openai", "RAG_FALLBACK_MODEL": "gpt-5.4-mini"
+  }
+}

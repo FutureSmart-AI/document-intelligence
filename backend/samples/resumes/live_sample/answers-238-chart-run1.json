@@ -1,0 +1,3909 @@
+{
+  "Chart the number of candidates by education level": {
+    "status": 200,
+    "seconds": 14.2,
+    "body": {
+      "query": "Chart the number of candidates by education level",
+      "refined_query": "Chart the number of candidates by education level",
+      "response": "| Education level | Candidates |\n|---|---:|\n| Bachelors | 15 |\n| Masters | 8 |\n| PhD | 1 |\n| **Total** | **24** |",
+      "session_id": "e1468b7f-ef39-4fb5-9e60-bdd51c0ececb",
+      "chat_id": "97eef3ab-5d28-4790-a07b-e4967d850d9c",
+      "data": {
+        "knowledge": {
+          "relevant_sources": {
+            "data": [
+              {
+                "id": "3f0002c1-20c3-4824-b27d-6518145b9a8d",
+                "title": "r20-vikram-singh.pdf",
+                "context": ""
+              },
+              {
+                "id": "6c4aaf1e-8337-4d48-8466-57ab7b264c2e",
+                "title": "r23-hannah-becker.pdf",
+                "context": ""
+              },
+              {
+                "id": "263af3df-a942-4005-83c8-d3c23e52c37f",
+                "title": "r14-oliver-schmidt.pdf",
+                "context": ""
+              },
+              {
+                "id": "303b2219-be91-4c5d-af66-198364de7d2f",
+                "title": "r04-sneha-kulkarni.pdf",
+                "context": ""
+              },
+              {
+                "id": "a72a0057-effb-4d01-8ea6-05e173890f28",
+                "title": "r09-lucas-fernandez.pdf",
+                "context": ""
+              },
+              {
+                "id": "62ea8cef-fc5c-4075-8849-47be944e7f93",
+                "title": "r16-arjun-malhotra.pdf",
+                "context": ""
+              },
+              {
+                "id": "4578c942-9810-478d-9f60-15fbeaa84907",
+                "title": "r17-grace-liu.pdf",
+                "context": ""
+              },
+              {
+                "id": "b1a970a0-970c-4d66-ac8b-68681ad5da1a",
+                "title": "r10-ishaan-chatterjee.pdf",
+                "context": ""
+              },
+              {
+                "id": "f0f297b6-06e6-4dc6-85f6-2602a36edc8d",
+                "title": "r18-rohan-deshpande.pdf",
+                "context": ""
+              },
+              {
+                "id": "1973b6e9-a35d-425d-a1ac-c5e9e2042161",
+                "title": "r01-aarav-mehta.pdf",
+                "context": ""
+              },
+              {
+                "id": "ffe2bdcc-6a8f-4f6c-84e4-93a786aacc68",
+                "title": "r19-nadia-haddad.pdf",
+                "context": ""
+              },
+              {
+                "id": "9fcc923c-65e4-4654-9c66-5e4b3d62a717",
+                "title": "r03-daniel-okafor.pdf",
+                "context": ""
+              },
+              {
+                "id": "1125d46f-7616-47e6-9042-e113462153dc",
+                "title": "r05-rahul-verma.pdf",
+                "context": ""
+              },
+              {
+                "id": "2424ea77-35bb-473d-8c40-0c36aa0784d6",
+                "title": "r11-anjali-nair.pdf",
+                "context": ""
+              },
+              {
+                "id": "6e951171-51bd-4723-87ed-11f68cb81c1c",
+                "title": "r13-zoya-ahmed.pdf",
+                "context": ""
+              },
+              {
+                "id": "527da6e0-0206-4649-ba12-1a0441c6b9c9",
+                "title": "r22-siddharth-rao.pdf",
+                "context": ""
+              },
+              {
+                "id": "b9d4add5-0406-4b60-a549-282a6eba390e",
+                "title": "r15-kavya-reddy.pdf",
+                "context": ""
+              },
+              {
+                "id": "c9ee76a5-41c7-4dcb-a634-4841b07b9408",
+                "title": "r02-priya-raghunathan.pdf",
+                "context": ""
+              },
+              {
+                "id": "bc7e4327-ef25-4034-9d79-47ffa8150c6a",
+                "title": "r06-meera-iyer.pdf",
+                "context": ""
+              },
+              {
+                "id": "ee2a5a49-044a-4b2c-bf1f-65d3bb038f17",
+                "title": "r08-fatima-sheikh.pdf",
+                "context": ""
+              },
+              {
+                "id": "784eb166-87bc-49da-9521-cf355cfecd27",
+                "title": "r12-michael-brennan.pdf",
+                "context": ""
+              },
+              {
+                "id": "51d12a71-508e-4442-9ccc-d09e0652c459",
+                "title": "r07-kenji-watanabe.pdf",
+                "context": ""
+              },
+              {
+                "id": "b2f90fe4-6b51-430c-9e5a-3bbb8cbd037f",
+                "title": "r21-emily-carter.pdf",
+                "context": ""
+              },
+              {
+                "id": "dc603dcd-04f6-47c1-9232-4413166c75b4",
+                "title": "r24-tanvi-joshi.pdf",
+                "context": ""
+              }
+            ],
+            "tool_name": "rag"
+          },
+          "summaries": {
+            "3f0002c1-20c3-4824-b27d-6518145b9a8d": {
+              "summary": "",
+              "metadata": {
+                "document_type": "resume",
+                "candidate_name": "Vikram Singh",
+                "candidate_email": "vikram.singh@example.net",
+                "education": [
+                  {
+                    "degree": "B.Tech",
+                    "institution": "Aravalli Institute of Technology",
+                    "field_of_study": "Mechanical Engineering",
+                    "graduation_year": 2024
+                  }
+                ],
+                "current_role": "Associate Product Manager",
+                "seniority_level": "mid_level",
+                "years_of_experience": 2,
+                "skills": [
+                  "product discovery",
+                  "sql",
+                  "figma",
+                  "jira",
+                  "user research",
+                  "product analytics",
+                  "wireframing"
+                ],
+                "education_level": "bachelors",
+                "certifications": [],
+                "locations": [
+                  "bengaluru"
+                ],
+                "industries": [
+                  "edtech"
+                ],
+                "languages": [
+                  "english",
+                  "hindi"
+                ],
+                "file_name": "r20-vikram-singh.pdf",
+                "title": null
+              },
+              "object_id": "3f0002c1-20c3-4824-b27d-6518145b9a8d",
+              "file_name": "r20-vikram-singh.pdf",
+              "title": null
+            },
+            "6c4aaf1e-8337-4d48-8466-57ab7b264c2e": {
+              "summary": "",
+              "metadata": {
+                "document_type": "resume",
+                "candidate_name": "Hannah Becker",
+                "candidate_email": "hannah.becker@example.com",
+                "education": [
+                  {
+                    "degree": "B.Sc.",
+                    "institution": "Isar Valley University",
+                    "field_of_study": "Economics",
+                    "graduation_year": 2021
+                  }
+                ],
+                "current_role": "Product Analyst",
+                "seniority_level": "mid_level",
+                "years_of_experience": 4,
+                "skills": [
+                  "sql",
+                  "python",
+                  "amplitude",
+                  "a/b testing",
+                  "product analytics",
+                  "tableau",
+                  "statistics"
+                ],
+                "education_level": "bachelors",
+                "certifications": [],
+                "locations": [
+                  "munich"
+                ],
+                "industries": [
+                  "mobility"
+                ],
+                "languages": [
+                  "german",
+                  "english",
+                  "spanish"
+                ],
+                "file_name": "r23-hannah-becker.pdf",
+                "title": null
+              },
+              "object_id": "6c4aaf1e-8337-4d48-8466-57ab7b264c2e",
+              "file_name": "r23-hannah-becker.pdf",
+              "title": null
+            },
+            "263af3df-a942-4005-83c8-d3c23e52c37f": {
+              "summary": "",
+              "metadata": {
+                "document_type": "resume",
+                "candidate_name": "Oliver Schmidt",
+                "candidate_email": "oliver.schmidt@example.net",
+                "education": [
+                  {
+                    "degree": "M.Sc.",
+                    "institution": "Technische Hochschule Rabenfeld",
+                    "field_of_study": "Informatics",
+                    "graduation_year": 2016
+                  }
+                ],
+                "current_role": "Lead MLOps Engineer",
+                "seniority_level": "lead",
+                "years_of_experience": 10,
+                "skills": [
+                  "python",
+                  "kubernetes",
+                  "mlflow",
+                  "kubeflow",
+                  "aws",
+                  "gcp",
+                  "terraform",
+                  "docker",
+                  "feature stores",
+                  "llmops"
+                ],
+                "education_level": "masters",
+                "certifications": [
+                  "google professional machine learning engineer",
+                  "certified kubernetes administrator (cka)"
+                ],
+                "locations": [
+                  "Berlin"
+                ],
+                "industries": [
+                  "ride-sharing and micromobility",
+                  "insurance"
+                ],
+                "languages": [
+                  "german",
+                  "english"
+                ],
+                "file_name": "r14-oliver-schmidt.pdf",
+                "title": null
+              },
+              "object_id": "263af3df-a942-4005-83c8-d3c23e52c37f",
+              "file_name": "r14-oliver-schmidt.pdf",
+              "title": null
+            },
+            "303b2219-be91-4c5d-af66-198364de7d2f": {
+              "summary": "",
+              "metadata": {
+                "document_type": "resume",
+                "candidate_name": "Sneha Kulkarni",
+                "candidate_email": "sneha.kulkarni@example.com",
+                "education": [
+                  {
+                    "degree": "B.Sc.",
+                    "institution": "Sahyadri College of Science",
+                    "field_of_study": "Statistics",
+                    "graduation_year": 2025
+                  }
+                ],
+                "current_role": "Data Analyst",
+                "seniority_level": "junior",
+                "years_of_experience": 1,
+                "skills": [
+                  "sql",
+                  "excel",
+                  "power bi",
+                  "python",
+                  "pandas",
+                  "data visualization"
+                ],
+                "education_level": "bachelors",
+                "certifications": [
+                  "Google Data Analytics Professional Certificate"
+                ],
+                "locations": [
+                  "Pune"
+                ],
+                "industries": [
+                  "retail",
+                  "apparel retail"
+                ],
+                "languages": [
+                  "english",
+                  "marathi",
+                  "hindi"
+                ],
+                "file_name": "r04-sneha-kulkarni.pdf",
+                "title": null
+              },
+              "object_id": "303b2219-be91-4c5d-af66-198364de7d2f",
+              "file_name": "r04-sneha-kulkarni.pdf",
+              "title": null
+            },
+            "a72a0057-effb-4d01-8ea6-05e173890f28": {
+              "summary": "",
+              "metadata": {
+                "document_type": "resume",
+                "candidate_name": "Lucas Fernandez",
+                "candidate_email": "lucas.fernandez@example.com",
+                "education": [
+                  {
+                    "degree": "Bachelor's",
+                    "institution": "Universidad de Valdemora",
+                    "field_of_study": "Computer Engineering",
+                    "graduation_year": 2019
+                  }
+                ],
+                "current_role": "Senior Frontend Engineer",
+                "seniority_level": "senior",
+                "years_of_experience": 7,
+                "skills": [
+                  "typescript",
+                  "react",
+                  "next.js",
+                  "graphql",
+                  "node.js",
+                  "css",
+                  "frontend testing",
+                  "accessibility",
+                  "webpack"
+                ],
+                "education_level": "bachelors",
+                "certifications": [],
+                "locations": [
+                  "Madrid"
+                ],
+                "industries": [
+                  "travel",
+                  "saas",
+                  "online travel booking"
+                ],
+                "languages": [
+                  "spanish",
+                  "english",
+                  "catalan"
+                ],
+                "file_name": "r09-lucas-fernandez.pdf",
+                "title": null
+              },
+              "object_id": "a72a0057-effb-4d01-8ea6-05e173890f28",
+              "file_name": "r09-lucas-fernandez.pdf",
+              "title": null
+            },
+            "62ea8cef-fc5c-4075-8849-47be944e7f93": {
+              "summary": "",
+              "metadata": {
+                "document_type": "resume",
+                "candidate_name": "Arjun Malhotra",
+                "candidate_email": "arjun.malhotra@example.com",
+                "education": [
+                  {
+                    "degree": "B.Tech",
+                    "institution": "Shivalik Institute of Technology",
+                    "field_of_study": "Computer Science",
+                    "graduation_year": 2019
+                  }
+                ],
+                "current_role": "Senior AI Engineer",
+                "seniority_level": "senior",
+                "years_of_experience": 7,
+                "skills": [
+                  "python",
+                  "langchain",
+                  "llamaindex",
+                  "rag",
+                  "openai api",
+                  "vector databases",
+                  "fastapi",
+                  "aws",
+                  "prompt engineering",
+                  "llm evaluation"
+                ],
+                "education_level": "bachelors",
+                "certifications": [
+                  "aws certified solutions architect - associate"
+                ],
+                "locations": [
+                  "Gurugram",
+                  "Remote"
+                ],
+                "industries": [
+                  "legal tech",
+                  "saas",
+                  "artificial intelligence"
+                ],
+                "languages": [
+                  "english",
+                  "hindi",
+                  "punjabi"
+                ],
+                "file_name": "r16-arjun-malhotra.pdf",
+                "title": null
+              },
+              "object_id": "62ea8cef-fc5c-4075-8849-47be944e7f93",
+              "file_name": "r16-arjun-malhotra.pdf",
+              "title": null
+            },
+            "4578c942-9810-478d-9f60-15fbeaa84907": {
+              "summary": "",
+              "metadata": {
+                "document_type": "resume",
+                "candidate_name": "Grace Liu",
+                "candidate_email": "grace.liu@example.net",
+                "work_experience": [
+                  {
+                    "title": "Data Scientist",
+                    "company": "Mangrove Pay",
+                    "summary": "Builds fraud-detection models on BigQuery features and fine-tunes a transformer classifier to route support tickets in 6 languages.",
+                    "end_year": null,
+                    "start_year": 2022
+                  }
+                ],
+                "current_role": "Data Scientist",
+                "seniority_level": "mid_level",
+                "years_of_experience": 4,
+                "skills": [
+                  "python",
+                  "sql",
+                  "scikit-learn",
+                  "nlp",
+                  "transformers",
+                  "gcp",
+                  "bigquery",
+                  "experimentation",
+                  "tableau"
+                ],
+                "education_level": "masters",
+                "certifications": [
+                  "google cloud professional data engineer"
+                ],
+                "locations": [
+                  "singapore"
+                ],
+                "industries": [
+                  "fintech"
+                ],
+                "languages": [
+                  "english",
+                  "mandarin"
+                ],
+                "file_name": "r17-grace-liu.pdf",
+                "title": null
+              },
+              "object_id": "4578c942-9810-478d-9f60-15fbeaa84907",
+              "file_name": "r17-grace-liu.pdf",
+              "title": null
+            },
+            "b1a970a0-970c-4d66-ac8b-68681ad5da1a": {
+              "summary": "",
+              "metadata": {
+                "document_type": "resume",
+                "candidate_name": "Ishaan Chatterjee",
+                "candidate_email": "ishaan.chatterjee@example.net",
+                "work_experience": [
+                  {
+                    "title": "Software Engineering Intern",
+                    "company": "Quillstone Labs",
+                    "summary": "Built Flask API endpoints and unit tests during a two-month summer internship.",
+                    "end_year": 2025,
+                    "start_year": 2025
+                  }
+                ],
+                "education": [
+                  {
+                    "degree": "B.Tech",
+                    "institution": "Hooghly Riverside Institute of Technology",
+                    "field_of_study": "Computer Science and Engineering",
+                    "graduation_year": 2026
+                  }
+                ],
+                "current_role": "Software Engineering Intern",
+                "seniority_level": "junior",
+                "years_of_experience": 0,
+                "skills": [
+                  "python",
+                  "c++",
+                  "data structures",
+                  "machine learning",
+                  "sql",
+                  "git",
+                  "flask",
+                  "langchain",
+                  "rag"
+                ],
+                "education_level": "bachelors",
+                "certifications": [],
+                "locations": [
+                  "kolkata",
+                  "bengaluru",
+                  "remote"
+                ],
+                "industries": [
+                  "software"
+                ],
+                "languages": [
+                  "english",
+                  "bengali",
+                  "hindi"
+                ],
+                "file_name": "r10-ishaan-chatterjee.pdf",
+                "title": null
+              },
+              "object_id": "b1a970a0-970c-4d66-ac8b-68681ad5da1a",
+              "file_name": "r10-ishaan-chatterjee.pdf",
+              "title": null
+            },
+            "f0f297b6-06e6-4dc6-85f6-2602a36edc8d": {
+              "summary": "",
+              "metadata": {
+                "document_type": "resume",
+                "candidate_name": "Rohan Deshpande",
+                "candidate_email": "rohan.deshpande@example.com",
+                "education": [
+                  {
+                    "degree": "B.E.",
+                    "institution": "Pune Plateau College of Engineering",
+                    "field_of_study": "Electronics and Telecommunication",
+                    "graduation_year": 2011
+                  }
+                ],
+                "current_role": "Principal Data Engineer",
+                "seniority_level": "principal",
+                "years_of_experience": 15,
+                "skills": [
+                  "spark",
+                  "hadoop",
+                  "scala",
+                  "python",
+                  "aws",
+                  "azure",
+                  "data architecture",
+                  "kafka",
+                  "snowflake",
+                  "sql"
+                ],
+                "education_level": "bachelors",
+                "certifications": [
+                  "microsoft certified: azure data engineer associate",
+                  "aws certified data analytics - specialty"
+                ],
+                "locations": [
+                  "pune",
+                  "mumbai"
+                ],
+                "industries": [
+                  "energy",
+                  "telecommunications"
+                ],
+                "languages": [
+                  "english",
+                  "marathi",
+                  "hindi"
+                ],
+                "file_name": "r18-rohan-deshpande.pdf",
+                "title": null
+              },
+              "object_id": "f0f297b6-06e6-4dc6-85f6-2602a36edc8d",
+              "file_name": "r18-rohan-deshpande.pdf",
+              "title": null
+            },
+            "1973b6e9-a35d-425d-a1ac-c5e9e2042161": {
+              "summary": "",
+              "metadata": {
+                "document_type": "resume",
+                "candidate_name": "Aarav Mehta",
+                "candidate_email": "aarav.mehta@example.com",
+                "current_role": "Senior Machine Learning Engineer",
+                "seniority_level": "senior",
+                "years_of_experience": 8,
+                "skills": [
+                  "python",
+                  "pytorch",
+                  "aws",
+                  "langchain",
+                  "rag",
+                  "llm fine-tuning",
+                  "docker",
+                  "kubernetes",
+                  "mlflow",
+                  "sql"
+                ],
+                "education_level": "masters",
+                "certifications": [
+                  "AWS Certified Machine Learning - Specialty"
+                ],
+                "locations": [
+                  "Bengaluru"
+                ],
+                "industries": [
+                  "e-commerce",
+                  "fintech"
+                ],
+                "languages": [
+                  "english",
+                  "hindi",
+                  "kannada"
+                ],
+                "file_name": "r01-aarav-mehta.pdf",
+                "title": null
+              },
+              "object_id": "1973b6e9-a35d-425d-a1ac-c5e9e2042161",
+              "file_name": "r01-aarav-mehta.pdf",
+              "title": null
+            },
+            "ffe2bdcc-6a8f-4f6c-84e4-93a786aacc68": {
+              "summary": "",
+              "metadata": {
+                "document_type": "resume",
+                "candidate_name": "Nadia Haddad",
+                "candidate_email": "nadia.haddad@example.org",
+                "education": [
+                  {
+                    "degree": "B.Sc.",
+                    "institution": "Levant Polytechnic University",
+                    "field_of_study": "Computer Science",
+                    "graduation_year": 2017
+                  }
+                ],
+                "current_role": "Senior Site Reliability Engineer",
+                "seniority_level": "senior",
+                "years_of_experience": 9,
+                "skills": [
+                  "kubernetes",
+                  "gcp",
+                  "aws",
+                  "terraform",
+                  "go",
+                  "python",
+                  "prometheus",
+                  "incident management",
+                  "linux",
+                  "helm"
+                ],
+                "education_level": "bachelors",
+                "certifications": [
+                  "Certified Kubernetes Administrator (CKA)",
+                  "Google Professional Cloud DevOps Engineer"
+                ],
+                "locations": [
+                  "Dubai"
+                ],
+                "industries": [
+                  "logistics",
+                  "web hosting",
+                  "cloud hosting"
+                ],
+                "languages": [
+                  "arabic",
+                  "english",
+                  "french"
+                ],
+                "file_name": "r19-nadia-haddad.pdf",
+                "title": null
+              },
+              "object_id": "ffe2bdcc-6a8f-4f6c-84e4-93a786aacc68",
+              "file_name": "r19-nadia-haddad.pdf",
+              "title": null
+            },
+            "9fcc923c-65e4-4654-9c66-5e4b3d62a717": {
+              "summary": "",
+              "metadata": {
+                "document_type": "resume",
+                "candidate_name": "Daniel Okafor",
+                "candidate_email": "daniel.okafor@example.net",
+                "education": [
+                  {
+                    "degree": "B.Eng.",
+                    "institution": "University of Eastmere",
+                    "field_of_study": "Computer Engineering",
+                    "graduation_year": 2010
+                  }
+                ],
+                "current_role": "Principal Software Engineer",
+                "seniority_level": "principal",
+                "years_of_experience": 14,
+                "skills": [
+                  "java",
+                  "go",
+                  "kubernetes",
+                  "aws",
+                  "postgresql",
+                  "kafka",
+                  "distributed systems",
+                  "system design",
+                  "terraform",
+                  "grpc"
+                ],
+                "education_level": "bachelors",
+                "certifications": [
+                  "aws certified solutions architect - professional",
+                  "certified kubernetes administrator (cka)"
+                ],
+                "locations": [
+                  "London"
+                ],
+                "industries": [
+                  "fintech",
+                  "telecommunications"
+                ],
+                "languages": [
+                  "english",
+                  "yoruba"
+                ],
+                "file_name": "r03-daniel-okafor.pdf",
+                "title": null
+              },
+              "object_id": "9fcc923c-65e4-4654-9c66-5e4b3d62a717",
+              "file_name": "r03-daniel-okafor.pdf",
+              "title": null
+            },
+            "1125d46f-7616-47e6-9042-e113462153dc": {
+              "summary": "",
+              "metadata": {
+                "document_type": "resume",
+                "candidate_name": "Rahul Verma",
+                "candidate_email": "rahul.verma@example.org",
+                "education": [
+                  {
+                    "degree": "B.Tech",
+                    "institution": "Golconda Institute of Engineering",
+                    "field_of_study": "Information Technology",
+                    "graduation_year": 2021
+                  }
+                ],
+                "current_role": "DevOps Engineer",
+                "seniority_level": "senior",
+                "years_of_experience": 5,
+                "skills": [
+                  "aws",
+                  "terraform",
+                  "kubernetes",
+                  "docker",
+                  "jenkins",
+                  "python",
+                  "bash",
+                  "prometheus",
+                  "grafana",
+                  "ansible"
+                ],
+                "education_level": "bachelors",
+                "certifications": [
+                  "aws certified devops engineer - professional",
+                  "certified kubernetes administrator (cka)"
+                ],
+                "locations": [
+                  "Hyderabad"
+                ],
+                "industries": [
+                  "b2b saas",
+                  "saas",
+                  "hr software"
+                ],
+                "languages": [
+                  "english",
+                  "hindi",
+                  "telugu"
+                ],
+                "file_name": "r05-rahul-verma.pdf",
+                "title": null
+              },
+              "object_id": "1125d46f-7616-47e6-9042-e113462153dc",
+              "file_name": "r05-rahul-verma.pdf",
+              "title": null
+            },
+            "2424ea77-35bb-473d-8c40-0c36aa0784d6": {
+              "summary": "",
+              "metadata": {
+                "document_type": "resume",
+                "candidate_name": "Anjali Nair",
+                "candidate_email": "anjali.nair@example.com",
+                "education": [
+                  {
+                    "degree": "B.Tech",
+                    "institution": "Malabar Coast College of Engineering",
+                    "field_of_study": "Computer Science",
+                    "graduation_year": 2020
+                  }
+                ],
+                "current_role": "Senior Data Engineer",
+                "seniority_level": "senior",
+                "years_of_experience": 6,
+                "skills": [
+                  "python",
+                  "spark",
+                  "airflow",
+                  "sql",
+                  "snowflake",
+                  "dbt",
+                  "aws",
+                  "kafka",
+                  "data modeling",
+                  "scala"
+                ],
+                "education_level": "bachelors",
+                "certifications": [
+                  "AWS Certified Data Engineer - Associate",
+                  "snowpro core certification"
+                ],
+                "locations": [
+                  "Kochi",
+                  "Bengaluru"
+                ],
+                "industries": [
+                  "logistics",
+                  "saas"
+                ],
+                "languages": [
+                  "english",
+                  "malayalam",
+                  "hindi"
+                ],
+                "file_name": "r11-anjali-nair.pdf",
+                "title": null
+              },
+              "object_id": "2424ea77-35bb-473d-8c40-0c36aa0784d6",
+              "file_name": "r11-anjali-nair.pdf",
+              "title": null
+            },
+            "6e951171-51bd-4723-87ed-11f68cb81c1c": {
+              "summary": "",
+              "metadata": {
+                "document_type": "resume",
+                "candidate_name": "Zoya Ahmed",
+                "candidate_email": "zoya.ahmed@example.com",
+                "current_role": "Senior Business Analyst",
+                "seniority_level": "senior",
+                "years_of_experience": 7,
+                "skills": [
+                  "sql",
+                  "python",
+                  "power bi",
+                  "excel",
+                  "stakeholder management",
+                  "forecasting",
+                  "a/b testing",
+                  "looker"
+                ],
+                "education_level": "masters",
+                "certifications": [],
+                "locations": [
+                  "New Delhi",
+                  "Gurugram"
+                ],
+                "industries": [
+                  "e-commerce",
+                  "fintech",
+                  "payments"
+                ],
+                "languages": [
+                  "english",
+                  "hindi",
+                  "urdu"
+                ],
+                "file_name": "r13-zoya-ahmed.pdf",
+                "title": null
+              },
+              "object_id": "6e951171-51bd-4723-87ed-11f68cb81c1c",
+              "file_name": "r13-zoya-ahmed.pdf",
+              "title": null
+            },
+            "527da6e0-0206-4649-ba12-1a0441c6b9c9": {
+              "summary": "",
+              "metadata": {
+                "document_type": "resume",
+                "candidate_name": "Siddharth Rao",
+                "candidate_email": "siddharth.rao@example.org",
+                "education": [
+                  {
+                    "degree": "M.S.",
+                    "institution": "Godavari Institute of Science and Technology",
+                    "field_of_study": "Computer Science",
+                    "graduation_year": 2013
+                  }
+                ],
+                "current_role": "Staff Machine Learning Engineer",
+                "seniority_level": "lead",
+                "years_of_experience": 13,
+                "skills": [
+                  "python",
+                  "tensorflow",
+                  "pytorch",
+                  "recommender systems",
+                  "rag",
+                  "llms",
+                  "spark",
+                  "aws",
+                  "kubernetes",
+                  "mlops"
+                ],
+                "education_level": "masters",
+                "certifications": [],
+                "locations": [
+                  "Hyderabad",
+                  "Remote"
+                ],
+                "industries": [
+                  "mobility",
+                  "analytics consultancy",
+                  "consulting"
+                ],
+                "languages": [
+                  "english",
+                  "telugu",
+                  "hindi"
+                ],
+                "file_name": "r22-siddharth-rao.pdf",
+                "title": null
+              },
+              "object_id": "527da6e0-0206-4649-ba12-1a0441c6b9c9",
+              "file_name": "r22-siddharth-rao.pdf",
+              "title": null
+            },
+            "b9d4add5-0406-4b60-a549-282a6eba390e": {
+              "summary": "",
+              "metadata": {
+                "document_type": "resume",
+                "candidate_name": "Kavya Reddy",
+                "candidate_email": "kavya.reddy@example.org",
+                "education": [
+                  {
+                    "degree": "B.Tech",
+                    "institution": "Krishna Delta Institute of Technology",
+                    "field_of_study": "Electronics and Communication Engineering",
+                    "graduation_year": 2023
+                  }
+                ],
+                "current_role": "Software Engineer II",
+                "seniority_level": "mid_level",
+                "years_of_experience": 2,
+                "skills": [
+                  "java",
+                  "spring boot",
+                  "postgresql",
+                  "redis",
+                  "microservices",
+                  "aws",
+                  "docker",
+                  "rest apis"
+                ],
+                "education_level": "bachelors",
+                "certifications": [],
+                "locations": [
+                  "bengaluru"
+                ],
+                "industries": [
+                  "healthcare",
+                  "digital health"
+                ],
+                "languages": [
+                  "english",
+                  "telugu",
+                  "kannada"
+                ],
+                "file_name": "r15-kavya-reddy.pdf",
+                "title": null
+              },
+              "object_id": "b9d4add5-0406-4b60-a549-282a6eba390e",
+              "file_name": "r15-kavya-reddy.pdf",
+              "title": null
+            },
+            "c9ee76a5-41c7-4dcb-a634-4841b07b9408": {
+              "summary": "",
+              "metadata": {
+                "document_type": "resume",
+                "candidate_name": "Priya Raghunathan",
+                "candidate_email": "priya.raghunathan@example.org",
+                "current_role": "Lead Data Scientist",
+                "seniority_level": "lead",
+                "years_of_experience": 12,
+                "skills": [
+                  "python",
+                  "r",
+                  "sql",
+                  "statistics",
+                  "xgboost",
+                  "spark",
+                  "azure",
+                  "tableau",
+                  "causal inference",
+                  "forecasting"
+                ],
+                "education_level": "masters",
+                "certifications": [],
+                "locations": [
+                  "Chennai",
+                  "Remote"
+                ],
+                "industries": [
+                  "healthcare",
+                  "insurance"
+                ],
+                "languages": [
+                  "english",
+                  "tamil"
+                ],
+                "file_name": "r02-priya-raghunathan.pdf",
+                "title": null
+              },
+              "object_id": "c9ee76a5-41c7-4dcb-a634-4841b07b9408",
+              "file_name": "r02-priya-raghunathan.pdf",
+              "title": null
+            },
+            "bc7e4327-ef25-4034-9d79-47ffa8150c6a": {
+              "summary": "",
+              "metadata": {
+                "document_type": "resume",
+                "candidate_name": "Meera Iyer",
+                "candidate_email": "meera.iyer@example.com",
+                "current_role": "Senior Product Manager",
+                "seniority_level": "senior",
+                "years_of_experience": 11,
+                "skills": [
+                  "product strategy",
+                  "roadmapping",
+                  "a/b testing",
+                  "sql",
+                  "user research",
+                  "agile",
+                  "jira",
+                  "stakeholder management",
+                  "product analytics"
+                ],
+                "education_level": "masters",
+                "certifications": [
+                  "certified scrum product owner (cspo)"
+                ],
+                "locations": [
+                  "mumbai"
+                ],
+                "industries": [
+                  "edtech",
+                  "e-commerce",
+                  "it services"
+                ],
+                "languages": [
+                  "english",
+                  "hindi",
+                  "marathi"
+                ],
+                "file_name": "r06-meera-iyer.pdf",
+                "title": null
+              },
+              "object_id": "bc7e4327-ef25-4034-9d79-47ffa8150c6a",
+              "file_name": "r06-meera-iyer.pdf",
+              "title": null
+            },
+            "ee2a5a49-044a-4b2c-bf1f-65d3bb038f17": {
+              "summary": "",
+              "metadata": {
+                "document_type": "resume",
+                "candidate_name": "Fatima Sheikh",
+                "candidate_email": "fatima.sheikh@example.org",
+                "current_role": "Junior Data Scientist",
+                "seniority_level": "junior",
+                "years_of_experience": 7,
+                "skills": [
+                  "python",
+                  "pandas",
+                  "scikit-learn",
+                  "sql",
+                  "statistics",
+                  "tableau",
+                  "machine learning",
+                  "data cleaning"
+                ],
+                "education_level": "bachelors",
+                "certifications": [
+                  "Applied Data Science Bootcamp Certificate"
+                ],
+                "locations": [
+                  "Hyderabad"
+                ],
+                "industries": [
+                  "healthcare",
+                  "education"
+                ],
+                "languages": [
+                  "english",
+                  "urdu",
+                  "hindi",
+                  "telugu"
+                ],
+                "file_name": "r08-fatima-sheikh.pdf",
+                "title": null
+              },
+              "object_id": "ee2a5a49-044a-4b2c-bf1f-65d3bb038f17",
+              "file_name": "r08-fatima-sheikh.pdf",
+              "title": null
+            },
+            "784eb166-87bc-49da-9521-cf355cfecd27": {
+              "summary": "",
+              "metadata": {
+                "document_type": "resume",
+                "candidate_name": "Michael Brennan",
+                "candidate_email": "michael.brennan@example.org",
+                "education": [
+                  {
+                    "degree": "M.S.",
+                    "institution": "Lone Prairie University",
+                    "field_of_study": "Computer Science",
+                    "graduation_year": 2008
+                  },
+                  {
+                    "degree": "B.S.",
+                    "institution": "Lone Prairie University",
+                    "field_of_study": "Computer Science",
+                    "graduation_year": 2006
+                  }
+                ],
+                "current_role": "VP of Engineering",
+                "seniority_level": "executive",
+                "years_of_experience": 18,
+                "skills": [
+                  "engineering leadership",
+                  "system design",
+                  "aws",
+                  "hiring",
+                  "budgeting",
+                  "platform strategy",
+                  "go",
+                  "kubernetes"
+                ],
+                "education_level": "masters",
+                "certifications": [],
+                "locations": [
+                  "Austin, TX",
+                  "Dallas, TX"
+                ],
+                "industries": [
+                  "healthcare saas",
+                  "workflow software",
+                  "b2b software"
+                ],
+                "languages": [
+                  "english"
+                ],
+                "file_name": "r12-michael-brennan.pdf",
+                "title": null
+              },
+              "object_id": "784eb166-87bc-49da-9521-cf355cfecd27",
+              "file_name": "r12-michael-brennan.pdf",
+              "title": null
+            },
+            "51d12a71-508e-4442-9ccc-d09e0652c459": {
+              "summary": "",
+              "metadata": {
+                "document_type": "resume",
+                "candidate_name": "Kenji Watanabe",
+                "candidate_email": "kenji.watanabe@example.net",
+                "current_role": "AI Research Engineer",
+                "seniority_level": "mid_level",
+                "years_of_experience": 4,
+                "skills": [
+                  "python",
+                  "pytorch",
+                  "jax",
+                  "transformers",
+                  "llm pretraining",
+                  "rlhf",
+                  "cuda",
+                  "distributed training",
+                  "rag",
+                  "llm evaluation"
+                ],
+                "education_level": "phd",
+                "certifications": [],
+                "locations": [
+                  "Tokyo",
+                  "Remote"
+                ],
+                "industries": [
+                  "ai research lab",
+                  "artificial intelligence"
+                ],
+                "languages": [
+                  "japanese",
+                  "english"
+                ],
+                "file_name": "r07-kenji-watanabe.pdf",
+                "title": null
+              },
+              "object_id": "51d12a71-508e-4442-9ccc-d09e0652c459",
+              "file_name": "r07-kenji-watanabe.pdf",
+              "title": null
+            },
+            "b2f90fe4-6b51-430c-9e5a-3bbb8cbd037f": {
+              "summary": "",
+              "metadata": {
+                "document_type": "resume",
+                "candidate_name": "Emily Carter",
+                "candidate_email": "emily.carter@example.com",
+                "education": [
+                  {
+                    "degree": "B.Sc.",
+                    "institution": "Lakeshore University",
+                    "field_of_study": "Mathematics",
+                    "graduation_year": 2021
+                  }
+                ],
+                "current_role": "Analytics Engineer",
+                "seniority_level": "mid_level",
+                "years_of_experience": 5,
+                "skills": [
+                  "sql",
+                  "dbt",
+                  "python",
+                  "looker",
+                  "snowflake",
+                  "airflow",
+                  "data modeling",
+                  "git"
+                ],
+                "education_level": "bachelors",
+                "certifications": [
+                  "dbt analytics engineering certification"
+                ],
+                "locations": [
+                  "Toronto"
+                ],
+                "industries": [
+                  "retail",
+                  "banking"
+                ],
+                "languages": [
+                  "english",
+                  "french"
+                ],
+                "file_name": "r21-emily-carter.pdf",
+                "title": null
+              },
+              "object_id": "b2f90fe4-6b51-430c-9e5a-3bbb8cbd037f",
+              "file_name": "r21-emily-carter.pdf",
+              "title": null
+            },
+            "dc603dcd-04f6-47c1-9232-4413166c75b4": {
+              "summary": "",
+              "metadata": {
+                "document_type": "resume",
+                "candidate_name": "Tanvi Joshi",
+                "candidate_email": "tanvi.joshi@example.net",
+                "education": [
+                  {
+                    "degree": "B.E.",
+                    "institution": "Sabarmati Institute of Engineering",
+                    "field_of_study": "Information Technology",
+                    "graduation_year": 2024
+                  }
+                ],
+                "current_role": "Junior AI Engineer",
+                "seniority_level": "junior",
+                "years_of_experience": 2,
+                "skills": [
+                  "python",
+                  "javascript",
+                  "react",
+                  "fastapi",
+                  "langchain",
+                  "rag",
+                  "postgresql",
+                  "docker"
+                ],
+                "education_level": "bachelors",
+                "certifications": [],
+                "locations": [
+                  "Ahmedabad",
+                  "Remote"
+                ],
+                "industries": [
+                  "saas"
+                ],
+                "languages": [
+                  "english",
+                  "gujarati",
+                  "hindi"
+                ],
+                "file_name": "r24-tanvi-joshi.pdf",
+                "title": null
+              },
+              "object_id": "dc603dcd-04f6-47c1-9232-4413166c75b4",
+              "file_name": "r24-tanvi-joshi.pdf",
+              "title": null
+            }
+          },
+          "detailed_chunks": {},
+          "rag_context": {
+            "raw_output": "| Education level | Candidates |\n|---|---:|\n| Bachelors | 15 |\n| Masters | 8 |\n| PhD | 1 |\n| **Total** | **24** |",
+            "summaries": {
+              "3f0002c1-20c3-4824-b27d-6518145b9a8d": {
+                "summary": "",
+                "metadata": {
+                  "document_type": "resume",
+                  "candidate_name": "Vikram Singh",
+                  "candidate_email": "vikram.singh@example.net",
+                  "education": [
+                    {
+                      "degree": "B.Tech",
+                      "institution": "Aravalli Institute of Technology",
+                      "field_of_study": "Mechanical Engineering",
+                      "graduation_year": 2024
+                    }
+                  ],
+                  "current_role": "Associate Product Manager",
+                  "seniority_level": "mid_level",
+                  "years_of_experience": 2,
+                  "skills": [
+                    "product discovery",
+                    "sql",
+                    "figma",
+                    "jira",
+                    "user research",
+                    "product analytics",
+                    "wireframing"
+                  ],
+                  "education_level": "bachelors",
+                  "certifications": [],
+                  "locations": [
+                    "bengaluru"
+                  ],
+                  "industries": [
+                    "edtech"
+                  ],
+                  "languages": [
+                    "english",
+                    "hindi"
+                  ],
+                  "file_name": "r20-vikram-singh.pdf",
+                  "title": null
+                },
+                "object_id": "3f0002c1-20c3-4824-b27d-6518145b9a8d",
+                "file_name": "r20-vikram-singh.pdf",
+                "title": null
+              },
+              "6c4aaf1e-8337-4d48-8466-57ab7b264c2e": {
+                "summary": "",
+                "metadata": {
+                  "document_type": "resume",
+                  "candidate_name": "Hannah Becker",
+                  "candidate_email": "hannah.becker@example.com",
+                  "education": [
+                    {
+                      "degree": "B.Sc.",
+                      "institution": "Isar Valley University",
+                      "field_of_study": "Economics",
+                      "graduation_year": 2021
+                    }
+                  ],
+                  "current_role": "Product Analyst",
+                  "seniority_level": "mid_level",
+                  "years_of_experience": 4,
+                  "skills": [
+                    "sql",
+                    "python",
+                    "amplitude",
+                    "a/b testing",
+                    "product analytics",
+                    "tableau",
+                    "statistics"
+                  ],
+                  "education_level": "bachelors",
+                  "certifications": [],
+                  "locations": [
+                    "munich"
+                  ],
+                  "industries": [
+                    "mobility"
+                  ],
+                  "languages": [
+                    "german",
+                    "english",
+                    "spanish"
+                  ],
+                  "file_name": "r23-hannah-becker.pdf",
+                  "title": null
+                },
+                "object_id": "6c4aaf1e-8337-4d48-8466-57ab7b264c2e",
+                "file_name": "r23-hannah-becker.pdf",
+                "title": null
+              },
+              "263af3df-a942-4005-83c8-d3c23e52c37f": {
+                "summary": "",
+                "metadata": {
+                  "document_type": "resume",
+                  "candidate_name": "Oliver Schmidt",
+                  "candidate_email": "oliver.schmidt@example.net",
+                  "education": [
+                    {
+                      "degree": "M.Sc.",
+                      "institution": "Technische Hochschule Rabenfeld",
+                      "field_of_study": "Informatics",
+                      "graduation_year": 2016
+                    }
+                  ],
+                  "current_role": "Lead MLOps Engineer",
+                  "seniority_level": "lead",
+                  "years_of_experience": 10,
+                  "skills": [
+                    "python",
+                    "kubernetes",
+                    "mlflow",
+                    "kubeflow",
+                    "aws",
+                    "gcp",
+                    "terraform",
+                    "docker",
+                    "feature stores",
+                    "llmops"
+                  ],
+                  "education_level": "masters",
+                  "certifications": [
+                    "google professional machine learning engineer",
+                    "certified kubernetes administrator (cka)"
+                  ],
+                  "locations": [
+                    "Berlin"
+                  ],
+                  "industries": [
+                    "ride-sharing and micromobility",
+                    "insurance"
+                  ],
+                  "languages": [
+                    "german",
+                    "english"
+                  ],
+                  "file_name": "r14-oliver-schmidt.pdf",
+                  "title": null
+                },
+                "object_id": "263af3df-a942-4005-83c8-d3c23e52c37f",
+                "file_name": "r14-oliver-schmidt.pdf",
+                "title": null
+              },
+              "303b2219-be91-4c5d-af66-198364de7d2f": {
+                "summary": "",
+                "metadata": {
+                  "document_type": "resume",
+                  "candidate_name": "Sneha Kulkarni",
+                  "candidate_email": "sneha.kulkarni@example.com",
+                  "education": [
+                    {
+                      "degree": "B.Sc.",
+                      "institution": "Sahyadri College of Science",
+                      "field_of_study": "Statistics",
+                      "graduation_year": 2025
+                    }
+                  ],
+                  "current_role": "Data Analyst",
+                  "seniority_level": "junior",
+                  "years_of_experience": 1,
+                  "skills": [
+                    "sql",
+                    "excel",
+                    "power bi",
+                    "python",
+                    "pandas",
+                    "data visualization"
+                  ],
+                  "education_level": "bachelors",
+                  "certifications": [
+                    "Google Data Analytics Professional Certificate"
+                  ],
+                  "locations": [
+                    "Pune"
+                  ],
+                  "industries": [
+                    "retail",
+                    "apparel retail"
+                  ],
+                  "languages": [
+                    "english",
+                    "marathi",
+                    "hindi"
+                  ],
+                  "file_name": "r04-sneha-kulkarni.pdf",
+                  "title": null
+                },
+                "object_id": "303b2219-be91-4c5d-af66-198364de7d2f",
+                "file_name": "r04-sneha-kulkarni.pdf",
+                "title": null
+              },
+              "a72a0057-effb-4d01-8ea6-05e173890f28": {
+                "summary": "",
+                "metadata": {
+                  "document_type": "resume",
+                  "candidate_name": "Lucas Fernandez",
+                  "candidate_email": "lucas.fernandez@example.com",
+                  "education": [
+                    {
+                      "degree": "Bachelor's",
+                      "institution": "Universidad de Valdemora",
+                      "field_of_study": "Computer Engineering",
+                      "graduation_year": 2019
+                    }
+                  ],
+                  "current_role": "Senior Frontend Engineer",
+                  "seniority_level": "senior",
+                  "years_of_experience": 7,
+                  "skills": [
+                    "typescript",
+                    "react",
+                    "next.js",
+                    "graphql",
+                    "node.js",
+                    "css",
+                    "frontend testing",
+                    "accessibility",
+                    "webpack"
+                  ],
+                  "education_level": "bachelors",
+                  "certifications": [],
+                  "locations": [
+                    "Madrid"
+                  ],
+                  "industries": [
+                    "travel",
+                    "saas",
+                    "online travel booking"
+                  ],
+                  "languages": [
+                    "spanish",
+                    "english",
+                    "catalan"
+                  ],
+                  "file_name": "r09-lucas-fernandez.pdf",
+                  "title": null
+                },
+                "object_id": "a72a0057-effb-4d01-8ea6-05e173890f28",
+                "file_name": "r09-lucas-fernandez.pdf",
+                "title": null
+              },
+              "62ea8cef-fc5c-4075-8849-47be944e7f93": {
+                "summary": "",
+                "metadata": {
+                  "document_type": "resume",
+                  "candidate_name": "Arjun Malhotra",
+                  "candidate_email": "arjun.malhotra@example.com",
+                  "education": [
+                    {
+                      "degree": "B.Tech",
+                      "institution": "Shivalik Institute of Technology",
+                      "field_of_study": "Computer Science",
+                      "graduation_year": 2019
+                    }
+                  ],
+                  "current_role": "Senior AI Engineer",
+                  "seniority_level": "senior",
+                  "years_of_experience": 7,
+                  "skills": [
+                    "python",
+                    "langchain",
+                    "llamaindex",
+                    "rag",
+                    "openai api",
+                    "vector databases",
+                    "fastapi",
+                    "aws",
+                    "prompt engineering",
+                    "llm evaluation"
+                  ],
+                  "education_level": "bachelors",
+                  "certifications": [
+                    "aws certified solutions architect - associate"
+                  ],
+                  "locations": [
+                    "Gurugram",
+                    "Remote"
+                  ],
+                  "industries": [
+                    "legal tech",
+                    "saas",
+                    "artificial intelligence"
+                  ],
+                  "languages": [
+                    "english",
+                    "hindi",
+                    "punjabi"
+                  ],
+                  "file_name": "r16-arjun-malhotra.pdf",
+                  "title": null
+                },
+                "object_id": "62ea8cef-fc5c-4075-8849-47be944e7f93",
+                "file_name": "r16-arjun-malhotra.pdf",
+                "title": null
+              },
+              "4578c942-9810-478d-9f60-15fbeaa84907": {
+                "summary": "",
+                "metadata": {
+                  "document_type": "resume",
+                  "candidate_name": "Grace Liu",
+                  "candidate_email": "grace.liu@example.net",
+                  "work_experience": [
+                    {
+                      "title": "Data Scientist",
+                      "company": "Mangrove Pay",
+                      "summary": "Builds fraud-detection models on BigQuery features and fine-tunes a transformer classifier to route support tickets in 6 languages.",
+                      "end_year": null,
+                      "start_year": 2022
+                    }
+                  ],
+                  "current_role": "Data Scientist",
+                  "seniority_level": "mid_level",
+                  "years_of_experience": 4,
+                  "skills": [
+                    "python",
+                    "sql",
+                    "scikit-learn",
+                    "nlp",
+                    "transformers",
+                    "gcp",
+                    "bigquery",
+                    "experimentation",
+                    "tableau"
+                  ],
+                  "education_level": "masters",
+                  "certifications": [
+                    "google cloud professional data engineer"
+                  ],
+                  "locations": [
+                    "singapore"
+                  ],
+                  "industries": [
+                    "fintech"
+                  ],
+                  "languages": [
+                    "english",
+                    "mandarin"
+                  ],
+                  "file_name": "r17-grace-liu.pdf",
+                  "title": null
+                },
+                "object_id": "4578c942-9810-478d-9f60-15fbeaa84907",
+                "file_name": "r17-grace-liu.pdf",
+                "title": null
+              },
+              "b1a970a0-970c-4d66-ac8b-68681ad5da1a": {
+                "summary": "",
+                "metadata": {
+                  "document_type": "resume",
+                  "candidate_name": "Ishaan Chatterjee",
+                  "candidate_email": "ishaan.chatterjee@example.net",
+                  "work_experience": [
+                    {
+                      "title": "Software Engineering Intern",
+                      "company": "Quillstone Labs",
+                      "summary": "Built Flask API endpoints and unit tests during a two-month summer internship.",
+                      "end_year": 2025,
+                      "start_year": 2025
+                    }
+                  ],
+                  "education": [
+                    {
+                      "degree": "B.Tech",
+                      "institution": "Hooghly Riverside Institute of Technology",
+                      "field_of_study": "Computer Science and Engineering",
+                      "graduation_year": 2026
+                    }
+                  ],
+                  "current_role": "Software Engineering Intern",
+                  "seniority_level": "junior",
+                  "years_of_experience": 0,
+                  "skills": [
+                    "python",
+                    "c++",
+                    "data structures",
+                    "machine learning",
+                    "sql",
+                    "git",
+                    "flask",
+                    "langchain",
+                    "rag"
+                  ],
+                  "education_level": "bachelors",
+                  "certifications": [],
+                  "locations": [
+                    "kolkata",
+                    "bengaluru",
+                    "remote"
+                  ],
+                  "industries": [
+                    "software"
+                  ],
+                  "languages": [
+                    "english",
+                    "bengali",
+                    "hindi"
+                  ],
+                  "file_name": "r10-ishaan-chatterjee.pdf",
+                  "title": null
+                },
+                "object_id": "b1a970a0-970c-4d66-ac8b-68681ad5da1a",
+                "file_name": "r10-ishaan-chatterjee.pdf",
+                "title": null
+              },
+              "f0f297b6-06e6-4dc6-85f6-2602a36edc8d": {
+                "summary": "",
+                "metadata": {
+                  "document_type": "resume",
+                  "candidate_name": "Rohan Deshpande",
+                  "candidate_email": "rohan.deshpande@example.com",
+                  "education": [
+                    {
+                      "degree": "B.E.",
+                      "institution": "Pune Plateau College of Engineering",
+                      "field_of_study": "Electronics and Telecommunication",
+                      "graduation_year": 2011
+                    }
+                  ],
+                  "current_role": "Principal Data Engineer",
+                  "seniority_level": "principal",
+                  "years_of_experience": 15,
+                  "skills": [
+                    "spark",
+                    "hadoop",
+                    "scala",
+                    "python",
+                    "aws",
+                    "azure",
+                    "data architecture",
+                    "kafka",
+                    "snowflake",
+                    "sql"
+                  ],
+                  "education_level": "bachelors",
+                  "certifications": [
+                    "microsoft certified: azure data engineer associate",
+                    "aws certified data analytics - specialty"
+                  ],
+                  "locations": [
+                    "pune",
+                    "mumbai"
+                  ],
+                  "industries": [
+                    "energy",
+                    "telecommunications"
+                  ],
+                  "languages": [
+                    "english",
+                    "marathi",
+                    "hindi"
+                  ],
+                  "file_name": "r18-rohan-deshpande.pdf",
+                  "title": null
+                },
+                "object_id": "f0f297b6-06e6-4dc6-85f6-2602a36edc8d",
+                "file_name": "r18-rohan-deshpande.pdf",
+                "title": null
+              },
+              "1973b6e9-a35d-425d-a1ac-c5e9e2042161": {
+                "summary": "",
+                "metadata": {
+                  "document_type": "resume",
+                  "candidate_name": "Aarav Mehta",
+                  "candidate_email": "aarav.mehta@example.com",
+                  "current_role": "Senior Machine Learning Engineer",
+                  "seniority_level": "senior",
+                  "years_of_experience": 8,
+                  "skills": [
+                    "python",
+                    "pytorch",
+                    "aws",
+                    "langchain",
+                    "rag",
+                    "llm fine-tuning",
+                    "docker",
+                    "kubernetes",
+                    "mlflow",
+                    "sql"
+                  ],
+                  "education_level": "masters",
+                  "certifications": [
+                    "AWS Certified Machine Learning - Specialty"
+                  ],
+                  "locations": [
+                    "Bengaluru"
+                  ],
+                  "industries": [
+                    "e-commerce",
+                    "fintech"
+                  ],
+                  "languages": [
+                    "english",
+                    "hindi",
+                    "kannada"
+                  ],
+                  "file_name": "r01-aarav-mehta.pdf",
+                  "title": null
+                },
+                "object_id": "1973b6e9-a35d-425d-a1ac-c5e9e2042161",
+                "file_name": "r01-aarav-mehta.pdf",
+                "title": null
+              },
+              "ffe2bdcc-6a8f-4f6c-84e4-93a786aacc68": {
+                "summary": "",
+                "metadata": {
+                  "document_type": "resume",
+                  "candidate_name": "Nadia Haddad",
+                  "candidate_email": "nadia.haddad@example.org",
+                  "education": [
+                    {
+                      "degree": "B.Sc.",
+                      "institution": "Levant Polytechnic University",
+                      "field_of_study": "Computer Science",
+                      "graduation_year": 2017
+                    }
+                  ],
+                  "current_role": "Senior Site Reliability Engineer",
+                  "seniority_level": "senior",
+                  "years_of_experience": 9,
+                  "skills": [
+                    "kubernetes",
+                    "gcp",
+                    "aws",
+                    "terraform",
+                    "go",
+                    "python",
+                    "prometheus",
+                    "incident management",
+                    "linux",
+                    "helm"
+                  ],
+                  "education_level": "bachelors",
+                  "certifications": [
+                    "Certified Kubernetes Administrator (CKA)",
+                    "Google Professional Cloud DevOps Engineer"
+                  ],
+                  "locations": [
+                    "Dubai"
+                  ],
+                  "industries": [
+                    "logistics",
+                    "web hosting",
+                    "cloud hosting"
+                  ],
+                  "languages": [
+                    "arabic",
+                    "english",
+                    "french"
+                  ],
+                  "file_name": "r19-nadia-haddad.pdf",
+                  "title": null
+                },
+                "object_id": "ffe2bdcc-6a8f-4f6c-84e4-93a786aacc68",
+                "file_name": "r19-nadia-haddad.pdf",
+                "title": null
+              },
+              "9fcc923c-65e4-4654-9c66-5e4b3d62a717": {
+                "summary": "",
+                "metadata": {
+                  "document_type": "resume",
+                  "candidate_name": "Daniel Okafor",
+                  "candidate_email": "daniel.okafor@example.net",
+                  "education": [
+                    {
+                      "degree": "B.Eng.",
+                      "institution": "University of Eastmere",
+                      "field_of_study": "Computer Engineering",
+                      "graduation_year": 2010
+                    }
+                  ],
+                  "current_role": "Principal Software Engineer",
+                  "seniority_level": "principal",
+                  "years_of_experience": 14,
+                  "skills": [
+                    "java",
+                    "go",
+                    "kubernetes",
+                    "aws",
+                    "postgresql",
+                    "kafka",
+                    "distributed systems",
+                    "system design",
+                    "terraform",
+                    "grpc"
+                  ],
+                  "education_level": "bachelors",
+                  "certifications": [
+                    "aws certified solutions architect - professional",
+                    "certified kubernetes administrator (cka)"
+                  ],
+                  "locations": [
+                    "London"
+                  ],
+                  "industries": [
+                    "fintech",
+                    "telecommunications"
+                  ],
+                  "languages": [
+                    "english",
+                    "yoruba"
+                  ],
+                  "file_name": "r03-daniel-okafor.pdf",
+                  "title": null
+                },
+                "object_id": "9fcc923c-65e4-4654-9c66-5e4b3d62a717",
+                "file_name": "r03-daniel-okafor.pdf",
+                "title": null
+              },
+              "1125d46f-7616-47e6-9042-e113462153dc": {
+                "summary": "",
+                "metadata": {
+                  "document_type": "resume",
+                  "candidate_name": "Rahul Verma",
+                  "candidate_email": "rahul.verma@example.org",
+                  "education": [
+                    {
+                      "degree": "B.Tech",
+                      "institution": "Golconda Institute of Engineering",
+                      "field_of_study": "Information Technology",
+                      "graduation_year": 2021
+                    }
+                  ],
+                  "current_role": "DevOps Engineer",
+                  "seniority_level": "senior",
+                  "years_of_experience": 5,
+                  "skills": [
+                    "aws",
+                    "terraform",
+                    "kubernetes",
+                    "docker",
+                    "jenkins",
+                    "python",
+                    "bash",
+                    "prometheus",
+                    "grafana",
+                    "ansible"
+                  ],
+                  "education_level": "bachelors",
+                  "certifications": [
+                    "aws certified devops engineer - professional",
+                    "certified kubernetes administrator (cka)"
+                  ],
+                  "locations": [
+                    "Hyderabad"
+                  ],
+                  "industries": [
+                    "b2b saas",
+                    "saas",
+                    "hr software"
+                  ],
+                  "languages": [
+                    "english",
+                    "hindi",
+                    "telugu"
+                  ],
+                  "file_name": "r05-rahul-verma.pdf",
+                  "title": null
+                },
+                "object_id": "1125d46f-7616-47e6-9042-e113462153dc",
+                "file_name": "r05-rahul-verma.pdf",
+                "title": null
+              },
+              "2424ea77-35bb-473d-8c40-0c36aa0784d6": {
+                "summary": "",
+                "metadata": {
+                  "document_type": "resume",
+                  "candidate_name": "Anjali Nair",
+                  "candidate_email": "anjali.nair@example.com",
+                  "education": [
+                    {
+                      "degree": "B.Tech",
+                      "institution": "Malabar Coast College of Engineering",
+                      "field_of_study": "Computer Science",
+                      "graduation_year": 2020
+                    }
+                  ],
+                  "current_role": "Senior Data Engineer",
+                  "seniority_level": "senior",
+                  "years_of_experience": 6,
+                  "skills": [
+                    "python",
+                    "spark",
+                    "airflow",
+                    "sql",
+                    "snowflake",
+                    "dbt",
+                    "aws",
+                    "kafka",
+                    "data modeling",
+                    "scala"
+                  ],
+                  "education_level": "bachelors",
+                  "certifications": [
+                    "AWS Certified Data Engineer - Associate",
+                    "snowpro core certification"
+                  ],
+                  "locations": [
+                    "Kochi",
+                    "Bengaluru"
+                  ],
+                  "industries": [
+                    "logistics",
+                    "saas"
+                  ],
+                  "languages": [
+                    "english",
+                    "malayalam",
+                    "hindi"
+                  ],
+                  "file_name": "r11-anjali-nair.pdf",
+                  "title": null
+                },
+                "object_id": "2424ea77-35bb-473d-8c40-0c36aa0784d6",
+                "file_name": "r11-anjali-nair.pdf",
+                "title": null
+              },
+              "6e951171-51bd-4723-87ed-11f68cb81c1c": {
+                "summary": "",
+                "metadata": {
+                  "document_type": "resume",
+                  "candidate_name": "Zoya Ahmed",
+                  "candidate_email": "zoya.ahmed@example.com",
+                  "current_role": "Senior Business Analyst",
+                  "seniority_level": "senior",
+                  "years_of_experience": 7,
+                  "skills": [
+                    "sql",
+                    "python",
+                    "power bi",
+                    "excel",
+                    "stakeholder management",
+                    "forecasting",
+                    "a/b testing",
+                    "looker"
+                  ],
+                  "education_level": "masters",
+                  "certifications": [],
+                  "locations": [
+                    "New Delhi",
+                    "Gurugram"
+                  ],
+                  "industries": [
+                    "e-commerce",
+                    "fintech",
+                    "payments"
+                  ],
+                  "languages": [
+                    "english",
+                    "hindi",
+                    "urdu"
+                  ],
+                  "file_name": "r13-zoya-ahmed.pdf",
+                  "title": null
+                },
+                "object_id": "6e951171-51bd-4723-87ed-11f68cb81c1c",
+                "file_name": "r13-zoya-ahmed.pdf",
+                "title": null
+              },
+              "527da6e0-0206-4649-ba12-1a0441c6b9c9": {
+                "summary": "",
+                "metadata": {
+                  "document_type": "resume",
+                  "candidate_name": "Siddharth Rao",
+                  "candidate_email": "siddharth.rao@example.org",
+                  "education": [
+                    {
+                      "degree": "M.S.",
+                      "institution": "Godavari Institute of Science and Technology",
+                      "field_of_study": "Computer Science",
+                      "graduation_year": 2013
+                    }
+                  ],
+                  "current_role": "Staff Machine Learning Engineer",
+                  "seniority_level": "lead",
+                  "years_of_experience": 13,
+                  "skills": [
+                    "python",
+                    "tensorflow",
+                    "pytorch",
+                    "recommender systems",
+                    "rag",
+                    "llms",
+                    "spark",
+                    "aws",
+                    "kubernetes",
+                    "mlops"
+                  ],
+                  "education_level": "masters",
+                  "certifications": [],
+                  "locations": [
+                    "Hyderabad",
+                    "Remote"
+                  ],
+                  "industries": [
+                    "mobility",
+                    "analytics consultancy",
+                    "consulting"
+                  ],
+                  "languages": [
+                    "english",
+                    "telugu",
+                    "hindi"
+                  ],
+                  "file_name": "r22-siddharth-rao.pdf",
+                  "title": null
+                },
+                "object_id": "527da6e0-0206-4649-ba12-1a0441c6b9c9",
+                "file_name": "r22-siddharth-rao.pdf",
+                "title": null
+              },
+              "b9d4add5-0406-4b60-a549-282a6eba390e": {
+                "summary": "",
+                "metadata": {
+                  "document_type": "resume",
+                  "candidate_name": "Kavya Reddy",
+                  "candidate_email": "kavya.reddy@example.org",
+                  "education": [
+                    {
+                      "degree": "B.Tech",
+                      "institution": "Krishna Delta Institute of Technology",
+                      "field_of_study": "Electronics and Communication Engineering",
+                      "graduation_year": 2023
+                    }
+                  ],
+                  "current_role": "Software Engineer II",
+                  "seniority_level": "mid_level",
+                  "years_of_experience": 2,
+                  "skills": [
+                    "java",
+                    "spring boot",
+                    "postgresql",
+                    "redis",
+                    "microservices",
+                    "aws",
+                    "docker",
+                    "rest apis"
+                  ],
+                  "education_level": "bachelors",
+                  "certifications": [],
+                  "locations": [
+                    "bengaluru"
+                  ],
+                  "industries": [
+                    "healthcare",
+                    "digital health"
+                  ],
+                  "languages": [
+                    "english",
+                    "telugu",
+                    "kannada"
+                  ],
+                  "file_name": "r15-kavya-reddy.pdf",
+                  "title": null
+                },
+                "object_id": "b9d4add5-0406-4b60-a549-282a6eba390e",
+                "file_name": "r15-kavya-reddy.pdf",
+                "title": null
+              },
+              "c9ee76a5-41c7-4dcb-a634-4841b07b9408": {
+                "summary": "",
+                "metadata": {
+                  "document_type": "resume",
+                  "candidate_name": "Priya Raghunathan",
+                  "candidate_email": "priya.raghunathan@example.org",
+                  "current_role": "Lead Data Scientist",
+                  "seniority_level": "lead",
+                  "years_of_experience": 12,
+                  "skills": [
+                    "python",
+                    "r",
+                    "sql",
+                    "statistics",
+                    "xgboost",
+                    "spark",
+                    "azure",
+                    "tableau",
+                    "causal inference",
+                    "forecasting"
+                  ],
+                  "education_level": "masters",
+                  "certifications": [],
+                  "locations": [
+                    "Chennai",
+                    "Remote"
+                  ],
+                  "industries": [
+                    "healthcare",
+                    "insurance"
+                  ],
+                  "languages": [
+                    "english",
+                    "tamil"
+                  ],
+                  "file_name": "r02-priya-raghunathan.pdf",
+                  "title": null
+                },
+                "object_id": "c9ee76a5-41c7-4dcb-a634-4841b07b9408",
+                "file_name": "r02-priya-raghunathan.pdf",
+                "title": null
+              },
+              "bc7e4327-ef25-4034-9d79-47ffa8150c6a": {
+                "summary": "",
+                "metadata": {
+                  "document_type": "resume",
+                  "candidate_name": "Meera Iyer",
+                  "candidate_email": "meera.iyer@example.com",
+                  "current_role": "Senior Product Manager",
+                  "seniority_level": "senior",
+                  "years_of_experience": 11,
+                  "skills": [
+                    "product strategy",
+                    "roadmapping",
+                    "a/b testing",
+                    "sql",
+                    "user research",
+                    "agile",
+                    "jira",
+                    "stakeholder management",
+                    "product analytics"
+                  ],
+                  "education_level": "masters",
+                  "certifications": [
+                    "certified scrum product owner (cspo)"
+                  ],
+                  "locations": [
+                    "mumbai"
+                  ],
+                  "industries": [
+                    "edtech",
+                    "e-commerce",
+                    "it services"
+                  ],
+                  "languages": [
+                    "english",
+                    "hindi",
+                    "marathi"
+                  ],
+                  "file_name": "r06-meera-iyer.pdf",
+                  "title": null
+                },
+                "object_id": "bc7e4327-ef25-4034-9d79-47ffa8150c6a",
+                "file_name": "r06-meera-iyer.pdf",
+                "title": null
+              },
+              "ee2a5a49-044a-4b2c-bf1f-65d3bb038f17": {
+                "summary": "",
+                "metadata": {
+                  "document_type": "resume",
+                  "candidate_name": "Fatima Sheikh",
+                  "candidate_email": "fatima.sheikh@example.org",
+                  "current_role": "Junior Data Scientist",
+                  "seniority_level": "junior",
+                  "years_of_experience": 7,
+                  "skills": [
+                    "python",
+                    "pandas",
+                    "scikit-learn",
+                    "sql",
+                    "statistics",
+                    "tableau",
+                    "machine learning",
+                    "data cleaning"
+                  ],
+                  "education_level": "bachelors",
+                  "certifications": [
+                    "Applied Data Science Bootcamp Certificate"
+                  ],
+                  "locations": [
+                    "Hyderabad"
+                  ],
+                  "industries": [
+                    "healthcare",
+                    "education"
+                  ],
+                  "languages": [
+                    "english",
+                    "urdu",
+                    "hindi",
+                    "telugu"
+                  ],
+                  "file_name": "r08-fatima-sheikh.pdf",
+                  "title": null
+                },
+                "object_id": "ee2a5a49-044a-4b2c-bf1f-65d3bb038f17",
+                "file_name": "r08-fatima-sheikh.pdf",
+                "title": null
+              },
+              "784eb166-87bc-49da-9521-cf355cfecd27": {
+                "summary": "",
+                "metadata": {
+                  "document_type": "resume",
+                  "candidate_name": "Michael Brennan",
+                  "candidate_email": "michael.brennan@example.org",
+                  "education": [
+                    {
+                      "degree": "M.S.",
+                      "institution": "Lone Prairie University",
+                      "field_of_study": "Computer Science",
+                      "graduation_year": 2008
+                    },
+                    {
+                      "degree": "B.S.",
+                      "institution": "Lone Prairie University",
+                      "field_of_study": "Computer Science",
+                      "graduation_year": 2006
+                    }
+                  ],
+                  "current_role": "VP of Engineering",
+                  "seniority_level": "executive",
+                  "years_of_experience": 18,
+                  "skills": [
+                    "engineering leadership",
+                    "system design",
+                    "aws",
+                    "hiring",
+                    "budgeting",
+                    "platform strategy",
+                    "go",
+                    "kubernetes"
+                  ],
+                  "education_level": "masters",
+                  "certifications": [],
+                  "locations": [
+                    "Austin, TX",
+                    "Dallas, TX"
+                  ],
+                  "industries": [
+                    "healthcare saas",
+                    "workflow software",
+                    "b2b software"
+                  ],
+                  "languages": [
+                    "english"
+                  ],
+                  "file_name": "r12-michael-brennan.pdf",
+                  "title": null
+                },
+                "object_id": "784eb166-87bc-49da-9521-cf355cfecd27",
+                "file_name": "r12-michael-brennan.pdf",
+                "title": null
+              },
+              "51d12a71-508e-4442-9ccc-d09e0652c459": {
+                "summary": "",
+                "metadata": {
+                  "document_type": "resume",
+                  "candidate_name": "Kenji Watanabe",
+                  "candidate_email": "kenji.watanabe@example.net",
+                  "current_role": "AI Research Engineer",
+                  "seniority_level": "mid_level",
+                  "years_of_experience": 4,
+                  "skills": [
+                    "python",
+                    "pytorch",
+                    "jax",
+                    "transformers",
+                    "llm pretraining",
+                    "rlhf",
+                    "cuda",
+                    "distributed training",
+                    "rag",
+                    "llm evaluation"
+                  ],
+                  "education_level": "phd",
+                  "certifications": [],
+                  "locations": [
+                    "Tokyo",
+                    "Remote"
+                  ],
+                  "industries": [
+                    "ai research lab",
+                    "artificial intelligence"
+                  ],
+                  "languages": [
+                    "japanese",
+                    "english"
+                  ],
+                  "file_name": "r07-kenji-watanabe.pdf",
+                  "title": null
+                },
+                "object_id": "51d12a71-508e-4442-9ccc-d09e0652c459",
+                "file_name": "r07-kenji-watanabe.pdf",
+                "title": null
+              },
+              "b2f90fe4-6b51-430c-9e5a-3bbb8cbd037f": {
+                "summary": "",
+                "metadata": {
+                  "document_type": "resume",
+                  "candidate_name": "Emily Carter",
+                  "candidate_email": "emily.carter@example.com",
+                  "education": [
+                    {
+                      "degree": "B.Sc.",
+                      "institution": "Lakeshore University",
+                      "field_of_study": "Mathematics",
+                      "graduation_year": 2021
+                    }
+                  ],
+                  "current_role": "Analytics Engineer",
+                  "seniority_level": "mid_level",
+                  "years_of_experience": 5,
+                  "skills": [
+                    "sql",
+                    "dbt",
+                    "python",
+                    "looker",
+                    "snowflake",
+                    "airflow",
+                    "data modeling",
+                    "git"
+                  ],
+                  "education_level": "bachelors",
+                  "certifications": [
+                    "dbt analytics engineering certification"
+                  ],
+                  "locations": [
+                    "Toronto"
+                  ],
+                  "industries": [
+                    "retail",
+                    "banking"
+                  ],
+                  "languages": [
+                    "english",
+                    "french"
+                  ],
+                  "file_name": "r21-emily-carter.pdf",
+                  "title": null
+                },
+                "object_id": "b2f90fe4-6b51-430c-9e5a-3bbb8cbd037f",
+                "file_name": "r21-emily-carter.pdf",
+                "title": null
+              },
+              "dc603dcd-04f6-47c1-9232-4413166c75b4": {
+                "summary": "",
+                "metadata": {
+                  "document_type": "resume",
+                  "candidate_name": "Tanvi Joshi",
+                  "candidate_email": "tanvi.joshi@example.net",
+                  "education": [
+                    {
+                      "degree": "B.E.",
+                      "institution": "Sabarmati Institute of Engineering",
+                      "field_of_study": "Information Technology",
+                      "graduation_year": 2024
+                    }
+                  ],
+                  "current_role": "Junior AI Engineer",
+                  "seniority_level": "junior",
+                  "years_of_experience": 2,
+                  "skills": [
+                    "python",
+                    "javascript",
+                    "react",
+                    "fastapi",
+                    "langchain",
+                    "rag",
+                    "postgresql",
+                    "docker"
+                  ],
+                  "education_level": "bachelors",
+                  "certifications": [],
+                  "locations": [
+                    "Ahmedabad",
+                    "Remote"
+                  ],
+                  "industries": [
+                    "saas"
+                  ],
+                  "languages": [
+                    "english",
+                    "gujarati",
+                    "hindi"
+                  ],
+                  "file_name": "r24-tanvi-joshi.pdf",
+                  "title": null
+                },
+                "object_id": "dc603dcd-04f6-47c1-9232-4413166c75b4",
+                "file_name": "r24-tanvi-joshi.pdf",
+                "title": null
+              }
+            },
+            "chunks": [],
+            "tool_responses": [
+              {
+                "tool_name": "retrieve_metadata_catalog",
+                "tool_call_id": "call_prefetched_metadata_catalog",
+                "result": "**Metadata Catalog**\nfields: 24\nwith_values: 23\n\n- **candidate_email** _(type: `str`, cardinality: `high`)_\n  Description: Candidate's email address exactly as written, lowercase. This is the unique identifier for the candidate — use null if absent, never invent one.\n  Values: `lucas.fernandez@example.com`, `ishaan.chatterjee@example.net`\n- **candidate_name** _(type: `str`, cardinality: `high`)_\n  Description: Full name of the candidate as written on the resume.\n  Values: `Oliver Schmidt`, `Grace Liu`\n- **certifications** _(type: `List[str]`, cardinality: `high`)_\n  Description: Professional certifications explicitly listed (e.g., 'AWS Solutions Architect', 'PMP'). Empty list if none.\n  Values: `certified kubernetes administrator (cka)`, `google cloud professional data engineer`\n- **current_role** _(type: `str`, cardinality: `high`)_\n  Description: The candidate's current or most recent job title, as a short reusable label (e.g., 'Backend Engineer', 'Product Manager'). Use the most recent position if none is marked current.\n  Values: `Associate Product Manager`, `Lead MLOps Engineer`\n- **document_type** _(type: `str`, cardinality: `low`)_\n  Description: Generic document genre as a short, lowercase, reusable label (e.g., 'report', 'case study', 'blog', 'whitepaper', 'documentation', 'tutorial', 'resume', 'invoice', 'contract'). Reuse an existing label whenever one fits; introduce a new label only for a genuinely new genre.\n  Values: `resume`\n- **education** _(type: `List[dict]`, cardinality: `high`)_\n  Description: Every formal education entry, highest/most recent first, at most 5. degree is the credential ('B.Tech', 'MBA'); field_of_study is the subject ('Computer Science').\n  Values: `{\"degree\":\"B.Tech\",\"institution\":\"Aravalli Institute of Technology\",\"field_of_study\":\"Mechanical Engineering\",\"graduatio…`, `{\"degree\":\"B.Sc.\",\"institution\":\"Isar Valley University\",\"field_of_study\":\"Economics\",\"graduation_year\":2021}`\n- **education_level** _(type: `str`, cardinality: `low`)_\n  Description: Highest completed education level. Must be exactly one of the allowed values.\n  Values: `masters`, `bachelors`\n- **industries** _(type: `List[str]`, cardinality: `high`)_\n  Description: Industries the candidate has worked in, as short reusable labels (e.g., 'fintech', 'healthcare', 'e-commerce').\n  Values: `online travel booking`, `legal tech`\n- **languages** _(type: `List[str]`, cardinality: `high`)_\n  Description: Human languages the candidate lists (e.g., 'english', 'hindi', 'german'), lowercase. Not programming languages — those belong in skills.\n  Values: `german`, `spanish`\n- **locations** _(type: `List[str]`, cardinality: `high`)_\n  Description: Locations associated with the candidate — current city and any stated preferred/willing-to-relocate locations (e.g., 'Bengaluru', 'Remote').\n  Values: `Remote`, `pune`\n- **seniority_level** _(type: `str`, cardinality: `high`)_\n  Description: Career seniority inferred from titles and years of experience. Must be exactly one of the allowed values.\n  Values: `junior`, `lead`\n- **skills** _(type: `List[str]`, cardinality: `high`)_\n  Description: Technical and professional skills explicitly listed or clearly demonstrated (e.g., 'python', 'kubernetes', 'financial modeling'). Lowercase, short reusable labels.\n  Values: `aws`, `kafka`\n- **summary** _(type: `str`, cardinality: `high`)_\n  Description: 2-3 sentence summary capturing the document's overall purpose, key arguments, and conclusions\n- **work_experience** _(type: `List[dict]`, cardinality: `high`)_\n  Description: Every position in the employment history, most recent first, at most 10. One entry per role held (a promotion at the same company is a separate entry). end_year is null for a current role; summary is one sentence on what the person did there.\n  Values: `{\"title\":\"Associate Product Manager\",\"company\":\"Gyaanpath Learning\",\"summary\":\"Owned learner onboarding, redesigned the…`, `{\"title\":\"Product Analyst\",\"company\":\"Alpenrot Mobility\",\"summary\":\"Analyzes rider behavior using Amplitude and SQL, run…`\n- **years_of_experience** _(type: `int`, cardinality: `high`)_\n  Description: Total years of professional experience, as a whole number. Compute from the employment history when not stated explicitly; use 0 for freshers.\n  Values: `15`, `1`\n- **education[].degree** _(type: `str`, cardinality: `high`)_\n  Description: Leaf path of `education` (key `degree`)\n  Values: `B.E.`, `B.Sc.`\n- **education[].institution** _(type: `str`, cardinality: `high`)_\n  Description: Leaf path of `education` (key `institution`)\n  Values: `Aravalli Institute of Technology`, `Hooghly Riverside Institute of Technology`\n- **education[].field_of_study** _(type: `str`, cardinality: `high`)_\n  Description: Leaf path of `education` (key `field_of_study`)\n  Values: `Business Analytics`, `Computer Engineering`\n- **education[].graduation_year** _(type: `str`, cardinality: `high`)_\n  Description: Leaf path of `education` (key `graduation_year`)\n  Values: `2011`, `2016`\n- **work_experience[].title** _(type: `str`, cardinality: `high`)_\n  Description: Leaf path of `work_experience` (key `title`)\n  Values: `Analytics Intern`, `Associate Product Manager`\n- **work_experience[].company** _(type: `str`, cardinality: `high`)_\n  Description: Leaf path of `work_experience` (key `company`)\n  Values: `Alpenrot Mobility`, `Brightpath Lending`\n- **work_experience[].summary** _(type: `str`, cardinality: `high`)_\n  Description: Leaf path of `work_experience` (key `summary`)\n  Values: `Analyzes rider behavior using Amplitude and SQL, runs 3–4 app experiments per month, and built the pricing-elasticity mo…`, `Architected a smart-meter lakehouse ingesting 2 billion readings a day on AWS and Snowflake and set data architecture st…`\n- **work_experience[].start_year** _(type: `str`, cardinality: `high`)_\n  Description: Leaf path of `work_experience` (key `start_year`)\n  Values: `2011`, `2015`\n- **work_experience[].end_year** _(type: `str`, cardinality: `high`)_\n  Description: Leaf path of `work_experience` (key `end_year`)\n  Values: `2015`, `2019`\n\n**Truncation Note**\nOnly these fields have a representative subset of values due to prompt size limits: ['candidate_email', 'candidate_name', 'certifications', 'current_role', 'education', 'education[].degree', 'education[].field_of_study', 'education[].graduation_year', 'education[].institution', 'education_level', 'industries', 'languages', 'locations', 'seniority_level', 'skills', 'work_experience', 'work_experience[].company', 'work_experience[].end_year', 'work_experience[].start_year', 'work_experience[].summary', 'work_experience[].title', 'years_of_experience']. Their `values` lists are NOT exhaustive — c…"
+              },
+              {
+                "tool_name": "retrieve_documents",
+                "tool_call_id": "call_qK2qPkGa5RZAdujlFIWv5sDv",
+                "result": {
+                  "documents": [
+                    {
+                      "object_id": "3f0002c1-20c3-4824-b27d-6518145b9a8d",
+                      "metadata": {
+                        "document_type": "resume",
+                        "candidate_name": "Vikram Singh",
+                        "candidate_email": "vikram.singh@example.net",
+                        "education": [
+                          {
+                            "degree": "B.Tech",
+                            "institution": "Aravalli Institute of Technology",
+                            "field_of_study": "Mechanical Engineering",
+                            "graduation_year": 2024
+                          }
+                        ],
+                        "current_role": "Associate Product Manager",
+                        "seniority_level": "mid_level",
+                        "years_of_experience": 2,
+                        "skills": [
+                          "product discovery",
+                          "sql",
+                          "figma",
+                          "jira",
+                          "user research",
+                          "product analytics",
+                          "wireframing"
+                        ],
+                        "education_level": "bachelors",
+                        "certifications": [],
+                        "locations": [
+                          "bengaluru"
+                        ],
+                        "industries": [
+                          "edtech"
+                        ],
+                        "languages": [
+                          "english",
+                          "hindi"
+                        ],
+                        "file_name": "r20-vikram-singh.pdf",
+                        "title": null
+                      },
+                      "title": null,
+                      "file_name": "r20-vikram-singh.pdf"
+                    },
+                    {
+                      "object_id": "6c4aaf1e-8337-4d48-8466-57ab7b264c2e",
+                      "metadata": {
+                        "document_type": "resume",
+                        "candidate_name": "Hannah Becker",
+                        "candidate_email": "hannah.becker@example.com",
+                        "education": [
+                          {
+                            "degree": "B.Sc.",
+                            "institution": "Isar Valley University",
+                            "field_of_study": "Economics",
+                            "graduation_year": 2021
+                          }
+                        ],
+                        "current_role": "Product Analyst",
+                        "seniority_level": "mid_level",
+                        "years_of_experience": 4,
+                        "skills": [
+                          "sql",
+                          "python",
+                          "amplitude",
+                          "a/b testing",
+                          "product analytics",
+                          "tableau",
+                          "statistics"
+                        ],
+                        "education_level": "bachelors",
+                        "certifications": [],
+                        "locations": [
+                          "munich"
+                        ],
+                        "industries": [
+                          "mobility"
+                        ],
+                        "languages": [
+                          "german",
+                          "english",
+                          "spanish"
+                        ],
+                        "file_name": "r23-hannah-becker.pdf",
+                        "title": null
+                      },
+                      "title": null,
+                      "file_name": "r23-hannah-becker.pdf"
+                    },
+                    {
+                      "object_id": "263af3df-a942-4005-83c8-d3c23e52c37f",
+                      "metadata": {
+                        "document_type": "resume",
+                        "candidate_name": "Oliver Schmidt",
+                        "candidate_email": "oliver.schmidt@example.net",
+                        "education": [
+                          {
+                            "degree": "M.Sc.",
+                            "institution": "Technische Hochschule Rabenfeld",
+                            "field_of_study": "Informatics",
+                            "graduation_year": 2016
+                          }
+                        ],
+                        "current_role": "Lead MLOps Engineer",
+                        "seniority_level": "lead",
+                        "years_of_experience": 10,
+                        "skills": [
+                          "python",
+                          "kubernetes",
+                          "mlflow",
+                          "kubeflow",
+                          "aws",
+                          "gcp",
+                          "terraform",
+                          "docker",
+                          "feature stores",
+                          "llmops"
+                        ],
+                        "education_level": "masters",
+                        "certifications": [
+                          "google professional machine learning engineer",
+                          "certified kubernetes administrator (cka)"
+                        ],
+                        "locations": [
+                          "Berlin"
+                        ],
+                        "industries": [
+                          "ride-sharing and micromobility",
+                          "insurance"
+                        ],
+                        "languages": [
+                          "german",
+                          "english"
+                        ],
+                        "file_name": "r14-oliver-schmidt.pdf",
+                        "title": null
+                      },
+                      "title": null,
+                      "file_name": "r14-oliver-schmidt.pdf"
+                    },
+                    {
+                      "object_id": "303b2219-be91-4c5d-af66-198364de7d2f",
+                      "metadata": {
+                        "document_type": "resume",
+                        "candidate_name": "Sneha Kulkarni",
+                        "candidate_email": "sneha.kulkarni@example.com",
+                        "education": [
+                          {
+                            "degree": "B.Sc.",
+                            "institution": "Sahyadri College of Science",
+                            "field_of_study": "Statistics",
+                            "graduation_year": 2025
+                          }
+                        ],
+                        "current_role": "Data Analyst",
+                        "seniority_level": "junior",
+                        "years_of_experience": 1,
+                        "skills": [
+                          "sql",
+                          "excel",
+                          "power bi",
+                          "python",
+                          "pandas",
+                          "data visualization"
+                        ],
+                        "education_level": "bachelors",
+                        "certifications": [
+                          "Google Data Analytics Professional Certificate"
+                        ],
+                        "locations": [
+                          "Pune"
+                        ],
+                        "industries": [
+                          "retail",
+                          "apparel retail"
+                        ],
+                        "languages": [
+                          "english",
+                          "marathi",
+                          "hindi"
+                        ],
+                        "file_name": "r04-sneha-kulkarni.pdf",
+                        "title": null
+                      },
+                      "title": null,
+                      "file_name": "r04-sneha-kulkarni.pdf"
+                    },
+                    {
+                      "object_id": "a72a0057-effb-4d01-8ea6-05e173890f28",
+                      "metadata": {
+                        "document_type": "resume",
+                        "candidate_name": "Lucas Fernandez",
+                        "candidate_email": "lucas.fernandez@example.com",
+                        "education": [
+                          {
+                            "degree": "Bachelor's",
+                            "institution": "Universidad de Valdemora",
+                            "field_of_study": "Computer Engineering",
+                            "graduation_year": 2019
+                          }
+                        ],
+                        "current_role": "Senior Frontend Engineer",
+                        "seniority_level": "senior",
+                        "years_of_experience": 7,
+                        "skills": [
+                          "typescript",
+                          "react",
+                          "next.js",
+                          "graphql",
+                          "node.js",
+                          "css",
+                          "frontend testing",
+                          "accessibility",
+                          "webpack"
+                        ],
+                        "education_level": "bachelors",
+                        "certifications": [],
+                        "locations": [
+                          "Madrid"
+                        ],
+                        "industries": [
+                          "travel",
+                          "saas",
+                          "online travel booking"
+                        ],
+                        "languages": [
+                          "spanish",
+                          "english",
+                          "catalan"
+                        ],
+                        "file_name": "r09-lucas-fernandez.pdf",
+                        "title": null
+                      },
+                      "title": null,
+                      "file_name": "r09-lucas-fernandez.pdf"
+                    },
+                    {
+                      "object_id": "62ea8cef-fc5c-4075-8849-47be944e7f93",
+                      "metadata": {
+                        "document_type": "resume",
+                        "candidate_name": "Arjun Malhotra",
+                        "candidate_email": "arjun.malhotra@example.com",
+                        "education": [
+                          {
+                            "degree": "B.Tech",
+                            "institution": "Shivalik Institute of Technology",
+                            "field_of_study": "Computer Science",
+                            "graduation_year": 2019
+                          }
+                        ],
+                        "current_role": "Senior AI Engineer",
+                        "seniority_level": "senior",
+                        "years_of_experience": 7,
+                        "skills": [
+                          "python",
+                          "langchain",
+                          "llamaindex",
+                          "rag",
+                          "openai api",
+                          "vector databases",
+                          "fastapi",
+                          "aws",
+                          "prompt engineering",
+                          "llm evaluation"
+                        ],
+                        "education_level": "bachelors",
+                        "certifications": [
+                          "aws certified solutions architect - associate"
+                        ],
+                        "locations": [
+                          "Gurugram",
+                          "Remote"
+                        ],
+                        "industries": [
+                          "legal tech",
+                          "saas",
+                          "artificial intelligence"
+                        ],
+                        "languages": [
+                          "english",
+                          "hindi",
+                          "punjabi"
+                        ],
+                        "file_name": "r16-arjun-malhotra.pdf",
+                        "title": null
+                      },
+                      "title": null,
+                      "file_name": "r16-arjun-malhotra.pdf"
+                    },
+                    {
+                      "object_id": "4578c942-9810-478d-9f60-15fbeaa84907",
+                      "metadata": {
+                        "document_type": "resume",
+                        "candidate_name": "Grace Liu",
+                        "candidate_email": "grace.liu@example.net",
+                        "work_experience": [
+                          {
+                            "title": "Data Scientist",
+                            "company": "Mangrove Pay",
+                            "summary": "Builds fraud-detection models on BigQuery features and fine-tunes a transformer classifier to route support tickets in 6 languages.",
+                            "end_year": null,
+                            "start_year": 2022
+                          }
+                        ],
+                        "current_role": "Data Scientist",
+                        "seniority_level": "mid_level",
+                        "years_of_experience": 4,
+                        "skills": [
+                          "python",
+                          "sql",
+                          "scikit-learn",
+                          "nlp",
+                          "transformers",
+                          "gcp",
+                          "bigquery",
+                          "experimentation",
+                          "tableau"
+                        ],
+                        "education_level": "masters",
+                        "certifications": [
+                          "google cloud professional data engineer"
+                        ],
+                        "locations": [
+                          "singapore"
+                        ],
+                        "industries": [
+                          "fintech"
+                        ],
+                        "languages": [
+                          "english",
+                          "mandarin"
+                        ],
+                        "file_name": "r17-grace-liu.pdf",
+                        "title": null
+                      },
+                      "title": null,
+                      "file_name": "r17-grace-liu.pdf"
+                    },
+                    {
+                      "object_id": "b1a970a0-970c-4d66-ac8b-68681ad5da1a",
+                      "metadata": {
+                        "document_type": "resume",
+                        "candidate_name": "Ishaan Chatterjee",
+                        "candidate_email": "ishaan.chatterjee@example.net",
+                        "work_experience": [
+                          {
+                            "title": "Software Engineering Intern",
+                            "company": "Quillstone Labs",
+                            "summary": "Built Flask API endpoints and unit tests during a two-month summer internship.",
+                            "end_year": 2025,
+                            "start_year": 2025
+                          }
+                        ],
+                        "education": [
+                          {
+                            "degree": "B.Tech",
+                            "institution": "Hooghly Riverside Institute of Technology",
+                            "field_of_study": "Computer Science and Engineering",
+                            "graduation_year": 2026
+                          }
+                        ],
+                        "current_role": "Software Engineering Intern",
+                        "seniority_level": "junior",
+                        "years_of_experience": 0,
+                        "skills": [
+                          "python",
+                          "c++",
+                          "data structures",
+                          "machine learning",
+                          "sql",
+                          "git",
+                          "flask",
+                          "langchain",
+                          "rag"
+                        ],
+                        "education_level": "bachelors",
+                        "certifications": [],
+                        "locations": [
+                          "kolkata",
+                          "bengaluru",
+                          "remote"
+                        ],
+                        "industries": [
+                          "software"
+                        ],
+                        "languages": [
+                          "english",
+                          "bengali",
+                          "hindi"
+                        ],
+                        "file_name": "r10-ishaan-chatterjee.pdf",
+                        "title": null
+                      },
+                      "title": null,
+                      "file_name": "r10-ishaan-chatterjee.pdf"
+                    },
+                    {
+                      "object_id": "f0f297b6-06e6-4dc6-85f6-2602a36edc8d",
+                      "metadata": {
+                        "document_type": "resume",
+                        "candidate_name": "Rohan Deshpande",
+                        "candidate_email": "rohan.deshpande@example.com",
+                        "education": [
+                          {
+                            "degree": "B.E.",
+                            "institution": "Pune Plateau College of Engineering",
+                            "field_of_study": "Electronics and Telecommunication",
+                            "graduation_year": 2011
+                          }
+                        ],
+                        "current_role": "Principal Data Engineer",
+                        "seniority_level": "principal",
+                        "years_of_experience": 15,
+                        "skills": [
+                          "spark",
+                          "hadoop",
+                          "scala",
+                          "python",
+                          "aws",
+                          "azure",
+                          "data architecture",
+                          "kafka",
+                          "snowflake",
+                          "sql"
+                        ],
+                        "education_level": "bachelors",
+                        "certifications": [
+                          "microsoft certified: azure data engineer associate",
+                          "aws certified data analytics - specialty"
+                        ],
+                        "locations": [
+                          "pune",
+                          "mumbai"
+                        ],
+                        "industries": [
+                          "energy",
+                          "telecommunications"
+                        ],
+                        "languages": [
+                          "english",
+                          "marathi",
+                          "hindi"
+                        ],
+                        "file_name": "r18-rohan-deshpande.pdf",
+                        "title": null
+                      },
+                      "title": null,
+                      "file_name": "r18-rohan-deshpande.pdf"
+                    },
+                    {
+                      "object_id": "1973b6e9-a35d-425d-a1ac-c5e9e2042161",
+                      "metadata": {
+                        "document_type": "resume",
+                        "candidate_name": "Aarav Mehta",
+                        "candidate_email": "aarav.mehta@example.com",
+                        "current_role": "Senior Machine Learning Engineer",
+                        "seniority_level": "senior",
+                        "years_of_experience": 8,
+                        "skills": [
+                          "python",
+                          "pytorch",
+                          "aws",
+                          "langchain",
+                          "rag",
+                          "llm fine-tuning",
+                          "docker",
+                          "kubernetes",
+                          "mlflow",
+                          "sql"
+                        ],
+                        "education_level": "masters",
+                        "certifications": [
+                          "AWS Certified Machine Learning - Specialty"
+                        ],
+                        "locations": [
+                          "Bengaluru"
+                        ],
+                        "industries": [
+                          "e-commerce",
+                          "fintech"
+                        ],
+                        "languages": [
+                          "english",
+                          "hindi",
+                          "kannada"
+                        ],
+                        "file_name": "r01-aarav-mehta.pdf",
+                        "title": null
+                      },
+                      "title": null,
+                      "file_name": "r01-aarav-mehta.pdf"
+                    },
+                    {
+                      "object_id": "ffe2bdcc-6a8f-4f6c-84e4-93a786aacc68",
+                      "metadata": {
+                        "document_type": "resume",
+                        "candidate_name": "Nadia Haddad",
+                        "candidate_email": "nadia.haddad@example.org",
+                        "education": [
+                          {
+                            "degree": "B.Sc.",
+                            "institution": "Levant Polytechnic University",
+                            "field_of_study": "Computer Science",
+                            "graduation_year": 2017
+                          }
+                        ],
+                        "current_role": "Senior Site Reliability Engineer",
+                        "seniority_level": "senior",
+                        "years_of_experience": 9,
+                        "skills": [
+                          "kubernetes",
+                          "gcp",
+                          "aws",
+                          "terraform",
+                          "go",
+                          "python",
+                          "prometheus",
+                          "incident management",
+                          "linux",
+                          "helm"
+                        ],
+                        "education_level": "bachelors",
+                        "certifications": [
+                          "Certified Kubernetes Administrator (CKA)",
+                          "Google Professional Cloud DevOps Engineer"
+                        ],
+                        "locations": [
+                          "Dubai"
+                        ],
+                        "industries": [
+                          "logistics",
+                          "web hosting",
+                          "cloud hosting"
+                        ],
+                        "languages": [
+                          "arabic",
+                          "english",
+                          "french"
+                        ],
+                        "file_name": "r19-nadia-haddad.pdf",
+                        "title": null
+                      },
+                      "title": null,
+                      "file_name": "r19-nadia-haddad.pdf"
+                    },
+                    {
+                      "object_id": "9fcc923c-65e4-4654-9c66-5e4b3d62a717",
+                      "metadata": {
+                        "document_type": "resume",
+                        "candidate_name": "Daniel Okafor",
+                        "candidate_email": "daniel.okafor@example.net",
+                        "education": [
+                          {
+                            "degree": "B.Eng.",
+                            "institution": "University of Eastmere",
+                            "field_of_study": "Computer Engineering",
+                            "graduation_year": 2010
+                          }
+                        ],
+                        "current_role": "Principal Software Engineer",
+                        "seniority_level": "principal",
+                        "years_of_experience": 14,
+                        "skills": [
+                          "java",
+                          "go",
+                          "kubernetes",
+                          "aws",
+                          "postgresql",
+                          "kafka",
+                          "distributed systems",
+                          "system design",
+                          "terraform",
+                          "grpc"
+                        ],
+                        "education_level": "bachelors",
+                        "certifications": [
+                          "aws certified solutions architect - professional",
+                          "certified kubernetes administrator (cka)"
+                        ],
+                        "locations": [
+                          "London"
+                        ],
+                        "industries": [
+                          "fintech",
+                          "telecommunications"
+                        ],
+                        "languages": [
+                          "english",
+                          "yoruba"
+                        ],
+                        "file_name": "r03-daniel-okafor.pdf",
+                        "title": null
+                      },
+                      "title": null,
+                      "file_name": "r03-daniel-okafor.pdf"
+                    },
+                    {
+                      "object_id": "1125d46f-7616-47e6-9042-e113462153dc",
+                      "metadata": {
+                        "document_type": "resume",
+                        "candidate_name": "Rahul Verma",
+                        "candidate_email": "rahul.verma@example.org",
+                        "education": [
+                          {
+                            "degree": "B.Tech",
+                            "institution": "Golconda Institute of Engineering",
+                            "field_of_study": "Information Technology",
+                            "graduation_year": 2021
+                          }
+                        ],
+                        "current_role": "DevOps Engineer",
+                        "seniority_level": "senior",
+                        "years_of_experience": 5,
+                        "skills": [
+                          "aws",
+                          "terraform",
+                          "kubernetes",
+                          "docker",
+                          "jenkins",
+                          "python",
+                          "bash",
+                          "prometheus",
+                          "grafana",
+                          "ansible"
+                        ],
+                        "education_level": "bachelors",
+                        "certifications": [
+                          "aws certified devops engineer - professional",
+                          "certified kubernetes administrator (cka)"
+                        ],
+                        "locations": [
+                          "Hyderabad"
+                        ],
+                        "industries": [
+                          "b2b saas",
+                          "saas",
+                          "hr software"
+                        ],
+                        "languages": [
+                          "english",
+                          "hindi",
+                          "telugu"
+                        ],
+                        "file_name": "r05-rahul-verma.pdf",
+                        "title": null
+                      },
+                      "title": null,
+                      "file_name": "r05-rahul-verma.pdf"
+                    },
+                    {
+                      "object_id": "2424ea77-35bb-473d-8c40-0c36aa0784d6",
+                      "metadata": {
+                        "document_type": "resume",
+                        "candidate_name": "Anjali Nair",
+                        "candidate_email": "anjali.nair@example.com",
+                        "education": [
+                          {
+                            "degree": "B.Tech",
+                            "institution": "Malabar Coast College of Engineering",
+                            "field_of_study": "Computer Science",
+                            "graduation_year": 2020
+                          }
+                        ],
+                        "current_role": "Senior Data Engineer",
+                        "seniority_level": "senior",
+                        "years_of_experience": 6,
+                        "skills": [
+                          "python",
+                          "spark",
+                          "airflow",
+                          "sql",
+                          "snowflake",
+                          "dbt",
+                          "aws",
+                          "kafka",
+                          "data modeling",
+                          "scala"
+                        ],
+                        "education_level": "bachelors",
+                        "certifications": [
+                          "AWS Certified Data Engineer - Associate",
+                          "snowpro core certification"
+                        ],
+                        "locations": [
+                          "Kochi",
+                          "Bengaluru"
+                        ],
+                        "industries": [
+                          "logistics",
+                          "saas"
+                        ],
+                        "languages": [
+                          "english",
+                          "malayalam",
+                          "hindi"
+                        ],
+                        "file_name": "r11-anjali-nair.pdf",
+                        "title": null
+                      },
+                      "title": null,
+                      "file_name": "r11-anjali-nair.pdf"
+                    },
+                    {
+                      "object_id": "6e951171-51bd-4723-87ed-11f68cb81c1c",
+                      "metadata": {
+                        "document_type": "resume",
+                        "candidate_name": "Zoya Ahmed",
+                        "candidate_email": "zoya.ahmed@example.com",
+                        "current_role": "Senior Business Analyst",
+                        "seniority_level": "senior",
+                        "years_of_experience": 7,
+                        "skills": [
+                          "sql",
+                          "python",
+                          "power bi",
+                          "excel",
+                          "stakeholder management",
+                          "forecasting",
+                          "a/b testing",
+                          "looker"
+                        ],
+                        "education_level": "masters",
+                        "certifications": [],
+                        "locations": [
+                          "New Delhi",
+                          "Gurugram"
+                        ],
+                        "industries": [
+                          "e-commerce",
+                          "fintech",
+                          "payments"
+                        ],
+                        "languages": [
+                          "english",
+                          "hindi",
+                          "urdu"
+                        ],
+                        "file_name": "r13-zoya-ahmed.pdf",
+                        "title": null
+                      },
+                      "title": null,
+                      "file_name": "r13-zoya-ahmed.pdf"
+                    },
+                    {
+                      "object_id": "527da6e0-0206-4649-ba12-1a0441c6b9c9",
+                      "metadata": {
+                        "document_type": "resume",
+                        "candidate_name": "Siddharth Rao",
+                        "candidate_email": "siddharth.rao@example.org",
+                        "education": [
+                          {
+                            "degree": "M.S.",
+                            "institution": "Godavari Institute of Science and Technology",
+                            "field_of_study": "Computer Science",
+                            "graduation_year": 2013
+                          }
+                        ],
+                        "current_role": "Staff Machine Learning Engineer",
+                        "seniority_level": "lead",
+                        "years_of_experience": 13,
+                        "skills": [
+                          "python",
+                          "tensorflow",
+                          "pytorch",
+                          "recommender systems",
+                          "rag",
+                          "llms",
+                          "spark",
+                          "aws",
+                          "kubernetes",
+                          "mlops"
+                        ],
+                        "education_level": "masters",
+                        "certifications": [],
+                        "locations": [
+                          "Hyderabad",
+                          "Remote"
+                        ],
+                        "industries": [
+                          "mobility",
+                          "analytics consultancy",
+                          "consulting"
+                        ],
+                        "languages": [
+                          "english",
+                          "telugu",
+                          "hindi"
+                        ],
+                        "file_name": "r22-siddharth-rao.pdf",
+                        "title": null
+                      },
+                      "title": null,
+                      "file_name": "r22-siddharth-rao.pdf"
+                    },
+                    {
+                      "object_id": "b9d4add5-0406-4b60-a549-282a6eba390e",
+                      "metadata": {
+                        "document_type": "resume",
+                        "candidate_name": "Kavya Reddy",
+                        "candidate_email": "kavya.reddy@example.org",
+                        "education": [
+                          {
+                            "degree": "B.Tech",
+                            "institution": "Krishna Delta Institute of Technology",
+                            "field_of_study": "Electronics and Communication Engineering",
+                            "graduation_year": 2023
+                          }
+                        ],
+                        "current_role": "Software Engineer II",
+                        "seniority_level": "mid_level",
+                        "years_of_experience": 2,
+                        "skills": [
+                          "java",
+                          "spring boot",
+                          "postgresql",
+                          "redis",
+                          "microservices",
+                          "aws",
+                          "docker",
+                          "rest apis"
+                        ],
+                        "education_level": "bachelors",
+                        "certifications": [],
+                        "locations": [
+                          "bengaluru"
+                        ],
+                        "industries": [
+                          "healthcare",
+                          "digital health"
+                        ],
+                        "languages": [
+                          "english",
+                          "telugu",
+                          "kannada"
+                        ],
+                        "file_name": "r15-kavya-reddy.pdf",
+                        "title": null
+                      },
+                      "title": null,
+                      "file_name": "r15-kavya-reddy.pdf"
+                    },
+                    {
+                      "object_id": "c9ee76a5-41c7-4dcb-a634-4841b07b9408",
+                      "metadata": {
+                        "document_type": "resume",
+                        "candidate_name": "Priya Raghunathan",
+                        "candidate_email": "priya.raghunathan@example.org",
+                        "current_role": "Lead Data Scientist",
+                        "seniority_level": "lead",
+                        "years_of_experience": 12,
+                        "skills": [
+                          "python",
+                          "r",
+                          "sql",
+                          "statistics",
+                          "xgboost",
+                          "spark",
+                          "azure",
+                          "tableau",
+                          "causal inference",
+                          "forecasting"
+                        ],
+                        "education_level": "masters",
+                        "certifications": [],
+                        "locations": [
+                          "Chennai",
+                          "Remote"
+                        ],
+                        "industries": [
+                          "healthcare",
+                          "insurance"
+                        ],
+                        "languages": [
+                          "english",
+                          "tamil"
+                        ],
+                        "file_name": "r02-priya-raghunathan.pdf",
+                        "title": null
+                      },
+                      "title": null,
+                      "file_name": "r02-priya-raghunathan.pdf"
+                    },
+                    {
+                      "object_id": "bc7e4327-ef25-4034-9d79-47ffa8150c6a",
+                      "metadata": {
+                        "document_type": "resume",
+                        "candidate_name": "Meera Iyer",
+                        "candidate_email": "meera.iyer@example.com",
+                        "current_role": "Senior Product Manager",
+                        "seniority_level": "senior",
+                        "years_of_experience": 11,
+                        "skills": [
+                          "product strategy",
+                          "roadmapping",
+                          "a/b testing",
+                          "sql",
+                          "user research",
+                          "agile",
+                          "jira",
+                          "stakeholder management",
+                          "product analytics"
+                        ],
+                        "education_level": "masters",
+                        "certifications": [
+                          "certified scrum product owner (cspo)"
+                        ],
+                        "locations": [
+                          "mumbai"
+                        ],
+                        "industries": [
+                          "edtech",
+                          "e-commerce",
+                          "it services"
+                        ],
+                        "languages": [
+                          "english",
+                          "hindi",
+                          "marathi"
+                        ],
+                        "file_name": "r06-meera-iyer.pdf",
+                        "title": null
+                      },
+                      "title": null,
+                      "file_name": "r06-meera-iyer.pdf"
+                    },
+                    {
+                      "object_id": "ee2a5a49-044a-4b2c-bf1f-65d3bb038f17",
+                      "metadata": {
+                        "document_type": "resume",
+                        "candidate_name": "Fatima Sheikh",
+                        "candidate_email": "fatima.sheikh@example.org",
+                        "current_role": "Junior Data Scientist",
+                        "seniority_level": "junior",
+                        "years_of_experience": 7,
+                        "skills": [
+                          "python",
+                          "pandas",
+                          "scikit-learn",
+                          "sql",
+                          "statistics",
+                          "tableau",
+                          "machine learning",
+                          "data cleaning"
+                        ],
+                        "education_level": "bachelors",
+                        "certifications": [
+                          "Applied Data Science Bootcamp Certificate"
+                        ],
+                        "locations": [
+                          "Hyderabad"
+                        ],
+                        "industries": [
+                          "healthcare",
+                          "education"
+                        ],
+                        "languages": [
+                          "english",
+                          "urdu",
+                          "hindi",
+                          "telugu"
+                        ],
+                        "file_name": "r08-fatima-sheikh.pdf",
+                        "title": null
+                      },
+                      "title": null,
+                      "file_name": "r08-fatima-sheikh.pdf"
+                    },
+                    {
+                      "object_id": "784eb166-87bc-49da-9521-cf355cfecd27",
+                      "metadata": {
+                        "document_type": "resume",
+                        "candidate_name": "Michael Brennan",
+                        "candidate_email": "michael.brennan@example.org",
+                        "education": [
+                          {
+                            "degree": "M.S.",
+                            "institution": "Lone Prairie University",
+                            "field_of_study": "Computer Science",
+                            "graduation_year": 2008
+                          },
+                          {
+                            "degree": "B.S.",
+                            "institution": "Lone Prairie University",
+                            "field_of_study": "Computer Science",
+                            "graduation_year": 2006
+                          }
+                        ],
+                        "current_role": "VP of Engineering",
+                        "seniority_level": "executive",
+                        "years_of_experience": 18,
+                        "skills": [
+                          "engineering leadership",
+                          "system design",
+                          "aws",
+                          "hiring",
+                          "budgeting",
+                          "platform strategy",
+                          "go",
+                          "kubernetes"
+                        ],
+                        "education_level": "masters",
+                        "certifications": [],
+                        "locations": [
+                          "Austin, TX",
+                          "Dallas, TX"
+                        ],
+                        "industries": [
+                          "healthcare saas",
+                          "workflow software",
+                          "b2b software"
+                        ],
+                        "languages": [
+                          "english"
+                        ],
+                        "file_name": "r12-michael-brennan.pdf",
+                        "title": null
+                      },
+                      "title": null,
+                      "file_name": "r12-michael-brennan.pdf"
+                    },
+                    {
+                      "object_id": "51d12a71-508e-4442-9ccc-d09e0652c459",
+                      "metadata": {
+                        "document_type": "resume",
+                        "candidate_name": "Kenji Watanabe",
+                        "candidate_email": "kenji.watanabe@example.net",
+                        "current_role": "AI Research Engineer",
+                        "seniority_level": "mid_level",
+                        "years_of_experience": 4,
+                        "skills": [
+                          "python",
+                          "pytorch",
+                          "jax",
+                          "transformers",
+                          "llm pretraining",
+                          "rlhf",
+                          "cuda",
+                          "distributed training",
+                          "rag",
+                          "llm evaluation"
+                        ],
+                        "education_level": "phd",
+                        "certifications": [],
+                        "locations": [
+                          "Tokyo",
+                          "Remote"
+                        ],
+                        "industries": [
+                          "ai research lab",
+                          "artificial intelligence"
+                        ],
+                        "languages": [
+                          "japanese",
+                          "english"
+                        ],
+                        "file_name": "r07-kenji-watanabe.pdf",
+                        "title": null
+                      },
+                      "title": null,
+                      "file_name": "r07-kenji-watanabe.pdf"
+                    },
+                    {
+                      "object_id": "b2f90fe4-6b51-430c-9e5a-3bbb8cbd037f",
+                      "metadata": {
+                        "document_type": "resume",
+                        "candidate_name": "Emily Carter",
+                        "candidate_email": "emily.carter@example.com",
+                        "education": [
+                          {
+                            "degree": "B.Sc.",
+                            "institution": "Lakeshore University",
+                            "field_of_study": "Mathematics",
+                            "graduation_year": 2021
+                          }
+                        ],
+                        "current_role": "Analytics Engineer",
+                        "seniority_level": "mid_level",
+                        "years_of_experience": 5,
+                        "skills": [
+                          "sql",
+                          "dbt",
+                          "python",
+                          "looker",
+                          "snowflake",
+                          "airflow",
+                          "data modeling",
+                          "git"
+                        ],
+                        "education_level": "bachelors",
+                        "certifications": [
+                          "dbt analytics engineering certification"
+                        ],
+                        "locations": [
+                          "Toronto"
+                        ],
+                        "industries": [
+                          "retail",
+                          "banking"
+                        ],
+                        "languages": [
+                          "english",
+                          "french"
+                        ],
+                        "file_name": "r21-emily-carter.pdf",
+                        "title": null
+                      },
+                      "title": null,
+                      "file_name": "r21-emily-carter.pdf"
+                    },
+                    {
+                      "object_id": "dc603dcd-04f6-47c1-9232-4413166c75b4",
+                      "metadata": {
+                        "document_type": "resume",
+                        "candidate_name": "Tanvi Joshi",
+                        "candidate_email": "tanvi.joshi@example.net",
+                        "education": [
+                          {
+                            "degree": "B.E.",
+                            "institution": "Sabarmati Institute of Engineering",
+                            "field_of_study": "Information Technology",
+                            "graduation_year": 2024
+                          }
+                        ],
+                        "current_role": "Junior AI Engineer",
+                        "seniority_level": "junior",
+                        "years_of_experience": 2,
+                        "skills": [
+                          "python",
+                          "javascript",
+                          "react",
+                          "fastapi",
+                          "langchain",
+                          "rag",
+                          "postgresql",
+                          "docker"
+                        ],
+                        "education_level": "bachelors",
+                        "certifications": [],
+                        "locations": [
+                          "Ahmedabad",
+                          "Remote"
+                        ],
+                        "industries": [
+                          "saas"
+                        ],
+                        "languages": [
+                          "english",
+                          "gujarati",
+                          "hindi"
+                        ],
+                        "file_name": "r24-tanvi-joshi.pdf",
+                        "title": null
+                      },
+                      "title": null,
+                      "file_name": "r24-tanvi-joshi.pdf"
+                    }
+                  ],
+                  "count": 24,
+                  "applied_filter": null,
+                  "retrieval_mode": "hybrid_query",
+                  "question_shape": "aggregate",
+                  "population_complete": true,
+                  "stats": [
+                    {
+                      "field": "education_level",
+                      "documents": 24,
+                      "with_value": 24,
+                      "missing": 0,
+                      "type": "values",
+                      "distinct_values": 3,
+                      "value_counts": [
+                        {
+                          "value": "bachelors",
+                          "documents": 15
+                        },
+                        {
+                          "value": "masters",
+                          "documents": 8
+                        },
+                        {
+                          "value": "phd",
+                          "documents": 1
+                        }
+                      ],
+                      "value_counts_truncated": false
+                    }
+                  ],
+                  "semantic_candidate_count": 24,
+                  "total_match_count": 24,
+                  "truncated": false,
+                  "total_is_lower_bound": false
+                }
+              },
+              {
+                "tool_name": "RagAgentOutput",
+                "tool_call_id": "call_gPclGgP3ENheQH2bCnosSpjE",
+                "result": "Returning structured response: stop_reason=<StopReason.answered: 'answered'> confidence=<Confidence.high: 'high'> granularity=<Granularity.doc: 'doc'> previous_context_used=False answer='| Education level | Candidates |\\n|---|---:|\\n| Bachelors | 15 |\\n| Masters | 8 |\\n| PhD | 1 |\\n| **Total** | **24** |' relevant_docs=[] open_questions=[]"
+              }
+            ],
+            "retrieval_attempts": 1,
+            "key_type": "platform-key",
+            "agent_output": {
+              "stop_reason": "answered",
+              "confidence": "high",
+              "granularity": "doc",
+              "previous_context_used": false,
+              "answer": "| Education level | Candidates |\n|---|---:|\n| Bachelors | 15 |\n| Masters | 8 |\n| PhD | 1 |\n| **Total** | **24** |",
+              "relevant_docs": [],
+              "open_questions": []
+            },
+            "verifier_verdicts": [
+              {
+                "sufficient": true,
+                "confidence": "high",
+                "missing": "",
+                "reason": "The retrieval performed a complete population aggregation over all 24 candidate documents for the education_level field (0 missing), yielding bachelors=15, masters=8, phd=1 and total=24, which directly supports the requested chart.",
+                "suggested_action": ""
+              }
+            ],
+            "answer_node_output": "| Education level | Candidates |\n|---|---:|\n| Bachelors | 15 |\n| Masters | 8 |\n| PhD | 1 |\n| **Total** | **24** |",
+            "is_answered": true,
+            "usage_metrics": {
+              "input_tokens": 30576,
+              "output_tokens": 258,
+              "total_tokens": 30834,
+              "cached_input_tokens": 20211,
+              "cache_write_tokens": 0
+            },
+            "usage_by_model": [
+              {
+                "provider": "openai",
+                "model": "gpt-5.6-luna",
+                "input_tokens": 25494,
+                "output_tokens": 181,
+                "cached_input_tokens": 17523
+              },
+              {
+                "provider": "openai",
+                "model": "gpt-5.4-mini",
+                "input_tokens": 5082,
+                "output_tokens": 77,
+                "cached_input_tokens": 2688
+              }
+            ],
+            "service_calls": [
+              {
+                "service": "rag_agent",
+                "latency_ms": 3793,
+                "provider": "openai",
+                "model": "gpt-5.6-luna",
+                "input_tokens": 25494,
+                "output_tokens": 181,
+                "total_tokens": 25675,
+                "cost_usd": 0.02658
+              },
+              {
+                "service": "generate_answer",
+                "latency_ms": 821,
+                "provider": "openai",
+                "model": "gpt-5.4-mini",
+                "input_tokens": 5082,
+                "output_tokens": 77,
+                "total_tokens": 5159,
+                "cost_usd": 0.004158
+              }
+            ]
+          },
+          "chart_output": {
+            "type": "chart_response",
+            "chart_suggestion": "Bar Chart",
+            "chart_data": {
+              "data": [
+                {
+                  "category": "bachelors",
+                  "value": 15.0
+                },
+                {
+                  "category": "masters",
+                  "value": 8.0
+                },
+                {
+                  "category": "phd",
+                  "value": 1.0
+                }
+              ],
+              "metadata": {
+                "title": "Number of Candidates by Education Level",
+                "x_axis": {
+                  "label": "Education level",
+                  "field": "Education level"
+                },
+                "y_axis": {
+                  "label": "Number of candidates",
+                  "field": "Candidates"
+                },
+                "legend": {
+                  "show": false,
+                  "position": "right"
+                },
+                "colors": [
+                  "#3498db",
+                  "#e74c3c",
+                  "#2ecc71"
+                ]
+              }
+            },
+            "dataframe": {
+              "columns": [
+                "Education level",
+                "Candidates"
+              ],
+              "data": [
+                {
+                  "Education level": "bachelors",
+                  "Candidates": 15
+                },
+                {
+                  "Education level": "masters",
+                  "Candidates": 8
+                },
+                {
+                  "Education level": "phd",
+                  "Candidates": 1
+                }
+              ],
+              "shape": [
+                3,
+                2
+              ],
+              "dtypes": {
+                "Education level": "str",
+                "Candidates": "int64"
+              }
+            },
+            "chart_generated": true
+          }
+        }
+      },
+      "is_answered": "yes",
+      "follow_up": [
+        "What percentage of candidates have Bachelors, Masters, and PhD degrees?",
+        "Can you compute the mean and median education level from this table?"
+      ],
+      "usage": {
+        "input_tokens": 32177,
+        "output_tokens": 353,
+        "total_tokens": 32530,
+        "service_calls": [
+          {
+            "service": "rag_agent",
+            "latency_ms": 3793,
+            "provider": "openai",
+            "model": "gpt-5.6-luna",
+            "input_tokens": 25494,
+            "output_tokens": 181,
+            "total_tokens": 25675,
+            "cost_usd": 0.02658
+          },
+          {
+            "service": "generate_answer",
+            "latency_ms": 821,
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "input_tokens": 5082,
+            "output_tokens": 77,
+            "total_tokens": 5159,
+            "cost_usd": 0.004158
+          },
+          {
+            "service": "chart",
+            "latency_ms": 7713,
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "input_tokens": 1601,
+            "output_tokens": 95,
+            "total_tokens": 1696,
+            "cost_usd": 0.001628
+          }
+        ]
+      },
+      "debug_info": {
+        "enabled": true,
+        "latency_ms": null,
+        "type": "agentic_rag",
+        "is_answered": "yes",
+        "previous_context_used": false,
+        "document_ids": []
+      },
+      "error": null,
+      "byok_warnings": []
+    }
+  }
+}

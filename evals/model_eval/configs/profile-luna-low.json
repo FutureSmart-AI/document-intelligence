@@ -1,0 +1,15 @@
+{
+  "profile": "openai-v1",
+  "suites": ["extraction", "rag"],
+  "about": "Candidate production profile: extraction on the registry variant gpt-5.6-luna-low (wire model gpt-5.6-luna at reasoning low, also the fallback) and the production chat models, run on BOTH suites so the RAG cases are asked of collections extracted by the candidate. It selects the model by NAME with no ENRICHMENT_REASONING_EFFORT, the same mechanism production uses through the enrichment-config row, so the regression gate exercises exactly what prod runs.",
+  "settings": {
+    "ENRICHMENT_MODEL": "gpt-5.6-luna-low", "ENRICHMENT_FALLBACK_MODEL": "gpt-5.6-luna-low",
+    "RAG_CHAT_AGENT_LLM_PROVIDER": "openai", "RAG_CHAT_AGENT_LLM_MODEL": "gpt-5.6-luna",
+    "RAG_CHAT_ANSWER_LLM_PROVIDER": "openai", "RAG_CHAT_ANSWER_LLM_MODEL": "gpt-5.6-luna",
+    "RAG_CHAT_REFINED_QUERY_LLM_PROVIDER": "openai", "RAG_CHAT_REFINED_QUERY_LLM_MODEL": "gpt-5.4-nano",
+    "RAG_RETRIEVAL_VERIFIER_PROVIDER": "openai", "RAG_RETRIEVAL_VERIFIER_MODEL": "gpt-5.4-nano",
+    "FOLLOW_UP_LLM_PROVIDER": "openai", "FOLLOW_UP_LLM_MODEL": "gpt-5.4-nano",
+    "CHART_EXTRACTION_MODEL": "gpt-5.4-mini", "CHART_RENDER_PROVIDER": "openai", "CHART_RENDER_MODEL": "gpt-5.4-mini",
+    "RAG_FALLBACK_PROVIDER": "openai", "RAG_FALLBACK_MODEL": "gpt-5.4-mini"
+  }
+}

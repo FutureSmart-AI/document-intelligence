@@ -65,7 +65,7 @@ def test_chart_generated_when_enabled_with_chunks(monkeypatch):
     async def _fake_resolve_chat_config(knowledge_id, **kwargs):
         return SimpleNamespace(include_charts=True)
 
-    async def _fake_process(query, owner_id, chunks, knowledge_id=None):
+    async def _fake_process(query, owner_id, chunks, knowledge_id=None, documents=None, population_complete=True):
         assert query == "q"
         assert owner_id == "owner-1"
         assert chunks == [{"text": "hello"}, {"text": "world"}]
@@ -74,6 +74,7 @@ def test_chart_generated_when_enabled_with_chunks(monkeypatch):
 
     monkeypatch.setattr("chat.config.resolve_chat_config", _fake_resolve_chat_config)
     monkeypatch.setattr("chat.chart_generator.process_chart_visualization", _fake_process)
+    monkeypatch.setattr("utils.setup_env.CHART_API_URL", "https://chart.example/api")
 
     result = _run(chart_node_module.chart_node(
         query="q", knowledge_id="k1", owner_id="owner-1",
@@ -91,7 +92,7 @@ def test_chart_reports_node_usage_when_llm_calls_are_made(monkeypatch):
     async def _fake_resolve_chat_config(knowledge_id, **kwargs):
         return SimpleNamespace(include_charts=True)
 
-    async def _fake_process(query, owner_id, chunks, knowledge_id=None):
+    async def _fake_process(query, owner_id, chunks, knowledge_id=None, documents=None, population_complete=True):
         return (
             {"chart_generated": True},
             {"provider": "openai", "model": "gpt-4o-mini", "input_tokens": 120, "output_tokens": 40},
@@ -99,6 +100,7 @@ def test_chart_reports_node_usage_when_llm_calls_are_made(monkeypatch):
 
     monkeypatch.setattr("chat.config.resolve_chat_config", _fake_resolve_chat_config)
     monkeypatch.setattr("chat.chart_generator.process_chart_visualization", _fake_process)
+    monkeypatch.setattr("utils.setup_env.CHART_API_URL", "https://chart.example/api")
 
     result = _run(chart_node_module.chart_node(
         query="q", knowledge_id="k1", owner_id="owner-1",

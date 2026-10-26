@@ -237,6 +237,21 @@ describe("toConversationData", () => {
   it("survives a thread with no messages", () => {
     expect(toConversationData([])).toEqual([]);
   });
+
+  it("carries the stored usage block into the run log, so a reloaded thread keeps its timings", () => {
+    const usage = {
+      latency_ms: 8120,
+      operations: [],
+      estimated_cost_usd: 0.0031,
+    };
+    const [, answer] = toConversationData([
+      messages[0],
+      { ...messages[1], model: "gpt-5.6-luna", usage },
+    ]);
+    const run = (answer.data as { di_run: Record<string, unknown> }).di_run;
+    expect(run.usage).toEqual(usage);
+    expect(run.stored).toBe(true);
+  });
 });
 
 describe("the transport's session read", () => {

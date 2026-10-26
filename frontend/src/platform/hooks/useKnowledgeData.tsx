@@ -62,6 +62,11 @@ interface KnowledgeItem {
   // hidden. See list-view/documentLinks.ts.
   source_presigned_url?: string | null;
   extracted_s3_url?: string | null;
+  // What processing this document took and cost: parse step, extraction
+  // model(s) incl. fallback, embeddings, total ms, estimated cost. Null until the
+  // worker records it; absent on in-flight batch rows. See
+  // components/knowledge/detail/readProcessing.ts.
+  processing_telemetry?: Record<string, unknown> | null;
 }
 
 interface KnowledgeData {

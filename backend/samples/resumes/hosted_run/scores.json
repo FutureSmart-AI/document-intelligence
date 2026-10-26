@@ -1,0 +1,4615 @@
+{
+  "judge_model": "gpt-5.4-mini",
+  "resumes": [
+    {
+      "id": "r01",
+      "name": "Aarav Mehta",
+      "layout": "sidebar_left",
+      "exact": {
+        "candidate_email": {
+          "expected": "aarav.mehta@example.com",
+          "extracted": "aarav.mehta@example.com",
+          "ok": true
+        },
+        "seniority_level": {
+          "expected": "senior",
+          "extracted": "senior",
+          "ok": true
+        },
+        "education_level": {
+          "expected": "masters",
+          "extracted": "masters",
+          "ok": true
+        },
+        "years_of_experience": {
+          "expected": 8,
+          "extracted": 8,
+          "ok": true
+        }
+      },
+      "judged": {
+        "candidate_name": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Aarav Mehta matches exactly.",
+          "extracted": "Aarav Mehta"
+        },
+        "current_role": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Senior Machine Learning Engineer matches exactly.",
+          "extracted": "Senior Machine Learning Engineer"
+        },
+        "skills": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 10,
+          "extracted_items": 10,
+          "matched_items": 10,
+          "reason": "All 10 skills match by meaning.",
+          "extracted": [
+            "python",
+            "pytorch",
+            "aws",
+            "langchain",
+            "rag",
+            "llm fine-tuning",
+            "docker",
+            "kubernetes",
+            "mlflow",
+            "sql"
+          ]
+        },
+        "certifications": {
+          "verdicts": [
+            "correct",
+            "wrong"
+          ],
+          "agree": false,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 0,
+          "reason": "AWS Certified Machine - Specialty matches AWS Certified Machine Learning - Specialty by meaning despite the abbreviated wording.",
+          "extracted": [
+            "AWS Certified Machine - Specialty"
+          ]
+        },
+        "locations": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Bengaluru matches Bangalore by meaning.",
+          "extracted": [
+            "Bengaluru"
+          ]
+        },
+        "industries": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both e-commerce and fintech match exactly.",
+          "extracted": [
+            "e-commerce",
+            "fintech"
+          ]
+        },
+        "languages": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 3,
+          "extracted_items": 3,
+          "matched_items": 3,
+          "reason": "All three languages match exactly.",
+          "extracted": [
+            "english",
+            "hindi",
+            "kannada"
+          ]
+        },
+        "work_experience": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 3,
+          "extracted_items": 3,
+          "matched_items": 3,
+          "reason": "All three work entries match on company, title, and years; summaries differ slightly but describe the same work. Extra summary details are true and not errors.",
+          "extracted": [
+            {
+              "title": "Senior Machine Learning Engineer",
+              "company": "Lumora Commerce",
+              "summary": "Leads a team building LLM-based retrieval and RAG assistants for customer support and product search, reducing hallucinations and fine-tuning an open-weight 7B model with LoRA.",
+              "end_year": null,
+              "start_year": 2022
+            },
+            {
+              "title": "Machine Learning Engineer",
+              "company": "Lumora Commerce",
+              "summary": "Built and deployed product recommendation and ranking models serving 30M sessions per month and moved training to Kubernetes with MLflow tracking.",
+              "end_year": 2022,
+              "start_year": 2020
+            },
+            {
+              "title": "Data Scientist",
+              "company": "Brightpath Lending",
+              "summary": "Developed credit-risk scoring models for small-business loans and automated weekly model monitoring reports in SQL and Python.",
+              "end_year": 2020,
+              "start_year": 2018
+            }
+          ]
+        },
+        "education": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both education entries match on institution, degree, and graduation year.",
+          "extracted": [
+            {
+              "degree": "M.Tech",
+              "institution": "Western Ghats Institute of Technology",
+              "field_of_study": "Computer Science",
+              "graduation_year": 2018
+            },
+            {
+              "degree": "B.E.",
+              "institution": "Malnad College of Engineering Studies",
+              "field_of_study": "Information Science",
+              "graduation_year": 2016
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "r02",
+      "name": "Priya Raghunathan",
+      "layout": "classic",
+      "exact": {
+        "candidate_email": {
+          "expected": "priya.raghunathan@example.org",
+          "extracted": "priya.raghunathan@example.org",
+          "ok": true
+        },
+        "seniority_level": {
+          "expected": "lead",
+          "extracted": "lead",
+          "ok": true
+        },
+        "education_level": {
+          "expected": "masters",
+          "extracted": "masters",
+          "ok": true
+        },
+        "years_of_experience": {
+          "expected": 12,
+          "extracted": 12,
+          "ok": true
+        }
+      },
+      "judged": {
+        "candidate_name": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Name matches exactly.",
+          "extracted": "Priya Raghunathan"
+        },
+        "current_role": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Current role matches exactly.",
+          "extracted": "Lead Data Scientist"
+        },
+        "skills": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 10,
+          "extracted_items": 10,
+          "matched_items": 10,
+          "reason": "All expected skills match; no extra false skills.",
+          "extracted": [
+            "python",
+            "r",
+            "sql",
+            "statistics",
+            "xgboost",
+            "spark",
+            "azure",
+            "tableau",
+            "causal inference",
+            "forecasting"
+          ]
+        },
+        "certifications": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 0,
+          "extracted_items": 0,
+          "matched_items": 0,
+          "reason": "Both ground truth and extraction are empty.",
+          "extracted": []
+        },
+        "locations": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Chennai and Remote both match.",
+          "extracted": [
+            "Chennai",
+            "Remote"
+          ]
+        },
+        "industries": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Healthcare and insurance both match.",
+          "extracted": [
+            "healthcare",
+            "insurance"
+          ]
+        },
+        "languages": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "English and Tamil both match.",
+          "extracted": [
+            "english",
+            "tamil"
+          ]
+        },
+        "work_experience": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 3,
+          "extracted_items": 3,
+          "matched_items": 3,
+          "reason": "All three work experience entries match on company, title, and years; summaries differ slightly but describe the same roles. The extracted summaries add details not present in ground truth, which is acceptable.",
+          "extracted": [
+            {
+              "title": "Lead Data Scientist",
+              "company": "Veridia Health Analytics",
+              "summary": "Led a team of 7 data scientists building patient-flow forecasting and readmission-risk models for 40 hospitals and introduced causal-inference reviews before clinical operations.",
+              "end_year": null,
+              "start_year": 2021
+            },
+            {
+              "title": "Senior Data Scientist",
+              "company": "Veridia Health Analytics",
+              "summary": "Built bed-occupancy forecasting models (XGBoost, Prophet) and Tableau dashboards for hospital operations.",
+              "end_year": 2021,
+              "start_year": 2018
+            },
+            {
+              "title": "Data Analyst",
+              "company": "Copperleaf Insurance",
+              "summary": "Analyzed claims data in R and SQL to detect fraud patterns and support motor policy pricing.",
+              "end_year": 2018,
+              "start_year": 2014
+            }
+          ]
+        },
+        "education": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both education entries match institution, degree, and year; extracted degree wording is expanded but equivalent.",
+          "extracted": [
+            {
+              "degree": "M.Sc., Statistics",
+              "institution": "Coromandel University",
+              "field_of_study": "statistics",
+              "graduation_year": 2014
+            },
+            {
+              "degree": "B.Sc., Mathematics",
+              "institution": "Coromandel University",
+              "field_of_study": "mathematics",
+              "graduation_year": 2012
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "r03",
+      "name": "Daniel Okafor",
+      "layout": "header_band",
+      "exact": {
+        "candidate_email": {
+          "expected": "daniel.okafor@example.net",
+          "extracted": "daniel.okafor@example.net",
+          "ok": true
+        },
+        "seniority_level": {
+          "expected": "principal",
+          "extracted": "principal",
+          "ok": true
+        },
+        "education_level": {
+          "expected": "bachelors",
+          "extracted": "bachelors",
+          "ok": true
+        },
+        "years_of_experience": {
+          "expected": 16,
+          "extracted": 14,
+          "ok": false
+        }
+      },
+      "judged": {
+        "candidate_name": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Name matches exactly.",
+          "extracted": "Daniel Okafor"
+        },
+        "current_role": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Current role matches exactly.",
+          "extracted": "Principal Software Engineer"
+        },
+        "skills": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 10,
+          "extracted_items": 10,
+          "matched_items": 10,
+          "reason": "All listed skills match by meaning.",
+          "extracted": [
+            "java",
+            "go",
+            "kubernetes",
+            "aws",
+            "postgresql",
+            "kafka",
+            "distributed systems",
+            "system design",
+            "terraform",
+            "grpc"
+          ]
+        },
+        "certifications": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both certifications match by meaning despite case differences.",
+          "extracted": [
+            "aws certified solutions architect - professional",
+            "certified kubernetes administrator (cka)"
+          ]
+        },
+        "locations": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Location matches.",
+          "extracted": [
+            "London"
+          ]
+        },
+        "industries": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both industries match.",
+          "extracted": [
+            "fintech",
+            "telecommunications"
+          ]
+        },
+        "languages": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both languages match.",
+          "extracted": [
+            "english",
+            "yoruba"
+          ]
+        },
+        "work_experience": {
+          "verdicts": [
+            "correct",
+            "partial"
+          ],
+          "agree": false,
+          "expected_items": 3,
+          "extracted_items": 3,
+          "matched_items": 2,
+          "reason": "All three roles match on company, title, and years. Summaries differ in wording but describe the same jobs; one summary adds extra details not in ground truth, which is acceptable.",
+          "extracted": [
+            {
+              "title": "Principal Software Engineer",
+              "company": "Halcyon Payments",
+              "summary": "Sets the architecture for the card-authorization platform (4,000 TPS, 99.99% availability) and led migration to Go/Java services on Kubernetes with Kafka event streams.",
+              "end_year": null,
+              "start_year": 2019
+            },
+            {
+              "title": "Staff Software Engineer",
+              "company": "Halcyon Payments",
+              "summary": "Designed the double-entry ledger and settlement services on PostgreSQL and Kafka.",
+              "end_year": 2019,
+              "start_year": 2010
+            },
+            {
+              "title": "Software Engineer",
+              "company": "Ridgeway Telecom",
+              "summary": "Built billing and SIM provisioning services in Java for 6 million subscribers.",
+              "end_year": 2016,
+              "start_year": 2010
+            }
+          ]
+        },
+        "education": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Education matches on institution, degree, and year.",
+          "extracted": [
+            {
+              "degree": "B.Eng.",
+              "institution": "University of Eastmere",
+              "field_of_study": "Computer Engineering",
+              "graduation_year": 2010
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "r04",
+      "name": "Sneha Kulkarni",
+      "layout": "compact",
+      "exact": {
+        "candidate_email": {
+          "expected": "sneha.kulkarni@example.com",
+          "extracted": "sneha.kulkarni@example.com",
+          "ok": true
+        },
+        "seniority_level": {
+          "expected": "junior",
+          "extracted": "junior",
+          "ok": true
+        },
+        "education_level": {
+          "expected": "bachelors",
+          "extracted": "bachelors",
+          "ok": true
+        },
+        "years_of_experience": {
+          "expected": 1,
+          "extracted": 1,
+          "ok": true
+        }
+      },
+      "judged": {
+        "candidate_name": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Name matches exactly.",
+          "extracted": "Sneha Kulkarni"
+        },
+        "current_role": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Role matches exactly.",
+          "extracted": "Data Analyst"
+        },
+        "skills": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 6,
+          "extracted_items": 6,
+          "matched_items": 6,
+          "reason": "All listed skills match; no false skills found.",
+          "extracted": [
+            "sql",
+            "excel",
+            "power bi",
+            "python",
+            "pandas",
+            "data visualization"
+          ]
+        },
+        "certifications": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Certification matches by meaning despite capitalization differences.",
+          "extracted": [
+            "google data analytics professional certificate"
+          ]
+        },
+        "locations": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Location matches by meaning/spelling normalization (Pune).",
+          "extracted": [
+            "pune"
+          ]
+        },
+        "industries": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Industry matches.",
+          "extracted": [
+            "retail"
+          ]
+        },
+        "languages": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 3,
+          "extracted_items": 3,
+          "matched_items": 3,
+          "reason": "All listed languages match.",
+          "extracted": [
+            "english",
+            "marathi",
+            "hindi"
+          ]
+        },
+        "work_experience": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both work experience items match on company, title, and years; extracted summaries add extra true details not present in ground truth, which is acceptable.",
+          "extracted": [
+            {
+              "title": "Data Analyst",
+              "company": "Tarang Retail, Pune - Apparel retail chain (retail)",
+              "summary": "Built Power BI dashboards and weekly sales reviews for 120 stores, and automated the inventory ageing report with Python and pandas to save 6 hours per week.",
+              "end_year": null,
+              "start_year": 2025
+            },
+            {
+              "title": "Analytics Intern",
+              "company": "Tarang Retail, Pune - Apparel retail chain (retail)",
+              "summary": "Cleaned point-of-sale data and built Excel reports during a 3-month summer internship.",
+              "end_year": 2024,
+              "start_year": 2024
+            }
+          ]
+        },
+        "education": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Education matches on institution, degree, and graduation year.",
+          "extracted": [
+            {
+              "degree": "B.Sc.",
+              "institution": "Sahyadri College of Science",
+              "field_of_study": "Statistics",
+              "graduation_year": 2025
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "r05",
+      "name": "Rahul Verma",
+      "layout": "sidebar_right",
+      "exact": {
+        "candidate_email": {
+          "expected": "rahul.verma@example.org",
+          "extracted": "rahul.verma@example.org",
+          "ok": true
+        },
+        "seniority_level": {
+          "expected": "mid_level",
+          "extracted": "mid_level",
+          "ok": true
+        },
+        "education_level": {
+          "expected": "bachelors",
+          "extracted": "bachelors",
+          "ok": true
+        },
+        "years_of_experience": {
+          "expected": 5,
+          "extracted": 5,
+          "ok": true
+        }
+      },
+      "judged": {
+        "candidate_name": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Name matches exactly.",
+          "extracted": "Rahul Verma"
+        },
+        "current_role": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Current role matches exactly.",
+          "extracted": "DevOps Engineer"
+        },
+        "skills": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 10,
+          "extracted_items": 10,
+          "matched_items": 10,
+          "reason": "All listed skills match by meaning.",
+          "extracted": [
+            "aws",
+            "terraform",
+            "kubernetes",
+            "docker",
+            "jenkins",
+            "python",
+            "bash",
+            "prometheus",
+            "grafana",
+            "ansible"
+          ]
+        },
+        "certifications": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both certifications match by meaning despite casing differences.",
+          "extracted": [
+            "aws certified devops engineer - professional",
+            "certified kubernetes administrator (cka)"
+          ]
+        },
+        "locations": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Hyderabad matches exactly.",
+          "extracted": [
+            "Hyderabad"
+          ]
+        },
+        "industries": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "SaaS matches by meaning.",
+          "extracted": [
+            "saas"
+          ]
+        },
+        "languages": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 3,
+          "extracted_items": 3,
+          "matched_items": 3,
+          "reason": "All three languages match.",
+          "extracted": [
+            "english",
+            "hindi",
+            "telugu"
+          ]
+        },
+        "work_experience": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both work entries match company, title, and years. Summaries add extra true details not present in ground truth but do not conflict.",
+          "extracted": [
+            {
+              "title": "DevOps Engineer",
+              "company": "Zentrix Cloud Services",
+              "summary": "Runs the EKS platform and Terraform-managed AWS infrastructure for 60 microservices and built Prometheus/Grafana alerting to reduce MTTD from 25 to 4 minutes.",
+              "end_year": null,
+              "start_year": 2023
+            },
+            {
+              "title": "Associate DevOps Engineer",
+              "company": "Orbitwave Software",
+              "summary": "Maintained Jenkins CI/CD pipelines and Ansible-based server configuration for HR software SaaS.",
+              "end_year": 2023,
+              "start_year": 2021
+            }
+          ]
+        },
+        "education": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Institution, degree, and graduation year match.",
+          "extracted": [
+            {
+              "degree": "B.Tech",
+              "institution": "Golconda Institute of Engineering",
+              "field_of_study": "Information Technology",
+              "graduation_year": 2021
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "r06",
+      "name": "Meera Iyer",
+      "layout": "classic",
+      "exact": {
+        "candidate_email": {
+          "expected": "meera.iyer@example.com",
+          "extracted": "meera.iyer@example.com",
+          "ok": true
+        },
+        "seniority_level": {
+          "expected": "senior",
+          "extracted": "senior",
+          "ok": true
+        },
+        "education_level": {
+          "expected": "masters",
+          "extracted": "masters",
+          "ok": true
+        },
+        "years_of_experience": {
+          "expected": 11,
+          "extracted": 11,
+          "ok": true
+        }
+      },
+      "judged": {
+        "candidate_name": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Exact match: Meera Iyer.",
+          "extracted": "Meera Iyer"
+        },
+        "current_role": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Exact meaning match: Senior Product Manager.",
+          "extracted": "Senior Product Manager"
+        },
+        "skills": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 9,
+          "extracted_items": 9,
+          "matched_items": 9,
+          "reason": "All 9 skills match by meaning.",
+          "extracted": [
+            "product strategy",
+            "roadmapping",
+            "a/b testing",
+            "sql",
+            "user research",
+            "agile",
+            "jira",
+            "stakeholder management",
+            "product analytics"
+          ]
+        },
+        "certifications": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Certification matches by meaning; capitalization differences only.",
+          "extracted": [
+            "certified scrum product owner (cspo)"
+          ]
+        },
+        "locations": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Mumbai matches Mumbai.",
+          "extracted": [
+            "mumbai"
+          ]
+        },
+        "industries": {
+          "verdicts": [
+            "partial",
+            "partial"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 3,
+          "matched_items": 2,
+          "reason": "Matches e-commerce and edtech. Extracted also includes it services, which is extra and not in ground truth.",
+          "extracted": [
+            "edtech",
+            "e-commerce",
+            "it services"
+          ]
+        },
+        "languages": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 3,
+          "extracted_items": 3,
+          "matched_items": 3,
+          "reason": "All 3 languages match.",
+          "extracted": [
+            "english",
+            "hindi",
+            "marathi"
+          ]
+        },
+        "work_experience": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 3,
+          "extracted_items": 3,
+          "matched_items": 3,
+          "reason": "All 3 work experience items match on company, title, and years; summaries are consistent. Extra performance metrics in summaries do not affect match.",
+          "extracted": [
+            {
+              "title": "Senior Product Manager",
+              "company": "Vidyanta Learning",
+              "summary": "Owns the learner experience roadmap for 3 million monthly learners and ran 40+ A/B tests that lifted course completion by 18%.",
+              "end_year": null,
+              "start_year": 2021
+            },
+            {
+              "title": "Product Manager",
+              "company": "Basketly",
+              "summary": "Managed the checkout and payments product and reduced cart abandonment by 9%.",
+              "end_year": 2021,
+              "start_year": 2017
+            },
+            {
+              "title": "Software Engineer",
+              "company": "Sunfield Infotech",
+              "summary": "Developed Java web applications for enterprise clients.",
+              "end_year": 2015,
+              "start_year": 2013
+            }
+          ]
+        },
+        "education": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both education entries match on institution, degree, and graduation year.",
+          "extracted": [
+            {
+              "degree": "MBA",
+              "institution": "Konkan School of Management",
+              "field_of_study": "Marketing",
+              "graduation_year": 2017
+            },
+            {
+              "degree": "B.E.",
+              "institution": "Deccan Plateau Engineering College",
+              "field_of_study": "Computer Engineering",
+              "graduation_year": 2013
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "r07",
+      "name": "Kenji Watanabe",
+      "layout": "academic",
+      "exact": {
+        "candidate_email": {
+          "expected": "kenji.watanabe@example.net",
+          "extracted": "kenji.watanabe@example.net",
+          "ok": true
+        },
+        "seniority_level": {
+          "expected": "mid_level",
+          "extracted": "mid_level",
+          "ok": true
+        },
+        "education_level": {
+          "expected": "phd",
+          "extracted": "phd",
+          "ok": true
+        },
+        "years_of_experience": {
+          "expected": 4,
+          "extracted": 4,
+          "ok": true
+        }
+      },
+      "judged": {
+        "candidate_name": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Name matches exactly.",
+          "extracted": "Kenji Watanabe"
+        },
+        "current_role": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Current role matches exactly.",
+          "extracted": "AI Research Engineer"
+        },
+        "skills": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 10,
+          "extracted_items": 10,
+          "matched_items": 10,
+          "reason": "All listed skills match the ground truth.",
+          "extracted": [
+            "python",
+            "pytorch",
+            "jax",
+            "transformers",
+            "llm pretraining",
+            "rlhf",
+            "cuda",
+            "distributed training",
+            "rag",
+            "llm evaluation"
+          ]
+        },
+        "certifications": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 0,
+          "extracted_items": 0,
+          "matched_items": 0,
+          "reason": "Both ground truth and extraction are empty.",
+          "extracted": []
+        },
+        "locations": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Tokyo and Remote match ground truth; casing difference is acceptable.",
+          "extracted": [
+            "tokyo",
+            "remote"
+          ]
+        },
+        "industries": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Industry matches exactly.",
+          "extracted": [
+            "artificial intelligence"
+          ]
+        },
+        "languages": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both languages match exactly.",
+          "extracted": [
+            "japanese",
+            "english"
+          ]
+        },
+        "work_experience": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both work experiences match on company, title, and years. Summaries differ slightly but describe the same work; the extracted summaries add details not present in ground truth.",
+          "extracted": [
+            {
+              "title": "AI Research Engineer",
+              "company": "Sorahana Labs",
+              "summary": "Trains and evaluates 1B–13B parameter language models on a 512-GPU cluster, built a long-context retrieval evaluation suite, and wrote custom CUDA kernels to speed up attention by 1.4x.",
+              "end_year": null,
+              "start_year": 2022
+            },
+            {
+              "title": "Research Intern",
+              "company": "Sorahana Labs",
+              "summary": "Prototyped a retrieval-augmented question-answering model during a summer internship.",
+              "end_year": 2021,
+              "start_year": 2021
+            }
+          ]
+        },
+        "education": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both education entries match on institution, degree, and graduation year.",
+          "extracted": [
+            {
+              "degree": "Ph.D.",
+              "institution": "Kanto Institute of Science",
+              "field_of_study": "Computer Science",
+              "graduation_year": 2022
+            },
+            {
+              "degree": "M.Eng.",
+              "institution": "Kanto Institute of Science",
+              "field_of_study": "Information Engineering",
+              "graduation_year": 2018
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "r08",
+      "name": "Fatima Sheikh",
+      "layout": "sidebar_left",
+      "exact": {
+        "candidate_email": {
+          "expected": "fatima.sheikh@example.org",
+          "extracted": "fatima.sheikh@example.org",
+          "ok": true
+        },
+        "seniority_level": {
+          "expected": "junior",
+          "extracted": "junior",
+          "ok": true
+        },
+        "education_level": {
+          "expected": "bachelors",
+          "extracted": "bachelors",
+          "ok": true
+        },
+        "years_of_experience": {
+          "expected": 10,
+          "extracted": 3,
+          "ok": true
+        }
+      },
+      "judged": {
+        "candidate_name": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Exact match: Fatima Sheikh.",
+          "extracted": "Fatima Sheikh"
+        },
+        "current_role": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Exact match: Junior Data Scientist.",
+          "extracted": "Junior Data Scientist"
+        },
+        "skills": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 8,
+          "extracted_items": 8,
+          "matched_items": 8,
+          "reason": "All listed skills match the ground truth; no false extras.",
+          "extracted": [
+            "python",
+            "pandas",
+            "scikit-learn",
+            "sql",
+            "statistics",
+            "tableau",
+            "machine learning",
+            "data cleaning"
+          ]
+        },
+        "certifications": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Applied Data Science Bootcamp Certificate matches exactly.",
+          "extracted": [
+            "Applied Data Science Bootcamp Certificate"
+          ]
+        },
+        "locations": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Hyderabad matches the ground truth location.",
+          "extracted": [
+            "Hyderabad"
+          ]
+        },
+        "industries": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Healthcare and education both match the ground truth.",
+          "extracted": [
+            "healthcare",
+            "education"
+          ]
+        },
+        "languages": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 4,
+          "extracted_items": 4,
+          "matched_items": 4,
+          "reason": "English, Urdu, Hindi, and Telugu all match.",
+          "extracted": [
+            "english",
+            "urdu",
+            "hindi",
+            "telugu"
+          ]
+        },
+        "work_experience": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 3,
+          "extracted_items": 3,
+          "matched_items": 3,
+          "reason": "All three roles match on company, title, and years. Summaries include extra details but remain consistent with the ground truth.",
+          "extracted": [
+            {
+              "title": "Junior Data Scientist",
+              "company": "Medivance Diagnostics",
+              "summary": "Builds scikit-learn models that flag abnormal lab results for pathologist review, reducing manual review volume by 22% while keeping recall above 98%.",
+              "end_year": null,
+              "start_year": 2024
+            },
+            {
+              "title": "Data Analyst",
+              "company": "Medivance Diagnostics",
+              "summary": "Cleaned lab operations data and built Tableau turnaround-time dashboards.",
+              "end_year": 2024,
+              "start_year": 2023
+            },
+            {
+              "title": "Chemistry Teacher",
+              "company": "Crescent Valley High School",
+              "summary": "Taught chemistry to grades 9-12 and ran the school's science olympiad programme; built a spreadsheet grade tracker adopted by the whole school.",
+              "end_year": 2022,
+              "start_year": 2015
+            }
+          ]
+        },
+        "education": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both education entries match on institution, degree, and year.",
+          "extracted": [
+            {
+              "degree": "B.Ed.",
+              "institution": "Nizam Plateau College of Education",
+              "field_of_study": "Science Education",
+              "graduation_year": 2015
+            },
+            {
+              "degree": "B.Sc.",
+              "institution": "Nizam Plateau College of Education",
+              "field_of_study": "Chemistry",
+              "graduation_year": 2014
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "r09",
+      "name": "Lucas Fernandez",
+      "layout": "header_band",
+      "exact": {
+        "candidate_email": {
+          "expected": "lucas.fernandez@example.com",
+          "extracted": "lucas.fernandez@example.com",
+          "ok": true
+        },
+        "seniority_level": {
+          "expected": "senior",
+          "extracted": "senior",
+          "ok": true
+        },
+        "education_level": {
+          "expected": "bachelors",
+          "extracted": "bachelors",
+          "ok": true
+        },
+        "years_of_experience": {
+          "expected": 7,
+          "extracted": 7,
+          "ok": true
+        }
+      },
+      "judged": {
+        "candidate_name": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Name matches exactly.",
+          "extracted": "Lucas Fernandez"
+        },
+        "current_role": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Current role matches exactly.",
+          "extracted": "Senior Frontend Engineer"
+        },
+        "skills": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 9,
+          "extracted_items": 9,
+          "matched_items": 9,
+          "reason": "All listed skills match the ground truth.",
+          "extracted": [
+            "typescript",
+            "react",
+            "next.js",
+            "graphql",
+            "node.js",
+            "css",
+            "frontend testing",
+            "accessibility",
+            "webpack"
+          ]
+        },
+        "certifications": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 0,
+          "extracted_items": 0,
+          "matched_items": 0,
+          "reason": "Both ground truth and extracted data are empty.",
+          "extracted": []
+        },
+        "locations": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Location matches exactly (Madrid).",
+          "extracted": [
+            "Madrid"
+          ]
+        },
+        "industries": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both industries match exactly: travel and saas.",
+          "extracted": [
+            "travel",
+            "saas"
+          ]
+        },
+        "languages": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 3,
+          "extracted_items": 3,
+          "matched_items": 3,
+          "reason": "All three languages match exactly.",
+          "extracted": [
+            "spanish",
+            "english",
+            "catalan"
+          ]
+        },
+        "work_experience": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both work experiences match on company, title, and years; summaries add extra true details but do not conflict.",
+          "extracted": [
+            {
+              "title": "Senior Frontend Engineer",
+              "company": "Brisa Travel Tech",
+              "summary": "Leads the Next.js rebuild of the flight booking web app, improving Core Web Vitals and making checkout WCAG 2.2 AA compliant.",
+              "end_year": null,
+              "start_year": 2022
+            },
+            {
+              "title": "Frontend Developer",
+              "company": "Nodoverde Studio",
+              "summary": "Built React and GraphQL dashboards for 12 SaaS clients.",
+              "end_year": 2022,
+              "start_year": 2019
+            }
+          ]
+        },
+        "education": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Education matches on institution, degree, and graduation year.",
+          "extracted": [
+            {
+              "degree": "Bachelor's",
+              "institution": "Universidad de Valdemora",
+              "field_of_study": "Computer Engineering",
+              "graduation_year": 2019
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "r10",
+      "name": "Ishaan Chatterjee",
+      "layout": "compact",
+      "exact": {
+        "candidate_email": {
+          "expected": "ishaan.chatterjee@example.net",
+          "extracted": "ishaan.chatterjee@example.net",
+          "ok": true
+        },
+        "seniority_level": {
+          "expected": "junior",
+          "extracted": "junior",
+          "ok": true
+        },
+        "education_level": {
+          "expected": "bachelors",
+          "extracted": "bachelors",
+          "ok": true
+        },
+        "years_of_experience": {
+          "expected": 0,
+          "extracted": 0,
+          "ok": true
+        }
+      },
+      "judged": {
+        "candidate_name": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Exact same name.",
+          "extracted": "Ishaan Chatterjee"
+        },
+        "current_role": {
+          "verdicts": [
+            "missing",
+            "missing"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 0,
+          "matched_items": 0,
+          "reason": "Ground truth has current role 'Software Engineering Intern' but extracted value is null/absent.",
+          "extracted": null
+        },
+        "skills": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 8,
+          "extracted_items": 10,
+          "matched_items": 8,
+          "reason": "All 8 expected skills match; extra extracted skills 'unit testing' and 'rag' are true but not in ground truth, so they do not hurt.",
+          "extracted": [
+            "python",
+            "c++",
+            "data structures",
+            "machine learning",
+            "sql",
+            "git",
+            "flask",
+            "langchain",
+            "unit testing",
+            "rag"
+          ]
+        },
+        "certifications": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 0,
+          "extracted_items": 0,
+          "matched_items": 0,
+          "reason": "Both ground truth and extracted are empty/null.",
+          "extracted": null
+        },
+        "locations": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 3,
+          "extracted_items": 3,
+          "matched_items": 3,
+          "reason": "Kolkata/Bengaluru/Remote all match meaningfully despite casing differences.",
+          "extracted": [
+            "kolkata",
+            "bengaluru",
+            "remote"
+          ]
+        },
+        "industries": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Software matches software.",
+          "extracted": [
+            "software"
+          ]
+        },
+        "languages": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 3,
+          "extracted_items": 3,
+          "matched_items": 3,
+          "reason": "English, Bengali, and Hindi all match.",
+          "extracted": [
+            "english",
+            "bengali",
+            "hindi"
+          ]
+        },
+        "work_experience": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Company, title, and years all agree for Quillstone Labs / Software Engineering Intern / 2025-2025. Summary wording differs slightly but describes the same internship work.",
+          "extracted": [
+            {
+              "title": "Software Engineering Intern",
+              "company": "Quillstone Labs",
+              "summary": "Built Flask API endpoints and unit tests during a two-month summer internship.",
+              "end_year": 2025,
+              "start_year": 2025
+            }
+          ]
+        },
+        "education": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Institution, degree, and graduation year all match for Hooghly Riverside Institute of Technology / B.Tech / 2026.",
+          "extracted": [
+            {
+              "degree": "B.Tech",
+              "institution": "Hooghly Riverside Institute of Technology",
+              "field_of_study": "Computer Science and Engineering",
+              "graduation_year": 2026
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "r11",
+      "name": "Anjali Nair",
+      "layout": "sidebar_right",
+      "exact": {
+        "candidate_email": {
+          "expected": "anjali.nair@example.com",
+          "extracted": "anjali.nair@example.com",
+          "ok": true
+        },
+        "seniority_level": {
+          "expected": "senior",
+          "extracted": "senior",
+          "ok": true
+        },
+        "education_level": {
+          "expected": "bachelors",
+          "extracted": "bachelors",
+          "ok": true
+        },
+        "years_of_experience": {
+          "expected": 6,
+          "extracted": 6,
+          "ok": true
+        }
+      },
+      "judged": {
+        "candidate_name": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Matches exactly.",
+          "extracted": "Anjali Nair"
+        },
+        "current_role": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Matches exactly.",
+          "extracted": "Senior Data Engineer"
+        },
+        "skills": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 10,
+          "extracted_items": 10,
+          "matched_items": 10,
+          "reason": "All expected skills match; no false skills.",
+          "extracted": [
+            "python",
+            "spark",
+            "airflow",
+            "sql",
+            "snowflake",
+            "dbt",
+            "aws",
+            "kafka",
+            "data modeling",
+            "scala"
+          ]
+        },
+        "certifications": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both certifications match by meaning despite case differences.",
+          "extracted": [
+            "aws certified data engineer - associate",
+            "snowpro core certification"
+          ]
+        },
+        "locations": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both locations match exactly.",
+          "extracted": [
+            "Kochi",
+            "Bengaluru"
+          ]
+        },
+        "industries": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both industries match exactly.",
+          "extracted": [
+            "logistics",
+            "saas"
+          ]
+        },
+        "languages": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 3,
+          "extracted_items": 3,
+          "matched_items": 3,
+          "reason": "All languages match exactly.",
+          "extracted": [
+            "english",
+            "malayalam",
+            "hindi"
+          ]
+        },
+        "work_experience": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both roles match on company, title, and years; summaries add extra true details but do not conflict.",
+          "extracted": [
+            {
+              "title": "Senior Data Engineer",
+              "company": "Pelican Freight Analytics",
+              "summary": "Owns streaming shipment-tracking pipelines using Kafka and Spark Structured Streaming landing in Snowflake; introduced dbt models and data contracts, reducing failed loads by 70%.",
+              "end_year": null,
+              "start_year": 2023
+            },
+            {
+              "title": "Data Engineer",
+              "company": "Coral Bay Systems",
+              "summary": "Built Airflow batch pipelines from AWS RDS and S3 into the analytics warehouse for a subscription billing SaaS.",
+              "end_year": 2023,
+              "start_year": 2020
+            }
+          ]
+        },
+        "education": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Education matches on institution, degree, and year.",
+          "extracted": [
+            {
+              "degree": "B.Tech",
+              "institution": "Malabar Coast College of Engineering",
+              "field_of_study": "Computer Science",
+              "graduation_year": 2020
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "r12",
+      "name": "Michael Brennan",
+      "layout": "classic",
+      "exact": {
+        "candidate_email": {
+          "expected": "michael.brennan@example.org",
+          "extracted": "michael.brennan@example.org",
+          "ok": true
+        },
+        "seniority_level": {
+          "expected": "executive",
+          "extracted": "executive",
+          "ok": true
+        },
+        "education_level": {
+          "expected": "masters",
+          "extracted": "masters",
+          "ok": true
+        },
+        "years_of_experience": {
+          "expected": 18,
+          "extracted": 18,
+          "ok": true
+        }
+      },
+      "judged": {
+        "candidate_name": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Name matches exactly.",
+          "extracted": "Michael Brennan"
+        },
+        "current_role": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Current role matches exactly.",
+          "extracted": "VP of Engineering"
+        },
+        "skills": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 8,
+          "extracted_items": 8,
+          "matched_items": 8,
+          "reason": "All expected skills matched; no false skill items.",
+          "extracted": [
+            "engineering leadership",
+            "system design",
+            "aws",
+            "hiring",
+            "budgeting",
+            "platform strategy",
+            "go",
+            "kubernetes"
+          ]
+        },
+        "certifications": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 0,
+          "extracted_items": 0,
+          "matched_items": 0,
+          "reason": "Both ground truth and extraction are empty.",
+          "extracted": []
+        },
+        "locations": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Location matches exactly.",
+          "extracted": [
+            "Austin, TX"
+          ]
+        },
+        "industries": {
+          "verdicts": [
+            "partial",
+            "wrong"
+          ],
+          "agree": false,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 0,
+          "reason": "'healthcare' matches, but 'healthcare saas' does not exactly match expected 'healthcare' and 'b2b saas' is extra and not in ground truth.",
+          "extracted": [
+            "healthcare saas",
+            "b2b saas"
+          ]
+        },
+        "languages": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Language matches exactly.",
+          "extracted": [
+            "english"
+          ]
+        },
+        "work_experience": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 4,
+          "extracted_items": 4,
+          "matched_items": 4,
+          "reason": "All four work experience entries match on company, title, and years; summaries differ slightly but describe the same work.",
+          "extracted": [
+            {
+              "title": "VP of Engineering",
+              "company": "Tallgrass Health",
+              "summary": "Runs a 120-person engineering organisation across 14 teams and a $22M budget, leading platform consolidation onto AWS and Kubernetes (31% infrastructure cost reduction).",
+              "end_year": null,
+              "start_year": 2021
+            },
+            {
+              "title": "Director of Engineering",
+              "company": "Tallgrass Health",
+              "summary": "Grew the engineering team from 40 to 85 and launched the patient mobile app.",
+              "end_year": 2021,
+              "start_year": 2017
+            },
+            {
+              "title": "Engineering Manager",
+              "company": "Cobaltline Software",
+              "summary": "Managed two backend teams building workflow automation services in Go.",
+              "end_year": 2017,
+              "start_year": 2013
+            },
+            {
+              "title": "Senior Software Engineer",
+              "company": "Cobaltline Software",
+              "summary": "Built the document routing engine and its public API.",
+              "end_year": 2013,
+              "start_year": 2008
+            }
+          ]
+        },
+        "education": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both education entries match on institution, degree, and graduation year.",
+          "extracted": [
+            {
+              "degree": "M.S.",
+              "institution": "Lone Prairie University",
+              "field_of_study": "Computer Science",
+              "graduation_year": 2008
+            },
+            {
+              "degree": "B.S.",
+              "institution": "Lone Prairie University",
+              "field_of_study": "Computer Science",
+              "graduation_year": 2006
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "r13",
+      "name": "Zoya Ahmed",
+      "layout": "header_band",
+      "exact": {
+        "candidate_email": {
+          "expected": "zoya.ahmed@example.com",
+          "extracted": "zoya.ahmed@example.com",
+          "ok": true
+        },
+        "seniority_level": {
+          "expected": "senior",
+          "extracted": "senior",
+          "ok": true
+        },
+        "education_level": {
+          "expected": "masters",
+          "extracted": "masters",
+          "ok": true
+        },
+        "years_of_experience": {
+          "expected": 7,
+          "extracted": 7,
+          "ok": true
+        }
+      },
+      "judged": {
+        "candidate_name": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Name matches exactly.",
+          "extracted": "Zoya Ahmed"
+        },
+        "current_role": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Current role matches exactly.",
+          "extracted": "Senior Business Analyst"
+        },
+        "skills": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 8,
+          "extracted_items": 8,
+          "matched_items": 8,
+          "reason": "All 8 skills match in meaning.",
+          "extracted": [
+            "sql",
+            "python",
+            "power bi",
+            "excel",
+            "stakeholder management",
+            "forecasting",
+            "a/b testing",
+            "looker"
+          ]
+        },
+        "certifications": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 0,
+          "extracted_items": 0,
+          "matched_items": 0,
+          "reason": "Both ground truth and extraction are empty.",
+          "extracted": []
+        },
+        "locations": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "New Delhi and Gurugram match; casing difference is acceptable.",
+          "extracted": [
+            "new delhi",
+            "gurugram"
+          ]
+        },
+        "industries": {
+          "verdicts": [
+            "correct",
+            "partial"
+          ],
+          "agree": false,
+          "expected_items": 2,
+          "extracted_items": 3,
+          "matched_items": 2,
+          "reason": "E-commerce and fintech match. Extracted 'payments' is extra and true for the resume but not in ground truth, so it does not count as a match.",
+          "extracted": [
+            "e-commerce",
+            "fintech",
+            "payments"
+          ]
+        },
+        "languages": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 3,
+          "extracted_items": 3,
+          "matched_items": 3,
+          "reason": "All listed languages match.",
+          "extracted": [
+            "english",
+            "hindi",
+            "urdu"
+          ]
+        },
+        "work_experience": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both work experiences match on company, title, and years. Summaries differ but describe the same roles; extracted summaries add true details not required by ground truth.",
+          "extracted": [
+            {
+              "title": "Senior Business Analyst",
+              "company": "Saffronkart",
+              "summary": "Leads pricing and promotions analytics, built a Looker promotion-ROI model, and designed A/B testing guardrails adopted by the growth team.",
+              "end_year": null,
+              "start_year": 2022
+            },
+            {
+              "title": "Business Analyst",
+              "company": "Mintfield Payments",
+              "summary": "Forecasts merchant transaction volumes and reports on payment success rates in Power BI.",
+              "end_year": 2021,
+              "start_year": 2018
+            }
+          ]
+        },
+        "education": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both education entries match on institution, degree, and graduation year.",
+          "extracted": [
+            {
+              "degree": "MBA",
+              "institution": "Yamuna School of Business",
+              "field_of_study": "Business Analytics",
+              "graduation_year": 2018
+            },
+            {
+              "degree": "B.A.",
+              "institution": "Indraprastha Arts and Commerce College",
+              "field_of_study": "Economics",
+              "graduation_year": 2016
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "r14",
+      "name": "Oliver Schmidt",
+      "layout": "sidebar_left",
+      "exact": {
+        "candidate_email": {
+          "expected": "oliver.schmidt@example.net",
+          "extracted": "oliver.schmidt@example.net",
+          "ok": true
+        },
+        "seniority_level": {
+          "expected": "lead",
+          "extracted": "lead",
+          "ok": true
+        },
+        "education_level": {
+          "expected": "masters",
+          "extracted": "masters",
+          "ok": true
+        },
+        "years_of_experience": {
+          "expected": 10,
+          "extracted": 10,
+          "ok": true
+        }
+      },
+      "judged": {
+        "candidate_name": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Matches Oliver Schmidt.",
+          "extracted": "Oliver Schmidt"
+        },
+        "current_role": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Matches Lead MLOps Engineer.",
+          "extracted": "Lead MLOps Engineer"
+        },
+        "skills": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 10,
+          "extracted_items": 10,
+          "matched_items": 10,
+          "reason": "All listed skills match; no false skills present.",
+          "extracted": [
+            "python",
+            "kubernetes",
+            "mlflow",
+            "kubeflow",
+            "aws",
+            "gcp",
+            "terraform",
+            "docker",
+            "feature stores",
+            "llmops"
+          ]
+        },
+        "certifications": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both certifications match.",
+          "extracted": [
+            "Google Professional Machine Learning Engineer",
+            "Certified Kubernetes Administrator (CKA)"
+          ]
+        },
+        "locations": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Berlin matches.",
+          "extracted": [
+            "Berlin"
+          ]
+        },
+        "industries": {
+          "verdicts": [
+            "partial",
+            "partial"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 3,
+          "matched_items": 1,
+          "reason": "Mobility and insurance match; extracted also includes ride-sharing and micromobility, which are true resume-related industries but are not in ground truth.",
+          "extracted": [
+            "ride-sharing",
+            "micromobility",
+            "insurance"
+          ]
+        },
+        "languages": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "German and English match.",
+          "extracted": [
+            "german",
+            "english"
+          ]
+        },
+        "work_experience": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 3,
+          "extracted_items": 3,
+          "matched_items": 3,
+          "reason": "All three work experience entries match on company, title, and years; summaries are consistent.",
+          "extracted": [
+            {
+              "title": "Lead MLOps Engineer",
+              "company": "Glasswing Mobility",
+              "summary": "Leads the ML platform team deploying pricing, ETA, and LLM support models; built feature store and model registry using Kubeflow and MLflow, reducing deploy time from 2 weeks to 1 day.",
+              "end_year": null,
+              "start_year": 2022
+            },
+            {
+              "title": "Senior Machine Learning Engineer",
+              "company": "Glasswing Mobility",
+              "summary": "Productionised demand-forecasting models on GCP with automated retraining.",
+              "end_year": 2022,
+              "start_year": 2019
+            },
+            {
+              "title": "Data Engineer",
+              "company": "Feldmark Versicherung",
+              "summary": "Built the claims data warehouse feeding actuarial models.",
+              "end_year": 2019,
+              "start_year": 2016
+            }
+          ]
+        },
+        "education": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Institution, degree, and graduation year match.",
+          "extracted": [
+            {
+              "degree": "M.Sc.",
+              "institution": "Technische Hochschule Rabenfeld",
+              "field_of_study": "Informatics",
+              "graduation_year": 2016
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "r15",
+      "name": "Kavya Reddy",
+      "layout": "compact",
+      "exact": {
+        "candidate_email": {
+          "expected": "kavya.reddy@example.org",
+          "extracted": "kavya.reddy@example.org",
+          "ok": true
+        },
+        "seniority_level": {
+          "expected": "mid_level",
+          "extracted": "mid_level",
+          "ok": true
+        },
+        "education_level": {
+          "expected": "bachelors",
+          "extracted": "bachelors",
+          "ok": true
+        },
+        "years_of_experience": {
+          "expected": 3,
+          "extracted": 2,
+          "ok": false
+        }
+      },
+      "judged": {
+        "candidate_name": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Exact same candidate name.",
+          "extracted": "Kavya Reddy"
+        },
+        "current_role": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Same current role.",
+          "extracted": "Software Engineer II"
+        },
+        "skills": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 8,
+          "extracted_items": 8,
+          "matched_items": 8,
+          "reason": "All listed skills match the ground truth.",
+          "extracted": [
+            "java",
+            "spring boot",
+            "postgresql",
+            "redis",
+            "microservices",
+            "aws",
+            "docker",
+            "rest apis"
+          ]
+        },
+        "certifications": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 0,
+          "extracted_items": 0,
+          "matched_items": 0,
+          "reason": "Both ground truth and extraction are empty.",
+          "extracted": []
+        },
+        "locations": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Bengaluru matches Bangalore/Bengaluru equivalence.",
+          "extracted": [
+            "bengaluru"
+          ]
+        },
+        "industries": {
+          "verdicts": [
+            "partial",
+            "partial"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 2,
+          "matched_items": 1,
+          "reason": "Healthcare matches; extra 'digital health' is not in the ground truth but is true for the resume.",
+          "extracted": [
+            "healthcare",
+            "digital health"
+          ]
+        },
+        "languages": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 3,
+          "extracted_items": 3,
+          "matched_items": 3,
+          "reason": "All listed languages match.",
+          "extracted": [
+            "english",
+            "telugu",
+            "kannada"
+          ]
+        },
+        "work_experience": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both work experience entries match company, title, and years; summaries are consistent with the ground truth.",
+          "extracted": [
+            {
+              "title": "Software Engineer II",
+              "company": "Haldi Health",
+              "summary": "Owns the appointment-booking microservices (Java, Spring Boot, PostgreSQL, Redis) and reduced p95 booking latency from 900 ms to 180 ms.",
+              "end_year": null,
+              "start_year": 2025
+            },
+            {
+              "title": "Software Engineer I",
+              "company": "Haldi Health",
+              "summary": "Built REST APIs for patient records deployed with Docker on AWS.",
+              "end_year": 2025,
+              "start_year": 2023
+            }
+          ]
+        },
+        "education": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Education matches institution, degree, and graduation year.",
+          "extracted": [
+            {
+              "degree": "B.Tech",
+              "institution": "Krishna Delta Institute of Technology",
+              "field_of_study": "Electronics and Communication Engineering",
+              "graduation_year": 2023
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "r16",
+      "name": "Arjun Malhotra",
+      "layout": "sidebar_right",
+      "exact": {
+        "candidate_email": {
+          "expected": "arjun.malhotra@example.com",
+          "extracted": "arjun.malhotra@example.com",
+          "ok": true
+        },
+        "seniority_level": {
+          "expected": "senior",
+          "extracted": "senior",
+          "ok": true
+        },
+        "education_level": {
+          "expected": "bachelors",
+          "extracted": "bachelors",
+          "ok": true
+        },
+        "years_of_experience": {
+          "expected": 7,
+          "extracted": 7,
+          "ok": true
+        }
+      },
+      "judged": {
+        "candidate_name": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Name matches exactly.",
+          "extracted": "Arjun Malhotra"
+        },
+        "current_role": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Current role matches exactly.",
+          "extracted": "Senior AI Engineer"
+        },
+        "skills": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 10,
+          "extracted_items": 10,
+          "matched_items": 10,
+          "reason": "All listed skills match the ground truth.",
+          "extracted": [
+            "python",
+            "langchain",
+            "llamaindex",
+            "rag",
+            "openai api",
+            "vector databases",
+            "fastapi",
+            "aws",
+            "prompt engineering",
+            "llm evaluation"
+          ]
+        },
+        "certifications": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Certification matches exactly.",
+          "extracted": [
+            "AWS Certified Solutions Architect - Associate"
+          ]
+        },
+        "locations": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both locations match exactly.",
+          "extracted": [
+            "Gurugram",
+            "Remote"
+          ]
+        },
+        "industries": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both industries match exactly.",
+          "extracted": [
+            "legal tech",
+            "saas"
+          ]
+        },
+        "languages": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 3,
+          "extracted_items": 3,
+          "matched_items": 3,
+          "reason": "All languages match exactly.",
+          "extracted": [
+            "english",
+            "hindi",
+            "punjabi"
+          ]
+        },
+        "work_experience": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both work experience entries match on company, title, and years; summaries differ slightly but describe the same work. The extracted summaries also add details not in ground truth, which is acceptable.",
+          "extracted": [
+            {
+              "title": "Senior AI Engineer",
+              "company": "Prismatica AI",
+              "summary": "Builds RAG and agent workflows for legal contract Q&A with clause-level citations and designs an LLM evaluation pipeline to gate prompt changes.",
+              "end_year": null,
+              "start_year": 2024
+            },
+            {
+              "title": "Backend Engineer",
+              "company": "Kitebird Software",
+              "summary": "Built Python/FastAPI services on AWS and shipped the first LLM feature for meeting-notes summarisation.",
+              "end_year": 2024,
+              "start_year": 2019
+            }
+          ]
+        },
+        "education": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Education matches on institution, degree, and graduation year.",
+          "extracted": [
+            {
+              "degree": "B.Tech",
+              "institution": "Shivalik Institute of Technology",
+              "field_of_study": "Computer Science",
+              "graduation_year": 2019
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "r17",
+      "name": "Grace Liu",
+      "layout": "classic",
+      "exact": {
+        "candidate_email": {
+          "expected": "grace.liu@example.net",
+          "extracted": "grace.liu@example.net",
+          "ok": true
+        },
+        "seniority_level": {
+          "expected": "mid_level",
+          "extracted": "mid_level",
+          "ok": true
+        },
+        "education_level": {
+          "expected": "masters",
+          "extracted": "masters",
+          "ok": true
+        },
+        "years_of_experience": {
+          "expected": 4,
+          "extracted": 4,
+          "ok": true
+        }
+      },
+      "judged": {
+        "candidate_name": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Name matches exactly: Grace Liu.",
+          "extracted": "Grace Liu"
+        },
+        "current_role": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Current role matches exactly: Data Scientist.",
+          "extracted": "Data Scientist"
+        },
+        "skills": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 9,
+          "extracted_items": 9,
+          "matched_items": 9,
+          "reason": "All expected skills matched; no false skills present.",
+          "extracted": [
+            "python",
+            "sql",
+            "scikit-learn",
+            "nlp",
+            "transformers",
+            "gcp",
+            "bigquery",
+            "experimentation",
+            "tableau"
+          ]
+        },
+        "certifications": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Certification matches exactly: Google Cloud Professional Data Engineer.",
+          "extracted": [
+            "Google Cloud Professional Data Engineer"
+          ]
+        },
+        "locations": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Location matches exactly: Singapore.",
+          "extracted": [
+            "Singapore"
+          ]
+        },
+        "industries": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 3,
+          "matched_items": 1,
+          "reason": "Expected industry fintech matched. Extra extracted items 'payments fraud' and 'customer support' are plausible but not in ground truth, so they do not count as matches and are not errors.",
+          "extracted": [
+            "fintech",
+            "payments fraud",
+            "customer support"
+          ]
+        },
+        "languages": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both expected languages matched: English and Mandarin.",
+          "extracted": [
+            "english",
+            "mandarin"
+          ]
+        },
+        "work_experience": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Work experience matches on company, title, and year: Mangrove Pay, Data Scientist, starting 2022. Summary wording differs but describes the same work.",
+          "extracted": [
+            {
+              "title": "Data Scientist",
+              "company": "Mangrove Pay",
+              "summary": "Builds fraud-detection models on BigQuery features and fine-tunes a transformer classifier to route support tickets in 6 languages.",
+              "end_year": null,
+              "start_year": 2022
+            }
+          ]
+        },
+        "education": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both education entries match on institution, degree, and graduation year.",
+          "extracted": [
+            {
+              "degree": "M.S.",
+              "institution": "Straits Institute of Technology",
+              "field_of_study": "Business Analytics",
+              "graduation_year": 2022
+            },
+            {
+              "degree": "B.Sc.",
+              "institution": "Straits Institute of Technology",
+              "field_of_study": "Economics",
+              "graduation_year": 2021
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "r18",
+      "name": "Rohan Deshpande",
+      "layout": "academic",
+      "exact": {
+        "candidate_email": {
+          "expected": "rohan.deshpande@example.com",
+          "extracted": "rohan.deshpande@example.com",
+          "ok": true
+        },
+        "seniority_level": {
+          "expected": "principal",
+          "extracted": "principal",
+          "ok": true
+        },
+        "education_level": {
+          "expected": "bachelors",
+          "extracted": "bachelors",
+          "ok": true
+        },
+        "years_of_experience": {
+          "expected": 15,
+          "extracted": 15,
+          "ok": true
+        }
+      },
+      "judged": {
+        "candidate_name": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Exact match: Rohan Deshpande.",
+          "extracted": "Rohan Deshpande"
+        },
+        "current_role": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Exact match: Principal Data Engineer.",
+          "extracted": "Principal Data Engineer"
+        },
+        "skills": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 10,
+          "extracted_items": 10,
+          "matched_items": 10,
+          "reason": "All 10 skills match by meaning; no false skills present.",
+          "extracted": [
+            "spark",
+            "hadoop",
+            "scala",
+            "python",
+            "aws",
+            "azure",
+            "data architecture",
+            "kafka",
+            "snowflake",
+            "sql"
+          ]
+        },
+        "certifications": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both certifications match by meaning despite casing differences.",
+          "extracted": [
+            "microsoft certified: azure data engineer associate",
+            "aws certified data analytics - specialty"
+          ]
+        },
+        "locations": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Pune matches Pune.",
+          "extracted": [
+            "pune"
+          ]
+        },
+        "industries": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both industries match exactly by meaning.",
+          "extracted": [
+            "energy",
+            "telecommunications"
+          ]
+        },
+        "languages": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 3,
+          "extracted_items": 3,
+          "matched_items": 3,
+          "reason": "All three languages match.",
+          "extracted": [
+            "english",
+            "marathi",
+            "hindi"
+          ]
+        },
+        "work_experience": {
+          "verdicts": [
+            "partial",
+            "partial"
+          ],
+          "agree": true,
+          "expected_items": 3,
+          "extracted_items": 4,
+          "matched_items": 3,
+          "reason": "Three expected roles match by company, title, and years. One extra duplicate entry for Indus Grid Energy / Principal Data Engineer (2020–present) is present, which is true but not in ground truth.",
+          "extracted": [
+            {
+              "title": "Principal Data Engineer",
+              "company": "Indus Grid Energy",
+              "summary": "Architected the smart-meter lakehouse ingesting 2 billion readings a day on AWS and Snowflake, and set data architecture standards for 9 engineering teams.",
+              "end_year": null,
+              "start_year": 2020
+            },
+            {
+              "title": "Principal Data Engineer",
+              "company": "Indus Grid Energy",
+              "summary": "Architected the smart-meter lakehouse ingesting 2 billion readings a day on AWS and Snowflake, and set data architecture standards for 9 engineering teams.",
+              "end_year": null,
+              "start_year": 2020
+            },
+            {
+              "title": "Lead Data Engineer",
+              "company": "Vyom Telecom",
+              "summary": "Led the Hadoop-to-Spark migration of call-detail-record analytics on Azure.",
+              "end_year": 2020,
+              "start_year": 2015
+            },
+            {
+              "title": "Software Engineer",
+              "company": "Vyom Telecom",
+              "summary": "Wrote Scala and Hadoop MapReduce jobs for network usage reporting.",
+              "end_year": 2015,
+              "start_year": 2011
+            }
+          ]
+        },
+        "education": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Education matches by institution, degree, and graduation year.",
+          "extracted": [
+            {
+              "degree": "B.E.",
+              "institution": "Pune Plateau College of Engineering",
+              "field_of_study": "Electronics and Telecommunication",
+              "graduation_year": 2011
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "r19",
+      "name": "Nadia Haddad",
+      "layout": "sidebar_left",
+      "exact": {
+        "candidate_email": {
+          "expected": "nadia.haddad@example.org",
+          "extracted": "nadia.haddad@example.org",
+          "ok": true
+        },
+        "seniority_level": {
+          "expected": "senior",
+          "extracted": "senior",
+          "ok": true
+        },
+        "education_level": {
+          "expected": "bachelors",
+          "extracted": "bachelors",
+          "ok": true
+        },
+        "years_of_experience": {
+          "expected": 9,
+          "extracted": 9,
+          "ok": true
+        }
+      },
+      "judged": {
+        "candidate_name": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Exact match.",
+          "extracted": "Nadia Haddad"
+        },
+        "current_role": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Exact meaning match.",
+          "extracted": "Senior Site Reliability Engineer"
+        },
+        "skills": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 10,
+          "extracted_items": 10,
+          "matched_items": 10,
+          "reason": "All expected skills matched by meaning.",
+          "extracted": [
+            "kubernetes",
+            "gcp",
+            "aws",
+            "terraform",
+            "go",
+            "python",
+            "prometheus",
+            "incident management",
+            "linux",
+            "helm"
+          ]
+        },
+        "certifications": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both certifications match by meaning and wording differences only.",
+          "extracted": [
+            "certified kubernetes administrator (cka)",
+            "google professional cloud devops engineer"
+          ]
+        },
+        "locations": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Dubai matches Dubai.",
+          "extracted": [
+            "dubai"
+          ]
+        },
+        "industries": {
+          "verdicts": [
+            "partial",
+            "partial"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Matched logistics. Missing cloud hosting.",
+          "extracted": [
+            "logistics"
+          ]
+        },
+        "languages": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 3,
+          "extracted_items": 3,
+          "matched_items": 3,
+          "reason": "All expected languages matched.",
+          "extracted": [
+            "arabic",
+            "english",
+            "french"
+          ]
+        },
+        "work_experience": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 3,
+          "extracted_items": 3,
+          "matched_items": 3,
+          "reason": "All three work experience entries match company, title, and years; summaries are consistent. Extra summary details in extraction are true but not required.",
+          "extracted": [
+            {
+              "title": "Senior Site Reliability Engineer",
+              "company": "Sandpiper Logistics",
+              "summary": "Leads reliability for the dispatch platform (99.95% SLO), runs incident-response rotation, and wrote a Go operator to autoscale routing workers on GKE.",
+              "end_year": null,
+              "start_year": 2021
+            },
+            {
+              "title": "Site Reliability Engineer",
+              "company": "Sandpiper Logistics",
+              "summary": "Moved 40 services to Kubernetes using Helm charts and Terraform.",
+              "end_year": 2021,
+              "start_year": 2019
+            },
+            {
+              "title": "Systems Administrator",
+              "company": "Oasisnet Hosting",
+              "summary": "Administered 600 Linux servers and provided Prometheus monitoring for hosting customers.",
+              "end_year": 2019,
+              "start_year": 2017
+            }
+          ]
+        },
+        "education": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Institution, degree, and graduation year match.",
+          "extracted": [
+            {
+              "degree": "B.Sc.",
+              "institution": "Levant Polytechnic University",
+              "field_of_study": "Computer Science",
+              "graduation_year": 2017
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "r20",
+      "name": "Vikram Singh",
+      "layout": "header_band",
+      "exact": {
+        "candidate_email": {
+          "expected": "vikram.singh@example.net",
+          "extracted": "vikram.singh@example.net",
+          "ok": true
+        },
+        "seniority_level": {
+          "expected": "junior",
+          "extracted": "mid_level",
+          "ok": false
+        },
+        "education_level": {
+          "expected": "bachelors",
+          "extracted": "bachelors",
+          "ok": true
+        },
+        "years_of_experience": {
+          "expected": 2,
+          "extracted": 2,
+          "ok": true
+        }
+      },
+      "judged": {
+        "candidate_name": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Name matches exactly.",
+          "extracted": "Vikram Singh"
+        },
+        "current_role": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Current role matches exactly.",
+          "extracted": "Associate Product Manager"
+        },
+        "skills": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 7,
+          "extracted_items": 7,
+          "matched_items": 7,
+          "reason": "All listed skills match the ground truth.",
+          "extracted": [
+            "product discovery",
+            "sql",
+            "figma",
+            "jira",
+            "user research",
+            "product analytics",
+            "wireframing"
+          ]
+        },
+        "certifications": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 0,
+          "extracted_items": 0,
+          "matched_items": 0,
+          "reason": "Ground truth has no certifications and none were extracted.",
+          "extracted": null
+        },
+        "locations": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Bengaluru and Bengaluru/Bengaluru style normalization matches.",
+          "extracted": [
+            "bengaluru"
+          ]
+        },
+        "industries": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Industry matches exactly.",
+          "extracted": [
+            "edtech"
+          ]
+        },
+        "languages": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both languages match exactly.",
+          "extracted": [
+            "english",
+            "hindi"
+          ]
+        },
+        "work_experience": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Company, title, and start year match; summary wording differs but describes the same role and work.",
+          "extracted": [
+            {
+              "title": "Associate Product Manager",
+              "company": "Gyaanpath Learning",
+              "summary": "Owns learner onboarding; redesigned the first-week flow in Figma and lifted day-7 retention by 11%, and launched a referral programme that accounts for 14% of new sign-ups.",
+              "end_year": null,
+              "start_year": 2024
+            }
+          ]
+        },
+        "education": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Institution, degree, and graduation year match; field of study also matches.",
+          "extracted": [
+            {
+              "degree": "B.Tech",
+              "institution": "Aravalli Institute of Technology",
+              "field_of_study": "Mechanical Engineering",
+              "graduation_year": 2024
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "r21",
+      "name": "Emily Carter",
+      "layout": "compact",
+      "exact": {
+        "candidate_email": {
+          "expected": "emily.carter@example.com",
+          "extracted": "emily.carter@example.com",
+          "ok": true
+        },
+        "seniority_level": {
+          "expected": "mid_level",
+          "extracted": "mid_level",
+          "ok": true
+        },
+        "education_level": {
+          "expected": "bachelors",
+          "extracted": "bachelors",
+          "ok": true
+        },
+        "years_of_experience": {
+          "expected": 5,
+          "extracted": 5,
+          "ok": true
+        }
+      },
+      "judged": {
+        "candidate_name": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Exact match: Emily Carter.",
+          "extracted": "Emily Carter"
+        },
+        "current_role": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Exact meaning match: Analytics Engineer.",
+          "extracted": "Analytics Engineer"
+        },
+        "skills": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 8,
+          "extracted_items": 8,
+          "matched_items": 8,
+          "reason": "All expected skills matched: sql, dbt, python, looker, snowflake, airflow, data modeling, git.",
+          "extracted": [
+            "sql",
+            "dbt",
+            "python",
+            "looker",
+            "snowflake",
+            "airflow",
+            "data modeling",
+            "git"
+          ]
+        },
+        "certifications": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Meaning match despite capitalization differences: dbt Analytics Engineering Certification.",
+          "extracted": [
+            "dbt analytics engineering certification"
+          ]
+        },
+        "locations": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Match: Toronto.",
+          "extracted": [
+            "Toronto"
+          ]
+        },
+        "industries": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both expected industries matched: retail and banking.",
+          "extracted": [
+            "retail",
+            "banking"
+          ]
+        },
+        "languages": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both expected languages matched: english and french.",
+          "extracted": [
+            "english",
+            "french"
+          ]
+        },
+        "work_experience": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both work experiences matched on company, title, and years. Summaries differ slightly but describe the same roles; the extracted summaries add true details not present in ground truth (e.g., 300 dbt models, 200 staff, automation with Airflow).",
+          "extracted": [
+            {
+              "title": "Analytics Engineer",
+              "company": "Maplecrest Retail",
+              "summary": "Maintains 300 dbt models in Snowflake and Looker explores used by 200 staff.",
+              "end_year": null,
+              "start_year": 2023
+            },
+            {
+              "title": "Data Analyst",
+              "company": "Northlake Bank",
+              "summary": "Produced SQL reporting on deposits and loan portfolios and automated it with Airflow.",
+              "end_year": 2023,
+              "start_year": 2021
+            }
+          ]
+        },
+        "education": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Education matches on institution, degree, and graduation year: Lakeshore University, B.Sc., 2021.",
+          "extracted": [
+            {
+              "degree": "B.Sc.",
+              "institution": "Lakeshore University",
+              "field_of_study": "Mathematics",
+              "graduation_year": 2021
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "r22",
+      "name": "Siddharth Rao",
+      "layout": "sidebar_right",
+      "exact": {
+        "candidate_email": {
+          "expected": "siddharth.rao@example.org",
+          "extracted": "siddharth.rao@example.org",
+          "ok": true
+        },
+        "seniority_level": {
+          "expected": "lead",
+          "extracted": "principal",
+          "ok": true
+        },
+        "education_level": {
+          "expected": "masters",
+          "extracted": "masters",
+          "ok": true
+        },
+        "years_of_experience": {
+          "expected": 13,
+          "extracted": 13,
+          "ok": true
+        }
+      },
+      "judged": {
+        "candidate_name": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Exact match: Siddharth Rao.",
+          "extracted": "Siddharth Rao"
+        },
+        "current_role": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Exact meaning match: Staff Machine Learning Engineer.",
+          "extracted": "Staff Machine Learning Engineer"
+        },
+        "skills": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 10,
+          "extracted_items": 10,
+          "matched_items": 10,
+          "reason": "All expected skills matched: python, tensorflow, pytorch, recommender systems, rag, llms, spark, aws, kubernetes, mlops.",
+          "extracted": [
+            "python",
+            "tensorflow",
+            "pytorch",
+            "recommender systems",
+            "rag",
+            "llms",
+            "spark",
+            "aws",
+            "kubernetes",
+            "mlops"
+          ]
+        },
+        "certifications": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 0,
+          "extracted_items": 0,
+          "matched_items": 0,
+          "reason": "Empty expected and empty extracted.",
+          "extracted": []
+        },
+        "locations": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both locations matched: Hyderabad and Remote.",
+          "extracted": [
+            "Hyderabad",
+            "Remote"
+          ]
+        },
+        "industries": {
+          "verdicts": [
+            "partial",
+            "correct"
+          ],
+          "agree": false,
+          "expected_items": 2,
+          "extracted_items": 3,
+          "matched_items": 2,
+          "reason": "Matched mobility and consulting. Extracted analytics consultancy is extra and not in ground truth, but it is plausible as a related industry term and does not invalidate the field.",
+          "extracted": [
+            "mobility",
+            "analytics consultancy",
+            "consulting"
+          ]
+        },
+        "languages": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 3,
+          "extracted_items": 3,
+          "matched_items": 3,
+          "reason": "All expected languages matched: english, telugu, hindi.",
+          "extracted": [
+            "english",
+            "telugu",
+            "hindi"
+          ]
+        },
+        "work_experience": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 4,
+          "extracted_items": 4,
+          "matched_items": 4,
+          "reason": "All four roles matched by company, title, and years: Tejas Mobility Staff Machine Learning Engineer (2021-present), Independent ML Consultant (2023-present), Tejas Mobility Senior Machine Learning Engineer (2018-2021), Arrowroot Analytics Data Scientist (2013-2018).",
+          "extracted": [
+            {
+              "title": "Staff Machine Learning Engineer",
+              "company": "Tejas Mobility",
+              "summary": "Sets ML architecture for rider-driver matching across 30 cities and leads an LLM support-assistant program with RAG over 50k policy documents, deflecting 35% of tickets.",
+              "end_year": null,
+              "start_year": 2021
+            },
+            {
+              "title": "ML Consultant",
+              "company": "Independent",
+              "summary": "Advises early-stage startups on RAG architecture and evaluation as part-time consulting alongside the staff role.",
+              "end_year": null,
+              "start_year": 2023
+            },
+            {
+              "title": "Senior Machine Learning Engineer",
+              "company": "Tejas Mobility",
+              "summary": "Built TensorFlow ETA prediction and surge-pricing models.",
+              "end_year": 2021,
+              "start_year": 2018
+            },
+            {
+              "title": "Data Scientist",
+              "company": "Arrowroot Analytics",
+              "summary": "Built recommender systems for retail clients on Spark.",
+              "end_year": 2018,
+              "start_year": 2013
+            }
+          ]
+        },
+        "education": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Education matched by institution, degree, and year: Godavari Institute of Science and Technology, M.S., 2013.",
+          "extracted": [
+            {
+              "degree": "M.S.",
+              "institution": "Godavari Institute of Science and Technology",
+              "field_of_study": "Computer Science",
+              "graduation_year": 2013
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "r23",
+      "name": "Hannah Becker",
+      "layout": "academic",
+      "exact": {
+        "candidate_email": {
+          "expected": "hannah.becker@example.com",
+          "extracted": "hannah.becker@example.com",
+          "ok": true
+        },
+        "seniority_level": {
+          "expected": "mid_level",
+          "extracted": "mid_level",
+          "ok": true
+        },
+        "education_level": {
+          "expected": "bachelors",
+          "extracted": "bachelors",
+          "ok": true
+        },
+        "years_of_experience": {
+          "expected": 4,
+          "extracted": 4,
+          "ok": true
+        }
+      },
+      "judged": {
+        "candidate_name": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Name matches exactly: Hannah Becker.",
+          "extracted": "Hannah Becker"
+        },
+        "current_role": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Current role matches exactly: Product Analyst.",
+          "extracted": "Product Analyst"
+        },
+        "skills": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 7,
+          "extracted_items": 7,
+          "matched_items": 7,
+          "reason": "All listed skills match: SQL, Python, Amplitude, A/B testing, product analytics, Tableau, statistics.",
+          "extracted": [
+            "sql",
+            "python",
+            "amplitude",
+            "a/b testing",
+            "product analytics",
+            "tableau",
+            "statistics"
+          ]
+        },
+        "certifications": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 0,
+          "extracted_items": 0,
+          "matched_items": 0,
+          "reason": "Both ground truth and extraction are empty.",
+          "extracted": []
+        },
+        "locations": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Location matches by meaning: Munich.",
+          "extracted": [
+            "Munich"
+          ]
+        },
+        "industries": {
+          "verdicts": [
+            "partial",
+            "correct"
+          ],
+          "agree": false,
+          "expected_items": 1,
+          "extracted_items": 2,
+          "matched_items": 1,
+          "reason": "Mobility matches. Extra extracted industry 'e-scooter and bike sharing' is not in the ground truth, but it is not a false item if taken as additional detail.",
+          "extracted": [
+            "mobility",
+            "e-scooter and bike sharing"
+          ]
+        },
+        "languages": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 3,
+          "extracted_items": 3,
+          "matched_items": 3,
+          "reason": "All languages match: German, English, Spanish.",
+          "extracted": [
+            "german",
+            "english",
+            "spanish"
+          ]
+        },
+        "work_experience": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Work experience matches on company, title, and start year: Alpenrot Mobility, Product Analyst, 2022 to present. Summary wording differs but describes the same work.",
+          "extracted": [
+            {
+              "title": "Product Analyst",
+              "company": "Alpenrot Mobility",
+              "summary": "Analyzes rider behavior using Amplitude and SQL, runs 3–4 app experiments per month, and built the pricing-elasticity model behind the 2025 subscription launch.",
+              "end_year": null,
+              "start_year": 2022
+            }
+          ]
+        },
+        "education": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Education matches on institution, degree, and graduation year: Isar Valley University, B.Sc., 2021.",
+          "extracted": [
+            {
+              "degree": "B.Sc.",
+              "institution": "Isar Valley University",
+              "field_of_study": "Economics",
+              "graduation_year": 2021
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "r24",
+      "name": "Tanvi Joshi",
+      "layout": "sidebar_left",
+      "exact": {
+        "candidate_email": {
+          "expected": "tanvi.joshi@example.net",
+          "extracted": "tanvi.joshi@example.net",
+          "ok": true
+        },
+        "seniority_level": {
+          "expected": "junior",
+          "extracted": "junior",
+          "ok": true
+        },
+        "education_level": {
+          "expected": "bachelors",
+          "extracted": "bachelors",
+          "ok": true
+        },
+        "years_of_experience": {
+          "expected": 2,
+          "extracted": 2,
+          "ok": true
+        }
+      },
+      "judged": {
+        "candidate_name": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Name matches exactly.",
+          "extracted": "Tanvi Joshi"
+        },
+        "current_role": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Current role matches exactly.",
+          "extracted": "Junior AI Engineer"
+        },
+        "skills": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 8,
+          "extracted_items": 8,
+          "matched_items": 8,
+          "reason": "All expected skills matched.",
+          "extracted": [
+            "python",
+            "javascript",
+            "react",
+            "fastapi",
+            "langchain",
+            "rag",
+            "postgresql",
+            "docker"
+          ]
+        },
+        "certifications": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 0,
+          "extracted_items": 0,
+          "matched_items": 0,
+          "reason": "Both ground truth and extraction are empty.",
+          "extracted": []
+        },
+        "locations": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both locations matched.",
+          "extracted": [
+            "Ahmedabad",
+            "Remote"
+          ]
+        },
+        "industries": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Industry matches.",
+          "extracted": [
+            "saas"
+          ]
+        },
+        "languages": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 3,
+          "extracted_items": 3,
+          "matched_items": 3,
+          "reason": "All languages matched.",
+          "extracted": [
+            "english",
+            "gujarati",
+            "hindi"
+          ]
+        },
+        "work_experience": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 2,
+          "extracted_items": 2,
+          "matched_items": 2,
+          "reason": "Both work experiences match on company, title, and years; summaries are consistent with the ground truth.",
+          "extracted": [
+            {
+              "title": "Junior AI Engineer",
+              "company": "Kesar Labs",
+              "summary": "Builds RAG chatbots with LangChain and FastAPI to answer customer questions from help-centre articles and adds pgvector search to PostgreSQL.",
+              "end_year": null,
+              "start_year": 2025
+            },
+            {
+              "title": "Associate Software Engineer",
+              "company": "Kesar Labs",
+              "summary": "Built React screens and REST endpoints for the support dashboard.",
+              "end_year": 2025,
+              "start_year": 2024
+            }
+          ]
+        },
+        "education": {
+          "verdicts": [
+            "correct",
+            "correct"
+          ],
+          "agree": true,
+          "expected_items": 1,
+          "extracted_items": 1,
+          "matched_items": 1,
+          "reason": "Education matches on institution, degree, and graduation year.",
+          "extracted": [
+            {
+              "degree": "B.E.",
+              "institution": "Sabarmati Institute of Engineering",
+              "field_of_study": "Information Technology",
+              "graduation_year": 2024
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "answers": [
+    {
+      "id": "q01",
+      "answer_source": "structured_fields",
+      "verdicts": [
+        "correct",
+        "correct"
+      ],
+      "agree": true,
+      "expected_named": 8,
+      "correctly_named": 8,
+      "wrongly_included": [],
+      "missed": [],
+      "numbers_correct": true,
+      "reason": "The response lists exactly the 8 required candidates, all with matching years of experience, and includes no extras. The count implied by the list is also correct.",
+      "sources": 8,
+      "chart": false,
+      "seconds": 9.6
+    },
+    {
+      "id": "q02",
+      "answer_source": "document_text",
+      "verdicts": [
+        "partial",
+        "partial"
+      ],
+      "agree": true,
+      "expected_named": 7,
+      "correctly_named": 4,
+      "wrongly_included": [],
+      "missed": [
+        "Kenji Watanabe",
+        "Ishaan Chatterjee",
+        "Oliver Schmidt"
+      ],
+      "numbers_correct": true,
+      "reason": "The response correctly names 4 of the 7 required candidates: Arjun Malhotra, Aarav Mehta, Tanvi Joshi, and Siddharth Rao. It omits Kenji Watanabe, Ishaan Chatterjee, and Oliver Schmidt. No wrong inclusions and the counts mentioned match the evidence.",
+      "sources": 4,
+      "chart": false,
+      "seconds": 25.6
+    },
+    {
+      "id": "q03",
+      "answer_source": "hybrid",
+      "verdicts": [
+        "partial",
+        "partial"
+      ],
+      "agree": true,
+      "expected_named": 3,
+      "correctly_named": 3,
+      "wrongly_included": [
+        "Oliver Schmidt"
+      ],
+      "missed": [],
+      "numbers_correct": true,
+      "reason": "The response correctly shortlists the three expected candidates: Aarav Mehta, Arjun Malhotra, and Siddharth Rao, and its rationale is broadly consistent with the target shortlist. It also includes Oliver Schmidt as an additional recommended candidate, who is not in the correct answer and should not be included as a shortlist candidate.",
+      "sources": 4,
+      "chart": false,
+      "seconds": 28.9
+    },
+    {
+      "id": "q04",
+      "answer_source": "structured_fields",
+      "verdicts": [
+        "partial",
+        "partial"
+      ],
+      "agree": true,
+      "expected_named": 6,
+      "correctly_named": 4,
+      "wrongly_included": [],
+      "missed": [
+        "junior",
+        "principal"
+      ],
+      "numbers_correct": false,
+      "reason": "The response gets the total and most seniority counts right, but it misstates junior as 4 instead of 5 and principal as 3 instead of 2. It otherwise includes the correct categories and chart format.",
+      "sources": 24,
+      "chart": false,
+      "seconds": 11.7
+    },
+    {
+      "id": "q05",
+      "answer_source": "structured_fields",
+      "verdicts": [
+        "wrong",
+        "wrong"
+      ],
+      "agree": true,
+      "expected_named": 24,
+      "correctly_named": 0,
+      "wrongly_included": [],
+      "missed": [
+        "0-2: 4",
+        "3-5: 6",
+        "6-9: 6",
+        "10-14: 5",
+        "15+: 3"
+      ],
+      "numbers_correct": false,
+      "reason": "The response does not give the correct distribution across all 24 candidates. It instead reports only 10 candidates and a different set of raw experience values, so the bucket counts, total coverage, and summary statistics do not match the expected answer.",
+      "sources": 0,
+      "chart": true,
+      "seconds": 34.6
+    },
+    {
+      "id": "q06",
+      "answer_source": "structured_fields",
+      "verdicts": [
+        "wrong",
+        "wrong"
+      ],
+      "agree": true,
+      "expected_named": 10,
+      "correctly_named": 0,
+      "wrongly_included": [
+        "RELEVANT CHUNKS",
+        "Chunk 1 | Doc: c3066f27-fae7-4e9f-82bd-caa5c8323f0f",
+        "Chunk 2 | Doc: 5fb86d5c-bcb1-4108-9f86-c718389829d5",
+        "Chunk 3 | Doc: 52318c4a-4f1c-4f90-973d-c5db5c45ac2b",
+        "Chunk 4 | Doc: ffc60fa5-abec-4276-a0c7-e9b556b75a18",
+        "Chunk 5 | Doc: 1ec00067-e043-483f-9200-d4e9fd164e70",
+        "Chunk 6 | Doc: 0212b241-52c8-4e0e-be49-66c600cd287e",
+        "Chunk 7 | Doc: f2842159-4a08-49db-80ec-824ad8d383f4",
+        "Chunk 8 | Doc: dae2d1ae-830e-4378-929e-cd75d79afda8",
+        "Chunk 9 | Doc: 643eb2f0-ecce-419f-96f7-744810d0bd18",
+        "Chunk 10 | Doc: 1e9c7615-3729-4fef-a19b-9b9569e5057a",
+        "Chunk 11 | Doc: unknown",
+        "Chunk 12 | Doc: unknown",
+        "Chunk 13 | Doc: unknown",
+        "Chunk 14 | Doc: unknown",
+        "Chunk 15 | Doc: unknown",
+        "Chunk 16 | Doc: unknown",
+        "Chunk 17 | Doc: unknown",
+        "Chunk 18 | Doc: unknown",
+        "Chunk 19 | Doc: unknown",
+        "Chunk 20 | Doc: unknown"
+      ],
+      "missed": [
+        "python",
+        "sql",
+        "aws",
+        "kubernetes",
+        "docker",
+        "rag",
+        "langchain",
+        "spark",
+        "tableau",
+        "terraform"
+      ],
+      "numbers_correct": true,
+      "reason": "The response is a dump of relevant chunks rather than an actual answer/chart, so it should be judged wrong. It does contain the correct top 10 skills among the text, but it does not present them as an answer.",
+      "sources": 0,
+      "chart": true,
+      "seconds": 86.0
+    },
+    {
+      "id": "q07",
+      "answer_source": "structured_fields",
+      "verdicts": [
+        "correct",
+        "correct"
+      ],
+      "agree": true,
+      "expected_named": 5,
+      "correctly_named": 5,
+      "wrongly_included": [],
+      "missed": [],
+      "numbers_correct": true,
+      "reason": "The response lists exactly the five required candidates and includes no extras. The count is consistent with the correct answer.",
+      "sources": 0,
+      "chart": false,
+      "seconds": 26.6
+    },
+    {
+      "id": "q08",
+      "answer_source": "structured_fields",
+      "verdicts": [
+        "partial",
+        "partial"
+      ],
+      "agree": true,
+      "expected_named": 9,
+      "correctly_named": 7,
+      "wrongly_included": [],
+      "missed": [
+        "Priya Raghunathan",
+        "Siddharth Rao"
+      ],
+      "numbers_correct": false,
+      "reason": "The response correctly names 7 of the 9 required candidates: Aarav Mehta, Meera Iyer, Kenji Watanabe, Michael Brennan, Zoya Ahmed, Oliver Schmidt, and Grace Liu. It misses Priya Raghunathan and Siddharth Rao. It also states 7 candidates implicitly, while the correct count is 9.",
+      "sources": 0,
+      "chart": false,
+      "seconds": 23.1
+    }
+  ]
+}

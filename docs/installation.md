@@ -5,8 +5,9 @@ Bun 1.4.0; no host Python packages or sibling repositories are required.
 The first build downloads substantial Python/model dependencies.
 
 1. Set `OPENAI_API_KEY` privately in your shell. It is the only key the default
-   `openai-v1` model profile needs. Configure optional parser keys for scanned,
-   layout and visual modes.
+   `openai-v1` model profile needs: upload, extraction, metadata-aware Q&A,
+   charts and the REST API all run on it. Optionally set `LLAMA_PARSE_API_KEY`
+   for scanned, layout-aware and visual parsing modes before running step 2.
 2. Run `python deploy/configure.py` from the repository root. It writes an
    ignored private `.env`, generates installation secrets, records the model
    profile, and refuses to overwrite existing configuration. Use
@@ -43,7 +44,8 @@ with a backup and restore plan; no automatic destructive migration is run.
 
 If an upload remains Processing, inspect `docker compose logs api worker`
 privately and verify worker/queue/provider connectivity. Text-based fixtures
-need no paid parser. Scanned/layout modes need their configured parser. Invalid
+need no paid parser. Scanned/layout modes need their configured parser: without
+`LLAMA_PARSE_API_KEY` such an upload is refused with HTTP 422 that names the key. Invalid
 owner credentials fail explicitly in the standalone profile instead of silently
 switching to an installation key. Never paste unredacted logs or credentials
 into an issue.

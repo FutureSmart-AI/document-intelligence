@@ -15,6 +15,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from utils.models.usage_pricing import ServicePricing
 from utils.models.usage_events import UsageEvent
 from utils.logger import logger
+from utils.enrichment.model_registry import wire_model
 
 _CONFIG_DIR = Path(__file__).resolve().parents[1] / "config" / "usage"
 
@@ -42,7 +43,13 @@ class CostCalculator:
     async def get_pricing(
         self, service_name: str, provider: str, service_type: str, effective_date: Optional[datetime] = None
     ) -> Optional[Dict[str, Any]]:
-        """Pricing active at effective_date: effective_from <= date < effective_to (or open-ended)."""
+        """Pricing active at effective_date: effective_from <= date < effective_to (or open-ended).
+
+        An enrichment registry variant ("gpt-5.6-luna-low") is priced as its wire
+        model ("gpt-5.6-luna"): the variant only changes the reasoning effort sent.
+        """
+        if service_type == "llm":
+            service_name = wire_model(service_name)
         lookup_date = effective_date or datetime.now(tz=_tz.utc)
         date_bucket = lookup_date.strftime("%Y-%m-%d")
         cache_key = f"{provider}:{service_name}:{service_type}:{date_bucket}"

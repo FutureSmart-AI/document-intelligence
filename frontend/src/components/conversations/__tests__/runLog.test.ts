@@ -158,6 +158,152 @@ describe("readRunLog", () => {
     ).toBeUndefined();
   });
 
+  /** A turn carrying the run-level usage block (every model call counted). */
+  const withOperations = (over: Record<string, unknown> = {}) =>
+    live({
+      di_run: {
+        usage: {
+          latency_ms: 8120,
+          input_tokens: 21000,
+          output_tokens: 700,
+          total_tokens: 21700,
+          estimated_cost_usd: 0.0062,
+          cost_complete: true,
+          unpriced_models: [],
+          price_table: "openai-standard-2026-10-26",
+          operation_latency_ms: { retrieval_agent: 4200, answer: 2500 },
+          operations: [
+            {
+              operation: "retrieval_agent",
+              provider: "openai",
+              model: "gpt-5.4-mini",
+              requested_model: "gpt-5.6-luna",
+              fallback: true,
+              fallback_reason: "RateLimitError: 429",
+              calls: 3,
+              input_tokens: 15000,
+              cached_input_tokens: 4000,
+              output_tokens: 400,
+              latency_ms: 3900,
+              estimated_cost_usd: 0.0045,
+            },
+            {
+              operation: "answer",
+              provider: "openai",
+              model: "gpt-5.6-luna",
+              requested_model: "gpt-5.6-luna",
+              fallback: false,
+              calls: 1,
+              input_tokens: 6000,
+              cached_input_tokens: 0,
+              output_tokens: 300,
+              latency_ms: 2400,
+              estimated_cost_usd: 0.0017,
+            },
+          ],
+          service_calls: [],
+          ...over,
+        },
+      },
+    });
+
+  it("maps every operation with the model that served it, fallbacks flagged", () => {
+    const log = readRunLog(withOperations())!;
+    expect(log.operations.map((op) => op.operation)).toEqual([
+      "retrieval_agent",
+      "answer",
+    ]);
+    expect(log.operations[0]).toMatchObject({
+      label: "Retrieval agent",
+      model: "gpt-5.4-mini",
+      requestedModel: "gpt-5.6-luna",
+      fallback: true,
+      cachedInputTokens: 4000,
+      costUsd: 0.0045,
+    });
+    expect(log.operations[1].requestedModel).toBeUndefined();
+    expect(log.stageMs).toEqual({ retrieval_agent: 4200, answer: 2500 });
+  });
+
+  it("takes the totals from the run-level block when it is there", () => {
+    const log = readRunLog(withOperations())!;
+    expect(log.totals).toMatchObject({
+      latencyMs: 8120,
+      totalTokens: 21700,
+      costUsd: 0.0062,
+      costComplete: true,
+      priceTable: "openai-standard-2026-10-26",
+    });
+    const answer = log.steps.find((step) => step.key === "answer")!;
+    expect(answer.call).toMatchObject({
+      model: "gpt-5.6-luna",
+      latencyMs: 2400,
+      costUsd: 0.0017,
+    });
+    expect(log.partial).toBe(false);
+  });
+
+  it("keeps an unpriced model's cost unknown, never zero", () => {
+    const log = readRunLog(
+      withOperations({
+        cost_complete: false,
+        unpriced_models: ["google/gemini-3.1-flash-lite"],
+        operations: [
+          {
+            operation: "answer",
+            provider: "google",
+            model: "gemini-3.1-flash-lite",
+            calls: 1,
+            input_tokens: 10,
+            output_tokens: 5,
+            estimated_cost_usd: null,
+          },
+        ],
+        estimated_cost_usd: null,
+      }),
+    )!;
+    expect(log.operations[0].costUsd).toBeNull();
+    expect(log.totals?.costComplete).toBe(false);
+    expect(log.totals?.costUsd).toBeUndefined();
+    expect(log.totals?.unpricedModels).toEqual([
+      "google/gemini-3.1-flash-lite",
+    ]);
+    const answer = log.steps.find((step) => step.key === "answer")!;
+    expect(answer.call?.costUsd).toBeUndefined();
+  });
+
+  it("shows a stored turn's usage just like a live one", () => {
+    const log = readRunLog({
+      data: {
+        knowledge: {
+          relevant_sources: { tool_name: "rag", data: [{ id: "d1" }] },
+        },
+        di_run: {
+          stored: true,
+          model: "gpt-5.6-luna",
+          usage: {
+            latency_ms: 5000,
+            total_tokens: 900,
+            estimated_cost_usd: 0.001,
+            operations: [
+              {
+                operation: "answer",
+                provider: "openai",
+                model: "gpt-5.6-luna",
+                calls: 1,
+                input_tokens: 800,
+                output_tokens: 100,
+                estimated_cost_usd: 0.001,
+              },
+            ],
+          },
+        },
+      },
+    })!;
+    expect(log.partial).toBe(false);
+    expect(log.totals?.latencyMs).toBe(5000);
+  });
+
   it("logs nothing for a turn the service said nothing about", () => {
     expect(readRunLog({ message: "hi" })).toBeNull();
     expect(readRunLog({ data: {} })).toBeNull();

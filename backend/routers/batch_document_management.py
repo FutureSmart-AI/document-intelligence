@@ -39,6 +39,7 @@ from utils.models.enums import DocumentProcessingMode
 from utils.files.processing_modes import (
     derive_use_llama_parse,
     resolve_document_processing_mode,
+    ensure_parser_configured,
 )
 from utils.validation.file_validation_utils import FileValidationResult
 from utils.db.knowledge_ops import mark_document_invalid
@@ -272,6 +273,13 @@ async def batch_process_documents(
                 source="ingest:batch",
                 byok_exempt_if_all_of=_pipeline_providers,
             )
+            # Any non-audio file in a LlamaParse mode needs a LlamaParse key.
+            _audio_ext = (".mp3", ".mp4", ".mpeg", ".mpga", ".m4a", ".wav", ".webm", ".ogg", ".flac")
+            _batch_has_document = any(
+                not (f.filename or "").lower().endswith(_audio_ext) for f in (files or [])
+            ) or any(not u.lower().split("?")[0].endswith(_audio_ext) for u in parsed_file_urls)
+            if _batch_has_document:
+                await ensure_parser_configured(processing_mode, _kb_owner_id)
 
         document_statuses: List[BatchDocumentStatus] = []
 

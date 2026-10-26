@@ -49,6 +49,13 @@ class Price(NamedTuple):
     output: float
 
 
+#: Version stamp every priced number travels with (``usage.price_table``,
+#: ``processing_telemetry.price_table``). Bump it whenever a rate below changes,
+#: so a stored estimate can always be traced to the table that produced it.
+#: The OpenAI rows marked "verified" were read off
+#: developers.openai.com/api/docs/pricing (standard tier) on 2026-10-26.
+PRICE_TABLE_VERSION = "openai-standard-2026-10-26"
+
 # Keys lowercase ``(provider, normalized_model)``. Keep in sync with vendors.
 PRICE_PER_1K = {
     # ── OpenAI GPT-4.x — cache read discounted, no separate cache-write charge ──
@@ -60,15 +67,22 @@ PRICE_PER_1K = {
     # ── OpenAI GPT-5.x (per vendor pricing table) ──
     # gpt-5.6 family bills cache WRITES separately (Anthropic-style prompt caching).
     ("openai", "gpt-5.6-sol"): Price(0.00500, 0.00050, 0.00625, 0.03000),
-    ("openai", "gpt-5.6-terra"): Price(0.00250, 0.00025, 0.003125, 0.01500),
-    ("openai", "gpt-5.6-luna"): Price(0.00100, 0.00010, 0.00125, 0.00600),
+    # verified 2026-10-26: terra $2.00 / $0.20 cached / $2.50 cache write / $12.00 out per 1M
+    ("openai", "gpt-5.6-terra"): Price(0.00200, 0.00020, 0.00250, 0.01200),
+    # verified 2026-10-26: luna $0.20 / $0.02 cached / $0.25 cache write / $1.20 out per 1M
+    ("openai", "gpt-5.6-luna"): Price(0.00020, 0.00002, 0.00025, 0.00120),
     # gpt-5.5 / 5.4 — cache read discounted, no separate cache-write charge.
     ("openai", "gpt-5.5"): Price(0.00500, 0.00050, None, 0.03000),
     ("openai", "gpt-5.5-pro"): Price(0.03000, None, None, 0.18000),
     ("openai", "gpt-5.4"): Price(0.00250, 0.00025, None, 0.01500),
+    # verified 2026-10-26: mini $0.75 / $0.075 cached / $4.50 out per 1M
     ("openai", "gpt-5.4-mini"): Price(0.00075, 0.000075, None, 0.00450),
+    # verified 2026-10-26: nano $0.20 / $0.02 cached / $1.25 out per 1M
     ("openai", "gpt-5.4-nano"): Price(0.00020, 0.00002, None, 0.00125),
     ("openai", "gpt-5.4-pro"): Price(0.03000, None, None, 0.18000),
+    # ── OpenAI embeddings — input only (verified 2026-10-26: 3-small $0.02 per 1M) ──
+    ("openai", "text-embedding-3-small"): Price(0.00002, None, None, 0.0),
+    ("openai", "text-embedding-3-large"): Price(0.00013, None, None, 0.0),
     # ── Anthropic — cache read ≈ 0.1× input, cache write (5m TTL) ≈ 1.25× input ──
     ("anthropic", "claude-3-5-sonnet"): Price(0.00300, 0.00030, 0.00375, 0.01500),
     ("anthropic", "claude-3-5-haiku"): Price(0.00080, 0.00008, 0.00100, 0.00400),
@@ -102,7 +116,14 @@ def estimate_cost(
     to the input rate when the model publishes none)."""
     if not model:
         return None
-    norm = _norm_model(model)
+    # An enrichment registry variant ("gpt-5.6-luna-low") is billed as its wire
+    # model; the effort changes the token count, not the rate.
+    # Imported here, not at module top: importing the ``utils`` package runs
+    # utils/__init__.py, which reaches utils/processing_telemetry.py, which imports
+    # this module -- a top-level import is a cycle whenever chat.pricing loads first.
+    from utils.enrichment.model_registry import wire_model
+
+    norm = _norm_model(wire_model(model))
     key = ((provider or "").lower().strip(), norm)
     price = PRICE_PER_1K.get(key)
     if price is None:
@@ -122,7 +143,9 @@ def estimate_cost(
         + write / 1000 * write_rate
         + (output_tokens or 0) / 1000 * price.output
     )
-    return round(cost, 6)
+    # 9 places: an embedding of a short query costs ~1e-7 USD, and rounding that
+    # to 0 would print a priced call as free.
+    return round(cost, 9)
 
 
 def price_breakdown(usage_by_model: Optional[list]) -> dict:

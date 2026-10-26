@@ -2,25 +2,28 @@
 Admin Config Router
 
 Internal-only endpoints for managing global enrichment defaults.
-No user-facing auth — these endpoints are not exposed to end users.
+Master x-api-key only (require_internal_service). Until the 2026-10-23 security
+audit these had no auth at all and were reachable through the public API gateway.
 
 Endpoints:
 - GET   /v1/admin/enrichment-config  — read current global default (latest versioned row)
 - PATCH /v1/admin/enrichment-config  — insert new versioned row with updated fields
 """
 
-from fastapi import HTTPException, APIRouter
+from fastapi import Depends, HTTPException, APIRouter
 from pydantic import BaseModel
 from typing import Optional
 import traceback
 
 from utils.logger import logger
+from utils.auth.dependencies import require_internal_service
+from utils.enrichment import model_registry
 from utils.db.knowledge_setting_ops import (
     get_enrichment_default_config,
     update_enrichment_default_config,
 )
 
-router = APIRouter()
+router = APIRouter(dependencies=[Depends(require_internal_service)])
 
 
 class EnrichmentDefaultConfigResponse(BaseModel):
@@ -60,6 +63,39 @@ async def get_enrichment_default():
         raise HTTPException(status_code=500, detail="Failed to retrieve enrichment default config")
 
 
+async def _validated_models(body: PatchEnrichmentDefaultConfigBody):
+    """The (model, provider, fallback model, fallback provider) to store, each pair
+    checked against the enrichment registry (utils/enrichment/model_registry.py).
+
+    The row is read by every worker on every document, so a name the worker cannot
+    run is refused here with 422 instead of failing all extraction. A model sent
+    without its provider gets the registry's provider rather than inheriting the
+    previous row's (``gpt-5.6-luna-low`` after a Gemini row must not be stored as
+    google). A provider sent alone is checked against the model it will pair with.
+    """
+    current = None
+    if (body.enrichment_provider is not None and body.enrichment_model is None) or (
+        body.enrichment_fallback_provider is not None and body.enrichment_fallback_model is None
+    ):
+        current = await get_enrichment_default_config() or {}
+
+    def _pair(model, provider, current_key):
+        if model is not None:
+            return model_registry.validate(model, provider)
+        if provider is not None:
+            model_registry.validate((current or {}).get(current_key) or "", provider)
+        return None, provider
+
+    try:
+        model, provider = _pair(body.enrichment_model, body.enrichment_provider, "enrichment_model")
+        fb_model, fb_provider = _pair(
+            body.enrichment_fallback_model, body.enrichment_fallback_provider, "enrichment_fallback_model"
+        )
+    except ValueError as e:
+        raise HTTPException(status_code=422, detail=str(e))
+    return model, provider, fb_model, fb_provider
+
+
 @router.patch("/v1/admin/enrichment-config", response_model=EnrichmentDefaultConfigResponse)
 async def patch_enrichment_default(body: PatchEnrichmentDefaultConfigBody):
     """
@@ -74,12 +110,13 @@ async def patch_enrichment_default(body: PatchEnrichmentDefaultConfigBody):
         ]):
             raise HTTPException(status_code=400, detail="At least one field must be provided")
 
+        model, provider, fb_model, fb_provider = await _validated_models(body)
         updated = await update_enrichment_default_config(
-            enrichment_model=body.enrichment_model,
-            enrichment_provider=body.enrichment_provider,
+            enrichment_model=model,
+            enrichment_provider=provider,
             enrichment_temperature=body.enrichment_temperature,
-            enrichment_fallback_model=body.enrichment_fallback_model,
-            enrichment_fallback_provider=body.enrichment_fallback_provider,
+            enrichment_fallback_model=fb_model,
+            enrichment_fallback_provider=fb_provider,
         )
         logger.info(f"Admin updated enrichment default config: {updated}")
         return EnrichmentDefaultConfigResponse(**updated)

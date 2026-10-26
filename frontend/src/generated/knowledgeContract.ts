@@ -71,7 +71,10 @@ export const KNOWLEDGE_CONTRACT = {
     "knowledge_id",
     "start_date",
   ],
+  "GET /api/knowledge/v1/samples": [],
+  "GET /api/knowledge/v1/samples/usage": ["days"],
   "GET /api/knowledge/v1/usage/credentials/internal": ["provider"],
+  "GET /api/knowledge/v1/usage/internal-accounts": [],
   "GET /api/knowledge/v1/validate": ["knowledge_id", "owner_id"],
   "GET /api/knowledge/v1/widget-config/default-avatars": [],
   "GET /api/knowledge/v1/widget-config/default-icons": [],
@@ -93,6 +96,7 @@ export const KNOWLEDGE_CONTRACT = {
     "match_all",
     "metadata_filter",
   ],
+  "GET /api/knowledge/v1/{knowledge_id}/documents/{object_id}": [],
   "GET /api/knowledge/v1/{knowledge_id}/documents/{object_id}/chunks": [
     "limit",
     "metadata",
@@ -321,6 +325,7 @@ export const KNOWLEDGE_CONTRACT = {
   "PUT /api/knowledge/v1/{knowledge_id}/config": [],
   "PUT /api/knowledge/v1/{knowledge_id}/reports/settings": [],
   "PUT /api/knowledge/v1/{knowledge_id}/reports/{report_id}": [],
+  "PUT /api/knowledge/v1/{knowledge_id}/sample": [],
 } as const;
 
 export type KnowledgeRoute = keyof typeof KNOWLEDGE_CONTRACT;

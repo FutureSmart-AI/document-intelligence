@@ -109,6 +109,7 @@ async def insert_chat_log(
     user_email: Optional[str] = None,
     user_name: Optional[str] = None,
     chat_id: Optional[str] = None,
+    usage: Optional[Dict[str, Any]] = None,
 ) -> Optional[KnowledgeChatLogs]:
     """Insert one knowledge_chat_logs row, creating the session first if new.
 
@@ -172,6 +173,7 @@ async def insert_chat_log(
                 has_attachment=has_attachment,
                 attachment_url=attachment_url,
                 is_answered=is_answered,
+                usage=usage,
             )
             session.add(chat_log)
             await session.commit()
@@ -327,6 +329,7 @@ async def get_session_transcript(knowledge_id: str, session_id: str) -> Optional
             "llm_provider": log.llm_provider,
             "model": log.model,
             "user_feedback": log.feedback,
+            "usage": log.usage,
             "data": {"knowledge": knowledge_data},
         })
 

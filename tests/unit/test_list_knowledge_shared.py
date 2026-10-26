@@ -10,7 +10,7 @@ this endpoint only ever returned owned collections
 (`get_knowledge_services_by_owner`), so an invited user's shared collections
 never appeared in this list at all.
 
-Pure unit tests: get_api_key_or_session is dependency-overridden, and every
+Pure unit tests: get_api_key_session_or_scoped_key is dependency-overridden, and every
 utils/db function the router calls is monkeypatched — no real DB call.
 """
 
@@ -26,7 +26,7 @@ OWNER_EMAIL = "user@futuresmart.ai"
 def _make_app(auth=None):
     app = FastAPI()
     app.include_router(knowledge_management_module.router)
-    app.dependency_overrides[knowledge_management_module.get_api_key_or_session] = (
+    app.dependency_overrides[knowledge_management_module.get_api_key_session_or_scoped_key] = (
         lambda: (auth or {"auth_type": "session", "session_data": {"email": OWNER_EMAIL}})
     )
     return app

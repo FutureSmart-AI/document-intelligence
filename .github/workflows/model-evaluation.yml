@@ -1,0 +1,137 @@
+name: Model evaluation
+
+# Builds the standalone stack from this checkout as a clean single-key install (deploy/configure.py
+# with one OPENAI_API_KEY), applies each model configuration to api + worker, uploads the sample
+# resumes and invoices through the real API and grades every extracted field, then asks the RAG
+# cases on the configuration's own collections. One job per configuration, in parallel; a final job
+# compares them. On demand only (Actions -> Model evaluation -> Run workflow); there is no schedule.
+# Results: step summary, artifacts, LangSmith experiments.
+on:
+  workflow_dispatch:
+    inputs:
+      configs:
+        description: Space-separated config names from evals/model_eval/configs
+        default: baseline-nano-medium extract-nano-low extract-luna-none extract-luna-low chat-nano chat-mini
+      repeats:
+        description: Times each document is extracted / each case is asked, per configuration
+        default: '2'
+      suites:
+        description: Suites to run (each config also limits itself to the suites it declares)
+        default: extraction rag
+
+permissions:
+  contents: read
+
+concurrency:
+  group: model-evaluation-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  CONFIGS: ${{ inputs.configs || 'baseline-nano-medium extract-nano-low extract-luna-none extract-luna-low chat-nano chat-mini' }}
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      configs: ${{ steps.plan.outputs.configs }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: plan
+        run: |
+          for c in $CONFIGS; do
+            test -f "evals/model_eval/configs/$c.json" || { echo "unknown config $c"; exit 1; }
+          done
+          echo "configs=$(printf '%s\n' $CONFIGS | jq -R . | jq -sc .)" >> "$GITHUB_OUTPUT"
+      - name: Offline grader checks
+        run: python3 -m unittest discover -s tests/unit -p test_model_eval.py
+
+  evaluate:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    strategy:
+      fail-fast: false
+      matrix:
+        config: ${{ fromJSON(needs.plan.outputs.configs) }}
+    env:
+      CONFIG: ${{ matrix.config }}
+      OPENAI_API_KEY: ${{ secrets.MODEL_EVAL_OPENAI_API_KEY }}
+      LANGSMITH_API_KEY: ${{ secrets.MODEL_EVAL_LANGSMITH_API_KEY }}
+      REPEATS: ${{ inputs.repeats || '2' }}
+      SUITES: ${{ inputs.suites || 'extraction rag' }}
+      WORKERS: '4'
+      COMPOSE: docker compose -f compose.yaml -f evals/model_eval/compose.yaml
+    steps:
+      - uses: actions/checkout@v4
+      - name: Require evaluation credentials
+        run: |
+          test -n "$OPENAI_API_KEY" || { echo "MODEL_EVAL_OPENAI_API_KEY secret is missing"; exit 1; }
+          test -n "$LANGSMITH_API_KEY" || { echo "MODEL_EVAL_LANGSMITH_API_KEY secret is missing"; exit 1; }
+      - name: Clean single-key install (deploy/configure.py, default profile)
+        run: python3 deploy/configure.py
+      - name: Apply the model configuration to api + worker
+        run: python3 evals/model_eval/run.py env --config "$CONFIG"
+      - name: Build api and worker images from this checkout
+        run: $COMPOSE build api worker
+      - name: Start the stack
+        run: |
+          $COMPOSE up -d --wait --scale worker=$WORKERS api worker
+          $COMPOSE ps
+      - name: Check dataset, API and auth
+        run: $COMPOSE --profile eval run --rm --no-deps model-eval prepare
+      - name: Extraction suite
+        if: contains(env.SUITES, 'extraction')
+        run: |
+          if python3 -c "import json,sys; sys.exit(0 if 'extraction' in json.load(open('evals/model_eval/configs/$CONFIG.json')).get('suites', ['extraction','rag']) else 1)"; then
+            $COMPOSE --profile eval run --rm --no-deps model-eval extract --config "$CONFIG" --repeats "$REPEATS"
+          else
+            echo "$CONFIG does not declare the extraction suite"
+          fi
+      - name: RAG suite
+        if: contains(env.SUITES, 'rag')
+        run: |
+          if python3 -c "import json,sys; sys.exit(0 if 'rag' in json.load(open('evals/model_eval/configs/$CONFIG.json')).get('suites', ['extraction','rag']) else 1)"; then
+            $COMPOSE --profile eval run --rm --no-deps model-eval ask --config "$CONFIG" --repeats "$REPEATS"
+          else
+            echo "$CONFIG does not declare the rag suite"
+          fi
+      - name: Per-config summary
+        if: always()
+        run: |
+          test -n "$(ls model-eval-results/*.jsonl 2>/dev/null)" || exit 0
+          python3 evals/model_eval/run.py report --out model-eval-results >> "$GITHUB_STEP_SUMMARY"
+      - name: Server logs on failure
+        if: failure()
+        run: $COMPOSE logs --no-color --tail 300 api worker > model-eval-results/server-logs.txt 2>&1 || true
+      - name: Keep results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: model-evaluation-${{ github.run_id }}-${{ matrix.config }}
+          path: |
+            model-eval-results/
+            !model-eval-results/model-config.env
+          if-no-files-found: warn
+      - name: Stop disposable services
+        if: always()
+        run: $COMPOSE --profile eval down -v
+
+  compare:
+    needs: evaluate
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: model-evaluation-${{ github.run_id }}-*
+          path: model-eval-results
+          merge-multiple: true
+      - name: Compare configurations
+        run: python3 evals/model_eval/run.py report --out model-eval-results >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: model-evaluation-${{ github.run_id }}-summary
+          path: |
+            model-eval-results/summary.json
+            model-eval-results/summary.md

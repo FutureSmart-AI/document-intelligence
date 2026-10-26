@@ -1,0 +1,2731 @@
+{
+  "What is the total billed by each US-dollar vendor? Show it as a chart.": {
+    "status": 200,
+    "seconds": 9.4,
+    "body": {
+      "query": "What is the total billed by each US-dollar vendor? Show it as a chart.",
+      "refined_query": "What is the total billed by each US-dollar vendor? Show it as a chart.",
+      "response": "Here’s a chart of total billed by each US-dollar vendor:\n\n```text\nLumen Ridge Analytics LLC       $35,106.00  ████████████████████████████████████████\nQuillmark Software Licensing    $27,950.00  ████████████████████████████████\nCopperleaf Office Supply Co.     $7,225.70  ████████\n```\n\n| Vendor | Total billed (USD) |\n|---|---:|\n| Lumen Ridge Analytics LLC | $35,106.00 |\n| Quillmark Software Licensing | $27,950.00 |\n| Copperleaf Office Supply Co. | $7,225.70 |",
+      "session_id": "aab8dc4b-8671-414c-90bf-c63a4ec639b6",
+      "chat_id": "2132f944-6dfc-417f-927d-465c153cf960",
+      "data": {
+        "knowledge": {
+          "relevant_sources": {
+            "data": [
+              {
+                "id": "06e3ae54-f57a-4ca7-8610-cf8021984a12",
+                "title": "lumenridge-lra-1107.pdf",
+                "context": ""
+              },
+              {
+                "id": "e90e0413-01b8-4a49-bcaa-c20c7be22923",
+                "title": "copperleaf-co-55388.pdf",
+                "context": ""
+              },
+              {
+                "id": "cec29541-8c6a-4505-83f4-816b2c02a1df",
+                "title": "lumenridge-lra-1189.pdf",
+                "context": ""
+              },
+              {
+                "id": "e72eb818-ff90-4556-a7d7-9c9c7d1c7975",
+                "title": "lumenridge-lra-1152.pdf",
+                "context": ""
+              },
+              {
+                "id": "f05b6774-6e63-4b78-9361-5dc7ef0ea6a7",
+                "title": "quillmark-qsl-89037.pdf",
+                "context": ""
+              },
+              {
+                "id": "3116a8fc-d5d2-4764-98db-f0bef8c75ab9",
+                "title": "copperleaf-co-55701.pdf",
+                "context": ""
+              },
+              {
+                "id": "4001451a-c081-47fc-ac57-53ead0a8de9c",
+                "title": "quillmark-qsl-89590.pdf",
+                "context": ""
+              },
+              {
+                "id": "e1536b15-f442-4499-a5d5-294a09024097",
+                "title": "copperleaf-co-55120.pdf",
+                "context": ""
+              },
+              {
+                "id": "8ea78a87-eaca-4402-9557-67fa445db4cf",
+                "title": "quillmark-qsl-88412.pdf",
+                "context": ""
+              }
+            ],
+            "tool_name": "rag"
+          },
+          "summaries": {
+            "06e3ae54-f57a-4ca7-8610-cf8021984a12": {
+              "summary": "",
+              "metadata": {
+                "document_type": "invoice",
+                "vendor_name": "Lumen Ridge Analytics LLC",
+                "customer_name": "Cedar Lane Retail Inc.",
+                "invoice_number": "LRA-1107",
+                "total_amount": 7090.0,
+                "currency": "USD",
+                "issue_date": "2026-03-15",
+                "due_date": "2026-04-14",
+                "payment_terms": "Net 30",
+                "line_item_categories": [
+                  "analytics",
+                  "software licenses"
+                ],
+                "line_items": [
+                  {
+                    "amount": 6600.0,
+                    "quantity": 40.0,
+                    "unit_price": 165.0,
+                    "description": "Customer churn model, discovery phase"
+                  },
+                  {
+                    "amount": 490.0,
+                    "quantity": 10.0,
+                    "unit_price": 49.0,
+                    "description": "Analytics dashboard licences (10 seats)"
+                  }
+                ],
+                "file_name": "lumenridge-lra-1107.pdf",
+                "title": null
+              },
+              "object_id": "06e3ae54-f57a-4ca7-8610-cf8021984a12",
+              "file_name": "lumenridge-lra-1107.pdf",
+              "title": null
+            },
+            "e90e0413-01b8-4a49-bcaa-c20c7be22923": {
+              "summary": "",
+              "metadata": {
+                "document_type": "invoice",
+                "vendor_name": "Copperleaf Office Supply Co.",
+                "customer_name": "Cedar Lane Retail Inc.",
+                "invoice_number": "CO-55388",
+                "total_amount": 2121.5,
+                "currency": "USD",
+                "issue_date": "2026-05-12",
+                "due_date": "2026-05-12",
+                "payment_terms": "due on receipt",
+                "line_item_categories": [
+                  "office furniture",
+                  "office supplies",
+                  "paper supplies"
+                ],
+                "line_items": [
+                  {
+                    "amount": 1734.0,
+                    "quantity": 6.0,
+                    "unit_price": 289.0,
+                    "description": "Ergonomic office chairs"
+                  },
+                  {
+                    "amount": 387.5,
+                    "quantity": 10.0,
+                    "unit_price": 38.75,
+                    "description": "Printer paper, A4, 10 boxes"
+                  }
+                ],
+                "file_name": "copperleaf-co-55388.pdf",
+                "title": null
+              },
+              "object_id": "e90e0413-01b8-4a49-bcaa-c20c7be22923",
+              "file_name": "copperleaf-co-55388.pdf",
+              "title": null
+            },
+            "cec29541-8c6a-4505-83f4-816b2c02a1df": {
+              "summary": "",
+              "metadata": {
+                "document_type": "invoice",
+                "vendor_name": "Lumen Ridge Analytics LLC",
+                "customer_name": "Cedar Lane Retail Inc.",
+                "invoice_number": "LRA-1189",
+                "total_amount": 11686.0,
+                "currency": "USD",
+                "issue_date": "2026-09-15",
+                "due_date": "2026-10-15",
+                "payment_terms": "Milestone-based",
+                "line_item_categories": [
+                  "analytics services",
+                  "software licenses",
+                  "training"
+                ],
+                "file_name": "lumenridge-lra-1189.pdf",
+                "title": null
+              },
+              "object_id": "cec29541-8c6a-4505-83f4-816b2c02a1df",
+              "file_name": "lumenridge-lra-1189.pdf",
+              "title": null
+            },
+            "e72eb818-ff90-4556-a7d7-9c9c7d1c7975": {
+              "summary": "",
+              "metadata": {
+                "document_type": "invoice",
+                "vendor_name": "Lumen Ridge Analytics LLC",
+                "customer_name": "Cedar Lane Retail Inc.",
+                "invoice_number": "LRA-1152",
+                "total_amount": 16330.0,
+                "currency": "USD",
+                "issue_date": "2026-06-15",
+                "due_date": "2026-07-15",
+                "payment_terms": "net 30",
+                "line_item_categories": [
+                  "analytics",
+                  "software licenses",
+                  "consulting"
+                ],
+                "line_items": [
+                  {
+                    "amount": 15840.0,
+                    "quantity": null,
+                    "unit_price": 165.0,
+                    "description": "Customer churn model, build and validation"
+                  },
+                  {
+                    "amount": 490.0,
+                    "quantity": 10.0,
+                    "unit_price": 49.0,
+                    "description": "Analytics dashboard licences (10 seats)"
+                  }
+                ],
+                "file_name": "lumenridge-lra-1152.pdf",
+                "title": null
+              },
+              "object_id": "e72eb818-ff90-4556-a7d7-9c9c7d1c7975",
+              "file_name": "lumenridge-lra-1152.pdf",
+              "title": null
+            },
+            "f05b6774-6e63-4b78-9361-5dc7ef0ea6a7": {
+              "summary": "",
+              "metadata": {
+                "document_type": "invoice",
+                "vendor_name": "Quillmark Software Licensing",
+                "customer_name": "Cedar Lane Retail Inc.",
+                "invoice_number": "QSL-89037",
+                "total_amount": 5970.0,
+                "currency": "USD",
+                "issue_date": "2026-07-31",
+                "due_date": "2026-08-30",
+                "payment_terms": "net 30",
+                "line_item_categories": [
+                  "software licenses",
+                  "point-of-sale software",
+                  "inventory add-on module"
+                ],
+                "line_items": [
+                  {
+                    "amount": 4200.0,
+                    "quantity": null,
+                    "unit_price": null,
+                    "description": "Point-of-sale software, 3 additional stores (prorated)"
+                  },
+                  {
+                    "amount": 4200.0,
+                    "quantity": 3.0,
+                    "unit_price": 590.0,
+                    "description": "Inventory add-on module, annual"
+                  }
+                ],
+                "file_name": "quillmark-qsl-89037.pdf",
+                "title": null
+              },
+              "object_id": "f05b6774-6e63-4b78-9361-5dc7ef0ea6a7",
+              "file_name": "quillmark-qsl-89037.pdf",
+              "title": null
+            },
+            "3116a8fc-d5d2-4764-98db-f0bef8c75ab9": {
+              "summary": "",
+              "metadata": {
+                "document_type": "invoice",
+                "vendor_name": "Copperleaf Office Supply Co.",
+                "customer_name": "Cedar Lane Retail Inc.",
+                "invoice_number": "CO-55701",
+                "total_amount": 3624.0,
+                "currency": "USD",
+                "issue_date": "2026-08-21",
+                "due_date": "2026-09-05",
+                "payment_terms": "net 15",
+                "line_item_categories": [
+                  "office supplies"
+                ],
+                "file_name": "copperleaf-co-55701.pdf",
+                "title": null
+              },
+              "object_id": "3116a8fc-d5d2-4764-98db-f0bef8c75ab9",
+              "file_name": "copperleaf-co-55701.pdf",
+              "title": null
+            },
+            "4001451a-c081-47fc-ac57-53ead0a8de9c": {
+              "summary": "",
+              "metadata": {
+                "document_type": "invoice",
+                "vendor_name": "Quillmark Software Licensing",
+                "customer_name": "Cedar Lane Retail Inc.",
+                "invoice_number": "QSL-89590",
+                "total_amount": 5580.0,
+                "currency": "USD",
+                "issue_date": "2026-10-15",
+                "due_date": "2026-11-14",
+                "payment_terms": "net 30",
+                "line_item_categories": [
+                  "software support",
+                  "cloud backup"
+                ],
+                "line_items": [
+                  {
+                    "amount": 3600.0,
+                    "quantity": 1.0,
+                    "unit_price": 3600.0,
+                    "description": "Premium support upgrade, annual"
+                  },
+                  {
+                    "amount": 1980.0,
+                    "quantity": 1.0,
+                    "unit_price": 1980.0,
+                    "description": "Cloud backup for POS data, annual"
+                  }
+                ],
+                "file_name": "quillmark-qsl-89590.pdf",
+                "title": null
+              },
+              "object_id": "4001451a-c081-47fc-ac57-53ead0a8de9c",
+              "file_name": "quillmark-qsl-89590.pdf",
+              "title": null
+            },
+            "e1536b15-f442-4499-a5d5-294a09024097": {
+              "summary": "",
+              "metadata": {
+                "document_type": "invoice",
+                "vendor_name": "Copperleaf Office Supply Co.",
+                "customer_name": "Cedar Lane Retail Inc.",
+                "invoice_number": "CO-55120",
+                "total_amount": 1480.2,
+                "currency": "USD",
+                "issue_date": "2026-02-03",
+                "due_date": "2026-02-03",
+                "payment_terms": "Due on receipt",
+                "line_item_categories": [
+                  "office supplies",
+                  "printing supplies"
+                ],
+                "file_name": "copperleaf-co-55120.pdf",
+                "title": null
+              },
+              "object_id": "e1536b15-f442-4499-a5d5-294a09024097",
+              "file_name": "copperleaf-co-55120.pdf",
+              "title": null
+            },
+            "8ea78a87-eaca-4402-9557-67fa445db4cf": {
+              "summary": "",
+              "metadata": {
+                "document_type": "invoice",
+                "vendor_name": "Quillmark Software Licensing",
+                "customer_name": "Cedar Lane Retail Inc.",
+                "invoice_number": "QSL-88412",
+                "total_amount": 16400.0,
+                "currency": "USD",
+                "issue_date": "2026-01-31",
+                "due_date": "2026-03-02",
+                "payment_terms": "net 30",
+                "line_item_categories": [
+                  "software licenses",
+                  "implementation support",
+                  "sales and billing"
+                ],
+                "line_items": [
+                  {
+                    "amount": 14160.0,
+                    "quantity": 12.0,
+                    "unit_price": 1180.0,
+                    "description": "Point-of-sale software, annual licence (12 stores)"
+                  },
+                  {
+                    "amount": 2240.0,
+                    "quantity": 16.0,
+                    "unit_price": 140.0,
+                    "description": "Implementation support"
+                  }
+                ],
+                "file_name": "quillmark-qsl-88412.pdf",
+                "title": null
+              },
+              "object_id": "8ea78a87-eaca-4402-9557-67fa445db4cf",
+              "file_name": "quillmark-qsl-88412.pdf",
+              "title": null
+            }
+          },
+          "detailed_chunks": {},
+          "rag_context": {
+            "raw_output": "Here’s a chart of total billed by each US-dollar vendor:\n\n```text\nLumen Ridge Analytics LLC       $35,106.00  ████████████████████████████████████████\nQuillmark Software Licensing    $27,950.00  ████████████████████████████████\nCopperleaf Office Supply Co.     $7,225.70  ████████\n```\n\n| Vendor | Total billed (USD) |\n|---|---:|\n| Lumen Ridge Analytics LLC | $35,106.00 |\n| Quillmark Software Licensing | $27,950.00 |\n| Copperleaf Office Supply Co. | $7,225.70 |",
+            "summaries": {
+              "06e3ae54-f57a-4ca7-8610-cf8021984a12": {
+                "summary": "",
+                "metadata": {
+                  "document_type": "invoice",
+                  "vendor_name": "Lumen Ridge Analytics LLC",
+                  "customer_name": "Cedar Lane Retail Inc.",
+                  "invoice_number": "LRA-1107",
+                  "total_amount": 7090.0,
+                  "currency": "USD",
+                  "issue_date": "2026-03-15",
+                  "due_date": "2026-04-14",
+                  "payment_terms": "Net 30",
+                  "line_item_categories": [
+                    "analytics",
+                    "software licenses"
+                  ],
+                  "line_items": [
+                    {
+                      "amount": 6600.0,
+                      "quantity": 40.0,
+                      "unit_price": 165.0,
+                      "description": "Customer churn model, discovery phase"
+                    },
+                    {
+                      "amount": 490.0,
+                      "quantity": 10.0,
+                      "unit_price": 49.0,
+                      "description": "Analytics dashboard licences (10 seats)"
+                    }
+                  ],
+                  "file_name": "lumenridge-lra-1107.pdf",
+                  "title": null
+                },
+                "object_id": "06e3ae54-f57a-4ca7-8610-cf8021984a12",
+                "file_name": "lumenridge-lra-1107.pdf",
+                "title": null
+              },
+              "e90e0413-01b8-4a49-bcaa-c20c7be22923": {
+                "summary": "",
+                "metadata": {
+                  "document_type": "invoice",
+                  "vendor_name": "Copperleaf Office Supply Co.",
+                  "customer_name": "Cedar Lane Retail Inc.",
+                  "invoice_number": "CO-55388",
+                  "total_amount": 2121.5,
+                  "currency": "USD",
+                  "issue_date": "2026-05-12",
+                  "due_date": "2026-05-12",
+                  "payment_terms": "due on receipt",
+                  "line_item_categories": [
+                    "office furniture",
+                    "office supplies",
+                    "paper supplies"
+                  ],
+                  "line_items": [
+                    {
+                      "amount": 1734.0,
+                      "quantity": 6.0,
+                      "unit_price": 289.0,
+                      "description": "Ergonomic office chairs"
+                    },
+                    {
+                      "amount": 387.5,
+                      "quantity": 10.0,
+                      "unit_price": 38.75,
+                      "description": "Printer paper, A4, 10 boxes"
+                    }
+                  ],
+                  "file_name": "copperleaf-co-55388.pdf",
+                  "title": null
+                },
+                "object_id": "e90e0413-01b8-4a49-bcaa-c20c7be22923",
+                "file_name": "copperleaf-co-55388.pdf",
+                "title": null
+              },
+              "cec29541-8c6a-4505-83f4-816b2c02a1df": {
+                "summary": "",
+                "metadata": {
+                  "document_type": "invoice",
+                  "vendor_name": "Lumen Ridge Analytics LLC",
+                  "customer_name": "Cedar Lane Retail Inc.",
+                  "invoice_number": "LRA-1189",
+                  "total_amount": 11686.0,
+                  "currency": "USD",
+                  "issue_date": "2026-09-15",
+                  "due_date": "2026-10-15",
+                  "payment_terms": "Milestone-based",
+                  "line_item_categories": [
+                    "analytics services",
+                    "software licenses",
+                    "training"
+                  ],
+                  "file_name": "lumenridge-lra-1189.pdf",
+                  "title": null
+                },
+                "object_id": "cec29541-8c6a-4505-83f4-816b2c02a1df",
+                "file_name": "lumenridge-lra-1189.pdf",
+                "title": null
+              },
+              "e72eb818-ff90-4556-a7d7-9c9c7d1c7975": {
+                "summary": "",
+                "metadata": {
+                  "document_type": "invoice",
+                  "vendor_name": "Lumen Ridge Analytics LLC",
+                  "customer_name": "Cedar Lane Retail Inc.",
+                  "invoice_number": "LRA-1152",
+                  "total_amount": 16330.0,
+                  "currency": "USD",
+                  "issue_date": "2026-06-15",
+                  "due_date": "2026-07-15",
+                  "payment_terms": "net 30",
+                  "line_item_categories": [
+                    "analytics",
+                    "software licenses",
+                    "consulting"
+                  ],
+                  "line_items": [
+                    {
+                      "amount": 15840.0,
+                      "quantity": null,
+                      "unit_price": 165.0,
+                      "description": "Customer churn model, build and validation"
+                    },
+                    {
+                      "amount": 490.0,
+                      "quantity": 10.0,
+                      "unit_price": 49.0,
+                      "description": "Analytics dashboard licences (10 seats)"
+                    }
+                  ],
+                  "file_name": "lumenridge-lra-1152.pdf",
+                  "title": null
+                },
+                "object_id": "e72eb818-ff90-4556-a7d7-9c9c7d1c7975",
+                "file_name": "lumenridge-lra-1152.pdf",
+                "title": null
+              },
+              "f05b6774-6e63-4b78-9361-5dc7ef0ea6a7": {
+                "summary": "",
+                "metadata": {
+                  "document_type": "invoice",
+                  "vendor_name": "Quillmark Software Licensing",
+                  "customer_name": "Cedar Lane Retail Inc.",
+                  "invoice_number": "QSL-89037",
+                  "total_amount": 5970.0,
+                  "currency": "USD",
+                  "issue_date": "2026-07-31",
+                  "due_date": "2026-08-30",
+                  "payment_terms": "net 30",
+                  "line_item_categories": [
+                    "software licenses",
+                    "point-of-sale software",
+                    "inventory add-on module"
+                  ],
+                  "line_items": [
+                    {
+                      "amount": 4200.0,
+                      "quantity": null,
+                      "unit_price": null,
+                      "description": "Point-of-sale software, 3 additional stores (prorated)"
+                    },
+                    {
+                      "amount": 4200.0,
+                      "quantity": 3.0,
+                      "unit_price": 590.0,
+                      "description": "Inventory add-on module, annual"
+                    }
+                  ],
+                  "file_name": "quillmark-qsl-89037.pdf",
+                  "title": null
+                },
+                "object_id": "f05b6774-6e63-4b78-9361-5dc7ef0ea6a7",
+                "file_name": "quillmark-qsl-89037.pdf",
+                "title": null
+              },
+              "3116a8fc-d5d2-4764-98db-f0bef8c75ab9": {
+                "summary": "",
+                "metadata": {
+                  "document_type": "invoice",
+                  "vendor_name": "Copperleaf Office Supply Co.",
+                  "customer_name": "Cedar Lane Retail Inc.",
+                  "invoice_number": "CO-55701",
+                  "total_amount": 3624.0,
+                  "currency": "USD",
+                  "issue_date": "2026-08-21",
+                  "due_date": "2026-09-05",
+                  "payment_terms": "net 15",
+                  "line_item_categories": [
+                    "office supplies"
+                  ],
+                  "file_name": "copperleaf-co-55701.pdf",
+                  "title": null
+                },
+                "object_id": "3116a8fc-d5d2-4764-98db-f0bef8c75ab9",
+                "file_name": "copperleaf-co-55701.pdf",
+                "title": null
+              },
+              "4001451a-c081-47fc-ac57-53ead0a8de9c": {
+                "summary": "",
+                "metadata": {
+                  "document_type": "invoice",
+                  "vendor_name": "Quillmark Software Licensing",
+                  "customer_name": "Cedar Lane Retail Inc.",
+                  "invoice_number": "QSL-89590",
+                  "total_amount": 5580.0,
+                  "currency": "USD",
+                  "issue_date": "2026-10-15",
+                  "due_date": "2026-11-14",
+                  "payment_terms": "net 30",
+                  "line_item_categories": [
+                    "software support",
+                    "cloud backup"
+                  ],
+                  "line_items": [
+                    {
+                      "amount": 3600.0,
+                      "quantity": 1.0,
+                      "unit_price": 3600.0,
+                      "description": "Premium support upgrade, annual"
+                    },
+                    {
+                      "amount": 1980.0,
+                      "quantity": 1.0,
+                      "unit_price": 1980.0,
+                      "description": "Cloud backup for POS data, annual"
+                    }
+                  ],
+                  "file_name": "quillmark-qsl-89590.pdf",
+                  "title": null
+                },
+                "object_id": "4001451a-c081-47fc-ac57-53ead0a8de9c",
+                "file_name": "quillmark-qsl-89590.pdf",
+                "title": null
+              },
+              "e1536b15-f442-4499-a5d5-294a09024097": {
+                "summary": "",
+                "metadata": {
+                  "document_type": "invoice",
+                  "vendor_name": "Copperleaf Office Supply Co.",
+                  "customer_name": "Cedar Lane Retail Inc.",
+                  "invoice_number": "CO-55120",
+                  "total_amount": 1480.2,
+                  "currency": "USD",
+                  "issue_date": "2026-02-03",
+                  "due_date": "2026-02-03",
+                  "payment_terms": "Due on receipt",
+                  "line_item_categories": [
+                    "office supplies",
+                    "printing supplies"
+                  ],
+                  "file_name": "copperleaf-co-55120.pdf",
+                  "title": null
+                },
+                "object_id": "e1536b15-f442-4499-a5d5-294a09024097",
+                "file_name": "copperleaf-co-55120.pdf",
+                "title": null
+              },
+              "8ea78a87-eaca-4402-9557-67fa445db4cf": {
+                "summary": "",
+                "metadata": {
+                  "document_type": "invoice",
+                  "vendor_name": "Quillmark Software Licensing",
+                  "customer_name": "Cedar Lane Retail Inc.",
+                  "invoice_number": "QSL-88412",
+                  "total_amount": 16400.0,
+                  "currency": "USD",
+                  "issue_date": "2026-01-31",
+                  "due_date": "2026-03-02",
+                  "payment_terms": "net 30",
+                  "line_item_categories": [
+                    "software licenses",
+                    "implementation support",
+                    "sales and billing"
+                  ],
+                  "line_items": [
+                    {
+                      "amount": 14160.0,
+                      "quantity": 12.0,
+                      "unit_price": 1180.0,
+                      "description": "Point-of-sale software, annual licence (12 stores)"
+                    },
+                    {
+                      "amount": 2240.0,
+                      "quantity": 16.0,
+                      "unit_price": 140.0,
+                      "description": "Implementation support"
+                    }
+                  ],
+                  "file_name": "quillmark-qsl-88412.pdf",
+                  "title": null
+                },
+                "object_id": "8ea78a87-eaca-4402-9557-67fa445db4cf",
+                "file_name": "quillmark-qsl-88412.pdf",
+                "title": null
+              }
+            },
+            "chunks": [],
+            "tool_responses": [
+              {
+                "tool_name": "retrieve_metadata_catalog",
+                "tool_call_id": "call_prefetched_metadata_catalog",
+                "result": "**Metadata Catalog**\nfields: 16\nwith_values: 15\n\n- **currency** _(type: `str`, cardinality: `low`)_\n  Description: ISO 4217 currency code of the amounts (e.g., 'USD', 'EUR', 'INR').\n  Values: `USD`, `EUR`, `INR`\n- **customer_name** _(type: `str`, cardinality: `low`)_\n  Description: The receiving party — client, buyer, or customer named on the invoice.\n  Values: `Cedar Lane Retail Inc.`\n- **document_type** _(type: `str`, cardinality: `low`)_\n  Description: Generic document genre as a short, lowercase, reusable label (e.g., 'report', 'case study', 'blog', 'whitepaper', 'documentation', 'tutorial', 'resume', 'invoice', 'contract'). Reuse an existing label whenever one fits; introduce a new label only for a genuinely new genre.\n  Values: `invoice`\n- **due_date** _(type: `date`, cardinality: `high`)_\n  Description: Payment due date, formatted YYYY-MM-DD.\n  Values: `2026-05-10`, `2026-08-07`, `2026-04-14`, `2026-09-05`, `2026-07-15`, `2026-05-12`, `2026-07-12`\n- **invoice_number** _(type: `str`, cardinality: `high`)_\n  Description: Invoice number exactly as printed (e.g., 'INV-2024-0042'). Use null if absent.\n  Values: `HPC/26-27/014`, `LRA-1152`, `TDS-2026-031`, `HPC/26-27/039`, `QSL-89037`, `TDS-2026-058`, `LRA-1107`\n- **issue_date** _(type: `date`, cardinality: `high`)_\n  Description: Date the invoice was issued, formatted YYYY-MM-DD.\n  Values: `2026-04-10`, `2026-07-08`, `2026-09-15`, `2026-05-12`, `2026-03-15`, `2026-06-12`, `2026-06-15`\n- **line_item_categories** _(type: `List[str]`, cardinality: `high`)_\n  Description: Categories of goods/services billed, as short reusable labels (e.g., 'consulting', 'software licenses').\n  Values: `consulting`, `office supplies`, `design services`, `paper supplies`, `analytics services`, `software licenses`, `travel and accommodation`\n- **line_items** _(type: `List[dict]`, cardinality: `high`)_\n  Description: The individual billed lines, in document order, at most 15. amount is the line total; quantity and unit_price are null when the invoice shows only a lump sum.\n  Values: `{\"amount\":6600.0,\"quantity\":40.0,\"unit_price\":165.0,\"description\":\"Customer churn model, discovery phase\"}`, `{\"amount\":490.0,\"quantity\":10.0,\"unit_price\":49.0,\"description\":\"Analytics dashboard licences (10 seats)\"}`, `{\"amount\":1734.0,\"quantity\":6.0,\"unit_price\":289.0,\"description\":\"Ergonomic office chairs\"}`, `{\"amount\":387.5,\"quantity\":10.0,\"unit_price\":38.75,\"description\":\"Printer paper, A4, 10 boxes\"}`, `{\"amount\":432000.0,\"quantity\":6.0,\"unit_price\":72000.0,\"description\":\"Warehouse process review, 6 days\"}`, `{\"amount\":38500.0,\"quantity\":1.0,\"unit_price\":38500.0,\"description\":\"Travel and accommodation\"}`, `{\"amount\":9800.0,\"quantity\":null,\"unit_price\":null,\"description\":\"Churn model go-live milestone\"}`\n- **payment_terms** _(type: `str`, cardinality: `low`)_\n  Description: Stated payment terms as a short label (e.g., 'net 30', 'due on receipt').\n  Values: `net 15`, `Net 30`, `Milestone-based`, `net 30`, `due on receipt`\n- **summary** _(type: `str`, cardinality: `high`)_\n  Description: 2-3 sentence summary capturing the document's overall purpose, key arguments, and conclusions\n- **total_amount** _(type: `float`, cardinality: `high`)_\n  Description: Total invoiced amount as a number, without currency symbol or thousands separators.\n  Values: `849600.0`, `8234.8`, `3624.0`, `16330.0`, `7090.0`, `5970.0`, `16124.5`\n- **vendor_name** _(type: `str`, cardinality: `low`)_\n  Description: The issuing party — vendor, seller, or supplier named on the invoice.\n  Values: `Tessellate Design Studio GmbH`, `Lumen Ridge Analytics LLC`, `Copperleaf Office Supply Co.`, `Quillmark Software Licensing`, `Harbor & Pine Consulting`\n- **line_items[].amount** _(type: `str`, cardinality: `high`)_\n  Description: Leaf path of `line_items` (key `amount`)\n  Values: `1200.0`, `1450.0`, `15840.0`, `1734.0`, `2180.0`, `38500.0`, `387.5`\n- **line_items[].quantity** _(type: `str`, cardinality: `high`)_\n  Description: Leaf path of `line_items` (key `quantity`)\n  Values: `1.0`, `10.0`, `12.0`, `3.0`, `4.0`, `40.0`, `6.0`\n- **line_items[].unit_price** _(type: `str`, cardinality: `high`)_\n  Description: Leaf path of `line_items` (key `unit_price`)\n  Values: `1450.0`, `165.0`, `182.0`, `289.0`, `35.0`, `38.75`, `38500.0`\n- **line_items[].description** _(type: `str`, cardinality: `high`)_\n  Description: Leaf path of `line_items` (key `description`)\n  Values: `Analytics dashboard licences (10 seats)`, `Analytics dashboard licences (14 seats)`, `Brand refresh, concept phase`, `Brand refresh, final identity`, `Churn model go-live milestone`, `Customer churn model, build and validation`, `Customer churn model, discovery phase`\n\n**Truncation Note**\nOnly these fields have a representative subset of values due to prompt size limits: ['currency', 'customer_name', 'due_date', 'invoice_number', 'issue_date', 'line_item_categories', 'line_items', 'line_items[].amount', 'line_items[].description', 'line_items[].quantity', 'line_items[].unit_price', 'payment_terms', 'total_amount', 'vendor_name']. Their `values` lists are NOT exhaustive — call retrieve_metadata_catalog(include_values=true, field_names=[...]) to fetch the complete list for any of them."
+              },
+              {
+                "tool_name": "retrieve_documents",
+                "tool_call_id": "call_woLia7BTlmKHHAV9i8QtB4C9",
+                "result": {
+                  "documents": [
+                    {
+                      "object_id": "06e3ae54-f57a-4ca7-8610-cf8021984a12",
+                      "metadata": {
+                        "document_type": "invoice",
+                        "vendor_name": "Lumen Ridge Analytics LLC",
+                        "customer_name": "Cedar Lane Retail Inc.",
+                        "invoice_number": "LRA-1107",
+                        "total_amount": 7090.0,
+                        "currency": "USD",
+                        "issue_date": "2026-03-15",
+                        "due_date": "2026-04-14",
+                        "payment_terms": "Net 30",
+                        "line_item_categories": [
+                          "analytics",
+                          "software licenses"
+                        ],
+                        "line_items": [
+                          {
+                            "amount": 6600.0,
+                            "quantity": 40.0,
+                            "unit_price": 165.0,
+                            "description": "Customer churn model, discovery phase"
+                          },
+                          {
+                            "amount": 490.0,
+                            "quantity": 10.0,
+                            "unit_price": 49.0,
+                            "description": "Analytics dashboard licences (10 seats)"
+                          }
+                        ],
+                        "file_name": "lumenridge-lra-1107.pdf",
+                        "title": null
+                      },
+                      "title": null,
+                      "file_name": "lumenridge-lra-1107.pdf"
+                    },
+                    {
+                      "object_id": "e90e0413-01b8-4a49-bcaa-c20c7be22923",
+                      "metadata": {
+                        "document_type": "invoice",
+                        "vendor_name": "Copperleaf Office Supply Co.",
+                        "customer_name": "Cedar Lane Retail Inc.",
+                        "invoice_number": "CO-55388",
+                        "total_amount": 2121.5,
+                        "currency": "USD",
+                        "issue_date": "2026-05-12",
+                        "due_date": "2026-05-12",
+                        "payment_terms": "due on receipt",
+                        "line_item_categories": [
+                          "office furniture",
+                          "office supplies",
+                          "paper supplies"
+                        ],
+                        "line_items": [
+                          {
+                            "amount": 1734.0,
+                            "quantity": 6.0,
+                            "unit_price": 289.0,
+                            "description": "Ergonomic office chairs"
+                          },
+                          {
+                            "amount": 387.5,
+                            "quantity": 10.0,
+                            "unit_price": 38.75,
+                            "description": "Printer paper, A4, 10 boxes"
+                          }
+                        ],
+                        "file_name": "copperleaf-co-55388.pdf",
+                        "title": null
+                      },
+                      "title": null,
+                      "file_name": "copperleaf-co-55388.pdf"
+                    },
+                    {
+                      "object_id": "cec29541-8c6a-4505-83f4-816b2c02a1df",
+                      "metadata": {
+                        "document_type": "invoice",
+                        "vendor_name": "Lumen Ridge Analytics LLC",
+                        "customer_name": "Cedar Lane Retail Inc.",
+                        "invoice_number": "LRA-1189",
+                        "total_amount": 11686.0,
+                        "currency": "USD",
+                        "issue_date": "2026-09-15",
+                        "due_date": "2026-10-15",
+                        "payment_terms": "Milestone-based",
+                        "line_item_categories": [
+                          "analytics services",
+                          "software licenses",
+                          "training"
+                        ],
+                        "file_name": "lumenridge-lra-1189.pdf",
+                        "title": null
+                      },
+                      "title": null,
+                      "file_name": "lumenridge-lra-1189.pdf"
+                    },
+                    {
+                      "object_id": "e72eb818-ff90-4556-a7d7-9c9c7d1c7975",
+                      "metadata": {
+                        "document_type": "invoice",
+                        "vendor_name": "Lumen Ridge Analytics LLC",
+                        "customer_name": "Cedar Lane Retail Inc.",
+                        "invoice_number": "LRA-1152",
+                        "total_amount": 16330.0,
+                        "currency": "USD",
+                        "issue_date": "2026-06-15",
+                        "due_date": "2026-07-15",
+                        "payment_terms": "net 30",
+                        "line_item_categories": [
+                          "analytics",
+                          "software licenses",
+                          "consulting"
+                        ],
+                        "line_items": [
+                          {
+                            "amount": 15840.0,
+                            "quantity": null,
+                            "unit_price": 165.0,
+                            "description": "Customer churn model, build and validation"
+                          },
+                          {
+                            "amount": 490.0,
+                            "quantity": 10.0,
+                            "unit_price": 49.0,
+                            "description": "Analytics dashboard licences (10 seats)"
+                          }
+                        ],
+                        "file_name": "lumenridge-lra-1152.pdf",
+                        "title": null
+                      },
+                      "title": null,
+                      "file_name": "lumenridge-lra-1152.pdf"
+                    },
+                    {
+                      "object_id": "f05b6774-6e63-4b78-9361-5dc7ef0ea6a7",
+                      "metadata": {
+                        "document_type": "invoice",
+                        "vendor_name": "Quillmark Software Licensing",
+                        "customer_name": "Cedar Lane Retail Inc.",
+                        "invoice_number": "QSL-89037",
+                        "total_amount": 5970.0,
+                        "currency": "USD",
+                        "issue_date": "2026-07-31",
+                        "due_date": "2026-08-30",
+                        "payment_terms": "net 30",
+                        "line_item_categories": [
+                          "software licenses",
+                          "point-of-sale software",
+                          "inventory add-on module"
+                        ],
+                        "line_items": [
+                          {
+                            "amount": 4200.0,
+                            "quantity": null,
+                            "unit_price": null,
+                            "description": "Point-of-sale software, 3 additional stores (prorated)"
+                          },
+                          {
+                            "amount": 4200.0,
+                            "quantity": 3.0,
+                            "unit_price": 590.0,
+                            "description": "Inventory add-on module, annual"
+                          }
+                        ],
+                        "file_name": "quillmark-qsl-89037.pdf",
+                        "title": null
+                      },
+                      "title": null,
+                      "file_name": "quillmark-qsl-89037.pdf"
+                    },
+                    {
+                      "object_id": "3116a8fc-d5d2-4764-98db-f0bef8c75ab9",
+                      "metadata": {
+                        "document_type": "invoice",
+                        "vendor_name": "Copperleaf Office Supply Co.",
+                        "customer_name": "Cedar Lane Retail Inc.",
+                        "invoice_number": "CO-55701",
+                        "total_amount": 3624.0,
+                        "currency": "USD",
+                        "issue_date": "2026-08-21",
+                        "due_date": "2026-09-05",
+                        "payment_terms": "net 15",
+                        "line_item_categories": [
+                          "office supplies"
+                        ],
+                        "file_name": "copperleaf-co-55701.pdf",
+                        "title": null
+                      },
+                      "title": null,
+                      "file_name": "copperleaf-co-55701.pdf"
+                    },
+                    {
+                      "object_id": "4001451a-c081-47fc-ac57-53ead0a8de9c",
+                      "metadata": {
+                        "document_type": "invoice",
+                        "vendor_name": "Quillmark Software Licensing",
+                        "customer_name": "Cedar Lane Retail Inc.",
+                        "invoice_number": "QSL-89590",
+                        "total_amount": 5580.0,
+                        "currency": "USD",
+                        "issue_date": "2026-10-15",
+                        "due_date": "2026-11-14",
+                        "payment_terms": "net 30",
+                        "line_item_categories": [
+                          "software support",
+                          "cloud backup"
+                        ],
+                        "line_items": [
+                          {
+                            "amount": 3600.0,
+                            "quantity": 1.0,
+                            "unit_price": 3600.0,
+                            "description": "Premium support upgrade, annual"
+                          },
+                          {
+                            "amount": 1980.0,
+                            "quantity": 1.0,
+                            "unit_price": 1980.0,
+                            "description": "Cloud backup for POS data, annual"
+                          }
+                        ],
+                        "file_name": "quillmark-qsl-89590.pdf",
+                        "title": null
+                      },
+                      "title": null,
+                      "file_name": "quillmark-qsl-89590.pdf"
+                    },
+                    {
+                      "object_id": "e1536b15-f442-4499-a5d5-294a09024097",
+                      "metadata": {
+                        "document_type": "invoice",
+                        "vendor_name": "Copperleaf Office Supply Co.",
+                        "customer_name": "Cedar Lane Retail Inc.",
+                        "invoice_number": "CO-55120",
+                        "total_amount": 1480.2,
+                        "currency": "USD",
+                        "issue_date": "2026-02-03",
+                        "due_date": "2026-02-03",
+                        "payment_terms": "Due on receipt",
+                        "line_item_categories": [
+                          "office supplies",
+                          "printing supplies"
+                        ],
+                        "file_name": "copperleaf-co-55120.pdf",
+                        "title": null
+                      },
+                      "title": null,
+                      "file_name": "copperleaf-co-55120.pdf"
+                    },
+                    {
+                      "object_id": "8ea78a87-eaca-4402-9557-67fa445db4cf",
+                      "metadata": {
+                        "document_type": "invoice",
+                        "vendor_name": "Quillmark Software Licensing",
+                        "customer_name": "Cedar Lane Retail Inc.",
+                        "invoice_number": "QSL-88412",
+                        "total_amount": 16400.0,
+                        "currency": "USD",
+                        "issue_date": "2026-01-31",
+                        "due_date": "2026-03-02",
+                        "payment_terms": "net 30",
+                        "line_item_categories": [
+                          "software licenses",
+                          "implementation support",
+                          "sales and billing"
+                        ],
+                        "line_items": [
+                          {
+                            "amount": 14160.0,
+                            "quantity": 12.0,
+                            "unit_price": 1180.0,
+                            "description": "Point-of-sale software, annual licence (12 stores)"
+                          },
+                          {
+                            "amount": 2240.0,
+                            "quantity": 16.0,
+                            "unit_price": 140.0,
+                            "description": "Implementation support"
+                          }
+                        ],
+                        "file_name": "quillmark-qsl-88412.pdf",
+                        "title": null
+                      },
+                      "title": null,
+                      "file_name": "quillmark-qsl-88412.pdf"
+                    }
+                  ],
+                  "count": 9,
+                  "applied_filter": {
+                    "currency": "USD"
+                  },
+                  "retrieval_mode": "hybrid_query",
+                  "question_shape": "aggregate",
+                  "semantic_candidate_count": 9,
+                  "total_match_count": 9,
+                  "truncated": false,
+                  "total_is_lower_bound": false
+                }
+              },
+              {
+                "tool_name": "RagAgentOutput",
+                "tool_call_id": "call_P4GcPS5ZbBAisAQBfAfvG8pN",
+                "result": "Returning structured response: stop_reason=<StopReason.answered: 'answered'> confidence=<Confidence.high: 'high'> granularity=<Granularity.doc: 'doc'> previous_context_used=True answer='| Vendor | Total billed (USD) |\\n|---|---:|\\n| Lumen Ridge Analytics LLC | $35,106.00 |\\n| Quillmark Software Licensing | $27,950.00 |\\n| Copperleaf Office Supply Co. | $7,225.70 |\\n\\n```text\\nLumen Ridge Analytics LLC       $35,106.00  ████████████████████████████████████████\\nQuillmark Software Licensing    $27,950.00  ████████████████████████████████\\nCopperleaf Office Supply Co.     $7,225.70  ████████\\n```\\n\\nTotal across US-dollar invoices: **$70,281.70**.' relevant_docs=[] open_questions=[]"
+              }
+            ],
+            "retrieval_attempts": 1,
+            "key_type": "platform-key",
+            "agent_output": {
+              "stop_reason": "answered",
+              "confidence": "high",
+              "granularity": "doc",
+              "previous_context_used": true,
+              "answer": "| Vendor | Total billed (USD) |\n|---|---:|\n| Lumen Ridge Analytics LLC | $35,106.00 |\n| Quillmark Software Licensing | $27,950.00 |\n| Copperleaf Office Supply Co. | $7,225.70 |\n\n```text\nLumen Ridge Analytics LLC       $35,106.00  ████████████████████████████████████████\nQuillmark Software Licensing    $27,950.00  ████████████████████████████████\nCopperleaf Office Supply Co.     $7,225.70  ████████\n```\n\nTotal across US-dollar invoices: **$70,281.70**.",
+              "relevant_docs": [],
+              "open_questions": []
+            },
+            "verifier_verdicts": [
+              {
+                "sufficient": true,
+                "confidence": "medium",
+                "missing": "",
+                "reason": "The retrieved document set includes, for 9 invoices, the needed fields (currency, vendor_name, total_amount) to group totals by US-dollar vendor and render a chart, and there is no indication of missing vendor/currency coverage.",
+                "suggested_action": ""
+              }
+            ],
+            "answer_node_output": "Here’s a chart of total billed by each US-dollar vendor:\n\n```text\nLumen Ridge Analytics LLC       $35,106.00  ████████████████████████████████████████\nQuillmark Software Licensing    $27,950.00  ████████████████████████████████\nCopperleaf Office Supply Co.     $7,225.70  ████████\n```\n\n| Vendor | Total billed (USD) |\n|---|---:|\n| Lumen Ridge Analytics LLC | $35,106.00 |\n| Quillmark Software Licensing | $27,950.00 |\n| Copperleaf Office Supply Co. | $7,225.70 |",
+            "is_answered": true,
+            "usage_metrics": {
+              "input_tokens": 22284,
+              "output_tokens": 505,
+              "total_tokens": 22789,
+              "cached_input_tokens": 16017,
+              "cache_write_tokens": 0
+            },
+            "usage_by_model": [
+              {
+                "provider": "openai",
+                "model": "gpt-5.6-luna",
+                "input_tokens": 20006,
+                "output_tokens": 293,
+                "cached_input_tokens": 16017
+              },
+              {
+                "provider": "openai",
+                "model": "gpt-5.4-mini",
+                "input_tokens": 2278,
+                "output_tokens": 212
+              }
+            ],
+            "service_calls": [
+              {
+                "service": "rag_agent",
+                "latency_ms": 4931,
+                "provider": "openai",
+                "model": "gpt-5.6-luna",
+                "input_tokens": 20006,
+                "output_tokens": 293,
+                "total_tokens": 20299,
+                "cost_usd": 0.021764
+              },
+              {
+                "service": "generate_answer",
+                "latency_ms": 1857,
+                "provider": "openai",
+                "model": "gpt-5.4-mini",
+                "input_tokens": 2278,
+                "output_tokens": 212,
+                "total_tokens": 2490,
+                "cost_usd": 0.002662
+              }
+            ]
+          },
+          "chart_output": null
+        }
+      },
+      "is_answered": "yes",
+      "follow_up": [
+        "What percentage of total billing does each vendor represent?",
+        "Can you sort vendors by billing amount and compute cumulative totals?"
+      ],
+      "usage": {
+        "input_tokens": 23513,
+        "output_tokens": 586,
+        "total_tokens": 24099,
+        "service_calls": [
+          {
+            "service": "rag_agent",
+            "latency_ms": 4931,
+            "provider": "openai",
+            "model": "gpt-5.6-luna",
+            "input_tokens": 20006,
+            "output_tokens": 293,
+            "total_tokens": 20299,
+            "cost_usd": 0.021764
+          },
+          {
+            "service": "generate_answer",
+            "latency_ms": 1857,
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "input_tokens": 2278,
+            "output_tokens": 212,
+            "total_tokens": 2490,
+            "cost_usd": 0.002662
+          },
+          {
+            "service": "chart",
+            "latency_ms": 1149,
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "input_tokens": 1229,
+            "output_tokens": 81,
+            "total_tokens": 1310,
+            "cost_usd": 0.001286
+          }
+        ]
+      },
+      "debug_info": {
+        "enabled": true,
+        "latency_ms": null,
+        "type": "agentic_rag",
+        "is_answered": "yes",
+        "previous_context_used": true,
+        "document_ids": []
+      },
+      "error": null,
+      "byok_warnings": []
+    }
+  },
+  "What did Lumen Ridge Analytics bill for, invoice by invoice?": {
+    "status": 200,
+    "seconds": 11.6,
+    "body": {
+      "query": "What did Lumen Ridge Analytics bill for, invoice by invoice?",
+      "refined_query": "What did Lumen Ridge Analytics bill for, invoice by invoice?",
+      "response": "Lumen Ridge Analytics billed the following, invoice by invoice:\n\n- **LRA-1107** — Customer churn model, discovery phase: **$6,600.00**; analytics dashboard licences (10 seats): **$490.00**. **Total: $7,090.00 USD.**\n- **LRA-1152** — Customer churn model, build and validation: **$15,840.00**; analytics dashboard licences (10 seats): **$490.00**. **Total: $16,330.00 USD.**\n- **LRA-1189** — Churn model go-live milestone: **$9,800.00**; analytics dashboard licences (14 seats): **$686.00**; team training workshop: **$1,200.00**. **Total: $11,686.00 USD.**",
+      "session_id": "05e8a7e2-320d-4aab-9644-b2d7b7e0ca99",
+      "chat_id": "40a3dbc0-da28-4172-a1cc-895f937038ff",
+      "data": {
+        "knowledge": {
+          "relevant_sources": {
+            "data": [
+              {
+                "id": "e72eb818-ff90-4556-a7d7-9c9c7d1c7975",
+                "title": "lumenridge-lra-1152.pdf",
+                "context": "This document is an invoice from Lumen Ridge Analytics LLC to Cedar Lane Retail Inc. It bills for a customer churn model (build and validation) and analytics dashboard license seats. The invoice totals $16,330.00 USD due on 2026-07-15 with Net 30 terms."
+              },
+              {
+                "id": "cec29541-8c6a-4505-83f4-816b2c02a1df",
+                "title": "lumenridge-lra-1189.pdf",
+                "context": "This document is an invoice from Lumen Ridge Analytics LLC to Cedar Lane Retail Inc. It lists three billed items related to a churn model go-live milestone and includes analytics dashboard licenses and a team training workshop, with amounts totaling $11,686.00 USD after sales tax of $0.00, due by 15 October 2026 under milestone-based terms."
+              },
+              {
+                "id": "06e3ae54-f57a-4ca7-8610-cf8021984a12",
+                "title": "lumenridge-lra-1107.pdf",
+                "context": "This document is a USD invoice from Lumen Ridge Analytics LLC to Cedar Lane Retail Inc for services and analytics dashboard license seats. It includes a discovery-phase customer churn model and dashboard licenses, with a stated net 30 payment term and no sales tax, totaling $7,090.00 due."
+              }
+            ],
+            "tool_name": "rag"
+          },
+          "summaries": {
+            "e72eb818-ff90-4556-a7d7-9c9c7d1c7975": {
+              "summary": "This document is an invoice from Lumen Ridge Analytics LLC to Cedar Lane Retail Inc. It bills for a customer churn model (build and validation) and analytics dashboard license seats. The invoice totals $16,330.00 USD due on 2026-07-15 with Net 30 terms.",
+              "metadata": {
+                "document_type": "invoice",
+                "vendor_name": "Lumen Ridge Analytics LLC",
+                "customer_name": "Cedar Lane Retail Inc.",
+                "invoice_number": "LRA-1152",
+                "total_amount": 16330.0,
+                "currency": "USD",
+                "issue_date": "2026-06-15",
+                "due_date": "2026-07-15",
+                "payment_terms": "net 30",
+                "line_item_categories": [
+                  "analytics",
+                  "software licenses",
+                  "consulting"
+                ],
+                "line_items": [
+                  {
+                    "amount": 15840.0,
+                    "quantity": null,
+                    "unit_price": 165.0,
+                    "description": "Customer churn model, build and validation"
+                  },
+                  {
+                    "amount": 490.0,
+                    "quantity": 10.0,
+                    "unit_price": 49.0,
+                    "description": "Analytics dashboard licences (10 seats)"
+                  }
+                ],
+                "file_name": "lumenridge-lra-1152.pdf",
+                "title": null,
+                "score": 0.0325
+              },
+              "object_id": "e72eb818-ff90-4556-a7d7-9c9c7d1c7975",
+              "file_name": "lumenridge-lra-1152.pdf",
+              "title": null,
+              "score": 0.0325
+            },
+            "cec29541-8c6a-4505-83f4-816b2c02a1df": {
+              "summary": "This document is an invoice from Lumen Ridge Analytics LLC to Cedar Lane Retail Inc. It lists three billed items related to a churn model go-live milestone and includes analytics dashboard licenses and a team training workshop, with amounts totaling $11,686.00 USD after sales tax of $0.00, due by 15 October 2026 under milestone-based terms.",
+              "metadata": {
+                "document_type": "invoice",
+                "vendor_name": "Lumen Ridge Analytics LLC",
+                "customer_name": "Cedar Lane Retail Inc.",
+                "invoice_number": "LRA-1189",
+                "total_amount": 11686.0,
+                "currency": "USD",
+                "issue_date": "2026-09-15",
+                "due_date": "2026-10-15",
+                "payment_terms": "Milestone-based",
+                "line_item_categories": [
+                  "analytics services",
+                  "software licenses",
+                  "training"
+                ],
+                "file_name": "lumenridge-lra-1189.pdf",
+                "title": null,
+                "score": 0.0325
+              },
+              "object_id": "cec29541-8c6a-4505-83f4-816b2c02a1df",
+              "file_name": "lumenridge-lra-1189.pdf",
+              "title": null,
+              "score": 0.0325
+            },
+            "06e3ae54-f57a-4ca7-8610-cf8021984a12": {
+              "summary": "This document is a USD invoice from Lumen Ridge Analytics LLC to Cedar Lane Retail Inc for services and analytics dashboard license seats. It includes a discovery-phase customer churn model and dashboard licenses, with a stated net 30 payment term and no sales tax, totaling $7,090.00 due.",
+              "metadata": {
+                "document_type": "invoice",
+                "vendor_name": "Lumen Ridge Analytics LLC",
+                "customer_name": "Cedar Lane Retail Inc.",
+                "invoice_number": "LRA-1107",
+                "total_amount": 7090.0,
+                "currency": "USD",
+                "issue_date": "2026-03-15",
+                "due_date": "2026-04-14",
+                "payment_terms": "Net 30",
+                "line_item_categories": [
+                  "analytics",
+                  "software licenses"
+                ],
+                "line_items": [
+                  {
+                    "amount": 6600.0,
+                    "quantity": 40.0,
+                    "unit_price": 165.0,
+                    "description": "Customer churn model, discovery phase"
+                  },
+                  {
+                    "amount": 490.0,
+                    "quantity": 10.0,
+                    "unit_price": 49.0,
+                    "description": "Analytics dashboard licences (10 seats)"
+                  }
+                ],
+                "file_name": "lumenridge-lra-1107.pdf",
+                "title": null,
+                "score": 0.0317
+              },
+              "object_id": "06e3ae54-f57a-4ca7-8610-cf8021984a12",
+              "file_name": "lumenridge-lra-1107.pdf",
+              "title": null,
+              "score": 0.0317
+            }
+          },
+          "detailed_chunks": {
+            "cec29541-8c6a-4505-83f4-816b2c02a1df": [
+              {
+                "object_id": "cec29541-8c6a-4505-83f4-816b2c02a1df",
+                "chunk_text": "File Name: lumenridge-lra-1189.pdf\n\nExtra Info: file title: INVOICE \n\n\nExtracted Text: Lumen Ridge Analytics LLC\n310 Mercer Street, Floor 6\nSeattle, WA 98109, USA\ninvoices@lumenridge.example.com\nBILL TO\nCedar Lane Retail Inc.\nAccounts Payable\n1200 Larkspur Avenue, Suite 400\nPortland, OR 97205, USA\nap@cedarlane.example.com\nINVOICE\nInvoice no. LRA-1189\nIssue date 15 September 2026\nDue date 15 October 2026\nTerms Milestone-based\nCurrency USD\nDESCRIPTION\nQTY\nUNIT PRICE\nAMOUNT\nChurn model go-live milestone\nAnalytics dashboard licences (14 seats)\nTeam training workshop\n1\n14\n1\n$9,800.00\n$9,800.00\n$49.00\n$686.00\n$1,200.00\n$1,200.00\nSubtotal\nSales tax\nTotal due\n$11,686.00\n$0.00\n$11,686.00\nSample document: every company, person and amount on this invoice is fictional.",
+                "knowledge_id": "87396d15-d4b7-43b7-83ab-2ac0297711c3",
+                "file_name": "lumenridge-lra-1189.pdf",
+                "id": "53f7fb4d-9c6b-544c-9c90-251726bef6a7",
+                "relevance_score": 1.0,
+                "search_method": "hybrid",
+                "document_id": "cec29541-8c6a-4505-83f4-816b2c02a1df"
+              }
+            ],
+            "e72eb818-ff90-4556-a7d7-9c9c7d1c7975": [
+              {
+                "object_id": "e72eb818-ff90-4556-a7d7-9c9c7d1c7975",
+                "chunk_text": "File Name: lumenridge-lra-1152.pdf\n\nExtra Info: file title: INVOICE \n\n\nExtracted Text: Lumen Ridge Analytics LLC\n310 Mercer Street, Floor 6\nSeattle, WA 98109, USA\ninvoices@lumenridge.example.com\nBILL TO\nCedar Lane Retail Inc.\nAccounts Payable\n1200 Larkspur Avenue, Suite 400\nPortland, OR 97205, USA\nap@cedarlane.example.com\nINVOICE\nInvoice no. LRA-1152\nIssue date 15 June 2026\nDue date 15 July 2026\nTerms Net 30\nCurrency USD\nDESCRIPTION\nQTY\nUNIT PRICE\nAMOUNT\nCustomer churn model, build and validation\nAnalytics dashboard licences (10 seats)\n96\n10\n$165.00\n$15,840.00\n$49.00\n$490.00\nSubtotal\nSales tax\nTotal due\n$16,330.00\n$0.00\n$16,330.00\nSample document: every company, person and amount on this invoice is fictional.",
+                "knowledge_id": "87396d15-d4b7-43b7-83ab-2ac0297711c3",
+                "file_name": "lumenridge-lra-1152.pdf",
+                "id": "b05a19e8-0ad9-5aa2-b15b-2fafd23d92a2",
+                "relevance_score": 0.6666667,
+                "search_method": "hybrid",
+                "document_id": "e72eb818-ff90-4556-a7d7-9c9c7d1c7975"
+              }
+            ],
+            "06e3ae54-f57a-4ca7-8610-cf8021984a12": [
+              {
+                "object_id": "06e3ae54-f57a-4ca7-8610-cf8021984a12",
+                "chunk_text": "File Name: lumenridge-lra-1107.pdf\n\nExtra Info: file title: INVOICE \n\n\nExtracted Text: Lumen Ridge Analytics LLC\n310 Mercer Street, Floor 6\nSeattle, WA 98109, USA\ninvoices@lumenridge.example.com\nBILL TO\nCedar Lane Retail Inc.\nAccounts Payable\n1200 Larkspur Avenue, Suite 400\nPortland, OR 97205, USA\nap@cedarlane.example.com\nINVOICE\nInvoice no. LRA-1107\nIssue date 15 March 2026\nDue date 14 April 2026\nTerms Net 30\nCurrency USD\nDESCRIPTION\nQTY\nUNIT PRICE\nAMOUNT\nCustomer churn model, discovery phase\nAnalytics dashboard licences (10 seats)\n40\n10\n$165.00\n$6,600.00\n$49.00\n$490.00\nSubtotal\nSales tax\nTotal due\n$7,090.00\n$0.00\n$7,090.00\nSample document: every company, person and amount on this invoice is fictional.",
+                "knowledge_id": "87396d15-d4b7-43b7-83ab-2ac0297711c3",
+                "file_name": "lumenridge-lra-1107.pdf",
+                "id": "9c1bb08c-ca5a-519b-a72b-92ceb60ff27a",
+                "relevance_score": 0.5,
+                "search_method": "hybrid",
+                "document_id": "06e3ae54-f57a-4ca7-8610-cf8021984a12"
+              }
+            ]
+          },
+          "rag_context": {
+            "raw_output": "Lumen Ridge Analytics billed the following, invoice by invoice:\n\n- **LRA-1107** — Customer churn model, discovery phase: **$6,600.00**; analytics dashboard licences (10 seats): **$490.00**. **Total: $7,090.00 USD.**\n- **LRA-1152** — Customer churn model, build and validation: **$15,840.00**; analytics dashboard licences (10 seats): **$490.00**. **Total: $16,330.00 USD.**\n- **LRA-1189** — Churn model go-live milestone: **$9,800.00**; analytics dashboard licences (14 seats): **$686.00**; team training workshop: **$1,200.00**. **Total: $11,686.00 USD.**",
+            "summaries": {
+              "e72eb818-ff90-4556-a7d7-9c9c7d1c7975": {
+                "summary": "This document is an invoice from Lumen Ridge Analytics LLC to Cedar Lane Retail Inc. It bills for a customer churn model (build and validation) and analytics dashboard license seats. The invoice totals $16,330.00 USD due on 2026-07-15 with Net 30 terms.",
+                "metadata": {
+                  "document_type": "invoice",
+                  "vendor_name": "Lumen Ridge Analytics LLC",
+                  "customer_name": "Cedar Lane Retail Inc.",
+                  "invoice_number": "LRA-1152",
+                  "total_amount": 16330.0,
+                  "currency": "USD",
+                  "issue_date": "2026-06-15",
+                  "due_date": "2026-07-15",
+                  "payment_terms": "net 30",
+                  "line_item_categories": [
+                    "analytics",
+                    "software licenses",
+                    "consulting"
+                  ],
+                  "line_items": [
+                    {
+                      "amount": 15840.0,
+                      "quantity": null,
+                      "unit_price": 165.0,
+                      "description": "Customer churn model, build and validation"
+                    },
+                    {
+                      "amount": 490.0,
+                      "quantity": 10.0,
+                      "unit_price": 49.0,
+                      "description": "Analytics dashboard licences (10 seats)"
+                    }
+                  ],
+                  "file_name": "lumenridge-lra-1152.pdf",
+                  "title": null,
+                  "score": 0.0325
+                },
+                "object_id": "e72eb818-ff90-4556-a7d7-9c9c7d1c7975",
+                "file_name": "lumenridge-lra-1152.pdf",
+                "title": null,
+                "score": 0.0325
+              },
+              "cec29541-8c6a-4505-83f4-816b2c02a1df": {
+                "summary": "This document is an invoice from Lumen Ridge Analytics LLC to Cedar Lane Retail Inc. It lists three billed items related to a churn model go-live milestone and includes analytics dashboard licenses and a team training workshop, with amounts totaling $11,686.00 USD after sales tax of $0.00, due by 15 October 2026 under milestone-based terms.",
+                "metadata": {
+                  "document_type": "invoice",
+                  "vendor_name": "Lumen Ridge Analytics LLC",
+                  "customer_name": "Cedar Lane Retail Inc.",
+                  "invoice_number": "LRA-1189",
+                  "total_amount": 11686.0,
+                  "currency": "USD",
+                  "issue_date": "2026-09-15",
+                  "due_date": "2026-10-15",
+                  "payment_terms": "Milestone-based",
+                  "line_item_categories": [
+                    "analytics services",
+                    "software licenses",
+                    "training"
+                  ],
+                  "file_name": "lumenridge-lra-1189.pdf",
+                  "title": null,
+                  "score": 0.0325
+                },
+                "object_id": "cec29541-8c6a-4505-83f4-816b2c02a1df",
+                "file_name": "lumenridge-lra-1189.pdf",
+                "title": null,
+                "score": 0.0325
+              },
+              "06e3ae54-f57a-4ca7-8610-cf8021984a12": {
+                "summary": "This document is a USD invoice from Lumen Ridge Analytics LLC to Cedar Lane Retail Inc for services and analytics dashboard license seats. It includes a discovery-phase customer churn model and dashboard licenses, with a stated net 30 payment term and no sales tax, totaling $7,090.00 due.",
+                "metadata": {
+                  "document_type": "invoice",
+                  "vendor_name": "Lumen Ridge Analytics LLC",
+                  "customer_name": "Cedar Lane Retail Inc.",
+                  "invoice_number": "LRA-1107",
+                  "total_amount": 7090.0,
+                  "currency": "USD",
+                  "issue_date": "2026-03-15",
+                  "due_date": "2026-04-14",
+                  "payment_terms": "Net 30",
+                  "line_item_categories": [
+                    "analytics",
+                    "software licenses"
+                  ],
+                  "line_items": [
+                    {
+                      "amount": 6600.0,
+                      "quantity": 40.0,
+                      "unit_price": 165.0,
+                      "description": "Customer churn model, discovery phase"
+                    },
+                    {
+                      "amount": 490.0,
+                      "quantity": 10.0,
+                      "unit_price": 49.0,
+                      "description": "Analytics dashboard licences (10 seats)"
+                    }
+                  ],
+                  "file_name": "lumenridge-lra-1107.pdf",
+                  "title": null,
+                  "score": 0.0317
+                },
+                "object_id": "06e3ae54-f57a-4ca7-8610-cf8021984a12",
+                "file_name": "lumenridge-lra-1107.pdf",
+                "title": null,
+                "score": 0.0317
+              },
+              "55caf7b1-2df9-4ece-81ae-23d8190a781f": {
+                "summary": "This invoice from Tessellate Design Studio GmbH bills Cedar Lane Retail Inc. for brand refresh and packaging design services across three product lines. The invoice is issued on 12 June 2026 and due on 12 July 2026 under milestone-based terms, totaling EUR 16,124.50 including USt (19%).",
+                "metadata": {
+                  "document_type": "invoice",
+                  "vendor_name": "Tessellate Design Studio GmbH",
+                  "customer_name": "Cedar Lane Retail Inc.",
+                  "invoice_number": "TDS-2026-058",
+                  "total_amount": 16124.5,
+                  "currency": "EUR",
+                  "issue_date": "2026-06-12",
+                  "due_date": "2026-07-12",
+                  "payment_terms": "Milestone-based",
+                  "line_item_categories": [
+                    "design services"
+                  ],
+                  "file_name": "tessellate-tds-2026-058.pdf",
+                  "title": null,
+                  "score": 0.0308
+                },
+                "object_id": "55caf7b1-2df9-4ece-81ae-23d8190a781f",
+                "file_name": "tessellate-tds-2026-058.pdf",
+                "title": null,
+                "score": 0.0308
+              },
+              "524147d2-8e28-497f-a36b-e43520da3cac": {
+                "summary": "This invoice is issued by Tessellate Design Studio GmbH to Cedar Lane Retail Inc. for brand refresh services in the concept phase, including stock image licenses. The invoice lists line items, applies USt (19%), and totals an amount due of €8,234.80 with payment terms Net 30 due on 2026-04-19.",
+                "metadata": {
+                  "document_type": "invoice",
+                  "vendor_name": "Tessellate Design Studio GmbH",
+                  "customer_name": "Cedar Lane Retail Inc.",
+                  "invoice_number": "TDS-2026-031",
+                  "total_amount": 8234.8,
+                  "currency": "EUR",
+                  "issue_date": "2026-03-20",
+                  "due_date": "2026-04-19",
+                  "payment_terms": "net 30",
+                  "line_item_categories": [
+                    "design services",
+                    "stock image licences"
+                  ],
+                  "line_items": [
+                    {
+                      "amount": 6500.0,
+                      "quantity": 1.0,
+                      "unit_price": 6500.0,
+                      "description": "Brand refresh, concept phase"
+                    },
+                    {
+                      "amount": 420.0,
+                      "quantity": 12.0,
+                      "unit_price": 35.0,
+                      "description": "Stock image licences"
+                    }
+                  ],
+                  "file_name": "tessellate-tds-2026-031.pdf",
+                  "title": null,
+                  "score": 0.0303
+                },
+                "object_id": "524147d2-8e28-497f-a36b-e43520da3cac",
+                "file_name": "tessellate-tds-2026-031.pdf",
+                "title": null,
+                "score": 0.0303
+              },
+              "e87b74d3-9ec1-4962-8e0a-0fc686ed8e70": {
+                "summary": "This invoice from Harbor & Pine Consulting bills Cedar Lane Retail Inc. for inventory system rollout support (10 days). It specifies an invoice number, issue and due dates, net 30 payment terms, and INR currency, with GST (18%) included in the total due.",
+                "metadata": {
+                  "document_type": "invoice",
+                  "vendor_name": "Harbor & Pine Consulting",
+                  "customer_name": "Cedar Lane Retail Inc.",
+                  "invoice_number": "HPC/26-27/039",
+                  "total_amount": 849600.0,
+                  "currency": "INR",
+                  "issue_date": "2026-07-08",
+                  "due_date": "2026-08-07",
+                  "payment_terms": "net 30",
+                  "line_item_categories": [
+                    "consulting"
+                  ],
+                  "line_items": [
+                    {
+                      "amount": 720000.0,
+                      "quantity": 10.0,
+                      "unit_price": 72000.0,
+                      "description": "Inventory system rollout support, 10 days"
+                    }
+                  ],
+                  "file_name": "harborpine-hpc-26-27-039.pdf",
+                  "title": null,
+                  "score": 0.0297
+                },
+                "object_id": "e87b74d3-9ec1-4962-8e0a-0fc686ed8e70",
+                "file_name": "harborpine-hpc-26-27-039.pdf",
+                "title": null,
+                "score": 0.0297
+              },
+              "7d45af78-8892-45c1-bf21-0d9a262e0344": {
+                "summary": "This document is an invoice from Bramblecloud Hosting Ltd. to Cedar Lane Retail Inc. for managed Kubernetes, object storage, and a premium support plan for May. The invoice lists line item amounts including VAT and shows a total due of €3,301.50 with Net 30 payment terms.",
+                "metadata": {
+                  "document_type": "invoice",
+                  "vendor_name": "Bramblecloud Hosting Ltd.",
+                  "customer_name": "Cedar Lane Retail Inc.",
+                  "invoice_number": "BCH-2026-0519",
+                  "total_amount": 3301.5,
+                  "currency": "EUR",
+                  "issue_date": "2026-05-31",
+                  "due_date": "2026-06-30",
+                  "payment_terms": "net 30",
+                  "line_item_categories": [
+                    "managed services",
+                    "cloud hosting",
+                    "support"
+                  ],
+                  "file_name": "bramblecloud-bch-2026-0519.pdf",
+                  "title": null,
+                  "score": 0.0296
+                },
+                "object_id": "7d45af78-8892-45c1-bf21-0d9a262e0344",
+                "file_name": "bramblecloud-bch-2026-0519.pdf",
+                "title": null,
+                "score": 0.0296
+              },
+              "03dae806-4baf-4975-8629-d6fcb9f03845": {
+                "summary": "This document is an invoice from Harbor & Pine Consulting to Cedar Lane Retail Inc. for peak-season staffing plan services and associated travel and accommodation. It lists line item quantities, unit prices, GST (18%), and a total due amount with net-30 payment terms.",
+                "metadata": {
+                  "document_type": "invoice",
+                  "vendor_name": "Harbor & Pine Consulting",
+                  "customer_name": "Cedar Lane Retail Inc.",
+                  "invoice_number": "HPC/26-27/061",
+                  "total_amount": 365505.0,
+                  "currency": "INR",
+                  "issue_date": "2026-10-05",
+                  "due_date": "2026-11-04",
+                  "payment_terms": "net 30",
+                  "line_item_categories": [
+                    "staffing",
+                    "travel and accommodation"
+                  ],
+                  "line_items": [
+                    {
+                      "amount": 288000.0,
+                      "quantity": 4.0,
+                      "unit_price": 72000.0,
+                      "description": "Peak-season staffing plan, 4 days"
+                    },
+                    {
+                      "amount": 21750.0,
+                      "quantity": 1.0,
+                      "unit_price": 21750.0,
+                      "description": "Travel and accommodation"
+                    }
+                  ],
+                  "file_name": "harborpine-hpc-26-27-061.pdf",
+                  "title": null,
+                  "score": 0.0296
+                },
+                "object_id": "03dae806-4baf-4975-8629-d6fcb9f03845",
+                "file_name": "harborpine-hpc-26-27-061.pdf",
+                "title": null,
+                "score": 0.0296
+              },
+              "e90e0413-01b8-4a49-bcaa-c20c7be22923": {
+                "summary": "This document is an invoice from Copperleaf Office Supply Co. to Cedar Lane Retail Inc. It lists two billed items—ergonomic office chairs and printer paper—with quantities, unit prices, subtotal, sales tax, and the total due. Payment is due on receipt with the invoice number CO-55388, issued and due on 12 May 2026.",
+                "metadata": {
+                  "document_type": "invoice",
+                  "vendor_name": "Copperleaf Office Supply Co.",
+                  "customer_name": "Cedar Lane Retail Inc.",
+                  "invoice_number": "CO-55388",
+                  "total_amount": 2121.5,
+                  "currency": "USD",
+                  "issue_date": "2026-05-12",
+                  "due_date": "2026-05-12",
+                  "payment_terms": "due on receipt",
+                  "line_item_categories": [
+                    "office furniture",
+                    "office supplies",
+                    "paper supplies"
+                  ],
+                  "line_items": [
+                    {
+                      "amount": 1734.0,
+                      "quantity": 6.0,
+                      "unit_price": 289.0,
+                      "description": "Ergonomic office chairs"
+                    },
+                    {
+                      "amount": 387.5,
+                      "quantity": 10.0,
+                      "unit_price": 38.75,
+                      "description": "Printer paper, A4, 10 boxes"
+                    }
+                  ],
+                  "file_name": "copperleaf-co-55388.pdf",
+                  "title": null,
+                  "score": 0.0284
+                },
+                "object_id": "e90e0413-01b8-4a49-bcaa-c20c7be22923",
+                "file_name": "copperleaf-co-55388.pdf",
+                "title": null,
+                "score": 0.0284
+              },
+              "82637206-0bf0-4192-b0e0-296d3e5a943c": {
+                "summary": "This document is an invoice from Harbor & Pine Consulting to Cedar Lane Retail Inc. for a warehouse process review and related travel and accommodation, with totals calculated including GST. The invoice number is HPC/26-27/014, issued on 10 April 2026 and due on 10 May 2026 under Net 30 terms.",
+                "metadata": {
+                  "document_type": "invoice",
+                  "vendor_name": "Harbor & Pine Consulting",
+                  "customer_name": "Cedar Lane Retail Inc.",
+                  "invoice_number": "HPC/26-27/014",
+                  "total_amount": 555190.0,
+                  "currency": "INR",
+                  "issue_date": "2026-04-10",
+                  "due_date": "2026-05-10",
+                  "payment_terms": "Net 30",
+                  "line_item_categories": [
+                    "consulting",
+                    "travel and accommodation"
+                  ],
+                  "line_items": [
+                    {
+                      "amount": 432000.0,
+                      "quantity": 6.0,
+                      "unit_price": 72000.0,
+                      "description": "Warehouse process review, 6 days"
+                    },
+                    {
+                      "amount": 38500.0,
+                      "quantity": 1.0,
+                      "unit_price": 38500.0,
+                      "description": "Travel and accommodation"
+                    }
+                  ],
+                  "file_name": "harborpine-hpc-26-27-014.pdf",
+                  "title": null,
+                  "score": 0.0282
+                },
+                "object_id": "82637206-0bf0-4192-b0e0-296d3e5a943c",
+                "file_name": "harborpine-hpc-26-27-014.pdf",
+                "title": null,
+                "score": 0.0282
+              },
+              "d460ece1-06c3-4761-af0a-de0029f0e499": {
+                "summary": "This invoice is for holiday campaign artwork provided by Tessellate Design Studio GmbH to Cedar Lane Retail Inc. It lists one line item with a subtotal, VAT (USt 19%), and a total due amount in EUR, with payment due 30 October 2026 under net 30 terms.",
+                "metadata": {
+                  "document_type": "invoice",
+                  "vendor_name": "Tessellate Design Studio GmbH",
+                  "customer_name": "Cedar Lane Retail Inc.",
+                  "invoice_number": "TDS-2026-077",
+                  "total_amount": 5712.0,
+                  "currency": "EUR",
+                  "issue_date": "2026-09-30",
+                  "due_date": "2026-10-30",
+                  "payment_terms": "net 30",
+                  "line_item_categories": [
+                    "design services"
+                  ],
+                  "line_items": [
+                    {
+                      "amount": 4800.0,
+                      "quantity": 1.0,
+                      "unit_price": 4800.0,
+                      "description": "Holiday campaign artwork"
+                    }
+                  ],
+                  "file_name": "tessellate-tds-2026-077.pdf",
+                  "title": null,
+                  "score": 0.0282
+                },
+                "object_id": "d460ece1-06c3-4761-af0a-de0029f0e499",
+                "file_name": "tessellate-tds-2026-077.pdf",
+                "title": null,
+                "score": 0.0282
+              },
+              "8ea78a87-eaca-4402-9557-67fa445db4cf": {
+                "summary": "This invoice from Quillmark Software Licensing bills Cedar Lane Retail Inc. for point-of-sale software (annual licence for 12 stores) and implementation support. The invoice lists subtotal, sales tax, and the total due, with payment due under Net 30 terms.",
+                "metadata": {
+                  "document_type": "invoice",
+                  "vendor_name": "Quillmark Software Licensing",
+                  "customer_name": "Cedar Lane Retail Inc.",
+                  "invoice_number": "QSL-88412",
+                  "total_amount": 16400.0,
+                  "currency": "USD",
+                  "issue_date": "2026-01-31",
+                  "due_date": "2026-03-02",
+                  "payment_terms": "net 30",
+                  "line_item_categories": [
+                    "software licenses",
+                    "implementation support",
+                    "sales and billing"
+                  ],
+                  "line_items": [
+                    {
+                      "amount": 14160.0,
+                      "quantity": 12.0,
+                      "unit_price": 1180.0,
+                      "description": "Point-of-sale software, annual licence (12 stores)"
+                    },
+                    {
+                      "amount": 2240.0,
+                      "quantity": 16.0,
+                      "unit_price": 140.0,
+                      "description": "Implementation support"
+                    }
+                  ],
+                  "file_name": "quillmark-qsl-88412.pdf",
+                  "title": null,
+                  "score": 0.0282
+                },
+                "object_id": "8ea78a87-eaca-4402-9557-67fa445db4cf",
+                "file_name": "quillmark-qsl-88412.pdf",
+                "title": null,
+                "score": 0.0282
+              },
+              "f05b6774-6e63-4b78-9361-5dc7ef0ea6a7": {
+                "summary": "This document is an invoice from Quillmark Software Licensing to Cedar Lane Retail Inc. It lists prorated point-of-sale software charges for additional stores and an annual inventory add-on module, along with subtotal, sales tax, and total due. The invoice is for USD 5,970.00 due under Net 30 terms.",
+                "metadata": {
+                  "document_type": "invoice",
+                  "vendor_name": "Quillmark Software Licensing",
+                  "customer_name": "Cedar Lane Retail Inc.",
+                  "invoice_number": "QSL-89037",
+                  "total_amount": 5970.0,
+                  "currency": "USD",
+                  "issue_date": "2026-07-31",
+                  "due_date": "2026-08-30",
+                  "payment_terms": "net 30",
+                  "line_item_categories": [
+                    "software licenses",
+                    "point-of-sale software",
+                    "inventory add-on module"
+                  ],
+                  "line_items": [
+                    {
+                      "amount": 4200.0,
+                      "quantity": null,
+                      "unit_price": null,
+                      "description": "Point-of-sale software, 3 additional stores (prorated)"
+                    },
+                    {
+                      "amount": 4200.0,
+                      "quantity": 3.0,
+                      "unit_price": 590.0,
+                      "description": "Inventory add-on module, annual"
+                    }
+                  ],
+                  "file_name": "quillmark-qsl-89037.pdf",
+                  "title": null,
+                  "score": 0.0278
+                },
+                "object_id": "f05b6774-6e63-4b78-9361-5dc7ef0ea6a7",
+                "file_name": "quillmark-qsl-89037.pdf",
+                "title": null,
+                "score": 0.0278
+              },
+              "4001451a-c081-47fc-ac57-53ead0a8de9c": {
+                "summary": "This document is an invoice from Quillmark Software Licensing to Cedar Lane Retail Inc. It details premium support upgrade and annual cloud backup services with a subtotal of $5,580.00, $0.00 sales tax, and a total due of $5,580.00. The invoice is net 30 with a due date of 14 November 2026.",
+                "metadata": {
+                  "document_type": "invoice",
+                  "vendor_name": "Quillmark Software Licensing",
+                  "customer_name": "Cedar Lane Retail Inc.",
+                  "invoice_number": "QSL-89590",
+                  "total_amount": 5580.0,
+                  "currency": "USD",
+                  "issue_date": "2026-10-15",
+                  "due_date": "2026-11-14",
+                  "payment_terms": "net 30",
+                  "line_item_categories": [
+                    "software support",
+                    "cloud backup"
+                  ],
+                  "line_items": [
+                    {
+                      "amount": 3600.0,
+                      "quantity": 1.0,
+                      "unit_price": 3600.0,
+                      "description": "Premium support upgrade, annual"
+                    },
+                    {
+                      "amount": 1980.0,
+                      "quantity": 1.0,
+                      "unit_price": 1980.0,
+                      "description": "Cloud backup for POS data, annual"
+                    }
+                  ],
+                  "file_name": "quillmark-qsl-89590.pdf",
+                  "title": null,
+                  "score": 0.0274
+                },
+                "object_id": "4001451a-c081-47fc-ac57-53ead0a8de9c",
+                "file_name": "quillmark-qsl-89590.pdf",
+                "title": null,
+                "score": 0.0274
+              },
+              "158bd681-c8f4-476c-bec5-ec9ce9be2ddc": {
+                "summary": "This document is an invoice from Bramblecloud Hosting Ltd. to Cedar Lane Retail Inc. for managed Kubernetes, object storage, and a premium support plan for April. The invoice is issued on 30 April 2026, due 30 May 2026, with net 30 payment terms, and shows a total due of EUR 3,237.00.",
+                "metadata": {
+                  "document_type": "invoice",
+                  "vendor_name": "Bramblecloud Hosting Ltd.",
+                  "customer_name": "Cedar Lane Retail Inc.",
+                  "invoice_number": "BCH-2026-0418",
+                  "total_amount": 3237.0,
+                  "currency": "EUR",
+                  "issue_date": "2026-04-30",
+                  "due_date": "2026-05-30",
+                  "payment_terms": "net 30",
+                  "line_item_categories": [
+                    "managed hosting",
+                    "object storage",
+                    "support plan"
+                  ],
+                  "file_name": "bramblecloud-bch-2026-0418.pdf",
+                  "title": null,
+                  "score": 0.0268
+                },
+                "object_id": "158bd681-c8f4-476c-bec5-ec9ce9be2ddc",
+                "file_name": "bramblecloud-bch-2026-0418.pdf",
+                "title": null,
+                "score": 0.0268
+              },
+              "e1536b15-f442-4499-a5d5-294a09024097": {
+                "summary": "This document is an invoice from Copperleaf Office Supply Co. to Cedar Lane Retail Inc. for office supplies including A4 printer paper, black toner cartridges, and desk organizers. The invoice number is CO-55120, issued and due on 3 February 2026, with payment due on receipt.",
+                "metadata": {
+                  "document_type": "invoice",
+                  "vendor_name": "Copperleaf Office Supply Co.",
+                  "customer_name": "Cedar Lane Retail Inc.",
+                  "invoice_number": "CO-55120",
+                  "total_amount": 1480.2,
+                  "currency": "USD",
+                  "issue_date": "2026-02-03",
+                  "due_date": "2026-02-03",
+                  "payment_terms": "Due on receipt",
+                  "line_item_categories": [
+                    "office supplies",
+                    "printing supplies"
+                  ],
+                  "file_name": "copperleaf-co-55120.pdf",
+                  "title": null,
+                  "score": 0.0267
+                },
+                "object_id": "e1536b15-f442-4499-a5d5-294a09024097",
+                "file_name": "copperleaf-co-55120.pdf",
+                "title": null,
+                "score": 0.0267
+              },
+              "8420e2e7-248f-4c2f-a9cb-fd9043d3542b": {
+                "summary": "This document is an invoice from Bramblecloud Hosting Ltd. to Cedar Lane Retail Inc. for managed Kubernetes, object storage, premium support, and data egress overage services for June 2026. The total due is €3,928.40 with VAT shown as €0.00 and payment due by 30 July 2026 (Net 30).",
+                "metadata": {
+                  "document_type": "invoice",
+                  "vendor_name": "Bramblecloud Hosting Ltd.",
+                  "customer_name": "Cedar Lane Retail Inc.",
+                  "invoice_number": "BCH-2026-0620",
+                  "total_amount": 3928.4,
+                  "currency": "EUR",
+                  "issue_date": "2026-06-30",
+                  "due_date": "2026-07-30",
+                  "payment_terms": "net 30",
+                  "line_item_categories": [
+                    "managed hosting",
+                    "cloud storage",
+                    "support",
+                    "data egress"
+                  ],
+                  "file_name": "bramblecloud-bch-2026-0620.pdf",
+                  "title": null,
+                  "score": 0.0262
+                },
+                "object_id": "8420e2e7-248f-4c2f-a9cb-fd9043d3542b",
+                "file_name": "bramblecloud-bch-2026-0620.pdf",
+                "title": null,
+                "score": 0.0262
+              },
+              "3116a8fc-d5d2-4764-98db-f0bef8c75ab9": {
+                "summary": "This document is an invoice from Copperleaf Office Supply Co. to Cedar Lane Retail Inc. for office supplies including standing desks, monitor arms, and toner cartridges. It lists invoice number CO-55701, issue date 21 August 2026, due date 5 September 2026, and totals $3,624.00 USD with $0.00 sales tax.",
+                "metadata": {
+                  "document_type": "invoice",
+                  "vendor_name": "Copperleaf Office Supply Co.",
+                  "customer_name": "Cedar Lane Retail Inc.",
+                  "invoice_number": "CO-55701",
+                  "total_amount": 3624.0,
+                  "currency": "USD",
+                  "issue_date": "2026-08-21",
+                  "due_date": "2026-09-05",
+                  "payment_terms": "net 15",
+                  "line_item_categories": [
+                    "office supplies"
+                  ],
+                  "file_name": "copperleaf-co-55701.pdf",
+                  "title": null,
+                  "score": 0.0261
+                },
+                "object_id": "3116a8fc-d5d2-4764-98db-f0bef8c75ab9",
+                "file_name": "copperleaf-co-55701.pdf",
+                "title": null,
+                "score": 0.0261
+              }
+            },
+            "chunks": [
+              {
+                "object_id": "cec29541-8c6a-4505-83f4-816b2c02a1df",
+                "chunk_text": "File Name: lumenridge-lra-1189.pdf\n\nExtra Info: file title: INVOICE \n\n\nExtracted Text: Lumen Ridge Analytics LLC\n310 Mercer Street, Floor 6\nSeattle, WA 98109, USA\ninvoices@lumenridge.example.com\nBILL TO\nCedar Lane Retail Inc.\nAccounts Payable\n1200 Larkspur Avenue, Suite 400\nPortland, OR 97205, USA\nap@cedarlane.example.com\nINVOICE\nInvoice no. LRA-1189\nIssue date 15 September 2026\nDue date 15 October 2026\nTerms Milestone-based\nCurrency USD\nDESCRIPTION\nQTY\nUNIT PRICE\nAMOUNT\nChurn model go-live milestone\nAnalytics dashboard licences (14 seats)\nTeam training workshop\n1\n14\n1\n$9,800.00\n$9,800.00\n$49.00\n$686.00\n$1,200.00\n$1,200.00\nSubtotal\nSales tax\nTotal due\n$11,686.00\n$0.00\n$11,686.00\nSample document: every company, person and amount on this invoice is fictional.",
+                "knowledge_id": "87396d15-d4b7-43b7-83ab-2ac0297711c3",
+                "file_name": "lumenridge-lra-1189.pdf",
+                "id": "53f7fb4d-9c6b-544c-9c90-251726bef6a7",
+                "relevance_score": 1.0,
+                "search_method": "hybrid",
+                "document_id": "cec29541-8c6a-4505-83f4-816b2c02a1df"
+              },
+              {
+                "object_id": "e72eb818-ff90-4556-a7d7-9c9c7d1c7975",
+                "chunk_text": "File Name: lumenridge-lra-1152.pdf\n\nExtra Info: file title: INVOICE \n\n\nExtracted Text: Lumen Ridge Analytics LLC\n310 Mercer Street, Floor 6\nSeattle, WA 98109, USA\ninvoices@lumenridge.example.com\nBILL TO\nCedar Lane Retail Inc.\nAccounts Payable\n1200 Larkspur Avenue, Suite 400\nPortland, OR 97205, USA\nap@cedarlane.example.com\nINVOICE\nInvoice no. LRA-1152\nIssue date 15 June 2026\nDue date 15 July 2026\nTerms Net 30\nCurrency USD\nDESCRIPTION\nQTY\nUNIT PRICE\nAMOUNT\nCustomer churn model, build and validation\nAnalytics dashboard licences (10 seats)\n96\n10\n$165.00\n$15,840.00\n$49.00\n$490.00\nSubtotal\nSales tax\nTotal due\n$16,330.00\n$0.00\n$16,330.00\nSample document: every company, person and amount on this invoice is fictional.",
+                "knowledge_id": "87396d15-d4b7-43b7-83ab-2ac0297711c3",
+                "file_name": "lumenridge-lra-1152.pdf",
+                "id": "b05a19e8-0ad9-5aa2-b15b-2fafd23d92a2",
+                "relevance_score": 0.6666667,
+                "search_method": "hybrid",
+                "document_id": "e72eb818-ff90-4556-a7d7-9c9c7d1c7975"
+              },
+              {
+                "object_id": "06e3ae54-f57a-4ca7-8610-cf8021984a12",
+                "chunk_text": "File Name: lumenridge-lra-1107.pdf\n\nExtra Info: file title: INVOICE \n\n\nExtracted Text: Lumen Ridge Analytics LLC\n310 Mercer Street, Floor 6\nSeattle, WA 98109, USA\ninvoices@lumenridge.example.com\nBILL TO\nCedar Lane Retail Inc.\nAccounts Payable\n1200 Larkspur Avenue, Suite 400\nPortland, OR 97205, USA\nap@cedarlane.example.com\nINVOICE\nInvoice no. LRA-1107\nIssue date 15 March 2026\nDue date 14 April 2026\nTerms Net 30\nCurrency USD\nDESCRIPTION\nQTY\nUNIT PRICE\nAMOUNT\nCustomer churn model, discovery phase\nAnalytics dashboard licences (10 seats)\n40\n10\n$165.00\n$6,600.00\n$49.00\n$490.00\nSubtotal\nSales tax\nTotal due\n$7,090.00\n$0.00\n$7,090.00\nSample document: every company, person and amount on this invoice is fictional.",
+                "knowledge_id": "87396d15-d4b7-43b7-83ab-2ac0297711c3",
+                "file_name": "lumenridge-lra-1107.pdf",
+                "id": "9c1bb08c-ca5a-519b-a72b-92ceb60ff27a",
+                "relevance_score": 0.5,
+                "search_method": "hybrid",
+                "document_id": "06e3ae54-f57a-4ca7-8610-cf8021984a12"
+              }
+            ],
+            "tool_responses": [
+              {
+                "tool_name": "retrieve_metadata_catalog",
+                "tool_call_id": "call_prefetched_metadata_catalog",
+                "result": "**Metadata Catalog**\nfields: 16\nwith_values: 15\n\n- **currency** _(type: `str`, cardinality: `low`)_\n  Description: ISO 4217 currency code of the amounts (e.g., 'USD', 'EUR', 'INR').\n  Values: `USD`, `EUR`, `INR`\n- **customer_name** _(type: `str`, cardinality: `low`)_\n  Description: The receiving party — client, buyer, or customer named on the invoice.\n  Values: `Cedar Lane Retail Inc.`\n- **document_type** _(type: `str`, cardinality: `low`)_\n  Description: Generic document genre as a short, lowercase, reusable label (e.g., 'report', 'case study', 'blog', 'whitepaper', 'documentation', 'tutorial', 'resume', 'invoice', 'contract'). Reuse an existing label whenever one fits; introduce a new label only for a genuinely new genre.\n  Values: `invoice`\n- **due_date** _(type: `date`, cardinality: `high`)_\n  Description: Payment due date, formatted YYYY-MM-DD.\n  Values: `2026-05-10`, `2026-08-07`, `2026-04-14`, `2026-09-05`, `2026-07-15`, `2026-05-12`, `2026-07-12`\n- **invoice_number** _(type: `str`, cardinality: `high`)_\n  Description: Invoice number exactly as printed (e.g., 'INV-2024-0042'). Use null if absent.\n  Values: `HPC/26-27/014`, `LRA-1152`, `TDS-2026-031`, `HPC/26-27/039`, `QSL-89037`, `TDS-2026-058`, `LRA-1107`\n- **issue_date** _(type: `date`, cardinality: `high`)_\n  Description: Date the invoice was issued, formatted YYYY-MM-DD.\n  Values: `2026-04-10`, `2026-07-08`, `2026-09-15`, `2026-05-12`, `2026-03-15`, `2026-06-12`, `2026-06-15`\n- **line_item_categories** _(type: `List[str]`, cardinality: `high`)_\n  Description: Categories of goods/services billed, as short reusable labels (e.g., 'consulting', 'software licenses').\n  Values: `consulting`, `office supplies`, `design services`, `paper supplies`, `analytics services`, `software licenses`, `travel and accommodation`\n- **line_items** _(type: `List[dict]`, cardinality: `high`)_\n  Description: The individual billed lines, in document order, at most 15. amount is the line total; quantity and unit_price are null when the invoice shows only a lump sum.\n  Values: `{\"amount\":6600.0,\"quantity\":40.0,\"unit_price\":165.0,\"description\":\"Customer churn model, discovery phase\"}`, `{\"amount\":490.0,\"quantity\":10.0,\"unit_price\":49.0,\"description\":\"Analytics dashboard licences (10 seats)\"}`, `{\"amount\":1734.0,\"quantity\":6.0,\"unit_price\":289.0,\"description\":\"Ergonomic office chairs\"}`, `{\"amount\":387.5,\"quantity\":10.0,\"unit_price\":38.75,\"description\":\"Printer paper, A4, 10 boxes\"}`, `{\"amount\":432000.0,\"quantity\":6.0,\"unit_price\":72000.0,\"description\":\"Warehouse process review, 6 days\"}`, `{\"amount\":38500.0,\"quantity\":1.0,\"unit_price\":38500.0,\"description\":\"Travel and accommodation\"}`, `{\"amount\":9800.0,\"quantity\":null,\"unit_price\":null,\"description\":\"Churn model go-live milestone\"}`\n- **payment_terms** _(type: `str`, cardinality: `low`)_\n  Description: Stated payment terms as a short label (e.g., 'net 30', 'due on receipt').\n  Values: `net 15`, `Net 30`, `Milestone-based`, `net 30`, `due on receipt`\n- **summary** _(type: `str`, cardinality: `high`)_\n  Description: 2-3 sentence summary capturing the document's overall purpose, key arguments, and conclusions\n- **total_amount** _(type: `float`, cardinality: `high`)_\n  Description: Total invoiced amount as a number, without currency symbol or thousands separators.\n  Values: `849600.0`, `8234.8`, `3624.0`, `16330.0`, `7090.0`, `5970.0`, `16124.5`\n- **vendor_name** _(type: `str`, cardinality: `low`)_\n  Description: The issuing party — vendor, seller, or supplier named on the invoice.\n  Values: `Tessellate Design Studio GmbH`, `Lumen Ridge Analytics LLC`, `Copperleaf Office Supply Co.`, `Quillmark Software Licensing`, `Harbor & Pine Consulting`\n- **line_items[].amount** _(type: `str`, cardinality: `high`)_\n  Description: Leaf path of `line_items` (key `amount`)\n  Values: `1200.0`, `1450.0`, `15840.0`, `1734.0`, `2180.0`, `38500.0`, `387.5`\n- **line_items[].quantity** _(type: `str`, cardinality: `high`)_\n  Description: Leaf path of `line_items` (key `quantity`)\n  Values: `1.0`, `10.0`, `12.0`, `3.0`, `4.0`, `40.0`, `6.0`\n- **line_items[].unit_price** _(type: `str`, cardinality: `high`)_\n  Description: Leaf path of `line_items` (key `unit_price`)\n  Values: `1450.0`, `165.0`, `182.0`, `289.0`, `35.0`, `38.75`, `38500.0`\n- **line_items[].description** _(type: `str`, cardinality: `high`)_\n  Description: Leaf path of `line_items` (key `description`)\n  Values: `Analytics dashboard licences (10 seats)`, `Analytics dashboard licences (14 seats)`, `Brand refresh, concept phase`, `Brand refresh, final identity`, `Churn model go-live milestone`, `Customer churn model, build and validation`, `Customer churn model, discovery phase`\n\n**Truncation Note**\nOnly these fields have a representative subset of values due to prompt size limits: ['currency', 'customer_name', 'due_date', 'invoice_number', 'issue_date', 'line_item_categories', 'line_items', 'line_items[].amount', 'line_items[].description', 'line_items[].quantity', 'line_items[].unit_price', 'payment_terms', 'total_amount', 'vendor_name']. Their `values` lists are NOT exhaustive — call retrieve_metadata_catalog(include_values=true, field_names=[...]) to fetch the complete list for any of them."
+              },
+              {
+                "tool_name": "retrieve_documents",
+                "tool_call_id": "call_BIk23zdMjz8Wi6iF7ayktNSP",
+                "result": {
+                  "documents": [
+                    {
+                      "object_id": "e72eb818-ff90-4556-a7d7-9c9c7d1c7975",
+                      "summary": "This document is an invoice from Lumen Ridge Analytics LLC to Cedar Lane Retail Inc. It bills for a customer churn model (build and validation) and analytics dashboard license seats. The invoice totals $16,330.00 USD due on 2026-07-15 with Net 30 terms.",
+                      "metadata": {
+                        "document_type": "invoice",
+                        "vendor_name": "Lumen Ridge Analytics LLC",
+                        "customer_name": "Cedar Lane Retail Inc.",
+                        "invoice_number": "LRA-1152",
+                        "total_amount": 16330.0,
+                        "currency": "USD",
+                        "issue_date": "2026-06-15",
+                        "due_date": "2026-07-15",
+                        "payment_terms": "net 30",
+                        "line_item_categories": [
+                          "analytics",
+                          "software licenses",
+                          "consulting"
+                        ],
+                        "line_items": [
+                          {
+                            "amount": 15840.0,
+                            "quantity": null,
+                            "unit_price": 165.0,
+                            "description": "Customer churn model, build and validation"
+                          },
+                          {
+                            "amount": 490.0,
+                            "quantity": 10.0,
+                            "unit_price": 49.0,
+                            "description": "Analytics dashboard licences (10 seats)"
+                          }
+                        ],
+                        "file_name": "lumenridge-lra-1152.pdf",
+                        "title": null,
+                        "score": 0.0325
+                      },
+                      "title": null,
+                      "file_name": "lumenridge-lra-1152.pdf",
+                      "score": 0.0325
+                    },
+                    {
+                      "object_id": "cec29541-8c6a-4505-83f4-816b2c02a1df",
+                      "summary": "This document is an invoice from Lumen Ridge Analytics LLC to Cedar Lane Retail Inc. It lists three billed items related to a churn model go-live milestone and includes analytics dashboard licenses and a team training workshop, with amounts totaling $11,686.00 USD after sales tax of $0.00, due by 15 October 2026 under milestone-based terms.",
+                      "metadata": {
+                        "document_type": "invoice",
+                        "vendor_name": "Lumen Ridge Analytics LLC",
+                        "customer_name": "Cedar Lane Retail Inc.",
+                        "invoice_number": "LRA-1189",
+                        "total_amount": 11686.0,
+                        "currency": "USD",
+                        "issue_date": "2026-09-15",
+                        "due_date": "2026-10-15",
+                        "payment_terms": "Milestone-based",
+                        "line_item_categories": [
+                          "analytics services",
+                          "software licenses",
+                          "training"
+                        ],
+                        "file_name": "lumenridge-lra-1189.pdf",
+                        "title": null,
+                        "score": 0.0325
+                      },
+                      "title": null,
+                      "file_name": "lumenridge-lra-1189.pdf",
+                      "score": 0.0325
+                    },
+                    {
+                      "object_id": "06e3ae54-f57a-4ca7-8610-cf8021984a12",
+                      "summary": "This document is a USD invoice from Lumen Ridge Analytics LLC to Cedar Lane Retail Inc for services and analytics dashboard license seats. It includes a discovery-phase customer churn model and dashboard licenses, with a stated net 30 payment term and no sales tax, totaling $7,090.00 due.",
+                      "metadata": {
+                        "document_type": "invoice",
+                        "vendor_name": "Lumen Ridge Analytics LLC",
+                        "customer_name": "Cedar Lane Retail Inc.",
+                        "invoice_number": "LRA-1107",
+                        "total_amount": 7090.0,
+                        "currency": "USD",
+                        "issue_date": "2026-03-15",
+                        "due_date": "2026-04-14",
+                        "payment_terms": "Net 30",
+                        "line_item_categories": [
+                          "analytics",
+                          "software licenses"
+                        ],
+                        "line_items": [
+                          {
+                            "amount": 6600.0,
+                            "quantity": 40.0,
+                            "unit_price": 165.0,
+                            "description": "Customer churn model, discovery phase"
+                          },
+                          {
+                            "amount": 490.0,
+                            "quantity": 10.0,
+                            "unit_price": 49.0,
+                            "description": "Analytics dashboard licences (10 seats)"
+                          }
+                        ],
+                        "file_name": "lumenridge-lra-1107.pdf",
+                        "title": null,
+                        "score": 0.0317
+                      },
+                      "title": null,
+                      "file_name": "lumenridge-lra-1107.pdf",
+                      "score": 0.0317
+                    },
+                    {
+                      "object_id": "55caf7b1-2df9-4ece-81ae-23d8190a781f",
+                      "summary": "This invoice from Tessellate Design Studio GmbH bills Cedar Lane Retail Inc. for brand refresh and packaging design services across three product lines. The invoice is issued on 12 June 2026 and due on 12 July 2026 under milestone-based terms, totaling EUR 16,124.50 including USt (19%).",
+                      "metadata": {
+                        "document_type": "invoice",
+                        "vendor_name": "Tessellate Design Studio GmbH",
+                        "customer_name": "Cedar Lane Retail Inc.",
+                        "invoice_number": "TDS-2026-058",
+                        "total_amount": 16124.5,
+                        "currency": "EUR",
+                        "issue_date": "2026-06-12",
+                        "due_date": "2026-07-12",
+                        "payment_terms": "Milestone-based",
+                        "line_item_categories": [
+                          "design services"
+                        ],
+                        "file_name": "tessellate-tds-2026-058.pdf",
+                        "title": null,
+                        "score": 0.0308
+                      },
+                      "title": null,
+                      "file_name": "tessellate-tds-2026-058.pdf",
+                      "score": 0.0308
+                    },
+                    {
+                      "object_id": "524147d2-8e28-497f-a36b-e43520da3cac",
+                      "summary": "This invoice is issued by Tessellate Design Studio GmbH to Cedar Lane Retail Inc. for brand refresh services in the concept phase, including stock image licenses. The invoice lists line items, applies USt (19%), and totals an amount due of €8,234.80 with payment terms Net 30 due on 2026-04-19.",
+                      "metadata": {
+                        "document_type": "invoice",
+                        "vendor_name": "Tessellate Design Studio GmbH",
+                        "customer_name": "Cedar Lane Retail Inc.",
+                        "invoice_number": "TDS-2026-031",
+                        "total_amount": 8234.8,
+                        "currency": "EUR",
+                        "issue_date": "2026-03-20",
+                        "due_date": "2026-04-19",
+                        "payment_terms": "net 30",
+                        "line_item_categories": [
+                          "design services",
+                          "stock image licences"
+                        ],
+                        "line_items": [
+                          {
+                            "amount": 6500.0,
+                            "quantity": 1.0,
+                            "unit_price": 6500.0,
+                            "description": "Brand refresh, concept phase"
+                          },
+                          {
+                            "amount": 420.0,
+                            "quantity": 12.0,
+                            "unit_price": 35.0,
+                            "description": "Stock image licences"
+                          }
+                        ],
+                        "file_name": "tessellate-tds-2026-031.pdf",
+                        "title": null,
+                        "score": 0.0303
+                      },
+                      "title": null,
+                      "file_name": "tessellate-tds-2026-031.pdf",
+                      "score": 0.0303
+                    },
+                    {
+                      "object_id": "e87b74d3-9ec1-4962-8e0a-0fc686ed8e70",
+                      "summary": "This invoice from Harbor & Pine Consulting bills Cedar Lane Retail Inc. for inventory system rollout support (10 days). It specifies an invoice number, issue and due dates, net 30 payment terms, and INR currency, with GST (18%) included in the total due.",
+                      "metadata": {
+                        "document_type": "invoice",
+                        "vendor_name": "Harbor & Pine Consulting",
+                        "customer_name": "Cedar Lane Retail Inc.",
+                        "invoice_number": "HPC/26-27/039",
+                        "total_amount": 849600.0,
+                        "currency": "INR",
+                        "issue_date": "2026-07-08",
+                        "due_date": "2026-08-07",
+                        "payment_terms": "net 30",
+                        "line_item_categories": [
+                          "consulting"
+                        ],
+                        "line_items": [
+                          {
+                            "amount": 720000.0,
+                            "quantity": 10.0,
+                            "unit_price": 72000.0,
+                            "description": "Inventory system rollout support, 10 days"
+                          }
+                        ],
+                        "file_name": "harborpine-hpc-26-27-039.pdf",
+                        "title": null,
+                        "score": 0.0297
+                      },
+                      "title": null,
+                      "file_name": "harborpine-hpc-26-27-039.pdf",
+                      "score": 0.0297
+                    },
+                    {
+                      "object_id": "7d45af78-8892-45c1-bf21-0d9a262e0344",
+                      "summary": "This document is an invoice from Bramblecloud Hosting Ltd. to Cedar Lane Retail Inc. for managed Kubernetes, object storage, and a premium support plan for May. The invoice lists line item amounts including VAT and shows a total due of €3,301.50 with Net 30 payment terms.",
+                      "metadata": {
+                        "document_type": "invoice",
+                        "vendor_name": "Bramblecloud Hosting Ltd.",
+                        "customer_name": "Cedar Lane Retail Inc.",
+                        "invoice_number": "BCH-2026-0519",
+                        "total_amount": 3301.5,
+                        "currency": "EUR",
+                        "issue_date": "2026-05-31",
+                        "due_date": "2026-06-30",
+                        "payment_terms": "net 30",
+                        "line_item_categories": [
+                          "managed services",
+                          "cloud hosting",
+                          "support"
+                        ],
+                        "file_name": "bramblecloud-bch-2026-0519.pdf",
+                        "title": null,
+                        "score": 0.0296
+                      },
+                      "title": null,
+                      "file_name": "bramblecloud-bch-2026-0519.pdf",
+                      "score": 0.0296
+                    },
+                    {
+                      "object_id": "03dae806-4baf-4975-8629-d6fcb9f03845",
+                      "summary": "This document is an invoice from Harbor & Pine Consulting to Cedar Lane Retail Inc. for peak-season staffing plan services and associated travel and accommodation. It lists line item quantities, unit prices, GST (18%), and a total due amount with net-30 payment terms.",
+                      "metadata": {
+                        "document_type": "invoice",
+                        "vendor_name": "Harbor & Pine Consulting",
+                        "customer_name": "Cedar Lane Retail Inc.",
+                        "invoice_number": "HPC/26-27/061",
+                        "total_amount": 365505.0,
+                        "currency": "INR",
+                        "issue_date": "2026-10-05",
+                        "due_date": "2026-11-04",
+                        "payment_terms": "net 30",
+                        "line_item_categories": [
+                          "staffing",
+                          "travel and accommodation"
+                        ],
+                        "line_items": [
+                          {
+                            "amount": 288000.0,
+                            "quantity": 4.0,
+                            "unit_price": 72000.0,
+                            "description": "Peak-season staffing plan, 4 days"
+                          },
+                          {
+                            "amount": 21750.0,
+                            "quantity": 1.0,
+                            "unit_price": 21750.0,
+                            "description": "Travel and accommodation"
+                          }
+                        ],
+                        "file_name": "harborpine-hpc-26-27-061.pdf",
+                        "title": null,
+                        "score": 0.0296
+                      },
+                      "title": null,
+                      "file_name": "harborpine-hpc-26-27-061.pdf",
+                      "score": 0.0296
+                    },
+                    {
+                      "object_id": "e90e0413-01b8-4a49-bcaa-c20c7be22923",
+                      "summary": "This document is an invoice from Copperleaf Office Supply Co. to Cedar Lane Retail Inc. It lists two billed items—ergonomic office chairs and printer paper—with quantities, unit prices, subtotal, sales tax, and the total due. Payment is due on receipt with the invoice number CO-55388, issued and due on 12 May 2026.",
+                      "metadata": {
+                        "document_type": "invoice",
+                        "vendor_name": "Copperleaf Office Supply Co.",
+                        "customer_name": "Cedar Lane Retail Inc.",
+                        "invoice_number": "CO-55388",
+                        "total_amount": 2121.5,
+                        "currency": "USD",
+                        "issue_date": "2026-05-12",
+                        "due_date": "2026-05-12",
+                        "payment_terms": "due on receipt",
+                        "line_item_categories": [
+                          "office furniture",
+                          "office supplies",
+                          "paper supplies"
+                        ],
+                        "line_items": [
+                          {
+                            "amount": 1734.0,
+                            "quantity": 6.0,
+                            "unit_price": 289.0,
+                            "description": "Ergonomic office chairs"
+                          },
+                          {
+                            "amount": 387.5,
+                            "quantity": 10.0,
+                            "unit_price": 38.75,
+                            "description": "Printer paper, A4, 10 boxes"
+                          }
+                        ],
+                        "file_name": "copperleaf-co-55388.pdf",
+                        "title": null,
+                        "score": 0.0284
+                      },
+                      "title": null,
+                      "file_name": "copperleaf-co-55388.pdf",
+                      "score": 0.0284
+                    },
+                    {
+                      "object_id": "82637206-0bf0-4192-b0e0-296d3e5a943c",
+                      "summary": "This document is an invoice from Harbor & Pine Consulting to Cedar Lane Retail Inc. for a warehouse process review and related travel and accommodation, with totals calculated including GST. The invoice number is HPC/26-27/014, issued on 10 April 2026 and due on 10 May 2026 under Net 30 terms.",
+                      "metadata": {
+                        "document_type": "invoice",
+                        "vendor_name": "Harbor & Pine Consulting",
+                        "customer_name": "Cedar Lane Retail Inc.",
+                        "invoice_number": "HPC/26-27/014",
+                        "total_amount": 555190.0,
+                        "currency": "INR",
+                        "issue_date": "2026-04-10",
+                        "due_date": "2026-05-10",
+                        "payment_terms": "Net 30",
+                        "line_item_categories": [
+                          "consulting",
+                          "travel and accommodation"
+                        ],
+                        "line_items": [
+                          {
+                            "amount": 432000.0,
+                            "quantity": 6.0,
+                            "unit_price": 72000.0,
+                            "description": "Warehouse process review, 6 days"
+                          },
+                          {
+                            "amount": 38500.0,
+                            "quantity": 1.0,
+                            "unit_price": 38500.0,
+                            "description": "Travel and accommodation"
+                          }
+                        ],
+                        "file_name": "harborpine-hpc-26-27-014.pdf",
+                        "title": null,
+                        "score": 0.0282
+                      },
+                      "title": null,
+                      "file_name": "harborpine-hpc-26-27-014.pdf",
+                      "score": 0.0282
+                    },
+                    {
+                      "object_id": "d460ece1-06c3-4761-af0a-de0029f0e499",
+                      "summary": "This invoice is for holiday campaign artwork provided by Tessellate Design Studio GmbH to Cedar Lane Retail Inc. It lists one line item with a subtotal, VAT (USt 19%), and a total due amount in EUR, with payment due 30 October 2026 under net 30 terms.",
+                      "metadata": {
+                        "document_type": "invoice",
+                        "vendor_name": "Tessellate Design Studio GmbH",
+                        "customer_name": "Cedar Lane Retail Inc.",
+                        "invoice_number": "TDS-2026-077",
+                        "total_amount": 5712.0,
+                        "currency": "EUR",
+                        "issue_date": "2026-09-30",
+                        "due_date": "2026-10-30",
+                        "payment_terms": "net 30",
+                        "line_item_categories": [
+                          "design services"
+                        ],
+                        "line_items": [
+                          {
+                            "amount": 4800.0,
+                            "quantity": 1.0,
+                            "unit_price": 4800.0,
+                            "description": "Holiday campaign artwork"
+                          }
+                        ],
+                        "file_name": "tessellate-tds-2026-077.pdf",
+                        "title": null,
+                        "score": 0.0282
+                      },
+                      "title": null,
+                      "file_name": "tessellate-tds-2026-077.pdf",
+                      "score": 0.0282
+                    },
+                    {
+                      "object_id": "8ea78a87-eaca-4402-9557-67fa445db4cf",
+                      "summary": "This invoice from Quillmark Software Licensing bills Cedar Lane Retail Inc. for point-of-sale software (annual licence for 12 stores) and implementation support. The invoice lists subtotal, sales tax, and the total due, with payment due under Net 30 terms.",
+                      "metadata": {
+                        "document_type": "invoice",
+                        "vendor_name": "Quillmark Software Licensing",
+                        "customer_name": "Cedar Lane Retail Inc.",
+                        "invoice_number": "QSL-88412",
+                        "total_amount": 16400.0,
+                        "currency": "USD",
+                        "issue_date": "2026-01-31",
+                        "due_date": "2026-03-02",
+                        "payment_terms": "net 30",
+                        "line_item_categories": [
+                          "software licenses",
+                          "implementation support",
+                          "sales and billing"
+                        ],
+                        "line_items": [
+                          {
+                            "amount": 14160.0,
+                            "quantity": 12.0,
+                            "unit_price": 1180.0,
+                            "description": "Point-of-sale software, annual licence (12 stores)"
+                          },
+                          {
+                            "amount": 2240.0,
+                            "quantity": 16.0,
+                            "unit_price": 140.0,
+                            "description": "Implementation support"
+                          }
+                        ],
+                        "file_name": "quillmark-qsl-88412.pdf",
+                        "title": null,
+                        "score": 0.0282
+                      },
+                      "title": null,
+                      "file_name": "quillmark-qsl-88412.pdf",
+                      "score": 0.0282
+                    },
+                    {
+                      "object_id": "f05b6774-6e63-4b78-9361-5dc7ef0ea6a7",
+                      "summary": "This document is an invoice from Quillmark Software Licensing to Cedar Lane Retail Inc. It lists prorated point-of-sale software charges for additional stores and an annual inventory add-on module, along with subtotal, sales tax, and total due. The invoice is for USD 5,970.00 due under Net 30 terms.",
+                      "metadata": {
+                        "document_type": "invoice",
+                        "vendor_name": "Quillmark Software Licensing",
+                        "customer_name": "Cedar Lane Retail Inc.",
+                        "invoice_number": "QSL-89037",
+                        "total_amount": 5970.0,
+                        "currency": "USD",
+                        "issue_date": "2026-07-31",
+                        "due_date": "2026-08-30",
+                        "payment_terms": "net 30",
+                        "line_item_categories": [
+                          "software licenses",
+                          "point-of-sale software",
+                          "inventory add-on module"
+                        ],
+                        "line_items": [
+                          {
+                            "amount": 4200.0,
+                            "quantity": null,
+                            "unit_price": null,
+                            "description": "Point-of-sale software, 3 additional stores (prorated)"
+                          },
+                          {
+                            "amount": 4200.0,
+                            "quantity": 3.0,
+                            "unit_price": 590.0,
+                            "description": "Inventory add-on module, annual"
+                          }
+                        ],
+                        "file_name": "quillmark-qsl-89037.pdf",
+                        "title": null,
+                        "score": 0.0278
+                      },
+                      "title": null,
+                      "file_name": "quillmark-qsl-89037.pdf",
+                      "score": 0.0278
+                    },
+                    {
+                      "object_id": "4001451a-c081-47fc-ac57-53ead0a8de9c",
+                      "summary": "This document is an invoice from Quillmark Software Licensing to Cedar Lane Retail Inc. It details premium support upgrade and annual cloud backup services with a subtotal of $5,580.00, $0.00 sales tax, and a total due of $5,580.00. The invoice is net 30 with a due date of 14 November 2026.",
+                      "metadata": {
+                        "document_type": "invoice",
+                        "vendor_name": "Quillmark Software Licensing",
+                        "customer_name": "Cedar Lane Retail Inc.",
+                        "invoice_number": "QSL-89590",
+                        "total_amount": 5580.0,
+                        "currency": "USD",
+                        "issue_date": "2026-10-15",
+                        "due_date": "2026-11-14",
+                        "payment_terms": "net 30",
+                        "line_item_categories": [
+                          "software support",
+                          "cloud backup"
+                        ],
+                        "line_items": [
+                          {
+                            "amount": 3600.0,
+                            "quantity": 1.0,
+                            "unit_price": 3600.0,
+                            "description": "Premium support upgrade, annual"
+                          },
+                          {
+                            "amount": 1980.0,
+                            "quantity": 1.0,
+                            "unit_price": 1980.0,
+                            "description": "Cloud backup for POS data, annual"
+                          }
+                        ],
+                        "file_name": "quillmark-qsl-89590.pdf",
+                        "title": null,
+                        "score": 0.0274
+                      },
+                      "title": null,
+                      "file_name": "quillmark-qsl-89590.pdf",
+                      "score": 0.0274
+                    },
+                    {
+                      "object_id": "158bd681-c8f4-476c-bec5-ec9ce9be2ddc",
+                      "summary": "This document is an invoice from Bramblecloud Hosting Ltd. to Cedar Lane Retail Inc. for managed Kubernetes, object storage, and a premium support plan for April. The invoice is issued on 30 April 2026, due 30 May 2026, with net 30 payment terms, and shows a total due of EUR 3,237.00.",
+                      "metadata": {
+                        "document_type": "invoice",
+                        "vendor_name": "Bramblecloud Hosting Ltd.",
+                        "customer_name": "Cedar Lane Retail Inc.",
+                        "invoice_number": "BCH-2026-0418",
+                        "total_amount": 3237.0,
+                        "currency": "EUR",
+                        "issue_date": "2026-04-30",
+                        "due_date": "2026-05-30",
+                        "payment_terms": "net 30",
+                        "line_item_categories": [
+                          "managed hosting",
+                          "object storage",
+                          "support plan"
+                        ],
+                        "file_name": "bramblecloud-bch-2026-0418.pdf",
+                        "title": null,
+                        "score": 0.0268
+                      },
+                      "title": null,
+                      "file_name": "bramblecloud-bch-2026-0418.pdf",
+                      "score": 0.0268
+                    },
+                    {
+                      "object_id": "e1536b15-f442-4499-a5d5-294a09024097",
+                      "summary": "This document is an invoice from Copperleaf Office Supply Co. to Cedar Lane Retail Inc. for office supplies including A4 printer paper, black toner cartridges, and desk organizers. The invoice number is CO-55120, issued and due on 3 February 2026, with payment due on receipt.",
+                      "metadata": {
+                        "document_type": "invoice",
+                        "vendor_name": "Copperleaf Office Supply Co.",
+                        "customer_name": "Cedar Lane Retail Inc.",
+                        "invoice_number": "CO-55120",
+                        "total_amount": 1480.2,
+                        "currency": "USD",
+                        "issue_date": "2026-02-03",
+                        "due_date": "2026-02-03",
+                        "payment_terms": "Due on receipt",
+                        "line_item_categories": [
+                          "office supplies",
+                          "printing supplies"
+                        ],
+                        "file_name": "copperleaf-co-55120.pdf",
+                        "title": null,
+                        "score": 0.0267
+                      },
+                      "title": null,
+                      "file_name": "copperleaf-co-55120.pdf",
+                      "score": 0.0267
+                    },
+                    {
+                      "object_id": "8420e2e7-248f-4c2f-a9cb-fd9043d3542b",
+                      "summary": "This document is an invoice from Bramblecloud Hosting Ltd. to Cedar Lane Retail Inc. for managed Kubernetes, object storage, premium support, and data egress overage services for June 2026. The total due is €3,928.40 with VAT shown as €0.00 and payment due by 30 July 2026 (Net 30).",
+                      "metadata": {
+                        "document_type": "invoice",
+                        "vendor_name": "Bramblecloud Hosting Ltd.",
+                        "customer_name": "Cedar Lane Retail Inc.",
+                        "invoice_number": "BCH-2026-0620",
+                        "total_amount": 3928.4,
+                        "currency": "EUR",
+                        "issue_date": "2026-06-30",
+                        "due_date": "2026-07-30",
+                        "payment_terms": "net 30",
+                        "line_item_categories": [
+                          "managed hosting",
+                          "cloud storage",
+                          "support",
+                          "data egress"
+                        ],
+                        "file_name": "bramblecloud-bch-2026-0620.pdf",
+                        "title": null,
+                        "score": 0.0262
+                      },
+                      "title": null,
+                      "file_name": "bramblecloud-bch-2026-0620.pdf",
+                      "score": 0.0262
+                    },
+                    {
+                      "object_id": "3116a8fc-d5d2-4764-98db-f0bef8c75ab9",
+                      "summary": "This document is an invoice from Copperleaf Office Supply Co. to Cedar Lane Retail Inc. for office supplies including standing desks, monitor arms, and toner cartridges. It lists invoice number CO-55701, issue date 21 August 2026, due date 5 September 2026, and totals $3,624.00 USD with $0.00 sales tax.",
+                      "metadata": {
+                        "document_type": "invoice",
+                        "vendor_name": "Copperleaf Office Supply Co.",
+                        "customer_name": "Cedar Lane Retail Inc.",
+                        "invoice_number": "CO-55701",
+                        "total_amount": 3624.0,
+                        "currency": "USD",
+                        "issue_date": "2026-08-21",
+                        "due_date": "2026-09-05",
+                        "payment_terms": "net 15",
+                        "line_item_categories": [
+                          "office supplies"
+                        ],
+                        "file_name": "copperleaf-co-55701.pdf",
+                        "title": null,
+                        "score": 0.0261
+                      },
+                      "title": null,
+                      "file_name": "copperleaf-co-55701.pdf",
+                      "score": 0.0261
+                    }
+                  ],
+                  "count": 18,
+                  "applied_filter": null,
+                  "retrieval_mode": "hybrid_query",
+                  "question_shape": "lookup",
+                  "query": "Lumen Ridge Analytics billed line items invoice by invoice",
+                  "semantic_candidate_count": 18,
+                  "score_summary": {
+                    "min": 0.0261,
+                    "max": 0.0325,
+                    "avg": 0.0289,
+                    "count_with_score": 18
+                  }
+                }
+              },
+              {
+                "tool_name": "retrieve_chunks",
+                "tool_call_id": "call_2kMOe18aFEhUwchXU0YISHN3",
+                "result": {
+                  "chunks": [
+                    {
+                      "object_id": "cec29541-8c6a-4505-83f4-816b2c02a1df",
+                      "chunk_text": "File Name: lumenridge-lra-1189.pdf\n\nExtra Info: file title: INVOICE \n\n\nExtracted Text: Lumen Ridge Analytics LLC\n310 Mercer Street, Floor 6\nSeattle, WA 98109, USA\ninvoices@lumenridge.example.com\nBILL TO\nCedar Lane Retail Inc.\nAccounts Payable\n1200 Larkspur Avenue, Suite 400\nPortland, OR 97205, USA\nap@cedarlane.example.com\nINVOICE\nInvoice no. LRA-1189\nIssue date 15 September 2026\nDue date 15 October 2026\nTerms Milestone-based\nCurrency USD\nDESCRIPTION\nQTY\nUNIT PRICE\nAMOUNT\nChurn model go-live milestone\nAnalytics dashboard licences (14 seats)\nTeam training workshop\n1\n14\n1\n$9,800.00\n$9,800.00\n$49.00\n$686.00\n$1,200.00\n$1,200.00\nSubtotal\nSales tax\nTotal due\n$11,686.00\n$0.00\n$11,686.00\nSample document: every company, person and amount on this invoice is fictional.",
+                      "knowledge_id": "87396d15-d4b7-43b7-83ab-2ac0297711c3",
+                      "file_name": "lumenridge-lra-1189.pdf",
+                      "id": "53f7fb4d-9c6b-544c-9c90-251726bef6a7",
+                      "relevance_score": 1.0,
+                      "search_method": "hybrid",
+                      "document_id": "cec29541-8c6a-4505-83f4-816b2c02a1df"
+                    },
+                    {
+                      "object_id": "e72eb818-ff90-4556-a7d7-9c9c7d1c7975",
+                      "chunk_text": "File Name: lumenridge-lra-1152.pdf\n\nExtra Info: file title: INVOICE \n\n\nExtracted Text: Lumen Ridge Analytics LLC\n310 Mercer Street, Floor 6\nSeattle, WA 98109, USA\ninvoices@lumenridge.example.com\nBILL TO\nCedar Lane Retail Inc.\nAccounts Payable\n1200 Larkspur Avenue, Suite 400\nPortland, OR 97205, USA\nap@cedarlane.example.com\nINVOICE\nInvoice no. LRA-1152\nIssue date 15 June 2026\nDue date 15 July 2026\nTerms Net 30\nCurrency USD\nDESCRIPTION\nQTY\nUNIT PRICE\nAMOUNT\nCustomer churn model, build and validation\nAnalytics dashboard licences (10 seats)\n96\n10\n$165.00\n$15,840.00\n$49.00\n$490.00\nSubtotal\nSales tax\nTotal due\n$16,330.00\n$0.00\n$16,330.00\nSample document: every company, person and amount on this invoice is fictional.",
+                      "knowledge_id": "87396d15-d4b7-43b7-83ab-2ac0297711c3",
+                      "file_name": "lumenridge-lra-1152.pdf",
+                      "id": "b05a19e8-0ad9-5aa2-b15b-2fafd23d92a2",
+                      "relevance_score": 0.6666667,
+                      "search_method": "hybrid",
+                      "document_id": "e72eb818-ff90-4556-a7d7-9c9c7d1c7975"
+                    },
+                    {
+                      "object_id": "06e3ae54-f57a-4ca7-8610-cf8021984a12",
+                      "chunk_text": "File Name: lumenridge-lra-1107.pdf\n\nExtra Info: file title: INVOICE \n\n\nExtracted Text: Lumen Ridge Analytics LLC\n310 Mercer Street, Floor 6\nSeattle, WA 98109, USA\ninvoices@lumenridge.example.com\nBILL TO\nCedar Lane Retail Inc.\nAccounts Payable\n1200 Larkspur Avenue, Suite 400\nPortland, OR 97205, USA\nap@cedarlane.example.com\nINVOICE\nInvoice no. LRA-1107\nIssue date 15 March 2026\nDue date 14 April 2026\nTerms Net 30\nCurrency USD\nDESCRIPTION\nQTY\nUNIT PRICE\nAMOUNT\nCustomer churn model, discovery phase\nAnalytics dashboard licences (10 seats)\n40\n10\n$165.00\n$6,600.00\n$49.00\n$490.00\nSubtotal\nSales tax\nTotal due\n$7,090.00\n$0.00\n$7,090.00\nSample document: every company, person and amount on this invoice is fictional.",
+                      "knowledge_id": "87396d15-d4b7-43b7-83ab-2ac0297711c3",
+                      "file_name": "lumenridge-lra-1107.pdf",
+                      "id": "9c1bb08c-ca5a-519b-a72b-92ceb60ff27a",
+                      "relevance_score": 0.5,
+                      "search_method": "hybrid",
+                      "document_id": "06e3ae54-f57a-4ca7-8610-cf8021984a12"
+                    }
+                  ],
+                  "count": 3,
+                  "question_shape": "lookup",
+                  "global_chunk_scan": false,
+                  "query": "Lumen Ridge Analytics invoice billed items churn model dashboard licenses training workshop go-live milestone"
+                }
+              },
+              {
+                "tool_name": "RagAgentOutput",
+                "tool_call_id": "call_QilY4LQGbiJLRH1z4mw9yedB",
+                "result": "Returning structured response: stop_reason=<StopReason.answered: 'answered'> confidence=<Confidence.high: 'high'> granularity=<Granularity.chunk: 'chunk'> previous_context_used=False answer='Lumen Ridge Analytics billed the following, invoice by invoice:\\n\\n- **LRA-1107** — Customer churn model, discovery phase: **$6,600.00** (40 × $165); analytics dashboard licences (10 seats): **$490.00** (10 × $49). **Total: $7,090.00 USD.**\\n- **LRA-1152** — Customer churn model, build and validation: **$15,840.00** (96 × $165); analytics dashboard licences (10 seats): **$490.00** (10 × $49). **Total: $16,330.00 USD.**\\n- **LRA-1189** — Churn model go-live milestone: **$9,800.00**; analytics dashboard licences (14 seats): **$686.00** (14 × $49); team training workshop: **$1,200.00**. **Total: $11,686.00 USD.**' relevant_docs=[RelevantDoc(doc_id='06e3ae54-f57a-4ca7-8610-cf8021984a12', why='Invoice LRA-1107 line items and total.', chunk_ids=['9c1bb08c-ca5a-519b-a72b-92ceb60ff27a']), RelevantDoc(doc_id='e72eb818-ff90-4556-a7d7-9c9c7d1c7975', why='Invoice LRA-1152 line items and total.', chunk_ids=['b05a19e8-0ad9-5aa2-b15b-2fafd23d92a2']), RelevantDoc(doc_id='cec29541-8c6a-4505-83f4-816b2c02a1df', why='Invoice LRA-1189 line items and total.', chunk_ids=['53f7fb4d-9c6b-544c-9c90-251726bef6a7'])] open_questions=[]"
+              }
+            ],
+            "retrieval_attempts": 1,
+            "key_type": "platform-key",
+            "agent_output": {
+              "stop_reason": "answered",
+              "confidence": "high",
+              "granularity": "chunk",
+              "previous_context_used": false,
+              "answer": "Lumen Ridge Analytics billed the following, invoice by invoice:\n\n- **LRA-1107** — Customer churn model, discovery phase: **$6,600.00** (40 × $165); analytics dashboard licences (10 seats): **$490.00** (10 × $49). **Total: $7,090.00 USD.**\n- **LRA-1152** — Customer churn model, build and validation: **$15,840.00** (96 × $165); analytics dashboard licences (10 seats): **$490.00** (10 × $49). **Total: $16,330.00 USD.**\n- **LRA-1189** — Churn model go-live milestone: **$9,800.00**; analytics dashboard licences (14 seats): **$686.00** (14 × $49); team training workshop: **$1,200.00**. **Total: $11,686.00 USD.**",
+              "relevant_docs": [
+                {
+                  "doc_id": "06e3ae54-f57a-4ca7-8610-cf8021984a12",
+                  "why": "Invoice LRA-1107 line items and total.",
+                  "chunk_ids": [
+                    "9c1bb08c-ca5a-519b-a72b-92ceb60ff27a"
+                  ]
+                },
+                {
+                  "doc_id": "e72eb818-ff90-4556-a7d7-9c9c7d1c7975",
+                  "why": "Invoice LRA-1152 line items and total.",
+                  "chunk_ids": [
+                    "b05a19e8-0ad9-5aa2-b15b-2fafd23d92a2"
+                  ]
+                },
+                {
+                  "doc_id": "cec29541-8c6a-4505-83f4-816b2c02a1df",
+                  "why": "Invoice LRA-1189 line items and total.",
+                  "chunk_ids": [
+                    "53f7fb4d-9c6b-544c-9c90-251726bef6a7"
+                  ]
+                }
+              ],
+              "open_questions": []
+            },
+            "verifier_verdicts": [
+              {
+                "sufficient": true,
+                "confidence": "high",
+                "missing": "",
+                "reason": "agent self-reported stop_reason=answered, confidence=high, with 3 cited doc(s); no gap to verify",
+                "suggested_action": ""
+              }
+            ],
+            "answer_node_output": "Lumen Ridge Analytics billed the following, invoice by invoice:\n\n- **LRA-1107** — Customer churn model, discovery phase: **$6,600.00**; analytics dashboard licences (10 seats): **$490.00**. **Total: $7,090.00 USD.**\n- **LRA-1152** — Customer churn model, build and validation: **$15,840.00**; analytics dashboard licences (10 seats): **$490.00**. **Total: $16,330.00 USD.**\n- **LRA-1189** — Churn model go-live milestone: **$9,800.00**; analytics dashboard licences (14 seats): **$686.00**; team training workshop: **$1,200.00**. **Total: $11,686.00 USD.**",
+            "is_answered": true,
+            "usage_metrics": {
+              "input_tokens": 41356,
+              "output_tokens": 960,
+              "total_tokens": 42316,
+              "cached_input_tokens": 30211,
+              "cache_write_tokens": 0
+            },
+            "usage_by_model": [
+              {
+                "provider": "openai",
+                "model": "gpt-5.6-luna",
+                "input_tokens": 39062,
+                "output_tokens": 740,
+                "cached_input_tokens": 30211
+              },
+              {
+                "provider": "openai",
+                "model": "gpt-5.4-mini",
+                "input_tokens": 2294,
+                "output_tokens": 220
+              }
+            ],
+            "service_calls": [
+              {
+                "service": "rag_agent",
+                "latency_ms": 7388,
+                "provider": "openai",
+                "model": "gpt-5.6-luna",
+                "input_tokens": 39062,
+                "output_tokens": 740,
+                "total_tokens": 39802,
+                "cost_usd": 0.043502
+              },
+              {
+                "service": "generate_answer",
+                "latency_ms": 1514,
+                "provider": "openai",
+                "model": "gpt-5.4-mini",
+                "input_tokens": 2294,
+                "output_tokens": 220,
+                "total_tokens": 2514,
+                "cost_usd": 0.002711
+              }
+            ]
+          },
+          "chart_output": null
+        }
+      },
+      "is_answered": "yes",
+      "follow_up": [
+        "What are the combined totals across all three LRA invoices?",
+        "Which invoice includes the team training workshop and how much was it?"
+      ],
+      "usage": {
+        "input_tokens": 42398,
+        "output_tokens": 1043,
+        "total_tokens": 43441,
+        "service_calls": [
+          {
+            "service": "rag_agent",
+            "latency_ms": 7388,
+            "provider": "openai",
+            "model": "gpt-5.6-luna",
+            "input_tokens": 39062,
+            "output_tokens": 740,
+            "total_tokens": 39802,
+            "cost_usd": 0.043502
+          },
+          {
+            "service": "generate_answer",
+            "latency_ms": 1514,
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "input_tokens": 2294,
+            "output_tokens": 220,
+            "total_tokens": 2514,
+            "cost_usd": 0.002711
+          },
+          {
+            "service": "chart",
+            "latency_ms": 1219,
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "input_tokens": 1042,
+            "output_tokens": 83,
+            "total_tokens": 1125,
+            "cost_usd": 0.001155
+          }
+        ]
+      },
+      "debug_info": {
+        "enabled": true,
+        "latency_ms": null,
+        "type": "agentic_rag",
+        "is_answered": "yes",
+        "previous_context_used": false,
+        "document_ids": [
+          "06e3ae54-f57a-4ca7-8610-cf8021984a12",
+          "cec29541-8c6a-4505-83f4-816b2c02a1df",
+          "e72eb818-ff90-4556-a7d7-9c9c7d1c7975"
+        ]
+      },
+      "error": null,
+      "byok_warnings": []
+    }
+  }
+}

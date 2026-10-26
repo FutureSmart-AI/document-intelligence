@@ -245,13 +245,35 @@ class RetrieveDocumentsInput(BaseModel):
             "scopes the population; `query` ranks within it (hybrid mode). Omit when "
             "no catalog field maps to the user's constraints — `query` alone then "
             "drives retrieval. Supports nested dictionaries which are flattened to "
-            "dot-notation. Positive operators: a plain value, a list, or `$in` "
-            "(`{field: {\"$in\": [...]}}`). NEGATIVE operators (to EXCLUDE values) "
-            "are also supported: `{field: {\"$ne\": x}}` excludes one value, "
-            "`{field: {\"$nin\": [...]}}` (or `{\"not_in\": [...]}`) excludes a list. "
-            "The verbose form `{field: {\"op\": \"ne\"|\"nin\"|\"not_in\", "
-            "\"value\": x}}` is equivalent. Substring, range (gt/lt/gte/lte) and "
-            "logical operators ($or/$and/$nor) are NOT supported."
+            "dot-notation. Top-level keys are AND-ed. Per-field operators: a plain "
+            "value, a list or `$in` (any of), `$nin` / `$ne` (exclude), "
+            "`$gte` / `$gt` / `$lte` / `$lt` (numeric or ISO-date range, e.g. "
+            "`{\"years_of_experience\": {\"$gt\": 10}}`), `$contains` / `$not_contains` "
+            "(substring of a text field). Logical: `{\"$or\": [{...}, {...}]}` (any "
+            "branch), `{\"$nor\": [{...}]}` (none of), `{\"$and\": [...]}`. Every "
+            "condition is evaluated by the database; an operator it cannot evaluate "
+            "or a field not in the catalog is REJECTED with an error naming it — "
+            "nothing is dropped silently."
+        ),
+    )
+    stats_fields: Optional[List[str]] = Field(
+        default=None,
+        description=(
+            "Exhaustive shapes only (predicate / selection / aggregate). Field names "
+            "to compute statistics for over the COMPLETE matching population: "
+            "numeric fields → count/sum/avg/min/max with the documents at the min "
+            "and max; text and list fields → number of documents per value. Use it "
+            "for every count / distribution / average / total / most-common question "
+            "instead of counting document cards."
+        ),
+    )
+    order_by: Optional[Dict[str, str]] = Field(
+        default=None,
+        description=(
+            "Exhaustive shapes only. `{\"field\": <field>, \"direction\": \"desc\"|\"asc\"}` "
+            "— orders the complete matching population by that field and returns a "
+            "ranking (ties share a rank). Use it for top-N / most / least / highest / "
+            "lowest questions."
         ),
     )
     object_ids: Optional[List[str]] = Field(
@@ -310,7 +332,11 @@ class RetrieveDocumentsInput(BaseModel):
                 "Provide either `query` (semantic search) OR `object_ids` "
                 "(direct fetch), not both — they are mutually exclusive modes."
             )
-        if not (has_query or has_filter or has_ids):
+        # An exhaustive shape with no condition is a question about the whole
+        # collection ("who are the three most experienced", "how many
+        # documents") — the complete population IS the driver.
+        exhaustive = self.question_shape in ("predicate", "selection", "aggregate")
+        if not (has_query or has_filter or has_ids or exhaustive):
             raise ValueError(
                 "Provide a retrieval driver: `query` for semantic search "
                 "(e.g. query='owner'), `metadata_filter` for an exact filtered "

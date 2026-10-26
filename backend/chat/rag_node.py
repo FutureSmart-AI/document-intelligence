@@ -36,6 +36,20 @@ from utils.logger import logger
 from utils.tracing import track_time
 
 
+NO_ANSWER_RESPONSE = (
+    "I couldn't generate an answer to this question just now. Please try asking again."
+)
+
+# Appended to the answer instructions when include_charts is on (see rag_node).
+CHART_RENDERED_SEPARATELY_DIRECTIVE = (
+    "When numbers would be shown as a chart, this app draws the chart itself, "
+    "from the documents' structured fields, under your answer. Never draw a "
+    "chart in text (no ASCII or block-character bars, no mermaid or other "
+    "chart code) and never offer to make or convert one. Give the numbers as "
+    "a short markdown table or list."
+)
+
+
 @track_time("Node: RAG")
 async def rag_node(
     query: str,
@@ -174,6 +188,17 @@ async def rag_node(
             if generate_answer_instructions
             else no_charts_directive
         )
+    else:
+        # Charts ON: chart_node draws the real chart under this answer, after
+        # it is written, so the answer cannot see it. Without being told, the
+        # writer drew its own ASCII/mermaid bars next to the real chart and
+        # offered "I can also turn this into a simple bar chart" directly above
+        # the chart it already had (hosted, resume sample, 2026-10-25).
+        generate_answer_instructions = (
+            f"{generate_answer_instructions}\n\n{CHART_RENDERED_SEPARATELY_DIRECTIVE}"
+            if generate_answer_instructions
+            else CHART_RENDERED_SEPARATELY_DIRECTIVE
+        )
 
     # CRAG-style retrieval verifier toggle. Defaults ON; ops can disable via
     # env var when debugging or when latency budget is tight. max_retries
@@ -255,7 +280,18 @@ async def rag_node(
                 from chat.evidence_relevance import filter_evidence_by_relevance
 
                 evidence_groups_loaded = len(prior_evidence)
-                prior_evidence = await filter_evidence_by_relevance(query, prior_evidence)
+                # The previous answer's result set is the antecedent of "their" /
+                # "those", and a pronoun-only follow-up ("chart their years")
+                # shares no words with it for the embedding gate to match. It is
+                # kept; whether the question is about it is the agent's call
+                # (RagAgentOutput.about_previous_result).
+                from chat.rag_agent.result_set import previous_result_group
+
+                previous_result = previous_result_group(prior_evidence)
+                prior_evidence = await filter_evidence_by_relevance(
+                    query, [g for g in prior_evidence if g is not previous_result])
+                if previous_result is not None:
+                    prior_evidence = [previous_result] + prior_evidence
                 evidence_groups_kept = len(prior_evidence)
                 logger.info(
                     f"[rag_node] {len(prior_evidence)} prior-evidence group(s) "
@@ -301,6 +337,8 @@ async def rag_node(
             verifier_llm_provider=verifier_llm_provider,
             verifier_llm_model=verifier_llm_model,
             answer_token_queue=answer_token_queue,
+            charts_enabled=bool(answer_chat_config.include_charts),
+            session_id=session_id,
         )
 
         # Log usage. key_type is threaded through as a parameter rather than
@@ -407,7 +445,13 @@ async def rag_node(
             result["is_direct_response"] = True
             logger.info(f"[rag_node] Emitting final answer ({len(final_answer)} chars)")
         else:
+            # Never let the retrieval dump (relevant_context: "DOCUMENT
+            # SUMMARIES / RELEVANT CHUNKS") stand in for an answer — it is
+            # prompt material, and it reached users verbatim as the "answer".
             logger.warning("[rag_node] Answer node produced no final message")
+            result["response"] = NO_ANSWER_RESPONSE
+            result["is_answered"] = "no"
+            result["error"] = "answer_generation_empty"
 
         # Agent Health node breakdown — agent_execution.py's run_rag_agent
         # already tags the retrieval loop ("rag_agent") and the answer writer
@@ -732,11 +776,23 @@ async def _small_kb_direct(
     # title and structured metadata. Fetch it here in one batch (bounded
     # by SMALL_KB_DOC_THRESHOLD docs) so this fast path produces the same
     # doc-level shape the full agentic path does.
-    doc_ids = sorted({
+    doc_ids_set = {
         chunk.get("document_id") or chunk.get("object_id")
         for chunk in chunks_list
         if isinstance(chunk, dict) and (chunk.get("document_id") or chunk.get("object_id"))
-    })
+    }
+    # EVERY document's fields, not just the ones the chunk search happened to
+    # hit: this path answers counts and filters over the whole (small)
+    # collection, and a document with no matching chunk is still part of
+    # "how many candidates know Python". Bounded by SMALL_KB_DOC_THRESHOLD.
+    try:
+        from chat.knowledge_adapter import get_docs
+
+        all_ids = await get_docs(knowledge_id)
+        doc_ids_set |= {str(x) for x in (all_ids or []) if x}
+    except Exception as e:
+        logger.warning(f"[rag_node] Small KB direct mode: listing all documents failed: {e}")
+    doc_ids = sorted(doc_ids_set)
     summaries: Dict[str, Any] = {}
     if doc_ids:
         try:
@@ -767,6 +823,19 @@ async def _small_kb_direct(
         "tool_responses": [],
         "usage_metrics": {},
     }
+
+    # Every document of this (small) collection is loaded above, so counts and
+    # groups over it are exact: compute them once in code, before the answer,
+    # and let the answer and the chart share them (see agent_execution).
+    from chat.rag_agent.agent_execution import compute_turn_aggregation
+
+    aggregation = await compute_turn_aggregation(
+        query=query, knowledge_id=knowledge_id, owner_id=owner_id,
+        summaries=_normalize_summaries(dict(summaries)), chunks=chunks_list,
+        rag_context=context, session_id=session_id,
+    )
+    if aggregation is not None:
+        context["aggregation"] = {k: v for k, v in aggregation.items() if k != "usage"}
 
     from chat.rag_agent.answer_node import generate_rag_answer
 
@@ -827,6 +896,9 @@ async def _small_kb_direct(
         result["is_direct_response"] = True
     else:
         logger.warning("[rag_node] Small KB direct mode: answer node produced no final message")
+        result["response"] = NO_ANSWER_RESPONSE
+        result["is_answered"] = "no"
+        result["error"] = "answer_generation_empty"
 
     # Agent Health node breakdown — this path skips the ReAct retrieval
     # loop entirely (no "rag_agent" node fires), so "generate_answer" is

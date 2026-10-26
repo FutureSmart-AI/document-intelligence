@@ -421,6 +421,14 @@ def send_embedding_event(
         object_id (Optional[str]): Object ID (request_id)
     """
     try:
+        from celery_utils.shared import document_telemetry
+        document_telemetry.record_embedding(
+            object_id, provider=provider, model=model,
+            input_tokens=embedding_tokens, duration_ms=duration_ms,
+        )
+    except Exception as e:
+        logger.debug(f"document telemetry skipped: {e}")
+    try:
         # Build event
         event = {
             "service_id": knowledge_id,

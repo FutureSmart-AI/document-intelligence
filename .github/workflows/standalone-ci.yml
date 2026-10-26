@@ -73,6 +73,17 @@ jobs:
           path: frontend/playwright-report/
           retention-days: 14
 
+  model-eval-offline:
+    name: Model evaluation grader checks (offline)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: .
+    steps:
+      - uses: actions/checkout@v4
+      # stdlib only: grading, chart comparison, telemetry fallbacks, dataset integrity, report.
+      - run: python3 -m unittest discover -s tests/unit -p test_model_eval.py -v
+
   image-builds:
     name: Build ${{ matrix.component }} image
     runs-on: ubuntu-latest
@@ -125,10 +136,59 @@ jobs:
           docker run -d --name di-scope-qdrant qdrant/qdrant:v1.15.1
           trap 'docker rm -f di-scope-qdrant' EXIT
           docker run --rm --network container:di-scope-qdrant --env-file .env.example -e SCOPE_TEST_QDRANT_URL=http://127.0.0.1:6333 -e AWS_EC2_METADATA_DISABLED=true -v "$PWD/tests:/app/tests:ro" di-check:api python -m unittest discover -s tests/unit -p test_search_scope.py -v
+          docker run --rm --network container:di-scope-qdrant --env-file .env.example -e POPULATION_TEST_QDRANT_URL=http://127.0.0.1:6333 -e AWS_EC2_METADATA_DISABLED=true -v "$PWD/tests:/app/tests:ro" di-check:api python -m unittest discover -s tests/unit -p test_metadata_population.py -v
       - name: Extraction context checks
         if: matrix.component == 'api'
         working-directory: .
         run: docker run --rm --env-file .env.example -e AWS_EC2_METADATA_DISABLED=true -v "$PWD/tests:/app/tests:ro" di-check:api python -m unittest discover -s tests/unit -p test_extraction_context.py -v
+      - name: API key scope checks
+        if: matrix.component == 'api'
+        working-directory: .
+        run: docker run --rm --env-file .env.example -e AWS_EC2_METADATA_DISABLED=true -v "$PWD/tests:/app/tests:ro" di-check:api python -m unittest discover -s tests/unit -p test_api_key_scope.py -v
+      - name: Chart checks (population, aggregation, node wiring)
+        if: matrix.component == 'api'
+        working-directory: .
+        run: >-
+          docker run --rm --env-file .env.example -e AWS_EC2_METADATA_DISABLED=true -v "$PWD/tests:/app/tests:ro"
+          -v "$PWD/requirements-dev.txt:/tmp/requirements-dev.txt:ro" di-check:api
+          sh -c "pip install -q -r /tmp/requirements-dev.txt && python -m pytest -q -p no:cacheprovider
+          tests/unit/test_chart_population.py tests/unit/test_chart_node.py tests/unit/test_chart_generator_chunk_text.py
+          tests/unit/test_numeric_answer_consistency.py tests/unit/test_set_question_completeness.py
+          tests/unit/test_follow_up_result_set.py tests/unit/test_evidence_builder.py"
+      - name: Single-key install checks (local chart renderer, OpenAI-only defaults, model profiles)
+        if: matrix.component == 'api'
+        working-directory: .
+        run: >-
+          docker run --rm --env-file .env.example -e AWS_EC2_METADATA_DISABLED=true -v "$PWD/tests:/app/tests:ro"
+          -v "$PWD/workers:/app/workers:ro" -v "$PWD/deploy:/app/deploy:ro"
+          -v "$PWD/requirements-dev.txt:/tmp/requirements-dev.txt:ro" di-check:api
+          sh -c "pip install -q -r /tmp/requirements-dev.txt && python -m pytest -q -p no:cacheprovider
+          tests/unit/test_local_chart_renderer.py tests/unit/test_single_key_defaults.py tests/unit/test_model_profiles.py"
+      - name: Enrichment model registry checks (worker mirror, variants, config validation, preview, pricing)
+        if: matrix.component == 'api'
+        working-directory: .
+        run: >-
+          docker run --rm --env-file .env.example -e AWS_EC2_METADATA_DISABLED=true -v "$PWD/tests:/app/tests:ro"
+          -v "$PWD/workers:/app/workers:ro"
+          -v "$PWD/requirements-dev.txt:/tmp/requirements-dev.txt:ro" di-check:api
+          sh -c "pip install -q -r /tmp/requirements-dev.txt && python -m pytest -q -p no:cacheprovider
+          tests/unit/test_enrichment_model_registry.py"
+      - name: Sample collection isolation checks
+        if: matrix.component == 'api'
+        working-directory: .
+        run: docker run --rm --env-file .env.example -e AWS_EC2_METADATA_DISABLED=true -v "$PWD/tests:/app/tests:ro" di-check:api python -m unittest discover -s tests/unit -p test_sample_collections.py -v
+      - name: Internal account limit checks
+        if: matrix.component == 'api'
+        working-directory: .
+        run: docker run --rm --env-file .env.example -e AWS_EC2_METADATA_DISABLED=true -v "$PWD/tests:/app/tests:ro" di-check:api python -m unittest discover -s tests/unit -p test_internal_accounts.py -v
+      - name: Resume years definition checks
+        if: matrix.component == 'api'
+        working-directory: .
+        run: docker run --rm --env-file .env.example -e AWS_EC2_METADATA_DISABLED=true -v "$PWD/tests:/app/tests:ro" di-check:api python -m unittest discover -s tests/unit -p test_resume_years_definition.py -v
+      - name: Usage telemetry checks (run-level collector, pricing, document telemetry)
+        if: matrix.component == 'api'
+        working-directory: .
+        run: docker run --rm --env-file .env.example -e AWS_EC2_METADATA_DISABLED=true -v "$PWD/tests:/app/tests:ro" di-check:api python -m unittest discover -s tests/unit -p "test_*telemetry*.py" -v && docker run --rm --env-file .env.example -e AWS_EC2_METADATA_DISABLED=true -v "$PWD/tests:/app/tests:ro" di-check:api python -m unittest discover -s tests/unit -p test_run_usage.py -v
       - name: Worker credential checks
         if: matrix.component == 'worker'
         working-directory: .
@@ -141,3 +201,23 @@ jobs:
         if: matrix.component == 'worker'
         working-directory: .
         run: docker run --rm --env-file workers/.env.example -e AWS_EC2_METADATA_DISABLED=true -v "$PWD/tests/worker:/app/testing:ro" di-check:worker python -m unittest discover -s testing -p test_production_broker.py -v
+      - name: Parser fallback checks
+        if: matrix.component == 'worker'
+        working-directory: .
+        run: docker run --rm --env-file workers/.env.example -e AWS_EC2_METADATA_DISABLED=true -v "$PWD/tests/worker:/app/testing:ro" di-check:worker python -m unittest discover -s testing -p test_parser_fallback.py -v
+      - name: Extraction reference date checks
+        if: matrix.component == 'worker'
+        working-directory: .
+        run: docker run --rm --env-file workers/.env.example -e AWS_EC2_METADATA_DISABLED=true -v "$PWD/tests/worker:/app/testing:ro" di-check:worker python -m unittest discover -s testing -p test_enrichment_reference_date.py -v
+      - name: Extraction reasoning-effort override checks
+        if: matrix.component == 'worker'
+        working-directory: .
+        run: docker run --rm --env-file workers/.env.example -e AWS_EC2_METADATA_DISABLED=true -v "$PWD/tests/worker:/app/testing:ro" di-check:worker python -m unittest discover -s testing -p test_enrichment_reasoning_override.py -v
+      - name: Extraction model variant checks (gpt-5.6-luna-low)
+        if: matrix.component == 'worker'
+        working-directory: .
+        run: docker run --rm --env-file workers/.env.example -e AWS_EC2_METADATA_DISABLED=true -v "$PWD/tests/worker:/app/testing:ro" di-check:worker python -m unittest discover -s testing -p test_enrichment_model_variants.py -v
+      - name: Document processing telemetry checks
+        if: matrix.component == 'worker'
+        working-directory: .
+        run: docker run --rm --env-file workers/.env.example -e AWS_EC2_METADATA_DISABLED=true -v "$PWD/tests/worker:/app/testing:ro" di-check:worker python -m unittest discover -s testing -p test_document_telemetry.py -v

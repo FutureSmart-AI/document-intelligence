@@ -139,17 +139,39 @@ def build_health_event(
     completed chat turn. Pure function — no I/O — so it's independently
     testable from the insert."""
     usage_by_model = final_state.get("usage_by_model") or []
-    priced = price_breakdown(usage_by_model)
+    run_usage = final_state.get("usage")
+    if isinstance(run_usage, dict) and "operations" in run_usage:
+        # The run-level block (chat/run_usage.py) counted every model call of
+        # the turn -- verifier and follow-ups included, which usage_by_model
+        # never saw -- and it is the block the API returned for this turn. Using
+        # it here is what makes Analytics and the API report the same tokens
+        # and cost for the same turn.
+        from chat.run_usage import cost_breakdown_by_model
+
+        breakdown = cost_breakdown_by_model(run_usage)
+        priced = {
+            "cost_breakdown": breakdown,
+            "cost_usd": run_usage.get("estimated_cost_usd"),
+            "cost_complete": bool(run_usage.get("cost_complete", True)),
+        }
+        total_input = int(run_usage.get("input_tokens") or 0)
+        total_output = int(run_usage.get("output_tokens") or 0)
+        answer_rows = [r for r in run_usage.get("operations") or [] if r.get("operation") == "answer"]
+        last = answer_rows[-1] if answer_rows else (usage_by_model[-1] if usage_by_model else None)
+        provider = last.get("provider") if last else None
+        model = last.get("model") if last else None
+    else:
+        priced = price_breakdown(usage_by_model)
+        total_input = sum(int(e.get("input_tokens") or 0) for e in usage_by_model)
+        total_output = sum(int(e.get("output_tokens") or 0) for e in usage_by_model)
+        provider = usage_by_model[-1].get("provider") if usage_by_model else None
+        model = usage_by_model[-1].get("model") if usage_by_model else None
 
     status, failure_category, failed_stage, failure_detail = _resolve_status(final_state)
     raw_is_answered = final_state.get("is_answered")
     is_answered = raw_is_answered == "yes"
 
     services_used: List[str] = final_state.get("services_used") or ["knowledge"]
-    total_input = sum(int(e.get("input_tokens") or 0) for e in usage_by_model)
-    total_output = sum(int(e.get("output_tokens") or 0) for e in usage_by_model)
-    provider = usage_by_model[-1].get("provider") if usage_by_model else None
-    model = usage_by_model[-1].get("model") if usage_by_model else None
 
     return {
         "knowledge_id": knowledge_id,

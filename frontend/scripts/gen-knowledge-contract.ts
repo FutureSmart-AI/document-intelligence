@@ -19,6 +19,7 @@
  */
 import { readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 
 import prettier from "prettier";
 
@@ -28,7 +29,7 @@ import {
   type EndpointContract,
 } from "./openapiVocab";
 
-const REPO_ROOT = join(dirname(new URL(import.meta.url).pathname), "..");
+const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const OUT_FILE = join(REPO_ROOT, "src/generated/knowledgeContract.ts");
 const DEFAULT_URL =
   process.env.KNOWLEDGE_OPENAPI_URL ?? "http://localhost:8000/openapi.json";

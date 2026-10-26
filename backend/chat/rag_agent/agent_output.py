@@ -103,6 +103,18 @@ class RagAgentOutput(BaseModel):
                     "report this because you can see the prior-evidence block "
                     "and decide whether to consume it."
     )
+    about_previous_result: bool = Field(
+        default=False,
+        description="True when the question is about EXACTLY the documents a "
+                    "previous answer presented — the whole set, unchanged — e.g. "
+                    "'chart their years', 'compare those candidates', 'sort them "
+                    "by experience'. The prior-evidence block marks that set as "
+                    "'result of the previous answer'; when this is true, that set "
+                    "is used as this turn's documents as is. False when the "
+                    "question narrows the set ('which of them know Go'), widens "
+                    "it ('and all other candidates?'), or is about anything else "
+                    "— then cite the documents you used as usual."
+    )
     answer: str = Field(
         description="The user-facing answer. Plain Markdown. Empty only when "
                     "stop_reason in {needs_clarification, refused}."
@@ -127,6 +139,16 @@ class RagAgentOutput(BaseModel):
         description="Gaps the agent identified but could not resolve. MUST be "
                     "non-empty when stop_reason in {not_found, budget_exhausted}."
     )
+
+
+RESULT_DOCUMENTS_DESCRIPTION = (
+    "The [Doc N] numbers (just N) of the documents this answer presents as its "
+    "result: every document it lists, ranks, compares, counts or charts — the set "
+    "a follow-up saying 'their', 'those' or 'them' would mean. Only documents the "
+    "answer actually includes: a document the evidence shows but the answer "
+    "leaves out (it fails the question's condition) is not listed. Empty when the "
+    "answer is not about a set of documents (one fact, not found, a refusal)."
+)
 
 
 class RagAnswerOutput(BaseModel):
@@ -155,6 +177,10 @@ class RagAnswerOutput(BaseModel):
                     "self-evaluation — do NOT set True just because you produced "
                     "text. Used downstream for debug surfaces and retry logic."
     )
+    result_documents: List[int] = Field(
+        default_factory=list,
+        description=RESULT_DOCUMENTS_DESCRIPTION,
+    )
 
 
 class IsAnsweredVerdict(BaseModel):
@@ -173,4 +199,8 @@ class IsAnsweredVerdict(BaseModel):
                     "isn't grounded in the retrieved evidence. Honest "
                     "self-evaluation — do NOT set True just because the answer "
                     "contains text."
+    )
+    result_documents: List[int] = Field(
+        default_factory=list,
+        description=RESULT_DOCUMENTS_DESCRIPTION,
     )

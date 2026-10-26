@@ -1,0 +1,268 @@
+{
+ "q01#1": {
+  "id": "q01",
+  "answer_source": "structured_fields",
+  "verdicts": [
+   "correct",
+   "correct"
+  ],
+  "agree": true,
+  "expected_named": 8,
+  "correctly_named": 8,
+  "wrongly_included": [],
+  "missed": [],
+  "numbers_correct": true,
+  "reason": "The response lists all 8 required candidates, with no extras, and the total count matches the correct answer.",
+  "sources": 14,
+  "chart": false,
+  "seconds": 12.4,
+  "response": "These candidates match **Python + AWS** and have **at least 5 years of experience**:\n\n| Candidate | Years of experience | Current role |\n|---|---:|---|\n| Rohan Deshpande | 15 | Principal Data Engineer |\n| Arjun Malhotra | 7 | Senior AI Engineer |\n| Anjali Nair | 6 | Senior Data Engineer |\n| Oliver Schmidt | 10 | Lead MLOps Engineer |\n| Aarav Mehta | 8 | Senior Machine Learning Engineer |\n| Nadia Haddad | 9 | Senior Site Reliability Engineer |\n| Rahul Verma | 5 | DevOps Engineer |\n| Siddharth Rao | 13 | Staff Machine Learning Engineer |\n\nTotal: **8 candidates**."
+ },
+ "q05#1": {
+  "id": "q05",
+  "answer_source": "structured_fields",
+  "verdicts": [
+   "partial",
+   "partial"
+  ],
+  "agree": true,
+  "expected_named": 0,
+  "correctly_named": 0,
+  "wrongly_included": [],
+  "missed": [],
+  "numbers_correct": false,
+  "reason": "The response gives a distribution table, but its bucket ranges and counts do not match the correct answer. It also does not provide a chart as requested. Since there are no named candidates, naming counts are not applicable.",
+  "sources": 24,
+  "chart": false,
+  "seconds": 19.6,
+  "response": "Here is the distribution of years of experience across the 24 candidates:\n\n| Years of experience | Candidates |\n|---|---:|\n| 0-2 | 4 |\n| 3-5 | 6 |\n| 6-8 | 5 |\n| 9-11 | 4 |\n| 12-14 | 2 |\n| 15-17 | 2 |\n| 18+ | 1 |"
+ },
+ "q07#1": {
+  "id": "q07",
+  "answer_source": "structured_fields",
+  "verdicts": [
+   "correct",
+   "correct"
+  ],
+  "agree": true,
+  "expected_named": 5,
+  "correctly_named": 5,
+  "wrongly_included": [],
+  "missed": [],
+  "numbers_correct": true,
+  "reason": "The response names all 5 required candidates and no extras. The stated count matches the correct answer.",
+  "sources": 3,
+  "chart": false,
+  "seconds": 29.3,
+  "response": "Candidates based in or open to Bengaluru:\n\n- Aarav Mehta — based in Bengaluru\n- Anjali Nair — relocating to Bengaluru and open to Bengaluru\n- Ishaan Chatterjee — open to Bengaluru\n- Kavya Reddy — based in Bengaluru\n- Vikram Singh — based in Bengaluru"
+ },
+ "q08#1": {
+  "id": "q08",
+  "answer_source": "structured_fields",
+  "verdicts": [
+   "correct",
+   "correct"
+  ],
+  "agree": true,
+  "expected_named": 9,
+  "correctly_named": 9,
+  "wrongly_included": [],
+  "missed": [],
+  "numbers_correct": true,
+  "reason": "The response names all 9 required candidates exactly and includes no extras. The stated counts (8 masters, 1 PhD) match the correct answer.",
+  "sources": 9,
+  "chart": false,
+  "seconds": 21.1,
+  "response": "Candidates holding a master’s degree or a PhD:\n\n- Grace Liu — Master’s\n- Michael Brennan — Master’s\n- Zoya Ahmed — Master’s\n- Oliver Schmidt — Master’s\n- Aarav Mehta — Master’s\n- Meera Iyer — Master’s\n- Priya Raghunathan — Master’s\n- Kenji Watanabe — PhD\n- Siddharth Rao — Master’s\n\n| Education level | Candidates |\n|---|---:|\n| masters | 8 |\n| phd | 1 |"
+ },
+ "q12#1": {
+  "id": "q12",
+  "answer_source": "structured_fields",
+  "verdicts": [
+   "correct",
+   "correct"
+  ],
+  "agree": true,
+  "expected_named": 7,
+  "correctly_named": 7,
+  "wrongly_included": [],
+  "missed": [],
+  "numbers_correct": true,
+  "reason": "The response includes all 7 required candidates, with the correct current roles and years of experience, and no extra names.",
+  "sources": 7,
+  "chart": false,
+  "seconds": 13.7,
+  "response": "Here are everyone with Kubernetes skills, along with their current role and years of experience:\n\n| Candidate | Current role | Years of experience |\n|---|---|---:|\n| Michael Brennan | VP of Engineering | 18 |\n| Oliver Schmidt | Lead MLOps Engineer | 10 |\n| Aarav Mehta | Senior Machine Learning Engineer | 8 |\n| Nadia Haddad | Senior Site Reliability Engineer | 9 |\n| Rahul Verma | DevOps Engineer | 5 |\n| Daniel Okafor | Principal Software Engineer | 16 |\n| Siddharth Rao | Staff Machine Learning Engineer | 13 |"
+ },
+ "x01#1": {
+  "id": "x01",
+  "answer_source": "structured_fields",
+  "verdicts": [
+   "correct",
+   "correct"
+  ],
+  "agree": true,
+  "expected_named": 3,
+  "correctly_named": 3,
+  "wrongly_included": [],
+  "missed": [],
+  "numbers_correct": true,
+  "reason": "The response exactly matches the three required candidates and their years of experience, with no extra names or incorrect numbers.",
+  "sources": 3,
+  "chart": false,
+  "seconds": 10.1,
+  "response": "The three most experienced candidates are:\n\n| Candidate | Years of experience |\n|---|---:|\n| Michael Brennan | 18 |\n| Daniel Okafor | 16 |\n| Rohan Deshpande | 15 |"
+ },
+ "x02#1": {
+  "id": "x02",
+  "answer_source": "structured_fields",
+  "verdicts": [
+   "correct",
+   "correct"
+  ],
+  "agree": true,
+  "expected_named": 4,
+  "correctly_named": 4,
+  "wrongly_included": [],
+  "missed": [],
+  "numbers_correct": true,
+  "reason": "The response names all four required candidates and includes no extras. No counts or other numbers conflict with the correct answer.",
+  "sources": 4,
+  "chart": false,
+  "seconds": 10.3,
+  "response": "The candidates who know both Kubernetes and Terraform are:\n\n- Oliver Schmidt\n- Nadia Haddad\n- Rahul Verma\n- Daniel Okafor"
+ },
+ "q01#2": {
+  "id": "q01",
+  "answer_source": "structured_fields",
+  "verdicts": [
+   "correct",
+   "correct"
+  ],
+  "agree": true,
+  "expected_named": 8,
+  "correctly_named": 8,
+  "wrongly_included": [],
+  "missed": [],
+  "numbers_correct": true,
+  "reason": "The response lists exactly the eight required candidates with matching years of experience, and includes no extras.",
+  "sources": 8,
+  "chart": false,
+  "seconds": 13.5,
+  "response": "These candidates match the criteria:\n\n| Candidate | Years of experience |\n|---|---:|\n| Rohan Deshpande | 15 |\n| Siddharth Rao | 13 |\n| Oliver Schmidt | 10 |\n| Nadia Haddad | 9 |\n| Aarav Mehta | 8 |\n| Arjun Malhotra | 7 |\n| Anjali Nair | 6 |\n| Rahul Verma | 5 |"
+ },
+ "q05#2": {
+  "id": "q05",
+  "answer_source": "structured_fields",
+  "verdicts": [
+   "partial",
+   "partial"
+  ],
+  "agree": true,
+  "expected_named": 0,
+  "correctly_named": 0,
+  "wrongly_included": [],
+  "missed": [],
+  "numbers_correct": false,
+  "reason": "The response provides a distribution table, but the bucket ranges and counts do not match the correct answer’s buckets. It also does not include an actual chart. Since this is a numeric/distribution comparison rather than named-entity extraction, expected_named is 0.",
+  "sources": 24,
+  "chart": false,
+  "seconds": 19.8,
+  "response": "Here is the distribution of years of experience across the 24 candidates:\n\n| Years of experience | Candidates |\n|---|---:|\n| 0-1 | 2 |\n| 2-3 | 3 |\n| 4-5 | 5 |\n| 6-7 | 4 |\n| 8-9 | 2 |\n| 10-11 | 3 |\n| 12-14 | 2 |\n| 15-19 | 3 |"
+ },
+ "q07#2": {
+  "id": "q07",
+  "answer_source": "structured_fields",
+  "verdicts": [
+   "correct",
+   "correct"
+  ],
+  "agree": true,
+  "expected_named": 5,
+  "correctly_named": 5,
+  "wrongly_included": [],
+  "missed": [],
+  "numbers_correct": true,
+  "reason": "The response names all 5 required candidates: Aarav Mehta, Ishaan Chatterjee, Anjali Nair, Kavya Reddy, and Vikram Singh. It does not include any wrong candidates, and the total of 5 matches the correct answer.",
+  "sources": 5,
+  "chart": false,
+  "seconds": 10.5,
+  "response": "Here are the candidates based in or open to Bengaluru:\n\n| Candidate | Bengaluru status |\n|---|---|\n| Kavya Reddy | Bengaluru |\n| Anjali Nair | Kochi; relocating to and open to Bengaluru/Kochi roles |\n| Vikram Singh | Bengaluru |\n| Aarav Mehta | Bengaluru |\n| Ishaan Chatterjee | Kolkata; also lists Bengaluru and Remote |\n\nTotal: 5 candidates."
+ },
+ "q08#2": {
+  "id": "q08",
+  "answer_source": "structured_fields",
+  "verdicts": [
+   "correct",
+   "correct"
+  ],
+  "agree": true,
+  "expected_named": 9,
+  "correctly_named": 9,
+  "wrongly_included": [],
+  "missed": [],
+  "numbers_correct": true,
+  "reason": "The response lists all 9 required candidates, with no extras, and the education levels match the expected answer.",
+  "sources": 9,
+  "chart": false,
+  "seconds": 11.8,
+  "response": "The candidates who hold a master’s degree or a PhD are:\n\n| Candidate | Education level |\n|---|---|\n| Grace Liu | masters |\n| Michael Brennan | masters |\n| Zoya Ahmed | masters |\n| Oliver Schmidt | masters |\n| Aarav Mehta | masters |\n| Meera Iyer | masters |\n| Priya Raghunathan | masters |\n| Kenji Watanabe | phd |\n| Siddharth Rao | masters |"
+ },
+ "q12#2": {
+  "id": "q12",
+  "answer_source": "structured_fields",
+  "verdicts": [
+   "correct",
+   "correct"
+  ],
+  "agree": true,
+  "expected_named": 7,
+  "correctly_named": 7,
+  "wrongly_included": [],
+  "missed": [],
+  "numbers_correct": true,
+  "reason": "The response names all 7 required candidates with the correct current roles and years of experience, and includes no extra names.",
+  "sources": 7,
+  "chart": false,
+  "seconds": 11.2,
+  "response": "Here are everyone with Kubernetes skills, along with their current role and years of experience:\n\n| Name | Current role | Years of experience |\n|---|---|---:|\n| Michael Brennan | VP of Engineering | 18 |\n| Oliver Schmidt | Lead MLOps Engineer | 10 |\n| Aarav Mehta | Senior Machine Learning Engineer | 8 |\n| Nadia Haddad | Senior Site Reliability Engineer | 9 |\n| Rahul Verma | DevOps Engineer | 5 |\n| Daniel Okafor | Principal Software Engineer | 16 |\n| Siddharth Rao | Staff Machine Learning Engineer | 13 |"
+ },
+ "x01#2": {
+  "id": "x01",
+  "answer_source": "structured_fields",
+  "verdicts": [
+   "correct",
+   "correct"
+  ],
+  "agree": true,
+  "expected_named": 3,
+  "correctly_named": 3,
+  "wrongly_included": [],
+  "missed": [],
+  "numbers_correct": true,
+  "reason": "The response names the exact three candidates in the correct order with the correct years of experience, and includes no extraneous names.",
+  "sources": 3,
+  "chart": false,
+  "seconds": 10.7,
+  "response": "The three most experienced candidates are:\n\n| Candidate | Years of experience |\n|---|---:|\n| Michael Brennan | 18 |\n| Daniel Okafor | 16 |\n| Rohan Deshpande | 15 |"
+ },
+ "x02#2": {
+  "id": "x02",
+  "answer_source": "structured_fields",
+  "verdicts": [
+   "correct",
+   "correct"
+  ],
+  "agree": true,
+  "expected_named": 4,
+  "correctly_named": 4,
+  "wrongly_included": [],
+  "missed": [],
+  "numbers_correct": true,
+  "reason": "The response names all four required candidates and no extras. The count matches the correct answer.",
+  "sources": 4,
+  "chart": false,
+  "seconds": 9.7,
+  "response": "The candidates who know both Kubernetes and Terraform are:\n\n- Oliver Schmidt\n- Nadia Haddad\n- Rahul Verma\n- Daniel Okafor"
+ }
+}

@@ -62,9 +62,10 @@ named, deferred gap in preview-run.md rather than quietly skipped.
 from __future__ import annotations
 
 import json
+import os
 import time
 from datetime import datetime, timezone
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, List, NamedTuple, Optional, Tuple
 
 import pydantic
 from fastapi import HTTPException
@@ -75,6 +76,7 @@ from utils.enrichment.preview_model_builder import (
     create_dynamic_pydantic_model,
     specs_from_request_fields,
 )
+from utils.enrichment import model_registry
 from utils.logger import logger
 from utils.models.enums import CALLER_FIELD_TYPES, label_for_field_type
 
@@ -325,6 +327,7 @@ async def _record_preview_usage(
     input_tokens: int,
     output_tokens: int,
     duration_ms: int,
+    reasoning_effort: Optional[str] = None,
 ) -> None:
     """Write the one usage row this endpoint produces. Never raises.
 
@@ -342,7 +345,8 @@ async def _record_preview_usage(
             operation=USAGE_OPERATION,
             label=USAGE_LABEL,
             timestamp=datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
-            metadata={"provider": provider, "model": model, "persisted": False},
+            metadata={"provider": provider, "model": model, "persisted": False,
+                      **({"reasoning_effort": reasoning_effort} if reasoning_effort else {})},
             metrics=[
                 UsageMetric(name="input_tokens", value=float(input_tokens)),
                 UsageMetric(name="output_tokens", value=float(output_tokens)),
@@ -355,30 +359,68 @@ async def _record_preview_usage(
         logger.error(f"[enrichment_preview] failed to record usage for owner_id={owner_id}: {exc}")
 
 
-async def _resolve_preview_model() -> Tuple[Optional[str], Optional[str], float]:
-    """The model a brand-new collection would enrich with.
+def _wire_call(model: Optional[str]) -> Tuple[Optional[str], Optional[str]]:
+    """``(wire model, reasoning effort)`` for an enrichment model name.
 
-    With no knowledge base there is no per-collection override to read, so the
-    global enrichment default (``enrichment_default_config``, the row
-    ``GET /v1/admin/enrichment-config`` serves) is the honest stand-in — it is the
-    same value a collection created at step 4 would start with, which is what makes
-    the preview predictive. Falls back to llm_factory's own default if that row or
-    the database is unavailable; a preview must not fail because an admin table is
-    unreachable.
+    A registry model (utils/enrichment/model_registry.py, the API's mirror of the
+    worker's ENRICHMENT_MODELS) is called as the worker calls it: its ``api_model`` at
+    its registry effort. Any other name passes through with no effort pinned, and the
+    chat factory's defaults apply as before.
     """
+    entry = model_registry.get(model)
+    if entry is None:
+        return model, None
+    effort = entry.reasoning_effort if entry.provider == "openai" else None
+    return model_registry.wire_model(model), effort
+
+
+class PreviewModels(NamedTuple):
+    """The primary and fallback model a brand-new collection would enrich with."""
+    provider: Optional[str]
+    model: Optional[str]
+    temperature: float
+    fallback_provider: Optional[str]
+    fallback_model: Optional[str]
+    source: str
+
+
+async def _resolve_preview_model() -> PreviewModels:
+    """The models a brand-new collection would enrich with — the SAME chain the
+    worker's extraction follows (workers/celery_utils/enrichment/llm_factory.py
+    ``get_enrichment_config`` levels 3-5 and ``get_fallback_enrichment_llm``):
+
+      primary:  enrichment_default_config row -> ENRICHMENT_MODEL env -> chat default
+      fallback: row's enrichment_fallback_model -> ENRICHMENT_FALLBACK_MODEL env
+
+    With no knowledge base there is no per-collection override to read. Until
+    2026-10-26 this read only the row and had no fallback at all: a standalone
+    install (no row) previewed on the chat default instead of the profile's
+    extraction model, and a primary outage (Gemini 402 since 2026-10-23) failed the
+    preview while real extraction quietly succeeded on the fallback. A preview must
+    not fail because an admin table is unreachable either — env applies then.
+    """
+    row: Dict[str, Any] = {}
     try:
         from utils.db.knowledge_setting_ops import get_enrichment_default_config
 
-        config = await get_enrichment_default_config()
-        if config:
-            return (
-                config.get("enrichment_provider"),
-                config.get("enrichment_model"),
-                float(config.get("enrichment_temperature") or 0.0),
-            )
+        row = await get_enrichment_default_config() or {}
     except Exception as exc:
-        logger.warning(f"[enrichment_preview] could not read enrichment_default_config, using chat default: {exc}")
-    return None, None, 0.0
+        logger.warning(f"[enrichment_preview] could not read enrichment_default_config, using env defaults: {exc}")
+
+    env_model = (os.getenv("ENRICHMENT_MODEL") or "").strip() or None
+    env_fallback = (os.getenv("ENRICHMENT_FALLBACK_MODEL") or "").strip() or None
+    if row.get("enrichment_model"):
+        provider, model, source = row.get("enrichment_provider"), row["enrichment_model"], "global"
+        temperature = float(row.get("enrichment_temperature") or 0.0)
+    else:
+        provider, model, source, temperature = None, env_model, "env" if env_model else "default", 0.0
+    if row.get("enrichment_fallback_model"):
+        fb_provider, fb_model = row.get("enrichment_fallback_provider"), row["enrichment_fallback_model"]
+    else:
+        fb_provider, fb_model = None, env_fallback
+    if fb_model and fb_model == model:
+        fb_provider = fb_model = None
+    return PreviewModels(provider, model, temperature, fb_provider, fb_model, source)
 
 
 # ---------------------------------------------------------------------------
@@ -477,7 +519,8 @@ async def run_preview(
     estimated_tokens = estimate_prompt_tokens(document_text, len(specs))
     await _enforce_llm_quota(owner_id, estimated_tokens)
 
-    provider, model, temperature = await _resolve_preview_model()
+    models = await _resolve_preview_model()
+    provider, model, temperature = models.provider, models.model, models.temperature
 
     # Lazily imported, mirroring field_generation.py: this module is reached from
     # the enrichment path, not from chat, and must not pull chat's LLM plumbing in
@@ -512,19 +555,48 @@ async def run_preview(
             structured_llm = llm.with_structured_output(combined_model)
             return await (prompt | structured_llm).ainvoke(invoke_payload)
 
-    started = time.perf_counter()
-    try:
-        outcome = await run_with_key_fallback(
+    async def _run(run_provider, run_model, run_temperature):
+        # A registry name runs exactly as extraction runs it: its wire model at its
+        # reasoning effort ("gpt-5.6-luna-low" -> gpt-5.6-luna at "low"). Sending the
+        # registry name itself would 404 at the provider.
+        wire, effort = _wire_call(run_model)
+        return await run_with_key_fallback(
             _invoke,
             owner_id=owner_id,
             knowledge_id=None,  # deferred creation (Q2): the owner-only credential path
             source="enrichment_preview",
-            provider=provider,
-            model=model,
-            temperature=temperature,
+            provider=run_provider,
+            model=wire,
+            temperature=run_temperature,
             max_tokens=MAX_PREVIEW_OUTPUT_TOKENS,
             for_function_calling=True,
+            **({"reasoning_effort": effort} if effort else {}),
         )
+
+    started = time.perf_counter()
+    requested_model = model or HARDCODED_DEFAULT_MODEL
+    fallback_reason: Optional[str] = None
+    try:
+        try:
+            outcome = await _run(provider, model, temperature)
+            parsed = outcome.value
+            if parsed is None and models.fallback_model:
+                raise ValueError("primary model returned no parseable result")
+        except HTTPException:
+            raise
+        except Exception as primary_exc:
+            if not models.fallback_model:
+                raise
+            # Same rule as extraction (llm_retry.invoke_with_retry -> fallback LLM):
+            # a primary that cannot answer is retried once on the configured fallback.
+            fallback_reason = f"{type(primary_exc).__name__}: {primary_exc}"[:300]
+            logger.warning(
+                f"[enrichment_preview] primary {requested_model} failed ({fallback_reason}); "
+                f"retrying on fallback {models.fallback_model}"
+            )
+            raw_holder["raw"] = None
+            outcome = await _run(models.fallback_provider, models.fallback_model, 0.0)
+            model = models.fallback_model
     except HTTPException:
         raise
     except Exception as exc:
@@ -554,11 +626,14 @@ async def run_preview(
     input_tokens = int(usage.get("input_tokens") or usage.get("prompt_tokens") or 0)
     output_tokens = int(usage.get("output_tokens") or usage.get("completion_tokens") or 0)
     resolved_model = model or HARDCODED_DEFAULT_MODEL
+    # Billed and priced as the wire model; the registry name stays as requested_model.
+    served_model, served_effort = _wire_call(resolved_model)
 
     await _record_preview_usage(
         owner_id=owner_id,
         provider=outcome.provider,
-        model=resolved_model,
+        model=served_model,
+        reasoning_effort=served_effort,
         key_type=outcome.key_type,
         input_tokens=input_tokens,
         output_tokens=output_tokens,
@@ -577,8 +652,12 @@ async def run_preview(
         },
         "run": {
             "provider": outcome.provider,
-            "model": resolved_model,
+            "model": served_model,
+            "reasoning_effort": served_effort,
             "key_type": outcome.key_type,
+            "requested_model": requested_model,
+            "fallback": fallback_reason is not None,
+            "fallback_reason": fallback_reason,
             "duration_ms": duration_ms,
             "input_tokens": input_tokens,
             "output_tokens": output_tokens,

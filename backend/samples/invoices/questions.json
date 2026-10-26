@@ -1,0 +1,158 @@
+{
+  "meta": {
+    "computed_from": "ground_truth.json"
+  },
+  "questions": [
+    {
+      "id": "q01",
+      "question": "Which invoices are billed in euros, and what is each one's total?",
+      "answer_source": "structured_fields",
+      "expected": {
+        "invoices": [
+          {
+            "invoice_number": "BCH-2026-0418",
+            "vendor": "Bramblecloud Hosting Ltd.",
+            "total": 3237.0
+          },
+          {
+            "invoice_number": "BCH-2026-0519",
+            "vendor": "Bramblecloud Hosting Ltd.",
+            "total": 3301.5
+          },
+          {
+            "invoice_number": "BCH-2026-0620",
+            "vendor": "Bramblecloud Hosting Ltd.",
+            "total": 3928.4
+          },
+          {
+            "invoice_number": "TDS-2026-031",
+            "vendor": "Tessellate Design Studio GmbH",
+            "total": 8234.8
+          },
+          {
+            "invoice_number": "TDS-2026-058",
+            "vendor": "Tessellate Design Studio GmbH",
+            "total": 16124.5
+          },
+          {
+            "invoice_number": "TDS-2026-077",
+            "vendor": "Tessellate Design Studio GmbH",
+            "total": 5712.0
+          }
+        ],
+        "count": 6
+      }
+    },
+    {
+      "id": "q02",
+      "question": "Which invoices include cloud infrastructure charges?",
+      "answer_source": "structured_fields",
+      "expected": {
+        "invoices": [
+          {
+            "invoice_number": "BCH-2026-0418",
+            "vendor": "Bramblecloud Hosting Ltd."
+          },
+          {
+            "invoice_number": "BCH-2026-0519",
+            "vendor": "Bramblecloud Hosting Ltd."
+          },
+          {
+            "invoice_number": "BCH-2026-0620",
+            "vendor": "Bramblecloud Hosting Ltd."
+          },
+          {
+            "invoice_number": "QSL-89590",
+            "vendor": "Quillmark Software Licensing"
+          }
+        ],
+        "count": 4
+      }
+    },
+    {
+      "id": "q03",
+      "question": "Which invoices are due on or after 1 October 2026?",
+      "answer_source": "structured_fields",
+      "expected": {
+        "invoices": [
+          {
+            "invoice_number": "LRA-1189",
+            "vendor": "Lumen Ridge Analytics LLC",
+            "due_date": "2026-10-15"
+          },
+          {
+            "invoice_number": "HPC/26-27/061",
+            "vendor": "Harbor & Pine Consulting",
+            "due_date": "2026-11-04"
+          },
+          {
+            "invoice_number": "TDS-2026-077",
+            "vendor": "Tessellate Design Studio GmbH",
+            "due_date": "2026-10-30"
+          },
+          {
+            "invoice_number": "QSL-89590",
+            "vendor": "Quillmark Software Licensing",
+            "due_date": "2026-11-14"
+          }
+        ],
+        "count": 4
+      }
+    },
+    {
+      "id": "q04",
+      "question": "Which invoices were due on receipt?",
+      "answer_source": "structured_fields",
+      "expected": {
+        "invoices": [
+          "CO-55120",
+          "CO-55388"
+        ],
+        "count": 2
+      }
+    },
+    {
+      "id": "q05",
+      "question": "What is the total billed by each US-dollar vendor? Show it as a chart.",
+      "answer_source": "structured_fields",
+      "expected": {
+        "totals_usd": {
+          "Lumen Ridge Analytics LLC": 35106.0,
+          "Copperleaf Office Supply Co.": 7225.7,
+          "Quillmark Software Licensing": 27950.0
+        }
+      }
+    },
+    {
+      "id": "q06",
+      "question": "What did Lumen Ridge Analytics bill for, invoice by invoice?",
+      "answer_source": "document_text",
+      "expected": {
+        "invoices": [
+          {
+            "invoice_number": "LRA-1107",
+            "items": [
+              "Customer churn model, discovery phase",
+              "Analytics dashboard licences (10 seats)"
+            ]
+          },
+          {
+            "invoice_number": "LRA-1152",
+            "items": [
+              "Customer churn model, build and validation",
+              "Analytics dashboard licences (10 seats)"
+            ]
+          },
+          {
+            "invoice_number": "LRA-1189",
+            "items": [
+              "Churn model go-live milestone",
+              "Analytics dashboard licences (14 seats)",
+              "Team training workshop"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

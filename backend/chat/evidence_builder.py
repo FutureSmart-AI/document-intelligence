@@ -348,5 +348,75 @@ async def build_grouped_evidence(
             if group and group.get("documents"):
                 groups.append(group)
 
+    answer_group = _answer_result_group(rag_context)
+    if answer_group is not None:
+        # First, so the newest turn's result set is the first one a follow-up
+        # finds (get_recent_evidence returns turns newest-first).
+        groups.insert(0, answer_group)
+
     logger.info(f"[evidence] build_grouped_evidence: {len(groups)} group(s) from {len(tool_responses)} tool response(s)")
     return groups
+
+
+def _answer_result_group(rag_context: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+    """The documents this turn's answer presented (``rag_context["answer_result"]``,
+    named by the answer node), as one evidence group the next turn can carry
+    forward exactly (chat/rag_agent/result_set.py). Each document keeps the
+    summary / file_name / metadata it had this turn, from whichever evidence
+    showed it: this turn's retrieval, a carried result set, or prior-turn docs."""
+    from chat.rag_agent.result_set import ANSWER_RESULT_SOURCE
+
+    answer_result = rag_context.get("answer_result") or {}
+    object_ids = [str(oid) for oid in answer_result.get("object_ids") or [] if oid]
+    if not object_ids:
+        return None
+
+    known: Dict[str, Dict[str, Any]] = {}
+    for doc in list(rag_context.get("prior_turn_docs") or []) + list(rag_context.get("carried_population") or []):
+        if isinstance(doc, dict) and doc.get("object_id"):
+            known[str(doc["object_id"])] = {"summary": doc.get("summary"), "file_name": doc.get("file_name"),
+                                            "metadata": doc.get("metadata") or {}}
+    for response in rag_context.get("tool_responses") or []:
+        result = response.get("result") if isinstance(response, dict) else None
+        if not isinstance(result, dict):
+            continue
+        for doc in result.get("documents") or []:
+            if isinstance(doc, dict) and doc.get("object_id"):
+                metadata = doc.get("metadata") if isinstance(doc.get("metadata"), dict) else {}
+                known[str(doc["object_id"])] = {
+                    "summary": doc.get("summary") or metadata.get("summary"),
+                    "file_name": doc.get("file_name") or doc.get("filename") or metadata.get("file_name"),
+                    "metadata": metadata,
+                }
+    for oid, data in (rag_context.get("summaries") or {}).items():
+        if isinstance(data, dict):
+            prev = known.get(str(oid)) or {}
+            known[str(oid)] = {
+                "summary": data.get("summary") or prev.get("summary"),
+                "file_name": data.get("file_name") or prev.get("file_name"),
+                "metadata": {**(prev.get("metadata") or {}), **(data.get("metadata") or {})},
+            }
+
+    docs: List[Dict[str, Any]] = []
+    for oid in object_ids:
+        data = known.get(oid) or {}
+        summary_text = str(data.get("summary") or "")
+        if len(summary_text) > _EVIDENCE_SUMMARY_CHAR_CAP:
+            summary_text = summary_text[:_EVIDENCE_SUMMARY_CHAR_CAP].rstrip() + "…"
+        entry: Dict[str, Any] = {"object_id": oid, "summary": summary_text}
+        if data.get("file_name"):
+            entry["file_name"] = data["file_name"]
+        metadata = {k: v for k, v in (data.get("metadata") or {}).items() if k != "summary"}
+        if metadata:
+            entry["metadata"] = metadata
+        docs.append(entry)
+
+    group: Dict[str, Any] = {
+        "tool": "answer",
+        "source": ANSWER_RESULT_SOURCE,
+        "documents": docs,
+        "complete_population": len(docs),
+    }
+    if answer_result.get("query"):
+        group["query"] = answer_result["query"]
+    return group

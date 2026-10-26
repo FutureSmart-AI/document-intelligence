@@ -470,7 +470,7 @@ def preview_client(monkeypatch):
     }
 
     async def _fake_model():
-        return "openai", "gpt-5.4-mini", 0.0
+        return preview_run.PreviewModels("openai", "gpt-5.4-mini", 0.0, None, None, "test")
 
     monkeypatch.setattr(preview_run, "_resolve_preview_model", _fake_model)
     return TestClient(app)

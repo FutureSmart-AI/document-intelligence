@@ -11,6 +11,7 @@ Document Extraction. The two benchmarks keep separate histories and verdicts.
 | [DI-003: Record a nonreproducing nested-field issue instead of claiming a fix](#di-003) | SDE | 2026-10-20 | nonreproducing_current |
 | [DI-004: Exhaustive collection answers need complete record accounting](#di-004) | SDE | 2026-10-20 | candidate_unaccepted |
 | [DI-005: Keep the usable UI and frontend-independent service together](#di-005) | None | 2026-10-20 | source_accepted |
+| [DI-006: Metadata-aware answers must be computed over the exact structured population](#di-006) | None | 2026-10-25 | released |
 | [DI-DEC-001: Do not add learning and correction workflows just to fill capability rows](#di-dec-001) | SDE | 2026-10-21 | deferred |
 | [DI-DEC-002: Keep source provenance and search confidence as separate open problems](#di-dec-002) | SDE; Managed RAG | 2026-10-21 | deferred |
 
@@ -151,6 +152,36 @@ Recorded source identifiers: `2c309a0`.
 - [README.md](../../README.md)
 - [docs/api/rag-service.md](../../docs/api/rag-service.md)
 - [docs/installation.md](../../docs/installation.md)
+
+<a id="di-006"></a>
+## DI-006: Metadata-aware answers must be computed over the exact structured population
+
+Recorded date: **2026-10-25 IST**. State: **released**.
+
+**Benchmark.** None (maintainer verification on the synthetic 24-resume sample).
+
+**Research source.** Maintainer ground-truth question set on backend/samples/resumes (synthetic), run on the hosted service with per-call traces.
+
+**Original benchmark result.** No benchmark verdict; maintainer question set only
+
+**Failure or limitation.** Counts, thresholds and rankings were wrong or right by chance: multi-field filters were OR-ed (17 documents instead of 4), ranges and $ne matched nothing, and a verifier retry discarded the complete population and answered from a 10-chunk sample ('11 candidates know Python' for 18). Whole-collection rankings and distributions fell back to chunk samples, and an empty answer returned the retrieval context as the reply.
+
+**Root cause and uncertainty.** The filter-only listing used by exhaustive shapes kept a loose-OR legacy builder that read ranges as nested fields. The normalizer rewrote $or, $not and $contains silently. The prompt claimed only $in existed, so arithmetic happened in the answer model. Final context was extracted from the last attempt only. A call with no filter was rejected. The answer count was the largest total of any call.
+
+**Engineering decision.** Make the existing agent/tool path exact rather than add a parallel self-query route: one condition builder for every path, refuse unsupported filters, compute stats and order in code over the complete population, keep evidence from every attempt, and never send retrieval context as an answer. Semantic choices (shape, values) stay with the LLM.
+
+**Implementation.** Strict AND listing with ranges, $ne/$nin, contains and $or/$nor/$and. retrieve_documents gains stats_fields/order_by/population_complete. Exhaustive shapes with no filter cover the whole collection. retrieve_chunks refuses aggregate shapes. Answer node and verifier read the latest complete population. Small-collection direct mode loads every document.
+
+**Validation evidence.** tests/unit/test_metadata_population.py against a real Qdrant in CI (old code: 20 of 23 failed; follow-up tests 3 of 3 failed on the intermediate main). Hosted: structured questions 15/20 before (4 of them answered from chunk samples) and 19/20 after, with 1 disputed but correct; full set 19/27 before and 23/27 after. See evals/metadata_qa/RESULTS-2026-10-25.md.
+
+**Limits and what remains unproved.** Semantic recall when the condition lives in document text (synthesis and hybrid questions) is unchanged. Choosing every matching catalog value is an LLM decision and is not yet reliable. The public GET documents default (match_all=false) keeps its loose-OR behaviour. Extraction errors are out of scope.
+
+Recorded source identifiers: `de995bd`, `bf66f8d`.
+
+- [backend/chat/rag_tools/population.py](../../backend/chat/rag_tools/population.py)
+- [tests/unit/test_metadata_population.py](../../tests/unit/test_metadata_population.py)
+- [evals/metadata_qa/RESULTS-2026-10-25.md](../../evals/metadata_qa/RESULTS-2026-10-25.md)
+- [docs/chat-question-answering.md](../chat-question-answering.md)
 
 <a id="di-dec-001"></a>
 ## DI-DEC-001: Do not add learning and correction workflows just to fill capability rows

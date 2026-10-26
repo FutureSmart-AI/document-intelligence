@@ -1,0 +1,629 @@
+{
+  "meta": {
+    "template": "invoice",
+    "count": 18,
+    "customer": "Cedar Lane Retail Inc."
+  },
+  "invoices": [
+    {
+      "id": "i01",
+      "file": "pdf/bramblecloud-bch-2026-0418.pdf",
+      "layout": "band",
+      "fields": {
+        "vendor_name": "Bramblecloud Hosting Ltd.",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "BCH-2026-0418",
+        "total_amount": 3237.0,
+        "currency": "EUR",
+        "issue_date": "2026-04-30",
+        "due_date": "2026-05-30",
+        "payment_terms": "net 30",
+        "line_item_categories": [
+          "cloud infrastructure",
+          "support"
+        ],
+        "line_items": [
+          {
+            "description": "Managed Kubernetes cluster, April",
+            "quantity": 1,
+            "unit_price": 2400.0,
+            "amount": 2400.0
+          },
+          {
+            "description": "Object storage, 18 TB-month",
+            "quantity": 18,
+            "unit_price": 21.5,
+            "amount": 387.0
+          },
+          {
+            "description": "Premium support plan",
+            "quantity": 1,
+            "unit_price": 450.0,
+            "amount": 450.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "i02",
+      "file": "pdf/bramblecloud-bch-2026-0519.pdf",
+      "layout": "band",
+      "fields": {
+        "vendor_name": "Bramblecloud Hosting Ltd.",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "BCH-2026-0519",
+        "total_amount": 3301.5,
+        "currency": "EUR",
+        "issue_date": "2026-05-31",
+        "due_date": "2026-06-30",
+        "payment_terms": "net 30",
+        "line_item_categories": [
+          "cloud infrastructure",
+          "support"
+        ],
+        "line_items": [
+          {
+            "description": "Managed Kubernetes cluster, May",
+            "quantity": 1,
+            "unit_price": 2400.0,
+            "amount": 2400.0
+          },
+          {
+            "description": "Object storage, 21 TB-month",
+            "quantity": 21,
+            "unit_price": 21.5,
+            "amount": 451.5
+          },
+          {
+            "description": "Premium support plan",
+            "quantity": 1,
+            "unit_price": 450.0,
+            "amount": 450.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "i03",
+      "file": "pdf/bramblecloud-bch-2026-0620.pdf",
+      "layout": "band",
+      "fields": {
+        "vendor_name": "Bramblecloud Hosting Ltd.",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "BCH-2026-0620",
+        "total_amount": 3928.4,
+        "currency": "EUR",
+        "issue_date": "2026-06-30",
+        "due_date": "2026-07-30",
+        "payment_terms": "net 30",
+        "line_item_categories": [
+          "cloud infrastructure",
+          "support"
+        ],
+        "line_items": [
+          {
+            "description": "Managed Kubernetes cluster, June",
+            "quantity": 1,
+            "unit_price": 2650.0,
+            "amount": 2650.0
+          },
+          {
+            "description": "Object storage, 24 TB-month",
+            "quantity": 24,
+            "unit_price": 21.5,
+            "amount": 516.0
+          },
+          {
+            "description": "Premium support plan",
+            "quantity": 1,
+            "unit_price": 450.0,
+            "amount": 450.0
+          },
+          {
+            "description": "Data egress overage",
+            "quantity": 1,
+            "unit_price": 312.4,
+            "amount": 312.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "i04",
+      "file": "pdf/lumenridge-lra-1107.pdf",
+      "layout": "classic",
+      "fields": {
+        "vendor_name": "Lumen Ridge Analytics LLC",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "LRA-1107",
+        "total_amount": 7090.0,
+        "currency": "USD",
+        "issue_date": "2026-03-15",
+        "due_date": "2026-04-14",
+        "payment_terms": "net 30",
+        "line_item_categories": [
+          "consulting",
+          "software licenses"
+        ],
+        "line_items": [
+          {
+            "description": "Customer churn model, discovery phase",
+            "quantity": 40,
+            "unit_price": 165.0,
+            "amount": 6600.0
+          },
+          {
+            "description": "Analytics dashboard licences (10 seats)",
+            "quantity": 10,
+            "unit_price": 49.0,
+            "amount": 490.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "i05",
+      "file": "pdf/lumenridge-lra-1152.pdf",
+      "layout": "classic",
+      "fields": {
+        "vendor_name": "Lumen Ridge Analytics LLC",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "LRA-1152",
+        "total_amount": 16330.0,
+        "currency": "USD",
+        "issue_date": "2026-06-15",
+        "due_date": "2026-07-15",
+        "payment_terms": "net 30",
+        "line_item_categories": [
+          "consulting",
+          "software licenses"
+        ],
+        "line_items": [
+          {
+            "description": "Customer churn model, build and validation",
+            "quantity": 96,
+            "unit_price": 165.0,
+            "amount": 15840.0
+          },
+          {
+            "description": "Analytics dashboard licences (10 seats)",
+            "quantity": 10,
+            "unit_price": 49.0,
+            "amount": 490.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "i06",
+      "file": "pdf/lumenridge-lra-1189.pdf",
+      "layout": "classic",
+      "fields": {
+        "vendor_name": "Lumen Ridge Analytics LLC",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "LRA-1189",
+        "total_amount": 11686.0,
+        "currency": "USD",
+        "issue_date": "2026-09-15",
+        "due_date": "2026-10-15",
+        "payment_terms": "milestone-based",
+        "line_item_categories": [
+          "consulting",
+          "software licenses",
+          "training"
+        ],
+        "line_items": [
+          {
+            "description": "Churn model go-live milestone",
+            "quantity": 1,
+            "unit_price": 9800.0,
+            "amount": 9800.0
+          },
+          {
+            "description": "Analytics dashboard licences (14 seats)",
+            "quantity": 14,
+            "unit_price": 49.0,
+            "amount": 686.0
+          },
+          {
+            "description": "Team training workshop",
+            "quantity": 1,
+            "unit_price": 1200.0,
+            "amount": 1200.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "i07",
+      "file": "pdf/copperleaf-co-55120.pdf",
+      "layout": "compact",
+      "fields": {
+        "vendor_name": "Copperleaf Office Supply Co.",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "CO-55120",
+        "total_amount": 1480.2,
+        "currency": "USD",
+        "issue_date": "2026-02-03",
+        "due_date": "2026-02-03",
+        "payment_terms": "due on receipt",
+        "line_item_categories": [
+          "office supplies"
+        ],
+        "line_items": [
+          {
+            "description": "Printer paper, A4, 20 boxes",
+            "quantity": 20,
+            "unit_price": 38.75,
+            "amount": 775.0
+          },
+          {
+            "description": "Toner cartridges, black",
+            "quantity": 8,
+            "unit_price": 64.9,
+            "amount": 519.2
+          },
+          {
+            "description": "Desk organisers",
+            "quantity": 15,
+            "unit_price": 12.4,
+            "amount": 186.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "i08",
+      "file": "pdf/copperleaf-co-55388.pdf",
+      "layout": "compact",
+      "fields": {
+        "vendor_name": "Copperleaf Office Supply Co.",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "CO-55388",
+        "total_amount": 2121.5,
+        "currency": "USD",
+        "issue_date": "2026-05-12",
+        "due_date": "2026-05-12",
+        "payment_terms": "due on receipt",
+        "line_item_categories": [
+          "furniture",
+          "office supplies"
+        ],
+        "line_items": [
+          {
+            "description": "Ergonomic office chairs",
+            "quantity": 6,
+            "unit_price": 289.0,
+            "amount": 1734.0
+          },
+          {
+            "description": "Printer paper, A4, 10 boxes",
+            "quantity": 10,
+            "unit_price": 38.75,
+            "amount": 387.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "i09",
+      "file": "pdf/copperleaf-co-55701.pdf",
+      "layout": "compact",
+      "fields": {
+        "vendor_name": "Copperleaf Office Supply Co.",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "CO-55701",
+        "total_amount": 3624.0,
+        "currency": "USD",
+        "issue_date": "2026-08-21",
+        "due_date": "2026-09-05",
+        "payment_terms": "net 15",
+        "line_item_categories": [
+          "furniture",
+          "office supplies"
+        ],
+        "line_items": [
+          {
+            "description": "Standing desks",
+            "quantity": 4,
+            "unit_price": 545.0,
+            "amount": 2180.0
+          },
+          {
+            "description": "Monitor arms",
+            "quantity": 8,
+            "unit_price": 89.5,
+            "amount": 716.0
+          },
+          {
+            "description": "Toner cartridges, colour set",
+            "quantity": 4,
+            "unit_price": 182.0,
+            "amount": 728.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "i10",
+      "file": "pdf/harborpine-hpc-26-27-014.pdf",
+      "layout": "classic",
+      "fields": {
+        "vendor_name": "Harbor & Pine Consulting",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "HPC/26-27/014",
+        "total_amount": 555190.0,
+        "currency": "INR",
+        "issue_date": "2026-04-10",
+        "due_date": "2026-05-10",
+        "payment_terms": "net 30",
+        "line_item_categories": [
+          "consulting",
+          "travel"
+        ],
+        "line_items": [
+          {
+            "description": "Warehouse process review, 6 days",
+            "quantity": 6,
+            "unit_price": 72000.0,
+            "amount": 432000.0
+          },
+          {
+            "description": "Travel and accommodation",
+            "quantity": 1,
+            "unit_price": 38500.0,
+            "amount": 38500.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "i11",
+      "file": "pdf/harborpine-hpc-26-27-039.pdf",
+      "layout": "classic",
+      "fields": {
+        "vendor_name": "Harbor & Pine Consulting",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "HPC/26-27/039",
+        "total_amount": 849600.0,
+        "currency": "INR",
+        "issue_date": "2026-07-08",
+        "due_date": "2026-08-07",
+        "payment_terms": "net 30",
+        "line_item_categories": [
+          "consulting"
+        ],
+        "line_items": [
+          {
+            "description": "Inventory system rollout support, 10 days",
+            "quantity": 10,
+            "unit_price": 72000.0,
+            "amount": 720000.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "i12",
+      "file": "pdf/harborpine-hpc-26-27-061.pdf",
+      "layout": "classic",
+      "fields": {
+        "vendor_name": "Harbor & Pine Consulting",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "HPC/26-27/061",
+        "total_amount": 365505.0,
+        "currency": "INR",
+        "issue_date": "2026-10-05",
+        "due_date": "2026-11-04",
+        "payment_terms": "net 30",
+        "line_item_categories": [
+          "consulting",
+          "travel"
+        ],
+        "line_items": [
+          {
+            "description": "Peak-season staffing plan, 4 days",
+            "quantity": 4,
+            "unit_price": 72000.0,
+            "amount": 288000.0
+          },
+          {
+            "description": "Travel and accommodation",
+            "quantity": 1,
+            "unit_price": 21750.0,
+            "amount": 21750.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "i13",
+      "file": "pdf/tessellate-tds-2026-031.pdf",
+      "layout": "band",
+      "fields": {
+        "vendor_name": "Tessellate Design Studio GmbH",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "TDS-2026-031",
+        "total_amount": 8234.8,
+        "currency": "EUR",
+        "issue_date": "2026-03-20",
+        "due_date": "2026-04-19",
+        "payment_terms": "net 30",
+        "line_item_categories": [
+          "design services",
+          "software licenses"
+        ],
+        "line_items": [
+          {
+            "description": "Brand refresh, concept phase",
+            "quantity": 1,
+            "unit_price": 6500.0,
+            "amount": 6500.0
+          },
+          {
+            "description": "Stock image licences",
+            "quantity": 12,
+            "unit_price": 35.0,
+            "amount": 420.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "i14",
+      "file": "pdf/tessellate-tds-2026-058.pdf",
+      "layout": "band",
+      "fields": {
+        "vendor_name": "Tessellate Design Studio GmbH",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "TDS-2026-058",
+        "total_amount": 16124.5,
+        "currency": "EUR",
+        "issue_date": "2026-06-12",
+        "due_date": "2026-07-12",
+        "payment_terms": "milestone-based",
+        "line_item_categories": [
+          "design services"
+        ],
+        "line_items": [
+          {
+            "description": "Brand refresh, final identity",
+            "quantity": 1,
+            "unit_price": 9200.0,
+            "amount": 9200.0
+          },
+          {
+            "description": "Packaging design, 3 product lines",
+            "quantity": 3,
+            "unit_price": 1450.0,
+            "amount": 4350.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "i15",
+      "file": "pdf/tessellate-tds-2026-077.pdf",
+      "layout": "band",
+      "fields": {
+        "vendor_name": "Tessellate Design Studio GmbH",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "TDS-2026-077",
+        "total_amount": 5712.0,
+        "currency": "EUR",
+        "issue_date": "2026-09-30",
+        "due_date": "2026-10-30",
+        "payment_terms": "net 30",
+        "line_item_categories": [
+          "design services"
+        ],
+        "line_items": [
+          {
+            "description": "Holiday campaign artwork",
+            "quantity": 1,
+            "unit_price": 4800.0,
+            "amount": 4800.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "i16",
+      "file": "pdf/quillmark-qsl-88412.pdf",
+      "layout": "compact",
+      "fields": {
+        "vendor_name": "Quillmark Software Licensing",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "QSL-88412",
+        "total_amount": 16400.0,
+        "currency": "USD",
+        "issue_date": "2026-01-31",
+        "due_date": "2026-03-02",
+        "payment_terms": "net 30",
+        "line_item_categories": [
+          "software licenses",
+          "support"
+        ],
+        "line_items": [
+          {
+            "description": "Point-of-sale software, annual licence (12 stores)",
+            "quantity": 12,
+            "unit_price": 1180.0,
+            "amount": 14160.0
+          },
+          {
+            "description": "Implementation support",
+            "quantity": 16,
+            "unit_price": 140.0,
+            "amount": 2240.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "i17",
+      "file": "pdf/quillmark-qsl-89037.pdf",
+      "layout": "compact",
+      "fields": {
+        "vendor_name": "Quillmark Software Licensing",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "QSL-89037",
+        "total_amount": 5970.0,
+        "currency": "USD",
+        "issue_date": "2026-07-31",
+        "due_date": "2026-08-30",
+        "payment_terms": "net 30",
+        "line_item_categories": [
+          "software licenses"
+        ],
+        "line_items": [
+          {
+            "description": "Point-of-sale software, 3 additional stores (prorated)",
+            "quantity": 3,
+            "unit_price": 590.0,
+            "amount": 1770.0
+          },
+          {
+            "description": "Inventory add-on module, annual",
+            "quantity": 1,
+            "unit_price": 4200.0,
+            "amount": 4200.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "i18",
+      "file": "pdf/quillmark-qsl-89590.pdf",
+      "layout": "compact",
+      "fields": {
+        "vendor_name": "Quillmark Software Licensing",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "QSL-89590",
+        "total_amount": 5580.0,
+        "currency": "USD",
+        "issue_date": "2026-10-15",
+        "due_date": "2026-11-14",
+        "payment_terms": "net 30",
+        "line_item_categories": [
+          "support",
+          "cloud infrastructure"
+        ],
+        "line_items": [
+          {
+            "description": "Premium support upgrade, annual",
+            "quantity": 1,
+            "unit_price": 3600.0,
+            "amount": 3600.0
+          },
+          {
+            "description": "Cloud backup for POS data, annual",
+            "quantity": 1,
+            "unit_price": 1980.0,
+            "amount": 1980.0
+          }
+        ]
+      }
+    }
+  ]
+}

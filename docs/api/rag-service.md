@@ -70,7 +70,8 @@ can use these chunks as context in its own workflow.
 ```
 
 The JSON response includes `response`, `query`, `session_id`, optional `chat_id`,
-`data`, answer status, follow-ups and usage. Retrieval evidence is nested under
+`data`, answer status, follow-ups and `usage` (latency, per-operation model, tokens and
+estimated cost — see [usage telemetry](usage-telemetry.md)). Retrieval evidence is nested under
 `data.knowledge`; inspect returned source identifiers rather than treating answer
 text alone as evidence. Omit `session_id` to start a session or send the returned
 ID on later turns. With `stream=true` (the default), the endpoint returns SSE.

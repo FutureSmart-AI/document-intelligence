@@ -1,0 +1,16 @@
+{
+  "sample_key": "invoices",
+  "owner_id": "document-intelligence-samples@futuresmart.ai",
+  "collection_name": "Sample: supplier invoices",
+  "service_description": "18 fictional supplier invoices billed to Cedar Lane Retail, a made-up shop. Every company, address and amount is invented; emails use reserved example domains.",
+  "field_template": "invoice",
+  "documents": "pdf/*.pdf",
+  "suggested_questions": [
+    "Which invoices are billed in euros, and what is each one's total?",
+    "Which invoices are due on or after 1 October 2026?",
+    "Which invoices were due on receipt?",
+    "What did Lumen Ridge Analytics bill for, invoice by invoice?",
+    "What is the total billed by each US-dollar vendor? Show it as a chart."
+  ],
+  "_suggested_questions_source": "questions.json q01, q03, q04 and q06: each answered exactly on the hosted sample on 2026-10-25, on fs-agent-knowledge:230 and again on :234 (VERIFICATION.md). q02 was dropped after :234 missed QSL-89590; q05 was never used (text chart). q05 was added on :238 after the chart fix: two runs each drew a real bar chart of LRA 35,106.00, QSL 27,950.00 and CO 7,225.70, exactly ground truth (hosted_run/answers-238-q05-run*.json)."
+}

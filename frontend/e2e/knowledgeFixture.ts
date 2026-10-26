@@ -27,7 +27,46 @@ interface Doc {
   fields?: Record<string, unknown>;
   /** Only a completed file has something to download. */
   links?: boolean;
+  /** What processing it took, as GET …/documents returns it (priced). */
+  telemetry?: Record<string, unknown>;
 }
+
+/** A document whose extraction ran on the fallback model, as the API prices it. */
+export const PROCESSING_TELEMETRY = {
+  total_ms: 9100,
+  parse: { parser: "local_text", mode: "text_based", ms: 420 },
+  operations: [
+    {
+      operation: "extraction",
+      provider: "openai",
+      model: "gpt-5.4-nano",
+      requested_provider: "google",
+      requested_model: "gemini-3.1-flash-lite",
+      fallback: true,
+      fallback_reason: "primary_failed: 402 Payment Required",
+      calls: 1,
+      input_tokens: 12000,
+      cached_input_tokens: 2000,
+      output_tokens: 900,
+      latency_ms: 7300,
+      estimated_cost_usd: 0.003565,
+    },
+    {
+      operation: "embeddings",
+      provider: "openai",
+      model: "text-embedding-3-small",
+      calls: 1,
+      input_tokens: 5000,
+      output_tokens: 0,
+      latency_ms: 600,
+      estimated_cost_usd: 0.0001,
+    },
+  ],
+  estimated_cost_usd: 0.003665,
+  cost_complete: true,
+  unpriced_models: [],
+  price_table: "openai-standard-2026-10-26",
+};
 
 const DOCS: Doc[] = [
   {
@@ -37,6 +76,7 @@ const DOCS: Doc[] = [
     source: "file",
     created: "2026-08-01T09:12:00",
     links: true,
+    telemetry: PROCESSING_TELEMETRY,
     fields: {
       vendor: "Northwind Logistics",
       region: "EMEA",
@@ -292,6 +332,7 @@ const documentsBody = {
       ? "https://example.invalid/original.pdf"
       : null,
     extracted_s3_url: doc.links ? "https://example.invalid/extracted.md" : null,
+    processing_telemetry: doc.telemetry ?? null,
   })),
   total_count: DOCS.length,
   current_page: 1,

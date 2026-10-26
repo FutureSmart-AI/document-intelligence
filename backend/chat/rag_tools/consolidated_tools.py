@@ -28,8 +28,10 @@ from chat.rag_tools.schemas import (
     RetrieveChunksInput,
 )
 from chat.rag_tools.helpers import (
+    UnsupportedMetadataFilter,
     normalize_metadata_filter,
 )
+from chat.rag_tools.population import compute_population, render_population
 from chat.rag_tools.renderers import (
     render_chunks,
     render_documents,
@@ -214,14 +216,29 @@ async def _validate_metadata_filter(
         return normalized, (set(field_types) if field_types else None)
 
     valid_names = set(field_types.keys())
-    validated = {}
-    for key in normalized:
-        base = key.split(".")[0].replace("[]", "") if ("." in key or "[]" in key) else key
-        if base in valid_names:
-            validated[key] = normalized[key]
-        else:
-            logger.warning(f"retrieve_documents: dropping invalid filter key '{key}' (not in schema)")
-    return validated, valid_names
+    invalid = sorted(_filter_field_names(normalized) - valid_names)
+    if invalid:
+        # Refuse the whole filter. Dropping the unknown key and running the
+        # rest used to return a WIDER population than asked for, and the
+        # agent answered over it without knowing a condition had gone.
+        raise UnsupportedMetadataFilter(
+            f"metadata_filter uses field(s) not in this collection's catalog: {invalid}. "
+            f"Valid fields: {sorted(valid_names)}"
+        )
+    return normalized, valid_names
+
+
+def _filter_field_names(flt: Dict[str, Any]) -> set:
+    """Base field names a normalized filter touches, walking $and/$or/$nor/$not."""
+    names: set = set()
+    for key, value in flt.items():
+        if key in ("$and", "$or", "$nor", "$not"):
+            for branch in value if isinstance(value, list) else [value]:
+                if isinstance(branch, dict):
+                    names |= _filter_field_names(branch)
+            continue
+        names.add(key.split(".")[0].replace("[]", "") if ("." in key or "[]" in key) else key)
+    return names
 
 
 def _is_stub_detail(detail: Dict[str, Any], oid: str) -> bool:
@@ -492,6 +509,8 @@ async def retrieve_documents_tool(
     include_summary: bool = True,
     include_metadata: bool = True,
     include_urls: bool = False,
+    stats_fields: Optional[List[str]] = None,
+    order_by: Optional[Dict[str, str]] = None,
 ):
     """Retrieve documents from the knowledge base via hybrid semantic + filter ranking.
 
@@ -520,7 +539,8 @@ async def retrieve_documents_tool(
     # `metadata_filter={}` is normalized to None later, so treat it as absent
     # here too.)
     has_filter = isinstance(metadata_filter, dict) and bool(metadata_filter)
-    if not query and not object_ids and not has_filter:
+    whole_collection = question_shape in EXHAUSTIVE_SHAPES and not object_ids and not has_filter
+    if not query and not object_ids and not has_filter and not whole_collection:
         err = (
             "retrieve_documents needs a retrieval driver: `query` for semantic "
             "search (e.g. query='owner'), `metadata_filter` for an exact filtered "
@@ -656,6 +676,7 @@ async def retrieve_documents_tool(
                     mode=SEMANTIC_QUERY_MODE if query else None,
                     include_metadata=False,
                     limit=fetch_limit,
+                    whole_collection=is_exhaustive and not normalized_filter,
                 )
                 candidate_ids = _dedupe_object_ids(docs)
                 log_duplicate_object_ids(
@@ -759,14 +780,31 @@ async def retrieve_documents_tool(
         # ------------------------------------------------------------------
         # Step 2: Enrich documents based on include_* flags (see helper)
         # ------------------------------------------------------------------
+        wants_population = bool(stats_fields or (order_by and order_by.get("field")))
         documents = await _enrich_documents(
             knowledge_id,
             resolved_ids,
             scores_by_id,
             include_summary=include_summary,
-            include_metadata=include_metadata,
+            # Statistics and ordering read the extracted fields.
+            include_metadata=include_metadata or wants_population,
             include_urls=include_urls,
         )
+
+        # Exhaustive shapes carry the complete matching population (the
+        # filter-only path, AND-ed, uncapped below MAX_DOCUMENTS_RETURNED).
+        population_complete = bool(
+            question_shape in EXHAUSTIVE_SHAPES
+            and not object_ids
+            and total_match_count is not None
+            and not truncated_unknown_total
+            and total_match_count == len(documents)
+        )
+        population_extra: Dict[str, Any] = {}
+        if wants_population:
+            documents, population_extra = compute_population(
+                documents, stats_fields=stats_fields, order_by=order_by,
+            )
 
         artifact: Dict[str, Any] = {
             "documents": documents,
@@ -774,6 +812,8 @@ async def retrieve_documents_tool(
             "applied_filter": applied_filter,
             "retrieval_mode": retrieval_mode,
             "question_shape": question_shape,
+            "population_complete": population_complete,
+            **population_extra,
         }
         if query:
             artifact["query"] = query
@@ -813,7 +853,7 @@ async def retrieve_documents_tool(
             f"(mode={retrieval_mode}, total_match_count={total_match_count}, "
             f"truncated={artifact.get('truncated')}, total_is_lower_bound={truncated_unknown_total})"
         )
-        return render_documents(
+        rendered = render_documents(
             documents=documents,
             applied_filter=applied_filter,
             total_match_count=total_match_count,
@@ -824,7 +864,11 @@ async def retrieve_documents_tool(
             retrieval_mode=retrieval_mode,
             metadata_lookup_over_retrieval_warning=metadata_lookup_over_retrieval_warning,
             score_summary=score_summary,
-        ), artifact
+        )
+        population_block = render_population(population_extra, total_match_count, population_complete)
+        if population_block:
+            rendered = f"{population_block}\n\n{rendered}"
+        return rendered, artifact
 
     except Exception as e:
         logger.error(f"Error in retrieve_documents_tool: {e}", exc_info=True)
@@ -1074,6 +1118,26 @@ async def retrieve_chunks_tool(
         )
         logger.warning(f"retrieve_chunks: {err}")
         artifact = {"chunks": [], "count": 0, "error": err}
+        return render_chunks(chunks=[], query=query or "", mode=mode, error=err), artifact
+
+    # A chunk search returns a ranked top-K, never a population. For the shapes
+    # whose answer IS a complete set (counts, distributions, "every doc where"),
+    # an unscoped chunk search can only produce a sample — on the hosted
+    # 24-resume collection it turned "how are candidates distributed by
+    # seniority" into a count over the 10 resumes the search happened to hit.
+    # The agent declared the shape itself; holding it to that shape is a
+    # mechanical check, not a judgement. Scoped reads of chosen documents
+    # (object_ids) stay allowed for predicate/selection evidence.
+    if question_shape == "aggregate" or (question_shape in EXHAUSTIVE_SHAPES and not object_ids):
+        err = (
+            f"retrieve_chunks cannot answer a '{question_shape}' question: a chunk search returns a "
+            f"ranked sample, not every matching document. Call retrieve_documents with "
+            f"question_shape='{question_shape}', a metadata_filter for the conditions"
+            + (", and stats_fields for the counted / grouped field(s)" if question_shape == "aggregate" else "")
+            + ". For evidence inside specific documents, pass their object_ids here."
+        )
+        logger.warning(f"retrieve_chunks: refused unscoped chunk search for shape={question_shape}")
+        artifact = {"chunks": [], "count": 0, "error": err, "question_shape": question_shape}
         return render_chunks(chunks=[], query=query or "", mode=mode, error=err), artifact
 
     # Pick the ceiling by case: deep_read (end-to-end doc reading) and the

@@ -1,0 +1,172 @@
+{
+  "knowledge_id": "6377d5df-bc7a-4fbc-b95d-e1be00b890cd",
+  "owner": "(internal FutureSmart account)",
+  "collection_name": "Sample: Candidate Resumes (synthetic)",
+  "created_at": "2026-10-25T11:14:05+0530",
+  "fields": [
+    "candidate_email",
+    "candidate_name",
+    "certifications",
+    "current_role",
+    "document_type",
+    "education",
+    "education_level",
+    "industries",
+    "languages",
+    "locations",
+    "seniority_level",
+    "skills",
+    "summary",
+    "work_experience",
+    "years_of_experience"
+  ],
+  "uploads": {
+    "r01-aarav-mehta.pdf": "12e725dc-2358-4a75-a4aa-491d6ba9a6d6",
+    "r02-priya-raghunathan.pdf": "3799ae12-5074-42be-aa65-ddc248fcafdd",
+    "r03-daniel-okafor.pdf": "14fd783d-8c5f-412f-861a-fe245b819c5b",
+    "r04-sneha-kulkarni.pdf": "ffc60fa5-abec-4276-a0c7-e9b556b75a18",
+    "r05-rahul-verma.pdf": "1ec00067-e043-483f-9200-d4e9fd164e70",
+    "r06-meera-iyer.pdf": "643eb2f0-ecce-419f-96f7-744810d0bd18",
+    "r07-kenji-watanabe.pdf": "8463246d-d9ca-4488-9b2a-5f1398c591f5",
+    "r08-fatima-sheikh.pdf": "24f46672-2d3b-4b91-b0dc-1b309bef9565",
+    "r09-lucas-fernandez.pdf": "898e8d5d-4baa-4b95-8cfc-1c411d91fea6",
+    "r10-ishaan-chatterjee.pdf": "4029d601-4da6-4bb0-9168-073d7f844722",
+    "r11-anjali-nair.pdf": "c5756b83-6e3d-4f5b-a505-354c0cb342ed",
+    "r12-michael-brennan.pdf": "5fb86d5c-bcb1-4108-9f86-c718389829d5",
+    "r13-zoya-ahmed.pdf": "f3c84fe3-167f-40a6-a687-7369b9e34301",
+    "r14-oliver-schmidt.pdf": "dae2d1ae-830e-4378-929e-cd75d79afda8",
+    "r15-kavya-reddy.pdf": "1e9c7615-3729-4fef-a19b-9b9569e5057a",
+    "r16-arjun-malhotra.pdf": "6ecbd7dc-c640-4f54-a8ef-f69730d103e6",
+    "r17-grace-liu.pdf": "c3066f27-fae7-4e9f-82bd-caa5c8323f0f",
+    "r18-rohan-deshpande.pdf": "66662524-a3e8-4c4b-978c-ca94379dbb34",
+    "r19-nadia-haddad.pdf": "52318c4a-4f1c-4f90-973d-c5db5c45ac2b",
+    "r20-vikram-singh.pdf": "7c2fbe0b-dfd5-4b20-ba91-26ed8d012744",
+    "r21-emily-carter.pdf": "0212b241-52c8-4e0e-be49-66c600cd287e",
+    "r22-siddharth-rao.pdf": "90b92d07-d3f2-4485-b277-839c990afbb3",
+    "r23-hannah-becker.pdf": "6e058419-0810-4c30-90ec-cc5312e9670f",
+    "r24-tanvi-joshi.pdf": "f2842159-4a08-49db-80ec-824ad8d383f4"
+  },
+  "documents": {
+    "r24-tanvi-joshi.pdf": {
+      "object_id": "f2842159-4a08-49db-80ec-824ad8d383f4",
+      "status": "completed",
+      "error": null
+    },
+    "r23-hannah-becker.pdf": {
+      "object_id": "6e058419-0810-4c30-90ec-cc5312e9670f",
+      "status": "completed",
+      "error": null
+    },
+    "r22-siddharth-rao.pdf": {
+      "object_id": "90b92d07-d3f2-4485-b277-839c990afbb3",
+      "status": "completed",
+      "error": null
+    },
+    "r21-emily-carter.pdf": {
+      "object_id": "0212b241-52c8-4e0e-be49-66c600cd287e",
+      "status": "completed",
+      "error": null
+    },
+    "r20-vikram-singh.pdf": {
+      "object_id": "7c2fbe0b-dfd5-4b20-ba91-26ed8d012744",
+      "status": "completed",
+      "error": null
+    },
+    "r19-nadia-haddad.pdf": {
+      "object_id": "52318c4a-4f1c-4f90-973d-c5db5c45ac2b",
+      "status": "completed",
+      "error": null
+    },
+    "r18-rohan-deshpande.pdf": {
+      "object_id": "66662524-a3e8-4c4b-978c-ca94379dbb34",
+      "status": "completed",
+      "error": null
+    },
+    "r17-grace-liu.pdf": {
+      "object_id": "c3066f27-fae7-4e9f-82bd-caa5c8323f0f",
+      "status": "completed",
+      "error": null
+    },
+    "r16-arjun-malhotra.pdf": {
+      "object_id": "6ecbd7dc-c640-4f54-a8ef-f69730d103e6",
+      "status": "completed",
+      "error": null
+    },
+    "r15-kavya-reddy.pdf": {
+      "object_id": "1e9c7615-3729-4fef-a19b-9b9569e5057a",
+      "status": "completed",
+      "error": null
+    },
+    "r14-oliver-schmidt.pdf": {
+      "object_id": "dae2d1ae-830e-4378-929e-cd75d79afda8",
+      "status": "completed",
+      "error": null
+    },
+    "r13-zoya-ahmed.pdf": {
+      "object_id": "f3c84fe3-167f-40a6-a687-7369b9e34301",
+      "status": "completed",
+      "error": null
+    },
+    "r12-michael-brennan.pdf": {
+      "object_id": "5fb86d5c-bcb1-4108-9f86-c718389829d5",
+      "status": "completed",
+      "error": null
+    },
+    "r11-anjali-nair.pdf": {
+      "object_id": "c5756b83-6e3d-4f5b-a505-354c0cb342ed",
+      "status": "completed",
+      "error": null
+    },
+    "r10-ishaan-chatterjee.pdf": {
+      "object_id": "4029d601-4da6-4bb0-9168-073d7f844722",
+      "status": "completed",
+      "error": null
+    },
+    "r09-lucas-fernandez.pdf": {
+      "object_id": "898e8d5d-4baa-4b95-8cfc-1c411d91fea6",
+      "status": "completed",
+      "error": null
+    },
+    "r08-fatima-sheikh.pdf": {
+      "object_id": "24f46672-2d3b-4b91-b0dc-1b309bef9565",
+      "status": "completed",
+      "error": null
+    },
+    "r07-kenji-watanabe.pdf": {
+      "object_id": "8463246d-d9ca-4488-9b2a-5f1398c591f5",
+      "status": "completed",
+      "error": null
+    },
+    "r06-meera-iyer.pdf": {
+      "object_id": "643eb2f0-ecce-419f-96f7-744810d0bd18",
+      "status": "completed",
+      "error": null
+    },
+    "r05-rahul-verma.pdf": {
+      "object_id": "1ec00067-e043-483f-9200-d4e9fd164e70",
+      "status": "completed",
+      "error": null
+    },
+    "r04-sneha-kulkarni.pdf": {
+      "object_id": "ffc60fa5-abec-4276-a0c7-e9b556b75a18",
+      "status": "completed",
+      "error": null
+    },
+    "r03-daniel-okafor.pdf": {
+      "object_id": "14fd783d-8c5f-412f-861a-fe245b819c5b",
+      "status": "completed",
+      "error": null
+    },
+    "r02-priya-raghunathan.pdf": {
+      "object_id": "3799ae12-5074-42be-aa65-ddc248fcafdd",
+      "status": "completed",
+      "error": null
+    },
+    "r01-aarav-mehta.pdf": {
+      "object_id": "12e725dc-2358-4a75-a4aa-491d6ba9a6d6",
+      "status": "completed",
+      "error": null
+    }
+  },
+  "indexed_seconds": 63
+}

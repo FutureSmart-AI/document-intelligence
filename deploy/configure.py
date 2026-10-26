@@ -10,12 +10,30 @@ ROOT = Path(__file__).resolve().parents[1]
 PROFILES = Path(__file__).resolve().with_name('model-profiles.json')
 
 
+def resolve_profile(catalog, name, _seen=()):
+    """A profile with its ``extends`` chain applied: the parent's settings and
+    operations, overridden key by key by the child's. ``required_keys`` and
+    ``description`` are the child's own."""
+    if name not in catalog['profiles']:
+        raise SystemExit(f'Unknown model profile {name!r}; choose one of {sorted(catalog["profiles"])}')
+    if name in _seen:
+        raise SystemExit(f'Model profile {name!r} extends itself')
+    profile = catalog['profiles'][name]
+    parent_name = profile.get('extends')
+    if not parent_name:
+        return dict(profile)
+    parent = resolve_profile(catalog, parent_name, (*_seen, name))
+    return {
+        **profile,
+        'settings': {**parent.get('settings', {}), **profile.get('settings', {})},
+        'operations': {**parent.get('operations', {}), **profile.get('operations', {})},
+    }
+
+
 def load_profile(name):
     catalog = json.loads(PROFILES.read_text(encoding='utf-8'))
     name = name or catalog['default']
-    if name not in catalog['profiles']:
-        raise SystemExit(f'Unknown model profile {name!r}; choose one of {sorted(catalog["profiles"])}')
-    return name, catalog['profiles'][name]
+    return name, resolve_profile(catalog, name)
 
 
 if __name__ == "__main__":

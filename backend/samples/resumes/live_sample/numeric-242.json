@@ -1,0 +1,980 @@
+{
+  "R1#1": {
+    "id": "R1",
+    "kind": "grouped count",
+    "question": "What is the distribution of years of experience across candidates? Show a chart.",
+    "run": 1,
+    "seconds": 26.8,
+    "expected": {
+      "0": 1.0,
+      "1": 1.0,
+      "2": 2.0,
+      "3": 1.0,
+      "4": 3.0,
+      "5": 2.0,
+      "6": 1.0,
+      "7": 3.0,
+      "8": 1.0,
+      "9": 1.0,
+      "10": 2.0,
+      "11": 1.0,
+      "12": 1.0,
+      "13": 1.0,
+      "15": 1.0,
+      "16": 1.0,
+      "18": 1.0
+    },
+    "answer": "The distribution of years of experience across the 24 candidates is:\n\n| Years of experience | Candidates |\n|---:|---:|\n| 0 | 1 |\n| 1 | 1 |\n| 2 | 2 |\n| 3 | 1 |\n| 4 | 3 |\n| 5 | 2 |\n| 6 | 1 |\n| 7 | 3 |\n| 8 | 1 |\n| 9 | 1 |\n| 10 | 2 |\n| 11 | 1 |\n| 12 | 1 |\n| 13 | 1 |\n| 15 | 1 |\n| 16 | 1 |\n| 18 | 1 |\n\nTotal: 24 candidates. Average years of experience: 7.46. Range: 0–18 years.",
+    "text_numbers": {
+      "0": 1.0,
+      "1": 1.0,
+      "2": 2.0,
+      "3": 1.0,
+      "4": 3.0,
+      "5": 2.0,
+      "6": 1.0,
+      "7": 3.0,
+      "8": 1.0,
+      "9": 1.0,
+      "10": 2.0,
+      "11": 1.0,
+      "12": 1.0,
+      "13": 1.0,
+      "15": 1.0,
+      "16": 1.0,
+      "18": 1.0
+    },
+    "chart_numbers": {
+      "0": 1.0,
+      "1": 1.0,
+      "2": 2.0,
+      "3": 1.0,
+      "4": 3.0,
+      "5": 2.0,
+      "6": 1.0,
+      "7": 3.0,
+      "8": 1.0,
+      "9": 1.0,
+      "10": 2.0,
+      "11": 1.0,
+      "12": 1.0,
+      "13": 1.0,
+      "15": 1.0,
+      "16": 1.0,
+      "18": 1.0
+    },
+    "text_vs_data": {
+      "match": true,
+      "wrong": {}
+    },
+    "chart_vs_data": {
+      "match": true,
+      "wrong": {},
+      "chart_total": 24.0,
+      "expected_total": 24.0
+    },
+    "text_vs_chart": {
+      "match": true,
+      "wrong": {}
+    },
+    "chart_present": true,
+    "population": [
+      {
+        "question_shape": "aggregate",
+        "applied_filter": null,
+        "total_match_count": 24
+      }
+    ],
+    "aggregation": [
+      {
+        "Years of experience": 0,
+        "Candidates": 1.0
+      },
+      {
+        "Years of experience": 1,
+        "Candidates": 1.0
+      },
+      {
+        "Years of experience": 2,
+        "Candidates": 2.0
+      },
+      {
+        "Years of experience": 3,
+        "Candidates": 1.0
+      },
+      {
+        "Years of experience": 4,
+        "Candidates": 3.0
+      },
+      {
+        "Years of experience": 5,
+        "Candidates": 2.0
+      },
+      {
+        "Years of experience": 6,
+        "Candidates": 1.0
+      },
+      {
+        "Years of experience": 7,
+        "Candidates": 3.0
+      },
+      {
+        "Years of experience": 8,
+        "Candidates": 1.0
+      },
+      {
+        "Years of experience": 9,
+        "Candidates": 1.0
+      },
+      {
+        "Years of experience": 10,
+        "Candidates": 2.0
+      },
+      {
+        "Years of experience": 11,
+        "Candidates": 1.0
+      },
+      {
+        "Years of experience": 12,
+        "Candidates": 1.0
+      },
+      {
+        "Years of experience": 13,
+        "Candidates": 1.0
+      },
+      {
+        "Years of experience": 15,
+        "Candidates": 1.0
+      },
+      {
+        "Years of experience": 16,
+        "Candidates": 1.0
+      },
+      {
+        "Years of experience": 18,
+        "Candidates": 1.0
+      }
+    ]
+  },
+  "R1#2": {
+    "id": "R1",
+    "kind": "grouped count",
+    "question": "What is the distribution of years of experience across candidates? Show a chart.",
+    "run": 2,
+    "seconds": 24.1,
+    "expected": {
+      "0-1": 2.0,
+      "2-3": 3.0,
+      "4-5": 5.0,
+      "6-7": 4.0,
+      "8-9": 2.0,
+      "10-11": 3.0,
+      "12-14": 2.0,
+      "15-19": 3.0
+    },
+    "answer": "Here’s the distribution of years of experience across the 24 candidates:\n\n| Years of experience | Candidates |\n|---|---:|\n| 0-1 | 2 |\n| 2-3 | 3 |\n| 4-5 | 5 |\n| 6-7 | 4 |\n| 8-9 | 2 |\n| 10-11 | 3 |\n| 12-14 | 2 |\n| 15-19 | 3 |",
+    "text_numbers": {
+      "0-1": 2.0,
+      "2-3": 3.0,
+      "4-5": 5.0,
+      "6-7": 4.0,
+      "8-9": 2.0,
+      "10-11": 3.0,
+      "12-14": 2.0,
+      "15-19": 3.0
+    },
+    "chart_numbers": {
+      "0-1": 2.0,
+      "2-3": 3.0,
+      "4-5": 5.0,
+      "6-7": 4.0,
+      "8-9": 2.0,
+      "10-11": 3.0,
+      "12-14": 2.0,
+      "15-19": 3.0
+    },
+    "text_vs_data": {
+      "match": true,
+      "wrong": {}
+    },
+    "chart_vs_data": {
+      "match": true,
+      "wrong": {},
+      "chart_total": 24.0,
+      "expected_total": 24.0
+    },
+    "text_vs_chart": {
+      "match": true,
+      "wrong": {}
+    },
+    "chart_present": true,
+    "population": [
+      {
+        "question_shape": "aggregate",
+        "applied_filter": null,
+        "total_match_count": 24
+      }
+    ],
+    "aggregation": [
+      {
+        "Years of experience": "0-1",
+        "Candidates": 2.0
+      },
+      {
+        "Years of experience": "2-3",
+        "Candidates": 3.0
+      },
+      {
+        "Years of experience": "4-5",
+        "Candidates": 5.0
+      },
+      {
+        "Years of experience": "6-7",
+        "Candidates": 4.0
+      },
+      {
+        "Years of experience": "8-9",
+        "Candidates": 2.0
+      },
+      {
+        "Years of experience": "10-11",
+        "Candidates": 3.0
+      },
+      {
+        "Years of experience": "12-14",
+        "Candidates": 2.0
+      },
+      {
+        "Years of experience": "15-19",
+        "Candidates": 3.0
+      }
+    ]
+  },
+  "R2#1": {
+    "id": "R2",
+    "kind": "grouped count",
+    "question": "How many candidates are there at each education level? Show a chart.",
+    "run": 1,
+    "seconds": 20.5,
+    "expected": {
+      "bachelors": 15.0,
+      "masters": 8.0,
+      "phd": 1.0
+    },
+    "answer": "| Education level | Candidates |\n|---|---:|\n| Bachelors | 15 |\n| Masters | 8 |\n| PhD | 1 |",
+    "text_numbers": {
+      "bachelors": 15.0,
+      "masters": 8.0,
+      "phd": 1.0
+    },
+    "chart_numbers": {
+      "bachelors": 15.0,
+      "masters": 8.0,
+      "phd": 1.0
+    },
+    "text_vs_data": {
+      "match": true,
+      "wrong": {}
+    },
+    "chart_vs_data": {
+      "match": true,
+      "wrong": {},
+      "chart_total": 24.0,
+      "expected_total": 24.0
+    },
+    "text_vs_chart": {
+      "match": true,
+      "wrong": {}
+    },
+    "chart_present": true,
+    "population": [
+      {
+        "question_shape": "aggregate",
+        "applied_filter": null,
+        "total_match_count": 24
+      }
+    ],
+    "aggregation": [
+      {
+        "Education level": "bachelors",
+        "Candidates": 15.0
+      },
+      {
+        "Education level": "masters",
+        "Candidates": 8.0
+      },
+      {
+        "Education level": "phd",
+        "Candidates": 1.0
+      }
+    ]
+  },
+  "R2#2": {
+    "id": "R2",
+    "kind": "grouped count",
+    "question": "How many candidates are there at each education level? Show a chart.",
+    "run": 2,
+    "seconds": 21.3,
+    "expected": {
+      "bachelors": 15.0,
+      "masters": 8.0,
+      "phd": 1.0
+    },
+    "answer": "Here are the candidate counts by education level:\n\n| Education level | Candidates |\n|---|---:|\n| bachelors | 15 |\n| masters | 8 |\n| phd | 1 |",
+    "text_numbers": {
+      "bachelors": 15.0,
+      "masters": 8.0,
+      "phd": 1.0
+    },
+    "chart_numbers": {
+      "bachelors": 15.0,
+      "masters": 8.0,
+      "phd": 1.0
+    },
+    "text_vs_data": {
+      "match": true,
+      "wrong": {}
+    },
+    "chart_vs_data": {
+      "match": true,
+      "wrong": {},
+      "chart_total": 24.0,
+      "expected_total": 24.0
+    },
+    "text_vs_chart": {
+      "match": true,
+      "wrong": {}
+    },
+    "chart_present": true,
+    "population": [
+      {
+        "question_shape": "aggregate",
+        "applied_filter": null,
+        "total_match_count": 24
+      }
+    ],
+    "aggregation": [
+      {
+        "Education level": "bachelors",
+        "Candidates": 15.0
+      },
+      {
+        "Education level": "masters",
+        "Candidates": 8.0
+      },
+      {
+        "Education level": "phd",
+        "Candidates": 1.0
+      }
+    ]
+  },
+  "R3#1": {
+    "id": "R3",
+    "kind": "filtered grouped count",
+    "question": "Among candidates with at least 5 years of experience, how many are at each seniority level?",
+    "run": 1,
+    "seconds": 22.2,
+    "expected": {
+      "principal": 3.0,
+      "mid_level": 2.0,
+      "senior": 7.0,
+      "lead": 2.0,
+      "executive": 1.0,
+      "junior": 1.0
+    },
+    "answer": "Among candidates with at least 5 years of experience, the counts by seniority level are:\n\n| Seniority level | Candidates |\n|---|---:|\n| senior | 7 |\n| principal | 3 |\n| lead | 2 |\n| mid_level | 2 |\n| executive | 1 |\n| junior | 1 |\n\nTotal: 16 candidates.",
+    "text_numbers": {
+      "principal": 3.0,
+      "mid_level": 2.0,
+      "senior": 7.0,
+      "lead": 2.0,
+      "executive": 1.0,
+      "junior": 1.0
+    },
+    "chart_numbers": {
+      "senior": 7.0,
+      "principal": 3.0,
+      "lead": 2.0,
+      "mid_level": 2.0,
+      "executive": 1.0,
+      "junior": 1.0
+    },
+    "text_vs_data": {
+      "match": true,
+      "wrong": {}
+    },
+    "chart_vs_data": {
+      "match": true,
+      "wrong": {},
+      "chart_total": 16.0,
+      "expected_total": 16.0
+    },
+    "text_vs_chart": {
+      "match": true,
+      "wrong": {}
+    },
+    "chart_present": true,
+    "population": [
+      {
+        "question_shape": "aggregate",
+        "applied_filter": {
+          "years_of_experience": {
+            "gte": 5
+          }
+        },
+        "total_match_count": 16
+      }
+    ],
+    "aggregation": [
+      {
+        "Seniority level": "senior",
+        "Candidates": 7.0
+      },
+      {
+        "Seniority level": "principal",
+        "Candidates": 3.0
+      },
+      {
+        "Seniority level": "lead",
+        "Candidates": 2.0
+      },
+      {
+        "Seniority level": "mid_level",
+        "Candidates": 2.0
+      },
+      {
+        "Seniority level": "executive",
+        "Candidates": 1.0
+      },
+      {
+        "Seniority level": "junior",
+        "Candidates": 1.0
+      }
+    ]
+  },
+  "R3#2": {
+    "id": "R3",
+    "kind": "filtered grouped count",
+    "question": "Among candidates with at least 5 years of experience, how many are at each seniority level?",
+    "run": 2,
+    "seconds": 22.8,
+    "expected": {
+      "principal": 3.0,
+      "mid_level": 2.0,
+      "senior": 7.0,
+      "lead": 2.0,
+      "executive": 1.0,
+      "junior": 1.0
+    },
+    "answer": "Among candidates with at least 5 years of experience, the counts by seniority level are:\n\n| Seniority level | Candidates |\n|---|---:|\n| senior | 7 |\n| principal | 3 |\n| lead | 2 |\n| mid_level | 2 |\n| executive | 1 |\n| junior | 1 |\n\nTotal: 16 candidates.",
+    "text_numbers": {
+      "principal": 3.0,
+      "mid_level": 2.0,
+      "senior": 7.0,
+      "lead": 2.0,
+      "executive": 1.0,
+      "junior": 1.0
+    },
+    "chart_numbers": {
+      "senior": 7.0,
+      "principal": 3.0,
+      "lead": 2.0,
+      "mid_level": 2.0,
+      "executive": 1.0,
+      "junior": 1.0
+    },
+    "text_vs_data": {
+      "match": true,
+      "wrong": {}
+    },
+    "chart_vs_data": {
+      "match": true,
+      "wrong": {},
+      "chart_total": 16.0,
+      "expected_total": 16.0
+    },
+    "text_vs_chart": {
+      "match": true,
+      "wrong": {}
+    },
+    "chart_present": true,
+    "population": [
+      {
+        "question_shape": "aggregate",
+        "applied_filter": {
+          "years_of_experience": {
+            "gte": 5
+          }
+        },
+        "total_match_count": 16
+      }
+    ],
+    "aggregation": [
+      {
+        "Seniority level": "senior",
+        "Candidates": 7.0
+      },
+      {
+        "Seniority level": "principal",
+        "Candidates": 3.0
+      },
+      {
+        "Seniority level": "lead",
+        "Candidates": 2.0
+      },
+      {
+        "Seniority level": "mid_level",
+        "Candidates": 2.0
+      },
+      {
+        "Seniority level": "executive",
+        "Candidates": 1.0
+      },
+      {
+        "Seniority level": "junior",
+        "Candidates": 1.0
+      }
+    ]
+  },
+  "R4#1": {
+    "id": "R4",
+    "kind": "count",
+    "question": "How many candidates list Python as a skill?",
+    "run": 1,
+    "seconds": 12.3,
+    "expected": {
+      "total": 18.0
+    },
+    "answer": "18 candidates list Python as a skill.",
+    "text_numbers": {
+      "total": 18.0
+    },
+    "chart_numbers": null,
+    "text_vs_data": {
+      "match": true,
+      "wrong": {}
+    },
+    "chart_vs_data": null,
+    "text_vs_chart": null,
+    "chart_present": false,
+    "population": [
+      {
+        "question_shape": "aggregate",
+        "applied_filter": {
+          "skills": "python"
+        },
+        "total_match_count": 18
+      }
+    ],
+    "aggregation": [
+      {
+        "Skill": "python",
+        "Candidates": 18.0
+      }
+    ]
+  },
+  "R4#2": {
+    "id": "R4",
+    "kind": "count",
+    "question": "How many candidates list Python as a skill?",
+    "run": 2,
+    "seconds": 12.3,
+    "expected": {
+      "total": 18.0
+    },
+    "answer": "18 candidates list Python as a skill.",
+    "text_numbers": {
+      "total": 18.0
+    },
+    "chart_numbers": null,
+    "text_vs_data": {
+      "match": true,
+      "wrong": {}
+    },
+    "chart_vs_data": null,
+    "text_vs_chart": null,
+    "chart_present": false,
+    "population": [
+      {
+        "question_shape": "aggregate",
+        "applied_filter": {
+          "skills": "python"
+        },
+        "total_match_count": 18
+      }
+    ],
+    "aggregation": [
+      {
+        "Skill": "python",
+        "Candidates": 18.0
+      }
+    ]
+  },
+  "I1#1": {
+    "id": "I1",
+    "kind": "grouped count",
+    "question": "How many invoices does each vendor have? Show a chart.",
+    "run": 1,
+    "seconds": 20.2,
+    "expected": {
+      "Tessellate Design Studio GmbH": 3.0,
+      "Quillmark Software Licensing": 3.0,
+      "Lumen Ridge Analytics LLC": 3.0,
+      "Harbor & Pine Consulting": 3.0,
+      "Copperleaf Office Supply Co.": 3.0,
+      "Bramblecloud Hosting Ltd.": 3.0
+    },
+    "answer": "| Vendor | Invoices |\n|---|---:|\n| Bramblecloud Hosting Ltd. | 3 |\n| Copperleaf Office Supply Co. | 3 |\n| Harbor & Pine Consulting | 3 |\n| Lumen Ridge Analytics LLC | 3 |\n| Quillmark Software Licensing | 3 |\n| Tessellate Design Studio GmbH | 3 |\n\nTotal invoices: 18.",
+    "text_numbers": {
+      "Tessellate Design Studio GmbH": 3.0,
+      "Quillmark Software Licensing": 3.0,
+      "Lumen Ridge Analytics LLC": 3.0,
+      "Harbor & Pine Consulting": 3.0,
+      "Copperleaf Office Supply Co.": 3.0,
+      "Bramblecloud Hosting Ltd.": 3.0
+    },
+    "chart_numbers": {
+      "Bramblecloud Hosting Ltd.": 3.0,
+      "Copperleaf Office Supply Co.": 3.0,
+      "Harbor & Pine Consulting": 3.0,
+      "Lumen Ridge Analytics LLC": 3.0,
+      "Quillmark Software Licensing": 3.0,
+      "Tessellate Design Studio GmbH": 3.0
+    },
+    "text_vs_data": {
+      "match": true,
+      "wrong": {}
+    },
+    "chart_vs_data": {
+      "match": true,
+      "wrong": {},
+      "chart_total": 18.0,
+      "expected_total": 18.0
+    },
+    "text_vs_chart": {
+      "match": true,
+      "wrong": {}
+    },
+    "chart_present": true,
+    "population": [
+      {
+        "question_shape": "aggregate",
+        "applied_filter": {
+          "document_type": "invoice"
+        },
+        "total_match_count": 18
+      }
+    ],
+    "aggregation": [
+      {
+        "Vendor": "Bramblecloud Hosting Ltd.",
+        "Invoices": 3.0
+      },
+      {
+        "Vendor": "Copperleaf Office Supply Co.",
+        "Invoices": 3.0
+      },
+      {
+        "Vendor": "Harbor & Pine Consulting",
+        "Invoices": 3.0
+      },
+      {
+        "Vendor": "Lumen Ridge Analytics LLC",
+        "Invoices": 3.0
+      },
+      {
+        "Vendor": "Quillmark Software Licensing",
+        "Invoices": 3.0
+      },
+      {
+        "Vendor": "Tessellate Design Studio GmbH",
+        "Invoices": 3.0
+      }
+    ]
+  },
+  "I1#2": {
+    "id": "I1",
+    "kind": "grouped count",
+    "question": "How many invoices does each vendor have? Show a chart.",
+    "run": 2,
+    "seconds": 22.2,
+    "expected": {
+      "Tessellate Design Studio GmbH": 3.0,
+      "Quillmark Software Licensing": 3.0,
+      "Lumen Ridge Analytics LLC": 3.0,
+      "Harbor & Pine Consulting": 3.0,
+      "Copperleaf Office Supply Co.": 3.0,
+      "Bramblecloud Hosting Ltd.": 3.0
+    },
+    "answer": "Here are the invoice counts by vendor:\n\n| Vendor | Invoices |\n|---|---:|\n| Bramblecloud Hosting Ltd. | 3 |\n| Copperleaf Office Supply Co. | 3 |\n| Harbor & Pine Consulting | 3 |\n| Lumen Ridge Analytics LLC | 3 |\n| Quillmark Software Licensing | 3 |\n| Tessellate Design Studio GmbH | 3 |",
+    "text_numbers": {
+      "Tessellate Design Studio GmbH": 3.0,
+      "Quillmark Software Licensing": 3.0,
+      "Lumen Ridge Analytics LLC": 3.0,
+      "Harbor & Pine Consulting": 3.0,
+      "Copperleaf Office Supply Co.": 3.0,
+      "Bramblecloud Hosting Ltd.": 3.0
+    },
+    "chart_numbers": {
+      "Bramblecloud Hosting Ltd.": 3.0,
+      "Copperleaf Office Supply Co.": 3.0,
+      "Harbor & Pine Consulting": 3.0,
+      "Lumen Ridge Analytics LLC": 3.0,
+      "Quillmark Software Licensing": 3.0,
+      "Tessellate Design Studio GmbH": 3.0
+    },
+    "text_vs_data": {
+      "match": true,
+      "wrong": {}
+    },
+    "chart_vs_data": {
+      "match": true,
+      "wrong": {},
+      "chart_total": 18.0,
+      "expected_total": 18.0
+    },
+    "text_vs_chart": {
+      "match": true,
+      "wrong": {}
+    },
+    "chart_present": true,
+    "population": [
+      {
+        "question_shape": "aggregate",
+        "applied_filter": {
+          "document_type": "invoice"
+        },
+        "total_match_count": 18
+      }
+    ],
+    "aggregation": [
+      {
+        "Vendor": "Bramblecloud Hosting Ltd.",
+        "Invoices": 3.0
+      },
+      {
+        "Vendor": "Copperleaf Office Supply Co.",
+        "Invoices": 3.0
+      },
+      {
+        "Vendor": "Harbor & Pine Consulting",
+        "Invoices": 3.0
+      },
+      {
+        "Vendor": "Lumen Ridge Analytics LLC",
+        "Invoices": 3.0
+      },
+      {
+        "Vendor": "Quillmark Software Licensing",
+        "Invoices": 3.0
+      },
+      {
+        "Vendor": "Tessellate Design Studio GmbH",
+        "Invoices": 3.0
+      }
+    ]
+  },
+  "I2#1": {
+    "id": "I2",
+    "kind": "filtered grouped sum",
+    "question": "What is the total billed by each US-dollar vendor? Show it as a chart.",
+    "run": 1,
+    "seconds": 19.9,
+    "expected": {
+      "Copperleaf Office Supply Co.": 7225.7,
+      "Quillmark Software Licensing": 27950.0,
+      "Lumen Ridge Analytics LLC": 35106.0
+    },
+    "answer": "Here are the total billed amounts by each US-dollar vendor:\n\n| Vendor | Total billed |\n|---|---:|\n| Lumen Ridge Analytics LLC | $35,106.00 |\n| Quillmark Software Licensing | $27,950.00 |\n| Copperleaf Office Supply Co. | $7,225.70 |",
+    "text_numbers": {
+      "Copperleaf Office Supply Co.": 7225.7,
+      "Quillmark Software Licensing": 27950.0,
+      "Lumen Ridge Analytics LLC": 35106.0
+    },
+    "chart_numbers": {
+      "Lumen Ridge Analytics LLC": 35106.0,
+      "Quillmark Software Licensing": 27950.0,
+      "Copperleaf Office Supply Co.": 7225.7
+    },
+    "text_vs_data": {
+      "match": true,
+      "wrong": {}
+    },
+    "chart_vs_data": {
+      "match": true,
+      "wrong": {},
+      "chart_total": 70281.7,
+      "expected_total": 70281.7
+    },
+    "text_vs_chart": {
+      "match": true,
+      "wrong": {}
+    },
+    "chart_present": true,
+    "population": [
+      {
+        "question_shape": "aggregate",
+        "applied_filter": {
+          "currency": "USD"
+        },
+        "total_match_count": 9
+      }
+    ],
+    "aggregation": [
+      {
+        "Vendor": "Lumen Ridge Analytics LLC",
+        "Total billed": 35106.0
+      },
+      {
+        "Vendor": "Quillmark Software Licensing",
+        "Total billed": 27950.0
+      },
+      {
+        "Vendor": "Copperleaf Office Supply Co.",
+        "Total billed": 7225.7
+      }
+    ]
+  },
+  "I2#2": {
+    "id": "I2",
+    "kind": "filtered grouped sum",
+    "question": "What is the total billed by each US-dollar vendor? Show it as a chart.",
+    "run": 2,
+    "seconds": 30.7,
+    "expected": {
+      "Copperleaf Office Supply Co.": 7225.7,
+      "Quillmark Software Licensing": 27950.0,
+      "Lumen Ridge Analytics LLC": 35106.0
+    },
+    "answer": "| Vendor | Total billed |\n|---|---:|\n| Lumen Ridge Analytics LLC | 35106 |\n| Quillmark Software Licensing | 27950 |\n| Copperleaf Office Supply Co. | 7225.7 |",
+    "text_numbers": {
+      "Copperleaf Office Supply Co.": 7225.7,
+      "Quillmark Software Licensing": 27950.0,
+      "Lumen Ridge Analytics LLC": 35106.0
+    },
+    "chart_numbers": {
+      "Lumen Ridge Analytics LLC": 35106.0,
+      "Quillmark Software Licensing": 27950.0,
+      "Copperleaf Office Supply Co.": 7225.7
+    },
+    "text_vs_data": {
+      "match": true,
+      "wrong": {}
+    },
+    "chart_vs_data": {
+      "match": true,
+      "wrong": {},
+      "chart_total": 70281.7,
+      "expected_total": 70281.7
+    },
+    "text_vs_chart": {
+      "match": true,
+      "wrong": {}
+    },
+    "chart_present": true,
+    "population": [
+      {
+        "question_shape": "aggregate",
+        "applied_filter": {
+          "currency": "USD"
+        },
+        "total_match_count": 9
+      },
+      {
+        "question_shape": "aggregate",
+        "applied_filter": {
+          "currency": "USD"
+        },
+        "total_match_count": 9
+      }
+    ],
+    "aggregation": [
+      {
+        "Vendor": "Lumen Ridge Analytics LLC",
+        "Total billed": 35106.0
+      },
+      {
+        "Vendor": "Quillmark Software Licensing",
+        "Total billed": 27950.0
+      },
+      {
+        "Vendor": "Copperleaf Office Supply Co.",
+        "Total billed": 7225.7
+      }
+    ]
+  },
+  "I3#1": {
+    "id": "I3",
+    "kind": "count",
+    "question": "How many invoices are billed in euros?",
+    "run": 1,
+    "seconds": 10.2,
+    "expected": {
+      "total": 6.0
+    },
+    "answer": "There are **6** invoices billed in euros (EUR).",
+    "text_numbers": {
+      "total": 6.0
+    },
+    "chart_numbers": null,
+    "text_vs_data": {
+      "match": true,
+      "wrong": {}
+    },
+    "chart_vs_data": null,
+    "text_vs_chart": null,
+    "chart_present": false,
+    "population": [
+      {
+        "question_shape": "aggregate",
+        "applied_filter": {
+          "currency": "EUR"
+        },
+        "total_match_count": 6
+      }
+    ],
+    "aggregation": [
+      {
+        "Currency": "EUR",
+        "Invoices": 6.0
+      }
+    ]
+  },
+  "I3#2": {
+    "id": "I3",
+    "kind": "count",
+    "question": "How many invoices are billed in euros?",
+    "run": 2,
+    "seconds": 10.3,
+    "expected": {
+      "total": 6.0
+    },
+    "answer": "There are **6 invoices** billed in euros (EUR).",
+    "text_numbers": {
+      "total": 6.0
+    },
+    "chart_numbers": null,
+    "text_vs_data": {
+      "match": true,
+      "wrong": {}
+    },
+    "chart_vs_data": null,
+    "text_vs_chart": null,
+    "chart_present": false,
+    "population": [
+      {
+        "question_shape": "aggregate",
+        "applied_filter": {
+          "currency": "EUR"
+        },
+        "total_match_count": 6
+      }
+    ],
+    "aggregation": [
+      {
+        "Currency": "EUR",
+        "Invoices": 6.0
+      }
+    ]
+  }
+}

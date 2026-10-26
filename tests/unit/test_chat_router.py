@@ -66,6 +66,12 @@ def _patch_collaborators(monkeypatch):
         return SimpleNamespace(chat_id=uuid.UUID(int=0))
     monkeypatch.setattr(chat_router_module, "insert_chat_log", _fake_insert_chat_log)
 
+    # A supplied session_id is looked up to check it belongs to the collection;
+    # these tests' sessions are all new.
+    async def _fake_get_session_identity(session_id):
+        return None
+    monkeypatch.setattr(chat_router_module.sample_access, "get_session_identity", _fake_get_session_identity)
+
 
 def _default_final_state(**overrides):
     state = {

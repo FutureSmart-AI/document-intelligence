@@ -2,31 +2,171 @@
   "default": "openai-v1",
   "profiles": {
     "openai-v1": {
-      "description": "One OPENAI_API_KEY runs ingestion, enrichment, extraction, retrieval checks and chat.",
+      "description": "One OPENAI_API_KEY runs ingestion, extraction, collection preview, retrieval, answers, follow-ups and charts (drawn in-process when CHART_API_URL is unset).",
       "required_keys": ["OPENAI_API_KEY"],
       "settings": {
         "ENRICHMENT_MODEL": "gpt-5.4-mini",
         "ENRICHMENT_FALLBACK_MODEL": "gpt-5.4-nano",
-        "FOLLOW_UP_LLM_PROVIDER": "openai",
-        "FOLLOW_UP_LLM_MODEL": "gpt-5.4-nano",
+        "RAG_CHAT_REFINED_QUERY_LLM_PROVIDER": "openai",
+        "RAG_CHAT_REFINED_QUERY_LLM_MODEL": "gpt-5.4-nano",
+        "RAG_CHAT_AGENT_LLM_PROVIDER": "openai",
+        "RAG_CHAT_AGENT_LLM_MODEL": "gpt-5.6-luna",
+        "RAG_FALLBACK_PROVIDER": "openai",
+        "RAG_FALLBACK_MODEL": "gpt-5.4-mini",
         "RAG_RETRIEVAL_VERIFIER_PROVIDER": "openai",
         "RAG_RETRIEVAL_VERIFIER_MODEL": "gpt-5.4-nano",
+        "RAG_CHAT_ANSWER_LLM_PROVIDER": "openai",
+        "RAG_CHAT_ANSWER_LLM_MODEL": "gpt-5.6-luna",
+        "FOLLOW_UP_LLM_PROVIDER": "openai",
+        "FOLLOW_UP_LLM_MODEL": "gpt-5.4-nano",
+        "CHART_EXTRACTION_MODEL": "gpt-5.4-mini",
+        "CHART_RENDER_PROVIDER": "openai",
+        "CHART_RENDER_MODEL": "gpt-5.4-mini",
         "TRANSCRIPT_PROVIDER": "openai",
         "EXTRACTION_VALIDATION_LLM_ENABLED": "false"
+      },
+      "operations": {
+        "extraction": {
+          "service": "worker",
+          "provider": "openai",
+          "model": "gpt-5.4-mini",
+          "fallback": {"provider": "openai", "model": "gpt-5.4-nano"},
+          "settings": ["ENRICHMENT_MODEL", "ENRICHMENT_FALLBACK_MODEL"],
+          "note": "Per-document metadata extraction and chunking. A collection's own enrichment model, then the enrichment-config row (GET /v1/admin/enrichment-config), take precedence over these settings. Both accept only names in the enrichment registry (workers/celery_utils/enrichment/llm_factory.py, mirrored in backend/utils/enrichment/model_registry.py); a reasoning variant such as gpt-5.6-luna-low runs gpt-5.6-luna at reasoning low and is recorded and priced as gpt-5.6-luna."
+        },
+        "extraction_parser_modes": {
+          "service": "worker",
+          "provider": "openai",
+          "model": "gpt-5.6-luna",
+          "fallback": {"provider": "openai", "model": "gpt-5.4-nano"},
+          "settings": [],
+          "note": "Documents read in scanned/layout_aware/visual/mixed mode are enriched with this model (code constant workers/celery_utils/processing/processing_modes.py RICH_MODE_ENRICHMENT_MODEL). Those modes need LLAMA_PARSE_API_KEY; without it an explicit mode is refused with 422 and auto-detection reads locally and records why."
+        },
+        "collection_preview": {
+          "service": "api",
+          "provider": "openai",
+          "model": "gpt-5.4-mini",
+          "fallback": {"provider": "openai", "model": "gpt-5.4-nano"},
+          "settings": ["ENRICHMENT_MODEL", "ENRICHMENT_FALLBACK_MODEL"],
+          "note": "Create-collection field preview; same chain as extraction (enrichment-config row, then these settings)."
+        },
+        "embeddings": {
+          "service": "api+worker",
+          "provider": "openai",
+          "model": "text-embedding-3-small",
+          "fallback": null,
+          "settings": [],
+          "note": "New collections default to openai-text-embedding-3-small (backend/utils/config/knowledge_defaults.py); chosen per collection."
+        },
+        "query_refinement": {
+          "service": "api",
+          "provider": "openai",
+          "model": "gpt-5.4-nano",
+          "fallback": null,
+          "settings": ["RAG_CHAT_REFINED_QUERY_LLM_PROVIDER", "RAG_CHAT_REFINED_QUERY_LLM_MODEL"]
+        },
+        "retrieval_agent": {
+          "service": "api",
+          "provider": "openai",
+          "model": "gpt-5.6-luna",
+          "fallback": {"provider": "openai", "model": "gpt-5.4-mini"},
+          "settings": ["RAG_CHAT_AGENT_LLM_PROVIDER", "RAG_CHAT_AGENT_LLM_MODEL", "RAG_FALLBACK_PROVIDER", "RAG_FALLBACK_MODEL"]
+        },
+        "retrieval_verifier": {
+          "service": "api",
+          "provider": "openai",
+          "model": "gpt-5.4-nano",
+          "fallback": null,
+          "settings": ["RAG_RETRIEVAL_VERIFIER_PROVIDER", "RAG_RETRIEVAL_VERIFIER_MODEL"]
+        },
+        "answer": {
+          "service": "api",
+          "provider": "openai",
+          "model": "gpt-5.6-luna",
+          "fallback": null,
+          "settings": ["RAG_CHAT_ANSWER_LLM_PROVIDER", "RAG_CHAT_ANSWER_LLM_MODEL"],
+          "note": "Applies while a collection has no chat-config row. Saving any chat setting for a collection (PUT /v1/{knowledge_id}/chat/config) creates the row, whose llm_model column defaults to gpt-5.4-mini, and the row's model then answers that collection."
+        },
+        "follow_up": {
+          "service": "api",
+          "provider": "openai",
+          "model": "gpt-5.4-nano",
+          "fallback": null,
+          "settings": ["FOLLOW_UP_LLM_PROVIDER", "FOLLOW_UP_LLM_MODEL"]
+        },
+        "chart_spec": {
+          "service": "api",
+          "provider": "openai",
+          "model": "gpt-5.4-mini",
+          "fallback": null,
+          "settings": ["CHART_EXTRACTION_MODEL"],
+          "note": "Decides which extracted field and reduction a chart question needs; code computes the numbers."
+        },
+        "chart_render": {
+          "service": "api",
+          "provider": "openai",
+          "model": "gpt-5.4-mini",
+          "fallback": {"provider": "none", "model": "deterministic bar chart", "note": "used when the call fails or names an undrawable column; recorded in chart_data.metadata.chart_type_source"},
+          "settings": ["CHART_RENDER_PROVIDER", "CHART_RENDER_MODEL"],
+          "note": "Chart type and columns for the in-process renderer, used when CHART_API_URL is unset. With CHART_API_URL set the external Chart API draws instead."
+        },
+        "transcription": {
+          "service": "worker",
+          "provider": "openai",
+          "model": "whisper-1",
+          "fallback": null,
+          "settings": ["TRANSCRIPT_PROVIDER"],
+          "note": "Audio uploads only."
+        },
+        "extraction_validation_judge": {
+          "service": "api",
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "fallback": null,
+          "settings": ["EXTRACTION_VALIDATION_LLM_ENABLED"],
+          "enabled": false,
+          "note": "Optional paid judge; off in this profile. EXTRACTION_VALIDATION_PROVIDER/_MODEL choose its model. Unset, it turns on only when its provider's key exists. Deterministic checks always run."
+        },
+        "report_analysis": {
+          "service": "worker",
+          "provider": "openai",
+          "model": "gpt-5.4-mini",
+          "fallback": {"provider": "openai", "model": "gpt-5.4-nano"},
+          "settings": ["ENRICHMENT_MODEL", "ENRICHMENT_FALLBACK_MODEL"],
+          "note": "Optional report summary; runs on the extraction models."
+        }
       }
     },
     "openai-groq-v1": {
-      "description": "Previous hosted default: Groq openai/gpt-oss-120b enrichment with an OpenAI fallback.",
+      "extends": "openai-v1",
+      "description": "Previous hosted default: Groq openai/gpt-oss-120b enrichment with an OpenAI fallback; everything else as openai-v1.",
       "required_keys": ["OPENAI_API_KEY", "GROQ_API_KEY"],
       "settings": {
         "ENRICHMENT_MODEL": "openai/gpt-oss-120b",
-        "ENRICHMENT_FALLBACK_MODEL": "gpt-5.4-nano",
-        "FOLLOW_UP_LLM_PROVIDER": "openai",
-        "FOLLOW_UP_LLM_MODEL": "gpt-5.4-nano",
-        "RAG_RETRIEVAL_VERIFIER_PROVIDER": "openai",
-        "RAG_RETRIEVAL_VERIFIER_MODEL": "gpt-5.4-nano",
-        "TRANSCRIPT_PROVIDER": "openai",
-        "EXTRACTION_VALIDATION_LLM_ENABLED": "false"
+        "ENRICHMENT_FALLBACK_MODEL": "gpt-5.4-nano"
+      },
+      "operations": {
+        "extraction": {
+          "service": "worker",
+          "provider": "groq",
+          "model": "openai/gpt-oss-120b",
+          "fallback": {"provider": "openai", "model": "gpt-5.4-nano"},
+          "settings": ["ENRICHMENT_MODEL", "ENRICHMENT_FALLBACK_MODEL"]
+        },
+        "collection_preview": {
+          "service": "api",
+          "provider": "groq",
+          "model": "openai/gpt-oss-120b",
+          "fallback": {"provider": "openai", "model": "gpt-5.4-nano"},
+          "settings": ["ENRICHMENT_MODEL", "ENRICHMENT_FALLBACK_MODEL"]
+        },
+        "report_analysis": {
+          "service": "worker",
+          "provider": "groq",
+          "model": "openai/gpt-oss-120b",
+          "fallback": {"provider": "openai", "model": "gpt-5.4-nano"},
+          "settings": ["ENRICHMENT_MODEL", "ENRICHMENT_FALLBACK_MODEL"]
+        }
       }
     }
   }

@@ -28,6 +28,7 @@ from celery_utils.db.db_utils import (
 )
 from celery_utils.enrichment.enrichment_utils import enrich_document
 from celery_utils.processing.s3_utils import upload_extracted_text_to_s3, download_file
+from celery_utils.shared import document_telemetry
 from celery_utils.indexing.indexer import index_in_vectordb
 from celery_utils.shared.user_usage_tracking import send_file_processing_event, get_owner_id_from_service_id
 from celery_utils.shared.credentials_utils import get_api_key
@@ -158,6 +159,23 @@ def doc_type_metadata(file_extension: str) -> str:
 # File Readers — Each reader returns {"content": str, "extra_info": str, ...}
 # ---------------------------------------------------------------------------
 
+class ParserNotConfiguredError(RuntimeError):
+    """A LlamaParse mode was needed but neither the platform nor the owner has a key.
+
+    Raised before any request is made, so the document's error_detail says what is
+    missing instead of LlamaParse's bare "401 Unauthorized". The wording matches the
+    API's own upfront refusal (backend utils/files/processing_modes.py)."""
+
+
+def parser_not_configured_message(mode: ProcessingMode) -> str:
+    return (
+        f"Processing mode '{mode.value}' reads documents with LlamaParse, but no LlamaParse "
+        f"API key is configured for this installation or this account. Set LLAMA_PARSE_API_KEY "
+        f"(or add a LlamaParse key in Settings), or upload with document_processing_mode="
+        f"text_based (or auto) to read the file with the free local text extractor."
+    )
+
+
 @traced_reader(
     "API: LlamaParse - Parse File",
     inputs=("file_name", "result_type", "mode", "owner_id"),
@@ -186,6 +204,8 @@ def read_with_llama_parse(bytes_io: BytesIO, file_name: str, result_type: str = 
     )
     try:
         api_key, key_type = get_api_key(owner_id, "llamaparse", LLAMA_PARSER_API_KEY)
+        if not (api_key or "").strip():
+            raise ParserNotConfiguredError(parser_not_configured_message(mode))
         headers = {"Authorization": f"Bearer {api_key}"}
         # Form fields must be strings; a Python bool str()'s to "True"/"False", which
         # the multipart form parser will not reliably read as a boolean.
@@ -698,6 +718,7 @@ def get_file_text(bytes_data, file_type, filename, mode: ProcessingMode = Proces
                     mode_effective=extracted_content.get("effective_mode"),
                     mode_auto_shifted_from=extracted_content.get("mode_auto_shifted_from"),
                     auto_shifted=bool(extracted_content.get("mode_auto_shifted_from")),
+                    parse_fallback_reason=extracted_content.get("parse_fallback_reason"),
                     parse_mode=extracted_content.get("parse_mode"),
                     llama_parse_credits=extracted_content.get("llama_parse_credits"),
                     pages_truncated=extracted_content.get("pages_truncated"),
@@ -708,6 +729,28 @@ def get_file_text(bytes_data, file_type, filename, mode: ProcessingMode = Proces
         except Exception as e:
             logger.error(f"Error in get_file_text for filename={filename}: {e}")
             raise
+
+
+def _auto_shift_fell_back(local_result, target_mode: ProcessingMode, reason: str, filename: str,
+                          error: Exception):
+    """Mark a local result that an auto-shift wanted to replace but could not."""
+    if isinstance(error, ParserNotConfiguredError):
+        why = (
+            f"Detected content that needs '{target_mode.value}' mode ({reason}), but no LlamaParse "
+            f"API key is configured; read with local text extraction instead."
+        )
+        logger.warning(f"{why} (filename={filename})")
+    else:
+        why = (
+            f"Detected content that needs '{target_mode.value}' mode ({reason}), but LlamaParse "
+            f"failed ({type(error).__name__}: {error}); read with local text extraction instead."
+        )[:500]
+        logger.error(f"Auto-shift to {target_mode.value} failed for filename={filename}, falling back to local text: {error}")
+    if isinstance(local_result, dict):
+        local_result["parse_fallback_reason"] = why
+        local_result["mode_auto_shift_target"] = target_mode.value
+    add_step_metadata(auto_shift_fell_back=True, parse_fallback_reason=why)
+    return local_result
 
 
 def _read_pdf_with_auto_shift(bytes_io: BytesIO, bytes_data, filename: str,
@@ -773,9 +816,10 @@ def _read_pdf_with_auto_shift(bytes_io: BytesIO, bytes_data, filename: str,
     except Exception as e:
         # Reprocessing in the detected mode is a best-effort rescue of a document that
         # would otherwise come back worse than it should. If it cannot run, hand back
-        # the local result — the free path is still a valid (if inferior) answer.
-        logger.error(f"Auto-shift to {target_mode.value} failed for filename={filename}, falling back to local text: {e}")
-        return local_result
+        # the local result — the free path is still a valid (if inferior) answer — and
+        # say why on the result, so the document's telemetry shows it was read locally
+        # despite needing more (a log line alone is invisible to the user).
+        return _auto_shift_fell_back(local_result, target_mode, reason, filename, e)
 
 
 def _read_docx_with_auto_shift(bytes_io: BytesIO, bytes_data, filename: str,
@@ -833,9 +877,10 @@ def _read_docx_with_auto_shift(bytes_io: BytesIO, bytes_data, filename: str,
     except Exception as e:
         # Reprocessing in the detected mode is a best-effort rescue of a document that
         # would otherwise come back worse than it should. If it cannot run, hand back
-        # the local result — the free path is still a valid (if inferior) answer.
-        logger.error(f"Auto-shift to {target_mode.value} failed for filename={filename}, falling back to local text: {e}")
-        return local_result
+        # the local result — the free path is still a valid (if inferior) answer — and
+        # say why on the result, so the document's telemetry shows it was read locally
+        # despite needing more (a log line alone is invisible to the user).
+        return _auto_shift_fell_back(local_result, target_mode, reason, filename, e)
 
 
 # ---------------------------------------------------------------------------
@@ -920,6 +965,17 @@ def extract_text_pipeline(file_path, unique_filename, content_type, file_extensi
 # Extraction Result Unpacking
 # ---------------------------------------------------------------------------
 
+def _parser_label(fields: dict, content_type: Optional[str]) -> str:
+    """The reader that produced the text, for document.processing_telemetry:
+    ``llamaparse`` when LlamaParse ran (it reports a parse mode or pages),
+    ``transcription`` for audio/video, ``local_text`` otherwise."""
+    if fields.get("parse_mode") or fields.get("llama_parse_page_count"):
+        return "llamaparse"
+    if fields.get("transcript_provider_used") or (content_type or "").startswith(("audio/", "video/")):
+        return "transcription"
+    return "local_text"
+
+
 def _unpack_extracted_content(extracted_content):
     """Normalize extraction result into a consistent dict regardless of return format.
     Handles dict (standard), tuple (legacy), and string (fallback) formats.
@@ -932,6 +988,9 @@ def _unpack_extracted_content(extracted_content):
         # free local path so a reader that reports nothing is costed at zero.
         "effective_mode": ProcessingMode.TEXT_BASED.value, "parse_mode": None,
         "llama_parse_credits": 0, "mode_auto_shifted_from": None,
+        # Why a document that needed a parser mode was read locally anyway (no key,
+        # parser failure). None when nothing fell back.
+        "parse_fallback_reason": None, "mode_auto_shift_target": None,
     }
 
     if isinstance(extracted_content, dict):
@@ -946,6 +1005,8 @@ def _unpack_extracted_content(extracted_content):
         fields["parse_mode"] = extracted_content.get("parse_mode")
         fields["llama_parse_credits"] = extracted_content.get("llama_parse_credits", 0)
         fields["mode_auto_shifted_from"] = extracted_content.get("mode_auto_shifted_from")
+        fields["parse_fallback_reason"] = extracted_content.get("parse_fallback_reason")
+        fields["mode_auto_shift_target"] = extracted_content.get("mode_auto_shift_target")
     elif isinstance(extracted_content, tuple) and len(extracted_content) == 2:
         # Legacy tuple format: (text, extra_info)
         fields["extracted_text"], fields["extra_info"] = extracted_content
@@ -1012,6 +1073,7 @@ def process_and_index_file(user_id: Optional[str], knowledge_id, object_id, file
         if status == "completed":
             logger.info(f"Task already completed for object_id={object_id}, skipping")
             return
+        document_telemetry.start(object_id)
 
         # Step 1: Download file from S3/URL
         logger.info(f"Downloading file from {file_url}")
@@ -1026,13 +1088,35 @@ def process_and_index_file(user_id: Optional[str], knowledge_id, object_id, file
 
         # Step 2: Extract text from file
         update_processing_status(knowledge_id, object_id, "extracting")
+        _parse_t0 = time.time()
         extracted_content, audio_seconds, file_path = extract_text_pipeline(
             file_path, unique_filename, content_type, file_extension, mode,
             transcript_provider, knowledge_id, object_id, owner_id=owner_id
         )
+        _parse_ms = int((time.time() - _parse_t0) * 1000)
+        # Read before _unpack_extracted_content frees the dict.
+        _parse_extra = (
+            {k: extracted_content.get(k) for k in ("parse_fallback_reason", "mode_auto_shift_target")}
+            if isinstance(extracted_content, dict) else {}
+        )
 
         # Unpack extraction result into normalized fields
         fields = _unpack_extracted_content(extracted_content)
+        document_telemetry.record_parse(
+            object_id,
+            parser=_parser_label(fields, content_type),
+            mode=fields["effective_mode"],
+            ms=_parse_ms,
+            requested_mode=mode.value,
+            parse_mode=fields["parse_mode"],
+            pages=fields["llama_parse_page_count"] or None,
+            llama_parse_credits=fields["llama_parse_credits"] or None,
+            mode_auto_shifted_from=fields["mode_auto_shifted_from"],
+            transcript_provider=fields["transcript_provider_used"],
+            transcript_model=fields["transcript_model"],
+            fallback_reason=_parse_extra.get("parse_fallback_reason"),
+            mode_auto_shift_target=_parse_extra.get("mode_auto_shift_target"),
+        )
         extracted_text = fields["extracted_text"]
         extra_info = fields["extra_info"]
 

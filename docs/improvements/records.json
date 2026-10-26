@@ -116,6 +116,31 @@
       ]
     },
     {
+      "id": "DI-006",
+      "title": "Metadata-aware answers must be computed over the exact structured population",
+      "date_IST": "2026-10-25",
+      "status": "released",
+      "benchmark": "None (maintainer verification on the synthetic 24-resume sample)",
+      "research_source": "Maintainer ground-truth question set on backend/samples/resumes (synthetic), run on the hosted service with per-call traces.",
+      "historical_benchmark_result": "No benchmark verdict; maintainer question set only",
+      "observed_failure": "Counts, thresholds and rankings were wrong or right by chance: multi-field filters were OR-ed (17 documents instead of 4), ranges and $ne matched nothing, and a verifier retry discarded the complete population and answered from a 10-chunk sample ('11 candidates know Python' for 18). Whole-collection rankings and distributions fell back to chunk samples, and an empty answer returned the retrieval context as the reply.",
+      "root_cause": "The filter-only listing used by exhaustive shapes kept a loose-OR legacy builder that read ranges as nested fields. The normalizer rewrote $or, $not and $contains silently. The prompt claimed only $in existed, so arithmetic happened in the answer model. Final context was extracted from the last attempt only. A call with no filter was rejected. The answer count was the largest total of any call.",
+      "engineering_decision": "Make the existing agent/tool path exact rather than add a parallel self-query route: one condition builder for every path, refuse unsupported filters, compute stats and order in code over the complete population, keep evidence from every attempt, and never send retrieval context as an answer. Semantic choices (shape, values) stay with the LLM.",
+      "implementation": "Strict AND listing with ranges, $ne/$nin, contains and $or/$nor/$and. retrieve_documents gains stats_fields/order_by/population_complete. Exhaustive shapes with no filter cover the whole collection. retrieve_chunks refuses aggregate shapes. Answer node and verifier read the latest complete population. Small-collection direct mode loads every document.",
+      "validation": "tests/unit/test_metadata_population.py against a real Qdrant in CI (old code: 20 of 23 failed; follow-up tests 3 of 3 failed on the intermediate main). Hosted: structured questions 15/20 before (4 of them answered from chunk samples) and 19/20 after, with 1 disputed but correct; full set 19/27 before and 23/27 after. See evals/metadata_qa/RESULTS-2026-10-25.md.",
+      "limits": "Semantic recall when the condition lives in document text (synthesis and hybrid questions) is unchanged. Choosing every matching catalog value is an LLM decision and is not yet reliable. The public GET documents default (match_all=false) keeps its loose-OR behaviour. Extraction errors are out of scope.",
+      "code_and_tests": [
+        "backend/chat/rag_tools/population.py",
+        "tests/unit/test_metadata_population.py",
+        "evals/metadata_qa/RESULTS-2026-10-25.md",
+        "docs/chat-question-answering.md"
+      ],
+      "implementation_identifiers": [
+        "de995bd",
+        "bf66f8d"
+      ]
+    },
+    {
       "id": "DI-DEC-001",
       "title": "Do not add learning and correction workflows just to fill capability rows",
       "date_IST": "2026-10-21",

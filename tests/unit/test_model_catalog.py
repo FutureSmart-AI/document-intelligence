@@ -240,11 +240,11 @@ def test_every_catalog_provider_has_a_create_llm_branch():
 @pytest.fixture
 def client():
     import routers.knowledge_config_new as router_module
-    from utils.auth.dependencies import get_api_key_or_session
+    from utils.auth.dependencies import get_api_key_session_or_scoped_key
 
     app = FastAPI()
     app.include_router(router_module.router)
-    app.dependency_overrides[get_api_key_or_session] = lambda: {"auth_type": "master_api_key"}
+    app.dependency_overrides[get_api_key_session_or_scoped_key] = lambda: {"auth_type": "master_api_key"}
     return TestClient(app)
 
 

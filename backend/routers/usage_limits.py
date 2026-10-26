@@ -8,7 +8,8 @@ utils/usage/limit_checking.py.
 
 from fastapi import APIRouter, Depends, HTTPException
 
-from utils.auth.dependencies import require_owner
+from utils.auth.dependencies import require_internal_service, require_owner
+from utils.usage.internal_accounts import internal_spend
 from utils.pydantic_models_usage_limits import UsageStatusResponse, UsageCheckRequest, UsageCheckResponse, LimitsScreenResponse
 from utils.usage.limit_checking import get_usage_status, check_operation_allowed, get_usage_limits_screen
 from utils.db.session import async_session
@@ -43,6 +44,24 @@ async def api_get_usage_limits_screen(owner_id: str, _: str = Depends(require_ow
     except Exception as e:
         logger.error(f"GET /v1/owners/{owner_id}/usage/limits/screen - unexpected error: {e}", exc_info=True)
         raise HTTPException(status_code=500, detail="Internal server error")
+
+
+@router.get("/v1/usage/internal-accounts", tags=["Usage Limits"], dependencies=[Depends(require_internal_service)])
+async def api_internal_account_spend() -> dict:
+    """Master key only. Every verified internal (FutureSmart / AI Demos) account and
+    its usage this calendar month — messages, LLM tokens and estimated cost — so
+    internal spend, which no trial limit bounds, can be watched on its own. See
+    utils/usage/internal_accounts.py."""
+    try:
+        accounts = await internal_spend()
+    except Exception as e:
+        logger.error(f"GET /v1/usage/internal-accounts - unexpected error: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail="Internal server error")
+    return {
+        "accounts": accounts,
+        "total_cost_usd_this_month": round(sum(a["cost_usd_this_month"] or 0 for a in accounts), 4),
+        "total_messages_this_month": sum(a["messages_this_month"] or 0 for a in accounts),
+    }
 
 
 @router.post("/v1/owners/{owner_id}/usage/limits/check", response_model=UsageCheckResponse, tags=["Usage Limits"])

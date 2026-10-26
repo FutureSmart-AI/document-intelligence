@@ -44,8 +44,12 @@ temperature = float(os.getenv("temperature", 0.7))
 # Hardcoded defaults are the last resort in the config chain (per-knowledge -> global
 # DB -> env -> here) and must name models that still exist in
 # llm_factory.ENRICHMENT_MODELS. Keep them in step with .env* when those change.
-ENRICHMENT_MODEL = os.getenv("ENRICHMENT_MODEL", "openai/gpt-oss-120b")
-ENRICHMENT_FALLBACK_MODEL = os.getenv("ENRICHMENT_FALLBACK_MODEL", "gpt-5.4-nano")
+# OpenAI-only on purpose: the default must run on an install that has nothing but
+# OPENAI_API_KEY (deploy/model-profiles.json openai-v1). It was openai/gpt-oss-120b
+# (Groq) until 2026-10-26, which made every extraction on such an install fail over
+# to the fallback. The hosted deployment sets ENRICHMENT_MODEL explicitly.
+ENRICHMENT_MODEL = os.getenv("ENRICHMENT_MODEL", "").strip() or "gpt-5.4-mini"
+ENRICHMENT_FALLBACK_MODEL = os.getenv("ENRICHMENT_FALLBACK_MODEL", "").strip() or "gpt-5.4-nano"
 # possible_models = {
 #     "gpt-3.5": os.getenv("GPT_3.5", "gpt-3.5-turbo-1106"),
 #     "gpt-4": os.getenv("GPT_4", "gpt-4-turbo-preview"),

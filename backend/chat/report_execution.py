@@ -75,14 +75,14 @@ async def _run_one_query(
             past_messages=past_messages,
         )
         elapsed_ms = int((time.monotonic() - started) * 1000)
-        answer = final_state.get("response") or final_state.get("relevant_context") or ""
+        answer = final_state.get("response") or ""
         return {
             "answer": answer,
             "sources_used": final_state.get("relevant_sources") or [],
             "retrieved_documents": final_state.get("detailed_chunks") or [],
             "response_time_ms": elapsed_ms,
             "token_usage": _sum_tokens(final_state.get("usage_by_model")),
-            "error": None,
+            "error": final_state.get("error"),
         }
     except Exception as e:
         elapsed_ms = int((time.monotonic() - started) * 1000)

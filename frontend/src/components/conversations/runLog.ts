@@ -8,11 +8,11 @@ import { isPlainObject } from "lodash-es";
  * fact rather than a live timeline. Every line is something the service
  * actually reported; nothing here is inferred from how long the UI waited.
  *
- * Two of the fields it is built from only exist on a live turn. `usage` (the
- * per-service latency, tokens and cost) and `debug_info` ride the final stream
- * event and are never stored, so a thread read back later has the steps and
- * their outcomes but no timings. `partial` says which of the two this is, and
- * the panel says so rather than printing zeroes.
+ * `usage` (latency, per-operation model, tokens and estimated cost) rides the
+ * final stream event AND is stored with the turn, so a thread read back later
+ * shows the same numbers. Turns stored before that have no `usage`; `partial`
+ * says so and the panel says it rather than printing zeroes. `debug_info` is
+ * still live-only.
  */
 
 export interface RunLogCall {
@@ -24,6 +24,43 @@ export interface RunLogCall {
   outputTokens?: number;
   costUsd?: number;
 }
+
+/**
+ * One row of `usage.operations`: every model call of the turn is counted under
+ * an operation, with the model that actually served it. `costUsd` is null when
+ * that model has no price — unknown, never shown as free.
+ */
+export interface RunLogOperation {
+  operation: string;
+  label: string;
+  provider?: string;
+  model?: string;
+  /** The model that was asked for, when a fallback served the call instead. */
+  requestedModel?: string;
+  fallback: boolean;
+  fallbackReason?: string;
+  calls?: number;
+  failedCalls?: number;
+  inputTokens?: number;
+  cachedInputTokens?: number;
+  outputTokens?: number;
+  /** Time spent in this row's model calls. */
+  latencyMs?: number;
+  costUsd: number | null;
+}
+
+/** Plain names for the operations the service reports. */
+export const OPERATION_LABEL: Record<string, string> = {
+  query_refinement: "Question rewrite",
+  retrieval_agent: "Retrieval agent",
+  retrieval_verifier: "Retrieval check",
+  answer: "Answer",
+  chart_spec: "Chart spec",
+  chart_render: "Chart",
+  follow_up: "Follow-up questions",
+  embeddings: "Embeddings",
+  other_calls: "Other calls",
+};
 
 export type RunLogState = "done" | "failed" | "skipped" | "flagged";
 
@@ -39,10 +76,25 @@ export interface RunLogStep {
   call?: RunLogCall;
 }
 
+export interface RunLogTotals {
+  latencyMs?: number;
+  totalTokens?: number;
+  /** Estimated; undefined when nothing could be priced. */
+  costUsd?: number;
+  /** False when some operation ran on a model with no price. */
+  costComplete?: boolean;
+  unpricedModels?: string[];
+  priceTable?: string;
+}
+
 export interface RunLog {
   steps: RunLogStep[];
+  /** Every model call of the run, per operation, when the service reported them. */
+  operations: RunLogOperation[];
+  /** Wall time of each operation's stage (tool time included), by operation. */
+  stageMs: Record<string, number>;
   /** The run as a whole, when `usage` was there to total up. */
-  totals?: { latencyMs?: number; totalTokens?: number; costUsd?: number };
+  totals?: RunLogTotals;
   /** The pipeline the service says it ran, e.g. `vanilla_rag`. */
   runType?: string;
   model?: string;
@@ -69,6 +121,65 @@ export const formatMs = (ms: number): string =>
 /** Cost to the cent is useless at these magnitudes — four places, or "<$0.0001". */
 export const formatCost = (usd: number): string =>
   usd > 0 && usd < 0.0001 ? "<$0.0001" : `$${usd.toFixed(4)}`;
+
+/** `usage.operations`, mapped; empty for a turn that predates them. */
+export function readOperations(
+  usage: Record<string, unknown> | null,
+): RunLogOperation[] {
+  const rows = usage?.operations;
+  if (!Array.isArray(rows)) return [];
+  return rows.flatMap((entry) => {
+    const row = asObject(entry);
+    const operation = str(row?.operation);
+    if (!row || !operation) return [];
+    const model = str(row.model);
+    const requested = str(row.requested_model);
+    return [
+      {
+        operation,
+        label: OPERATION_LABEL[operation] ?? operation,
+        provider: str(row.provider),
+        model,
+        requestedModel:
+          requested && requested !== model ? requested : undefined,
+        fallback: row.fallback === true,
+        fallbackReason: str(row.fallback_reason),
+        calls: num(row.calls),
+        failedCalls: num(row.failed_calls),
+        inputTokens: num(row.input_tokens),
+        cachedInputTokens: num(row.cached_input_tokens),
+        outputTokens: num(row.output_tokens),
+        latencyMs: num(row.latency_ms),
+        costUsd: num(row.estimated_cost_usd) ?? null,
+      } satisfies RunLogOperation,
+    ];
+  });
+}
+
+/** One step's numbers, summed over the operation rows it covers. */
+function callFromOperations(
+  operations: RunLogOperation[],
+  names: string[],
+  service: string,
+): RunLogCall | undefined {
+  const rows = operations.filter((op) => names.includes(op.operation));
+  if (!rows.length) return undefined;
+  const sum = (pick: (op: RunLogOperation) => number | undefined) =>
+    rows.reduce((total, op) => total + (pick(op) ?? 0), 0);
+  const priced = rows.every(
+    (op) => op.costUsd !== null || !(op.inputTokens || op.outputTokens),
+  );
+  const served = rows.find((op) => (op.calls ?? 0) > 0) ?? rows[0];
+  return {
+    service,
+    latencyMs: sum((op) => op.latencyMs),
+    provider: served.provider,
+    model: served.model,
+    inputTokens: sum((op) => op.inputTokens),
+    outputTokens: sum((op) => op.outputTokens),
+    costUsd: priced ? sum((op) => op.costUsd ?? 0) : undefined,
+  };
+}
 
 const callOf = (usage: Record<string, unknown> | null, service: string) => {
   const calls = usage?.service_calls;
@@ -188,6 +299,7 @@ export function readRunLog(message: unknown): RunLog | null {
 
   const usage = asObject(run.usage);
   const debug = asObject(run.debug_info);
+  const operations = readOperations(usage);
   const steps: RunLogStep[] = [];
 
   // 1 — the question, as the service decided to ask it.
@@ -233,7 +345,9 @@ export function readRunLog(message: unknown): RunLog | null {
   }
 
   // 3 — the answer itself.
-  const answerCall = callOf(usage, "generate_answer");
+  const answerCall =
+    callFromOperations(operations, ["answer"], "answer") ??
+    callOf(usage, "generate_answer");
   const answered = run.is_answered;
   const couldAnswer =
     answered === undefined || answered === true || answered === "yes";
@@ -281,7 +395,9 @@ export function readRunLog(message: unknown): RunLog | null {
       detail: drew ? undefined : why?.split("\n")[0],
       state: declined && !drew ? "skipped" : "done",
       lines: !drew && why ? why.split("\n").slice(0, 40) : undefined,
-      call: callOf(usage, "chart"),
+      call:
+        callFromOperations(operations, ["chart_render"], "chart") ??
+        callOf(usage, "chart"),
     });
   }
 
@@ -302,26 +418,60 @@ export function readRunLog(message: unknown): RunLog | null {
   if (!steps.length) return null;
 
   const calls = Array.isArray(usage?.service_calls) ? usage.service_calls : [];
-  const totals = usage
+  const stageMs: Record<string, number> = {};
+  for (const [key, value] of Object.entries(
+    asObject(usage?.operation_latency_ms) ?? {},
+  )) {
+    const ms = num(value);
+    if (ms !== undefined) stageMs[key] = ms;
+  }
+  const unpriced = Array.isArray(usage?.unpriced_models)
+    ? usage.unpriced_models.filter(
+        (model): model is string => typeof model === "string",
+      )
+    : [];
+  // A run-level block (every model call counted) is the authority when present;
+  // older turns only carry the per-service calls, which are summed instead.
+  const totals: RunLogTotals | undefined =
+    usage && operations.length
+      ? {
+          latencyMs: num(usage.latency_ms),
+          totalTokens: num(usage.total_tokens),
+          costUsd: num(usage.estimated_cost_usd),
+          costComplete: usage.cost_complete !== false,
+          unpricedModels: unpriced,
+          priceTable: str(usage.price_table),
+        }
+      : legacyTotals(usage, calls);
+
+  return {
+    steps,
+    operations,
+    stageMs,
+    totals,
+    runType: str(debug?.type),
+    model: answerCall?.model ?? str(run.model),
+    // No `usage`: a turn stored before usage was recorded with it.
+    partial: !usage,
+  };
+}
+
+/** Totals for a turn that only reported per-service calls. */
+function legacyTotals(
+  usage: Record<string, unknown> | null,
+  calls: unknown[],
+): RunLogTotals | undefined {
+  return usage
     ? {
-        latencyMs: calls.reduce(
+        latencyMs: calls.reduce<number>(
           (sum: number, entry) => sum + (num(asObject(entry)?.latency_ms) ?? 0),
           0,
         ),
         totalTokens: num(usage.total_tokens),
-        costUsd: calls.reduce(
+        costUsd: calls.reduce<number>(
           (sum: number, entry) => sum + (num(asObject(entry)?.cost_usd) ?? 0),
           0,
         ),
       }
     : undefined;
-
-  return {
-    steps,
-    totals,
-    runType: str(debug?.type),
-    model: callOf(usage, "generate_answer")?.model ?? str(run.model),
-    // No `usage` means the turn came back from storage, where it is not kept.
-    partial: !usage,
-  };
 }

@@ -65,13 +65,26 @@ RAG_RECENT_EVIDENCE_TURNS = int(os.getenv("RAG_RECENT_EVIDENCE_TURNS", "2"))
 # observed live 2026-08-20: "Project ... does not have access to model
 # gpt-4o-mini", which failed every chart attempt and was unfixable without a
 # redeploy. Keep this pointing at a model the platform OpenAI project can reach.
-CHART_EXTRACTION_MODEL = os.getenv("CHART_EXTRACTION_MODEL", "gpt-4o-mini")
+# The code default must be reachable with a plain OpenAI key: gpt-4o-mini was not
+# (2026-10-26 audit), so a standalone install that left this unset lost every chart.
+CHART_EXTRACTION_MODEL = os.getenv("CHART_EXTRACTION_MODEL", "").strip() or "gpt-5.4-mini"
 
-# External Chart API called by chat/chart_generator.py (chart_node, G16).
-# Same default URL as fs-agent-chat/chat_utils/chart_utils_module/config.py.
+# External Chart API called by chat/chart_generator.py (chart_node, G16). Optional:
+# when unset, charts are drawn in-process by chat/local_chart_renderer.py (chart type
+# chosen by one structured-output call on CHART_RENDER_PROVIDER/MODEL, rows mapped
+# deterministically into the same response contract). The hosted product sets it.
 CHART_API_URL = os.getenv(
     "CHART_API_URL", ""
-)
+).strip()
+CHART_RENDER_PROVIDER = os.getenv("CHART_RENDER_PROVIDER", "").strip() or "openai"
+CHART_RENDER_MODEL = os.getenv("CHART_RENDER_MODEL", "").strip() or CHART_EXTRACTION_MODEL
+# Service key the hosted Chart API (fs-agent-nl2sql chart_agent) accepts from this
+# service in X-Chart-Service-Key. With it the Chart API runs this service's chart
+# requests on platform provider keys; without it the Chart API applies the Database
+# Agent's per-owner key policy to our owner ids, which on a bring-your-own-key
+# deployment refuses every owner that is not also a Database Agent workspace.
+# Leave unset for a Chart API that needs no key.
+CHART_SERVICE_KEY = os.getenv("CHART_SERVICE_KEY", "")
 
 # How many prior session-history TURNS (user+assistant pairs) to inject into
 # the RAG agent's message thread so it can resolve pronouns/follow-ups
@@ -378,7 +391,6 @@ RAG_EVAL_MAX_TURNS = int(os.getenv("RAG_EVAL_MAX_TURNS", "50"))
 EXTRACTION_VALIDATION_ENABLED = os.getenv("EXTRACTION_VALIDATION_ENABLED", "true").strip().lower() in ("1", "true", "yes")
 # Tier 2 on/off separately from Tier 1: a deployment can keep the free
 # arithmetic checks and skip the paid judge entirely.
-EXTRACTION_VALIDATION_LLM_ENABLED = os.getenv("EXTRACTION_VALIDATION_LLM_ENABLED", "true").strip().lower() in ("1", "true", "yes")
 # The JUDGE's model, deliberately configured apart from ENRICHMENT_MODEL. A model
 # grading its own output has a self-preference bias, and because
 # llm_factory.get_enrichment_config swaps the enriching model by processing mode,
@@ -391,6 +403,47 @@ EXTRACTION_VALIDATION_LLM_ENABLED = os.getenv("EXTRACTION_VALIDATION_LLM_ENABLED
 # `claude-sonnet-5` is the exact model id — no date suffix.
 EXTRACTION_VALIDATION_PROVIDER = os.getenv("EXTRACTION_VALIDATION_PROVIDER", "anthropic").strip() or None
 EXTRACTION_VALIDATION_MODEL = os.getenv("EXTRACTION_VALIDATION_MODEL", "claude-sonnet-5").strip() or None
+
+# Platform keys by provider id, for "is this optional provider configured at all".
+_PROVIDER_KEY_ENV = {
+    "openai": "OPENAI_API_KEY", "anthropic": "ANTHROPIC_API_KEY", "google": "GOOGLE_API_KEY",
+    "groq": "GROQ_API_KEY", "deepseek": "DEEPSEEK_API_KEY", "minimax": "MINIMAX_API_KEY",
+}
+
+
+def provider_key_configured(provider):
+    """True when the platform key for ``provider`` is set (unknown providers: True, so
+    a provider this map does not know is never switched off by it)."""
+    name = _PROVIDER_KEY_ENV.get((provider or "").strip().lower())
+    return True if name is None else bool((os.getenv(name) or "").strip())
+
+
+def _judge_enabled_default():
+    """EXTRACTION_VALIDATION_LLM_ENABLED: an explicit value always wins (the hosted
+    deployment sets it). Unset, the paid judge runs only when its provider's platform
+    key exists — an OpenAI-only install must not spend every document on a judge call
+    that can only fail. Logged either way so the state is never a guess."""
+    raw = os.getenv("EXTRACTION_VALIDATION_LLM_ENABLED", "").strip().lower()
+    if raw:
+        enabled = raw in ("1", "true", "yes")
+        if enabled and not provider_key_configured(EXTRACTION_VALIDATION_PROVIDER):
+            logger.warning(
+                f"EXTRACTION_VALIDATION_LLM_ENABLED=true but no platform key for judge provider "
+                f"{EXTRACTION_VALIDATION_PROVIDER!r}; judge calls will fail until it is set."
+            )
+        return enabled
+    if provider_key_configured(EXTRACTION_VALIDATION_PROVIDER):
+        return True
+    logger.info(
+        f"Extraction-validation LLM judge disabled: EXTRACTION_VALIDATION_LLM_ENABLED unset and no "
+        f"platform key for judge provider {EXTRACTION_VALIDATION_PROVIDER!r} "
+        f"(set {_PROVIDER_KEY_ENV.get(EXTRACTION_VALIDATION_PROVIDER or '', 'its key')} or "
+        f"EXTRACTION_VALIDATION_PROVIDER/MODEL to enable). Deterministic checks still run."
+    )
+    return False
+
+
+EXTRACTION_VALIDATION_LLM_ENABLED = _judge_enabled_default()
 # How the judge is steered on the model generations that REJECT temperature
 # (Opus 4.7 and later). Unset by default: those models already default to
 # effort=high, so sending a value unasked would change behaviour silently.

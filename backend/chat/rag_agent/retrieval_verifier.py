@@ -55,7 +55,18 @@ _VERIFIER_DEFAULT_PROMPT = (
     "question correctly and completely. Output a structured verdict. "
     "Bias toward sufficient=true when coverage is reasonable; only flag "
     "insufficient when there is a clear gap (empty results, topical "
-    "mismatch, missing entity coverage, in-flight guardrail warning)."
+    "mismatch, missing entity coverage, in-flight guardrail warning). "
+    "A retrieval attempt marked COMPLETE matching population was evaluated "
+    "by the database: its count, its documents and any computed statistics "
+    "or ranking are exact for that filter. Judge whether that FILTER expresses "
+    "the question's conditions; do not ask for chunks or values to re-verify "
+    "numbers the database already computed. "
+    "A question asking WHICH / WHO / ALL / HOW MANY documents satisfy a condition a "
+    "catalog field can express (a location, a skill, a level, a currency, a date or "
+    "number range) is answered only by a COMPLETE matching population. If the "
+    "documents came only from a RANKED top-K semantic sample, the retrieval is "
+    "insufficient: suggest retrieve_documents with question_shape='predicate' (or "
+    "'aggregate' for counts) and a metadata_filter for that condition."
 )
 
 
@@ -532,17 +543,37 @@ def _ladder_gate(
     )
 
 
+def _documents_only_from_a_ranked_sample(retrieved_context: Dict[str, Any]) -> bool:
+    """True when the turn's documents came only from semantic (query-ranked)
+    retrieve_documents calls — a top-K that cannot show it holds every match —
+    and no call returned a complete population. A confident self-report is not
+    evidence of completeness then, so the LLM verifier must look: "which
+    candidates are based in or open to Bengaluru" was answered from a top-20
+    ranking that held 3 of the 5, and the high-confidence shortcut waved it
+    through without a check."""
+    ranked = complete = False
+    for record in retrieved_context.get("tool_responses") or []:
+        result = record.get("result") if isinstance(record, dict) else None
+        if not isinstance(result, dict) or not isinstance(result.get("documents"), list):
+            continue
+        if result.get("population_complete"):
+            complete = True
+        elif result.get("query") and result["documents"]:
+            ranked = True
+    return ranked and not complete
+
+
 def _build_system_prompt() -> str:
     return _VERIFIER_DEFAULT_PROMPT
 
 
 @track_time("RAG: Retrieval Verifier")
 @traceable(name="retrieval_verifier", run_type="chain")
-async def verify_retrieval(
+async def _verify_retrieval_impl(
     query: str,
     retrieved_context: Dict[str, Any],
     llm_provider: str = "openai",
-    llm_model: str = "gpt-4o-mini",
+    llm_model: str = "gpt-5.4-mini",
     owner_id: Optional[str] = None,
     messages: Optional[List[Any]] = None,
     knowledge_id: Optional[str] = None,
@@ -587,7 +618,8 @@ async def verify_retrieval(
     # precisely what we want to wave through. The inverse case (answered with NO
     # citations) deliberately falls through to the full LLM as a suspicion check.
     relevant_docs = agent_output.get("relevant_docs") or []
-    if stop_reason == "answered" and confidence == "high" and relevant_docs:
+    if stop_reason == "answered" and confidence == "high" and relevant_docs \
+            and not _documents_only_from_a_ranked_sample(retrieved_context):
         logger.info(
             f"[verifier] trivially sufficient — agent answered at high confidence "
             f"with {len(relevant_docs)} cited doc(s), skipping LLM call"
@@ -775,9 +807,23 @@ def _summarize_tool_outcome(msg: Any) -> str:
             if result.get("metadata_lookup_over_retrieval_warning"):
                 warnings.append("metadata_lookup_over_retrieval_warning")
             warn_str = f" [{', '.join(warnings)}]" if warnings else ""
+            # Completeness and the tool's own arithmetic, so a complete
+            # aggregate is not judged "insufficient" for showing no values —
+            # the verifier sees key NAMES only, never the metadata values.
+            pop = ""
+            if result.get("population_complete"):
+                pop = f" — COMPLETE matching population for filter {result.get('applied_filter')}"
+                from chat.rag_tools.population import render_population
+
+                block = render_population(result, total, True, max_rank_rows=10)
+                if block:
+                    pop += "; " + block.replace("\n", " ")[:600]
+            if not pop and result.get("query"):
+                pop = (" — RANKED top-K semantic sample for the query, NOT a complete set: "
+                       "documents matching a condition can be missing")
             if total is not None and total != n:
-                return f"{n} docs (of {total} total){warn_str}"
-            return f"{n} docs{warn_str}"
+                return f"{n} docs (of {total} total){warn_str}{pop}"
+            return f"{n} docs{warn_str}{pop}"
         if "chunks" in result and isinstance(result["chunks"], list):
             return f"{len(result['chunks'])} chunks"
         if "values" in result and isinstance(result["values"], list):
@@ -869,3 +915,10 @@ def format_replan_message(
         )
     parts.append(closing)
     return "\n".join(parts)
+
+
+async def verify_retrieval(*args, **kwargs):
+    """``_verify_retrieval_impl`` with every model call it makes attributed to the
+    ``retrieval_verifier`` operation of the turn's usage block (chat/run_usage.py)."""
+    from chat.run_usage import in_operation
+    return await in_operation("retrieval_verifier", _verify_retrieval_impl(*args, **kwargs))

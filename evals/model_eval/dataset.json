@@ -1,0 +1,102 @@
+{
+  "name": "document-intelligence-model-eval",
+  "version": "v1",
+  "about": "Document Intelligence model evaluation through the real HTTP API of the standalone stack. Extraction: 24 synthetic resumes and 18 synthetic invoices uploaded as PDFs, every field graded against hand-checked ground truth. RAG: questions asked on the configuration's own collections, expected answers computed from that collection's extracted metadata.",
+  "judge_model": "gpt-5.6-terra",
+  "hashed_files": [
+    "evals/model_eval/dataset.json",
+    "evals/model_eval/cases.py",
+    "evals/model_eval/grade.py",
+    "backend/samples/resumes/ground_truth.json",
+    "backend/samples/resumes/questions.json",
+    "backend/samples/resumes/score.py",
+    "backend/samples/invoices/ground_truth.json",
+    "backend/samples/invoices/questions.json",
+    "evals/metadata_qa/questions.py",
+    "evals/metadata_qa/grade.py"
+  ],
+  "collections": {
+    "resumes": {
+      "template": "resume",
+      "ground_truth": "backend/samples/resumes/ground_truth.json",
+      "records_key": "resumes",
+      "pdf_dir": "backend/samples/resumes/pdf",
+      "name_field": "candidate_name",
+      "exact": {
+        "candidate_email": "email",
+        "seniority_level": "enum",
+        "education_level": "enum",
+        "years_of_experience": "integer"
+      },
+      "judged": ["candidate_name", "current_role", "skills", "certifications", "locations", "industries", "languages", "work_experience", "education"],
+      "rubric": "resume"
+    },
+    "invoices": {
+      "template": "invoice",
+      "ground_truth": "backend/samples/invoices/ground_truth.json",
+      "records_key": "invoices",
+      "pdf_dir": "backend/samples/invoices/pdf",
+      "name_field": null,
+      "exact": {
+        "invoice_number": "code",
+        "currency": "code",
+        "total_amount": "amount",
+        "issue_date": "date",
+        "due_date": "date"
+      },
+      "judged": ["vendor_name", "customer_name", "payment_terms", "line_item_categories", "line_items"],
+      "rubric": "invoice"
+    }
+  },
+  "numeric_fields": ["years_of_experience", "total_amount", "issue_date", "due_date"],
+  "suites": {
+    "extraction": {
+      "collections": ["resumes", "invoices"],
+      "baseline_to_reverify": "306/312 resume fields (98.1%) on gpt-5.4-nano reasoning medium, backend/samples/resumes/EXTRACTION-YEARS-2026-10-25.md"
+    },
+    "rag": {
+      "collections": ["resumes", "invoices"],
+      "cases": [
+        {"id": "f01", "category": "exact_filter"},
+        {"id": "f02", "category": "exact_filter"},
+        {"id": "f03", "category": "multi_field_filter"},
+        {"id": "f04", "category": "multi_field_filter"},
+        {"id": "f05", "category": "multi_field_filter"},
+        {"id": "f06", "category": "negation_filter"},
+        {"id": "n01", "category": "numeric_range"},
+        {"id": "n02", "category": "numeric_range"},
+        {"id": "n03", "category": "numeric_range"},
+        {"id": "n04", "category": "numeric_range"},
+        {"id": "n05", "category": "numeric_range"},
+        {"id": "c01", "category": "count"},
+        {"id": "c02", "category": "count"},
+        {"id": "c03", "category": "aggregation"},
+        {"id": "c04", "category": "aggregation"},
+        {"id": "c05", "category": "aggregation"},
+        {"id": "r01", "category": "ranking"},
+        {"id": "r02", "category": "ranking"},
+        {"id": "r03", "category": "comparison"},
+        {"id": "r04", "category": "ranking"},
+        {"id": "p01", "category": "passage"},
+        {"id": "p02", "category": "passage"},
+        {"id": "p03", "category": "passage"},
+        {"id": "s01", "category": "multi_doc_synthesis"},
+        {"id": "s02", "category": "multi_doc_synthesis"},
+        {"id": "h01", "category": "hybrid"},
+        {"id": "h02", "category": "hybrid"},
+        {"id": "inv_q01", "category": "invoice_structured"},
+        {"id": "inv_q02", "category": "invoice_structured"},
+        {"id": "inv_q03", "category": "invoice_structured"},
+        {"id": "inv_q04", "category": "invoice_structured"},
+        {"id": "inv_q06", "category": "invoice_text"},
+        {"id": "ch_seniority", "category": "chart"},
+        {"id": "ch_years", "category": "chart"},
+        {"id": "ch_education", "category": "chart"},
+        {"id": "ch_skills", "category": "chart"},
+        {"id": "ch_usd_vendors", "category": "chart"},
+        {"id": "fu_python_aws_years_chart", "category": "follow_up", "regression": "turn 2 'chart their years' charted 14 people (only the 5+ years filter kept) instead of turn 1's population in 1 of 13 live runs"},
+        {"id": "fu_eur_total", "category": "follow_up"}
+      ]
+    }
+  }
+}

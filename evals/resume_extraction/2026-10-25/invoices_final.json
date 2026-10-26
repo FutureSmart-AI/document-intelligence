@@ -1,0 +1,3088 @@
+{
+  "sample": "invoices",
+  "model": "openai/gpt-5.4-nano",
+  "runs": 2,
+  "reference_date_in_prompt": true,
+  "template_descriptions": false,
+  "summary": {
+    "invoice_number": {
+      "ok": 36,
+      "of": 36
+    },
+    "total_amount": {
+      "ok": 36,
+      "of": 36
+    },
+    "currency": {
+      "ok": 36,
+      "of": 36
+    },
+    "issue_date": {
+      "ok": 36,
+      "of": 36
+    },
+    "due_date": {
+      "ok": 36,
+      "of": 36
+    },
+    "payment_terms": {
+      "ok": 12,
+      "of": 36
+    }
+  },
+  "misses": [
+    {
+      "id": "i01",
+      "run": 1,
+      "field": "payment_terms",
+      "expected": "net 30",
+      "got": "Net 30"
+    },
+    {
+      "id": "i02",
+      "run": 1,
+      "field": "payment_terms",
+      "expected": "net 30",
+      "got": "Net 30"
+    },
+    {
+      "id": "i03",
+      "run": 1,
+      "field": "payment_terms",
+      "expected": "net 30",
+      "got": "Net 30"
+    },
+    {
+      "id": "i06",
+      "run": 1,
+      "field": "payment_terms",
+      "expected": "milestone-based",
+      "got": "Milestone-based"
+    },
+    {
+      "id": "i07",
+      "run": 1,
+      "field": "payment_terms",
+      "expected": "due on receipt",
+      "got": "Due on receipt"
+    },
+    {
+      "id": "i08",
+      "run": 1,
+      "field": "payment_terms",
+      "expected": "due on receipt",
+      "got": "Due on receipt"
+    },
+    {
+      "id": "i09",
+      "run": 1,
+      "field": "payment_terms",
+      "expected": "net 15",
+      "got": "Net 15"
+    },
+    {
+      "id": "i14",
+      "run": 1,
+      "field": "payment_terms",
+      "expected": "milestone-based",
+      "got": "Milestone-based"
+    },
+    {
+      "id": "i16",
+      "run": 1,
+      "field": "payment_terms",
+      "expected": "net 30",
+      "got": "Net 30"
+    },
+    {
+      "id": "i17",
+      "run": 1,
+      "field": "payment_terms",
+      "expected": "net 30",
+      "got": "Net 30"
+    },
+    {
+      "id": "i18",
+      "run": 1,
+      "field": "payment_terms",
+      "expected": "net 30",
+      "got": "Net 30"
+    },
+    {
+      "id": "i01",
+      "run": 2,
+      "field": "payment_terms",
+      "expected": "net 30",
+      "got": "Net 30"
+    },
+    {
+      "id": "i02",
+      "run": 2,
+      "field": "payment_terms",
+      "expected": "net 30",
+      "got": "Net 30"
+    },
+    {
+      "id": "i03",
+      "run": 2,
+      "field": "payment_terms",
+      "expected": "net 30",
+      "got": "Net 30"
+    },
+    {
+      "id": "i04",
+      "run": 2,
+      "field": "payment_terms",
+      "expected": "net 30",
+      "got": "Net 30"
+    },
+    {
+      "id": "i05",
+      "run": 2,
+      "field": "payment_terms",
+      "expected": "net 30",
+      "got": "Net 30"
+    },
+    {
+      "id": "i06",
+      "run": 2,
+      "field": "payment_terms",
+      "expected": "milestone-based",
+      "got": "Milestone-based"
+    },
+    {
+      "id": "i07",
+      "run": 2,
+      "field": "payment_terms",
+      "expected": "due on receipt",
+      "got": "Due on receipt"
+    },
+    {
+      "id": "i10",
+      "run": 2,
+      "field": "payment_terms",
+      "expected": "net 30",
+      "got": "Net 30"
+    },
+    {
+      "id": "i11",
+      "run": 2,
+      "field": "payment_terms",
+      "expected": "net 30",
+      "got": "Net 30"
+    },
+    {
+      "id": "i12",
+      "run": 2,
+      "field": "payment_terms",
+      "expected": "net 30",
+      "got": "Net 30"
+    },
+    {
+      "id": "i14",
+      "run": 2,
+      "field": "payment_terms",
+      "expected": "milestone-based",
+      "got": "Milestone-based"
+    },
+    {
+      "id": "i16",
+      "run": 2,
+      "field": "payment_terms",
+      "expected": "net 30",
+      "got": "Net 30"
+    },
+    {
+      "id": "i17",
+      "run": 2,
+      "field": "payment_terms",
+      "expected": "net 30",
+      "got": "Net 30"
+    }
+  ],
+  "errors": [],
+  "system_prompt": "You are an expert in document processing and metadata extraction. Given the full text of a document—which can be of any industry or type (e.g., report, case study, blog post, technical document, etc.)—perform the following tasks in one pass:  1. Document-Level Extraction only.\\\\n  **Extraction Guidelines:**     1. Extract the most relevant information from the document for each field.     2. Follow any specified restrictions on values or limits.     3. For fields with provided examples, use similar formatting and style.     4. For fields with restricted choices, only use the specified options.     5. Keep the output concise and focused on the document's content     6. If a field specifies a maxItems constraint, generate no more than that number of values for that field.     7. If information for a field is not available in the document, provide a reasonable default or leave it appropriately blank  **IMPORTANT - Existing Metadata Reference (if present):** To maintain consistency across documents, consider the following existing metadata when extracting new metadata:\\\\n {existing_metadata}\\\\n  When appropriate, use these existing values instead of creating new ones to ensure consistency in metadata. However, you should still extract new values when they provide better information about the document.\n\nAdditional Instructions:\nExtract metadata deterministically. Use only information explicitly present in the document. Do not infer missing facts. Return stable, normalized values that follow the field definitions exactly.\n\n## Reference date\nToday is 2026-10-25, the date this document is being processed. Whenever a field needs a value measured up to now (a duration, an age, a tenure), measure it to this date: an end written as \"Present\", \"Current\", \"Now\" or \"to date\", or a range left open, ends on this date. Do not assume any other current date.",
+  "results": [
+    {
+      "id": "i01",
+      "run": 1,
+      "name": "BCH-2026-0418",
+      "exact": {
+        "invoice_number": {
+          "expected": "BCH-2026-0418",
+          "got": "BCH-2026-0418",
+          "ok": true
+        },
+        "total_amount": {
+          "expected": 3237.0,
+          "got": 3237.0,
+          "ok": true
+        },
+        "currency": {
+          "expected": "EUR",
+          "got": "EUR",
+          "ok": true
+        },
+        "issue_date": {
+          "expected": "2026-04-30",
+          "got": "2026-04-30",
+          "ok": true
+        },
+        "due_date": {
+          "expected": "2026-05-30",
+          "got": "2026-05-30",
+          "ok": true
+        },
+        "payment_terms": {
+          "expected": "net 30",
+          "got": "Net 30",
+          "ok": false
+        }
+      },
+      "usage": {
+        "input_tokens": 1506,
+        "output_tokens": 691,
+        "total_tokens": 2197,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 448
+        }
+      },
+      "values": {
+        "summary": "This document is an invoice from Bramblecloud Hosting Ltd. to Cedar Lane Retail Inc. for cloud services covering April 2026, including a managed Kubernetes cluster, object storage, and a premium support plan. The invoice is issued in EUR with net 30 payment terms and a total due of €3,237.00.",
+        "document_type": "invoice",
+        "vendor_name": "Bramblecloud Hosting Ltd.",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "BCH-2026-0418",
+        "total_amount": 3237.0,
+        "currency": "EUR",
+        "issue_date": "2026-04-30",
+        "due_date": "2026-05-30",
+        "payment_terms": "Net 30",
+        "line_item_categories": [
+          "cloud hosting",
+          "managed kubernetes",
+          "object storage",
+          "support"
+        ],
+        "line_items": [
+          {
+            "amount": 2400.0,
+            "quantity": 1.0,
+            "unit_price": 2400.0,
+            "description": "Managed Kubernetes cluster, April"
+          },
+          {
+            "amount": 450.0,
+            "quantity": 18.0,
+            "unit_price": 21.5,
+            "description": "Object storage, 18 TB-month"
+          },
+          {
+            "amount": 387.0,
+            "quantity": 1.0,
+            "unit_price": 387.0,
+            "description": "Premium support plan"
+          }
+        ]
+      }
+    },
+    {
+      "id": "i02",
+      "run": 1,
+      "name": "BCH-2026-0519",
+      "exact": {
+        "invoice_number": {
+          "expected": "BCH-2026-0519",
+          "got": "BCH-2026-0519",
+          "ok": true
+        },
+        "total_amount": {
+          "expected": 3301.5,
+          "got": 3301.5,
+          "ok": true
+        },
+        "currency": {
+          "expected": "EUR",
+          "got": "EUR",
+          "ok": true
+        },
+        "issue_date": {
+          "expected": "2026-05-31",
+          "got": "2026-05-31",
+          "ok": true
+        },
+        "due_date": {
+          "expected": "2026-06-30",
+          "got": "2026-06-30",
+          "ok": true
+        },
+        "payment_terms": {
+          "expected": "net 30",
+          "got": "Net 30",
+          "ok": false
+        }
+      },
+      "usage": {
+        "input_tokens": 1506,
+        "output_tokens": 676,
+        "total_tokens": 2182,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 433
+        }
+      },
+      "values": {
+        "summary": "This document is an invoice from Bramblecloud Hosting Ltd. to Cedar Lane Retail Inc. for managed cloud services covering May 2026, including a managed Kubernetes cluster, object storage, and a premium support plan. The invoice totals €3,301.50 EUR due on 30 June 2026 with Net 30 terms.",
+        "document_type": "invoice",
+        "vendor_name": "Bramblecloud Hosting Ltd.",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "BCH-2026-0519",
+        "total_amount": 3301.5,
+        "currency": "EUR",
+        "issue_date": "2026-05-31",
+        "due_date": "2026-06-30",
+        "payment_terms": "Net 30",
+        "line_item_categories": [
+          "managed services",
+          "cloud infrastructure",
+          "support"
+        ],
+        "line_items": [
+          {
+            "amount": 2400.0,
+            "quantity": 1.0,
+            "unit_price": 2400.0,
+            "description": "Managed Kubernetes cluster, May"
+          },
+          {
+            "amount": 451.5,
+            "quantity": 21.0,
+            "unit_price": 21.5,
+            "description": "Object storage, 21 TB-month"
+          },
+          {
+            "amount": 450.0,
+            "quantity": 1.0,
+            "unit_price": 450.0,
+            "description": "Premium support plan"
+          }
+        ]
+      }
+    },
+    {
+      "id": "i03",
+      "run": 1,
+      "name": "BCH-2026-0620",
+      "exact": {
+        "invoice_number": {
+          "expected": "BCH-2026-0620",
+          "got": "BCH-2026-0620",
+          "ok": true
+        },
+        "total_amount": {
+          "expected": 3928.4,
+          "got": 3928.4,
+          "ok": true
+        },
+        "currency": {
+          "expected": "EUR",
+          "got": "EUR",
+          "ok": true
+        },
+        "issue_date": {
+          "expected": "2026-06-30",
+          "got": "2026-06-30",
+          "ok": true
+        },
+        "due_date": {
+          "expected": "2026-07-30",
+          "got": "2026-07-30",
+          "ok": true
+        },
+        "payment_terms": {
+          "expected": "net 30",
+          "got": "Net 30",
+          "ok": false
+        }
+      },
+      "usage": {
+        "input_tokens": 1524,
+        "output_tokens": 1257,
+        "total_tokens": 2781,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 865
+        }
+      },
+      "values": {
+        "summary": "This document is an invoice from Bramblecloud Hosting Ltd. to Cedar Lane Retail Inc. for cloud services delivered in June 2026, including a managed Kubernetes cluster, object storage, premium support, and data egress overage. The invoice totals €3,928.40 and is due in 30 days under “Net 30” terms.",
+        "document_type": "invoice",
+        "vendor_name": "Bramblecloud Hosting Ltd.",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "BCH-2026-0620",
+        "total_amount": 3928.4,
+        "currency": "EUR",
+        "issue_date": "2026-06-30",
+        "due_date": "2026-07-30",
+        "payment_terms": "Net 30",
+        "line_item_categories": [
+          "cloud hosting",
+          "managed kubernetes",
+          "object storage",
+          "premium support",
+          "data egress"
+        ],
+        "line_items": [
+          {
+            "amount": 2650.0,
+            "quantity": 1.0,
+            "unit_price": 2650.0,
+            "description": "Managed Kubernetes cluster, June"
+          },
+          {
+            "amount": 450.0,
+            "quantity": 24.0,
+            "unit_price": 21.5,
+            "description": "Object storage, 24 TB-month"
+          },
+          {
+            "amount": 516.0,
+            "quantity": 1.0,
+            "unit_price": 312.4,
+            "description": "Premium support plan"
+          },
+          {
+            "amount": 312.4,
+            "quantity": 1.0,
+            "unit_price": 450.0,
+            "description": "Data egress overage"
+          }
+        ]
+      }
+    },
+    {
+      "id": "i04",
+      "run": 1,
+      "name": "LRA-1107",
+      "exact": {
+        "invoice_number": {
+          "expected": "LRA-1107",
+          "got": "LRA-1107",
+          "ok": true
+        },
+        "total_amount": {
+          "expected": 7090.0,
+          "got": 7090.0,
+          "ok": true
+        },
+        "currency": {
+          "expected": "USD",
+          "got": "USD",
+          "ok": true
+        },
+        "issue_date": {
+          "expected": "2026-03-15",
+          "got": "2026-03-15",
+          "ok": true
+        },
+        "due_date": {
+          "expected": "2026-04-14",
+          "got": "2026-04-14",
+          "ok": true
+        },
+        "payment_terms": {
+          "expected": "net 30",
+          "got": "net 30",
+          "ok": true
+        }
+      },
+      "usage": {
+        "input_tokens": 1480,
+        "output_tokens": 519,
+        "total_tokens": 1999,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 304
+        }
+      },
+      "values": {
+        "summary": "This document is an invoice from Lumen Ridge Analytics LLC to Cedar Lane Retail Inc. It bills two analytics-related line items, including a customer churn model discovery phase and analytics dashboard licenses. The invoice is for a total due of $7,090.00 USD, with payment due on 2026-04-14 under net 30 terms.",
+        "document_type": "invoice",
+        "vendor_name": "Lumen Ridge Analytics LLC",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "LRA-1107",
+        "total_amount": 7090.0,
+        "currency": "USD",
+        "issue_date": "2026-03-15",
+        "due_date": "2026-04-14",
+        "payment_terms": "net 30",
+        "line_item_categories": [
+          "consulting",
+          "software licenses"
+        ],
+        "line_items": [
+          {
+            "amount": 6600.0,
+            "quantity": 40.0,
+            "unit_price": 165.0,
+            "description": "Customer churn model, discovery phase"
+          },
+          {
+            "amount": 490.0,
+            "quantity": 10.0,
+            "unit_price": 49.0,
+            "description": "Analytics dashboard licences (10 seats)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "i05",
+      "run": 1,
+      "name": "LRA-1152",
+      "exact": {
+        "invoice_number": {
+          "expected": "LRA-1152",
+          "got": "LRA-1152",
+          "ok": true
+        },
+        "total_amount": {
+          "expected": 16330.0,
+          "got": 16330.0,
+          "ok": true
+        },
+        "currency": {
+          "expected": "USD",
+          "got": "USD",
+          "ok": true
+        },
+        "issue_date": {
+          "expected": "2026-06-15",
+          "got": "2026-06-15",
+          "ok": true
+        },
+        "due_date": {
+          "expected": "2026-07-15",
+          "got": "2026-07-15",
+          "ok": true
+        },
+        "payment_terms": {
+          "expected": "net 30",
+          "got": "net 30",
+          "ok": true
+        }
+      },
+      "usage": {
+        "input_tokens": 1481,
+        "output_tokens": 214,
+        "total_tokens": 1695,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 0
+        }
+      },
+      "values": {
+        "summary": "This document is an invoice from Lumen Ridge Analytics LLC to Cedar Lane Retail Inc. It lists charges for a customer churn model and analytics dashboard licenses, including a subtotal, sales tax, and the total amount due. The invoice is issued on 15 June 2026, with payment due on 15 July 2026 under Net 30 terms.",
+        "document_type": "invoice",
+        "vendor_name": "Lumen Ridge Analytics LLC",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "LRA-1152",
+        "total_amount": 16330.0,
+        "currency": "USD",
+        "issue_date": "2026-06-15",
+        "due_date": "2026-07-15",
+        "payment_terms": "net 30",
+        "line_item_categories": [
+          "analytics",
+          "software licenses"
+        ],
+        "line_items": [
+          {
+            "amount": 15840.0,
+            "quantity": 96.0,
+            "unit_price": 165.0,
+            "description": "Customer churn model, build and validation"
+          },
+          {
+            "amount": 490.0,
+            "quantity": 10.0,
+            "unit_price": 49.0,
+            "description": "Analytics dashboard licences (10 seats)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "i06",
+      "run": 1,
+      "name": "LRA-1189",
+      "exact": {
+        "invoice_number": {
+          "expected": "LRA-1189",
+          "got": "LRA-1189",
+          "ok": true
+        },
+        "total_amount": {
+          "expected": 11686.0,
+          "got": 11686.0,
+          "ok": true
+        },
+        "currency": {
+          "expected": "USD",
+          "got": "USD",
+          "ok": true
+        },
+        "issue_date": {
+          "expected": "2026-09-15",
+          "got": "2026-09-15",
+          "ok": true
+        },
+        "due_date": {
+          "expected": "2026-10-15",
+          "got": "2026-10-15",
+          "ok": true
+        },
+        "payment_terms": {
+          "expected": "milestone-based",
+          "got": "Milestone-based",
+          "ok": false
+        }
+      },
+      "usage": {
+        "input_tokens": 1502,
+        "output_tokens": 463,
+        "total_tokens": 1965,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 229
+        }
+      },
+      "values": {
+        "summary": "This document is an invoice from Lumen Ridge Analytics LLC to Cedar Lane Retail Inc. It covers milestone and services including a churn model go-live, analytics dashboard licenses for 14 seats, and a team training workshop. The invoice is due on 2026-10-15 and totals USD 11,686.00.",
+        "document_type": "invoice",
+        "vendor_name": "Lumen Ridge Analytics LLC",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "LRA-1189",
+        "total_amount": 11686.0,
+        "currency": "USD",
+        "issue_date": "2026-09-15",
+        "due_date": "2026-10-15",
+        "payment_terms": "Milestone-based",
+        "line_item_categories": [
+          "consulting",
+          "software licenses",
+          "training"
+        ],
+        "line_items": [
+          {
+            "amount": 9800.0,
+            "quantity": 1.0,
+            "unit_price": 9800.0,
+            "description": "Churn model go-live milestone"
+          },
+          {
+            "amount": 686.0,
+            "quantity": 14.0,
+            "unit_price": 49.0,
+            "description": "Analytics dashboard licences (14 seats)"
+          },
+          {
+            "amount": 1200.0,
+            "quantity": 1.0,
+            "unit_price": 1200.0,
+            "description": "Team training workshop"
+          }
+        ]
+      }
+    },
+    {
+      "id": "i07",
+      "run": 1,
+      "name": "CO-55120",
+      "exact": {
+        "invoice_number": {
+          "expected": "CO-55120",
+          "got": "CO-55120",
+          "ok": true
+        },
+        "total_amount": {
+          "expected": 1480.2,
+          "got": 1480.2,
+          "ok": true
+        },
+        "currency": {
+          "expected": "USD",
+          "got": "USD",
+          "ok": true
+        },
+        "issue_date": {
+          "expected": "2026-02-03",
+          "got": "2026-02-03",
+          "ok": true
+        },
+        "due_date": {
+          "expected": "2026-02-03",
+          "got": "2026-02-03",
+          "ok": true
+        },
+        "payment_terms": {
+          "expected": "due on receipt",
+          "got": "Due on receipt",
+          "ok": false
+        }
+      },
+      "usage": {
+        "input_tokens": 1491,
+        "output_tokens": 622,
+        "total_tokens": 2113,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 401
+        }
+      },
+      "values": {
+        "summary": "This invoice from Copperleaf Office Supply Co. bills Cedar Lane Retail Inc. for office supply items including printer paper, toner cartridges, and desk organisers. The invoice lists quantities, unit prices, line totals, and states the balance due and payment terms as due on receipt.",
+        "document_type": "invoice",
+        "vendor_name": "Copperleaf Office Supply Co.",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "CO-55120",
+        "total_amount": 1480.2,
+        "currency": "USD",
+        "issue_date": "2026-02-03",
+        "due_date": "2026-02-03",
+        "payment_terms": "Due on receipt",
+        "line_item_categories": null,
+        "line_items": [
+          {
+            "amount": 775.0,
+            "quantity": 20.0,
+            "unit_price": 38.75,
+            "description": "Printer paper, A4, 20 boxes"
+          },
+          {
+            "amount": 519.2,
+            "quantity": 8.0,
+            "unit_price": 64.9,
+            "description": "Toner cartridges, black"
+          },
+          {
+            "amount": 186.0,
+            "quantity": 15.0,
+            "unit_price": 12.4,
+            "description": "Desk organisers"
+          }
+        ]
+      }
+    },
+    {
+      "id": "i08",
+      "run": 1,
+      "name": "CO-55388",
+      "exact": {
+        "invoice_number": {
+          "expected": "CO-55388",
+          "got": "CO-55388",
+          "ok": true
+        },
+        "total_amount": {
+          "expected": 2121.5,
+          "got": 2121.5,
+          "ok": true
+        },
+        "currency": {
+          "expected": "USD",
+          "got": "USD",
+          "ok": true
+        },
+        "issue_date": {
+          "expected": "2026-05-12",
+          "got": "2026-05-12",
+          "ok": true
+        },
+        "due_date": {
+          "expected": "2026-05-12",
+          "got": "2026-05-12",
+          "ok": true
+        },
+        "payment_terms": {
+          "expected": "due on receipt",
+          "got": "Due on receipt",
+          "ok": false
+        }
+      },
+      "usage": {
+        "input_tokens": 1478,
+        "output_tokens": 369,
+        "total_tokens": 1847,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 164
+        }
+      },
+      "values": {
+        "summary": "This document is an invoice from Copperleaf Office Supply Co. to Cedar Lane Retail Inc. for ergonomic office chairs and printer paper (A4, 10 boxes). The invoice is due on receipt and totals USD 2,121.50 including sales tax.",
+        "document_type": "invoice",
+        "vendor_name": "Copperleaf Office Supply Co.",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "CO-55388",
+        "total_amount": 2121.5,
+        "currency": "USD",
+        "issue_date": "2026-05-12",
+        "due_date": "2026-05-12",
+        "payment_terms": "Due on receipt",
+        "line_item_categories": [
+          "office furniture",
+          "office supplies",
+          "printing"
+        ],
+        "line_items": [
+          {
+            "amount": 1734.0,
+            "quantity": 6.0,
+            "unit_price": 289.0,
+            "description": "Ergonomic office chairs"
+          },
+          {
+            "amount": 387.5,
+            "quantity": 10.0,
+            "unit_price": 38.75,
+            "description": "Printer paper, A4, 10 boxes"
+          }
+        ]
+      }
+    },
+    {
+      "id": "i09",
+      "run": 1,
+      "name": "CO-55701",
+      "exact": {
+        "invoice_number": {
+          "expected": "CO-55701",
+          "got": "CO-55701",
+          "ok": true
+        },
+        "total_amount": {
+          "expected": 3624.0,
+          "got": 3624.0,
+          "ok": true
+        },
+        "currency": {
+          "expected": "USD",
+          "got": "USD",
+          "ok": true
+        },
+        "issue_date": {
+          "expected": "2026-08-21",
+          "got": "2026-08-21",
+          "ok": true
+        },
+        "due_date": {
+          "expected": "2026-09-05",
+          "got": "2026-09-05",
+          "ok": true
+        },
+        "payment_terms": {
+          "expected": "net 15",
+          "got": "Net 15",
+          "ok": false
+        }
+      },
+      "usage": {
+        "input_tokens": 1487,
+        "output_tokens": 579,
+        "total_tokens": 2066,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 328
+        }
+      },
+      "values": {
+        "summary": "This document is an invoice from Copperleaf Office Supply Co. to Cedar Lane Retail Inc. It lists three billed items—standing desks, monitor arms, and toner cartridges (colour set)—with quantities, unit prices, and line totals. The invoice total due is USD 3,624.00 with net 15 payment terms and dates of 21 August 2026 (issue) and 5 September 2026 (due).",
+        "document_type": "invoice",
+        "vendor_name": "Copperleaf Office Supply Co.",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "CO-55701",
+        "total_amount": 3624.0,
+        "currency": "USD",
+        "issue_date": "2026-08-21",
+        "due_date": "2026-09-05",
+        "payment_terms": "Net 15",
+        "line_item_categories": [
+          "standing desks",
+          "monitor arms",
+          "toner cartridges"
+        ],
+        "line_items": [
+          {
+            "amount": 2180.0,
+            "quantity": 4.0,
+            "unit_price": 545.0,
+            "description": "Standing desks"
+          },
+          {
+            "amount": 716.0,
+            "quantity": 8.0,
+            "unit_price": 89.5,
+            "description": "Monitor arms"
+          },
+          {
+            "amount": 728.0,
+            "quantity": 4.0,
+            "unit_price": 182.0,
+            "description": "Toner cartridges, colour set"
+          }
+        ]
+      }
+    },
+    {
+      "id": "i10",
+      "run": 1,
+      "name": "HPC/26-27/014",
+      "exact": {
+        "invoice_number": {
+          "expected": "HPC/26-27/014",
+          "got": "HPC/26-27/014",
+          "ok": true
+        },
+        "total_amount": {
+          "expected": 555190.0,
+          "got": 555190.0,
+          "ok": true
+        },
+        "currency": {
+          "expected": "INR",
+          "got": "INR",
+          "ok": true
+        },
+        "issue_date": {
+          "expected": "2026-04-10",
+          "got": "2026-04-10",
+          "ok": true
+        },
+        "due_date": {
+          "expected": "2026-05-10",
+          "got": "2026-05-10",
+          "ok": true
+        },
+        "payment_terms": {
+          "expected": "net 30",
+          "got": "net 30",
+          "ok": true
+        }
+      },
+      "usage": {
+        "input_tokens": 1492,
+        "output_tokens": 210,
+        "total_tokens": 1702,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 0
+        }
+      },
+      "values": {
+        "summary": "This invoice from Harbor & Pine Consulting bills Cedar Lane Retail Inc. for a warehouse process review along with travel and accommodation for a total amount due. The invoice includes GST at 18% and states net 30 payment terms with a due date one month after the issue date.",
+        "document_type": "invoice",
+        "vendor_name": "Harbor & Pine Consulting",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "HPC/26-27/014",
+        "total_amount": 555190.0,
+        "currency": "INR",
+        "issue_date": "2026-04-10",
+        "due_date": "2026-05-10",
+        "payment_terms": "net 30",
+        "line_item_categories": [
+          "consulting",
+          "travel and accommodation",
+          "warehousing process review",
+          "gst"
+        ],
+        "line_items": [
+          {
+            "amount": 432000.0,
+            "quantity": 6.0,
+            "unit_price": 72000.0,
+            "description": "Warehouse process review, 6 days"
+          },
+          {
+            "amount": 38500.0,
+            "quantity": 1.0,
+            "unit_price": 38500.0,
+            "description": "Travel and accommodation"
+          }
+        ]
+      }
+    },
+    {
+      "id": "i11",
+      "run": 1,
+      "name": "HPC/26-27/039",
+      "exact": {
+        "invoice_number": {
+          "expected": "HPC/26-27/039",
+          "got": "HPC/26-27/039",
+          "ok": true
+        },
+        "total_amount": {
+          "expected": 849600.0,
+          "got": 849600.0,
+          "ok": true
+        },
+        "currency": {
+          "expected": "INR",
+          "got": "INR",
+          "ok": true
+        },
+        "issue_date": {
+          "expected": "2026-07-08",
+          "got": "2026-07-08",
+          "ok": true
+        },
+        "due_date": {
+          "expected": "2026-08-07",
+          "got": "2026-08-07",
+          "ok": true
+        },
+        "payment_terms": {
+          "expected": "net 30",
+          "got": "net 30",
+          "ok": true
+        }
+      },
+      "usage": {
+        "input_tokens": 1473,
+        "output_tokens": 193,
+        "total_tokens": 1666,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 0
+        }
+      },
+      "values": {
+        "summary": "This document is an invoice from Harbor & Pine Consulting to Cedar Lane Retail Inc. It bills 10 days of inventory system rollout support with INR pricing, including an 18% GST charge. The invoice subtotal is ₹720,000.00 and the total amount due is ₹849,600.00 with net 30 terms.",
+        "document_type": "invoice",
+        "vendor_name": "Harbor & Pine Consulting",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "HPC/26-27/039",
+        "total_amount": 849600.0,
+        "currency": "INR",
+        "issue_date": "2026-07-08",
+        "due_date": "2026-08-07",
+        "payment_terms": "net 30",
+        "line_item_categories": [
+          "consulting",
+          "software implementation"
+        ],
+        "line_items": [
+          {
+            "amount": 720000.0,
+            "quantity": 10.0,
+            "unit_price": 72000.0,
+            "description": "Inventory system rollout support, 10 days"
+          }
+        ]
+      }
+    },
+    {
+      "id": "i12",
+      "run": 1,
+      "name": "HPC/26-27/061",
+      "exact": {
+        "invoice_number": {
+          "expected": "HPC/26-27/061",
+          "got": "HPC/26-27/061",
+          "ok": true
+        },
+        "total_amount": {
+          "expected": 365505.0,
+          "got": 365505.0,
+          "ok": true
+        },
+        "currency": {
+          "expected": "INR",
+          "got": "INR",
+          "ok": true
+        },
+        "issue_date": {
+          "expected": "2026-10-05",
+          "got": "2026-10-05",
+          "ok": true
+        },
+        "due_date": {
+          "expected": "2026-11-04",
+          "got": "2026-11-04",
+          "ok": true
+        },
+        "payment_terms": {
+          "expected": "net 30",
+          "got": "net 30",
+          "ok": true
+        }
+      },
+      "usage": {
+        "input_tokens": 1493,
+        "output_tokens": 586,
+        "total_tokens": 2079,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 383
+        }
+      },
+      "values": {
+        "summary": "This document is an invoice from Harbor & Pine Consulting to Cedar Lane Retail Inc. It bills peak-season staffing for 4 days and travel/accommodation services, including GST at 18%. The total due is INR 365,505 with a Net 30 payment term.",
+        "document_type": "invoice",
+        "vendor_name": "Harbor & Pine Consulting",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "HPC/26-27/061",
+        "total_amount": 365505.0,
+        "currency": "INR",
+        "issue_date": "2026-10-05",
+        "due_date": "2026-11-04",
+        "payment_terms": "net 30",
+        "line_item_categories": [
+          "staffing",
+          "travel"
+        ],
+        "line_items": [
+          {
+            "amount": 288000.0,
+            "quantity": 4.0,
+            "unit_price": 72000.0,
+            "description": "Peak-season staffing plan, 4 days"
+          },
+          {
+            "amount": 21750.0,
+            "quantity": 1.0,
+            "unit_price": 21750.0,
+            "description": "Travel and accommodation"
+          }
+        ]
+      }
+    },
+    {
+      "id": "i13",
+      "run": 1,
+      "name": "TDS-2026-031",
+      "exact": {
+        "invoice_number": {
+          "expected": "TDS-2026-031",
+          "got": "TDS-2026-031",
+          "ok": true
+        },
+        "total_amount": {
+          "expected": 8234.8,
+          "got": 8234.8,
+          "ok": true
+        },
+        "currency": {
+          "expected": "EUR",
+          "got": "EUR",
+          "ok": true
+        },
+        "issue_date": {
+          "expected": "2026-03-20",
+          "got": "2026-03-20",
+          "ok": true
+        },
+        "due_date": {
+          "expected": "2026-04-19",
+          "got": "2026-04-19",
+          "ok": true
+        },
+        "payment_terms": {
+          "expected": "net 30",
+          "got": "net 30",
+          "ok": true
+        }
+      },
+      "usage": {
+        "input_tokens": 1497,
+        "output_tokens": 204,
+        "total_tokens": 1701,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 0
+        }
+      },
+      "values": {
+        "summary": "This document is an invoice from Tessellate Design Studio GmbH to Cedar Lane Retail Inc. It lists charges for a brand refresh (concept phase) and stock image licences, including a VAT (USt 19%) calculation, with payment due under net 30 terms.",
+        "document_type": "invoice",
+        "vendor_name": "Tessellate Design Studio GmbH",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "TDS-2026-031",
+        "total_amount": 8234.8,
+        "currency": "EUR",
+        "issue_date": "2026-03-20",
+        "due_date": "2026-04-19",
+        "payment_terms": "net 30",
+        "line_item_categories": [
+          "design services",
+          "stock image licensing",
+          "branding"
+        ],
+        "line_items": [
+          {
+            "amount": 6500.0,
+            "quantity": 1.0,
+            "unit_price": 6500.0,
+            "description": "Brand refresh, concept phase"
+          },
+          {
+            "amount": 420.0,
+            "quantity": 12.0,
+            "unit_price": 35.0,
+            "description": "Stock image licences"
+          }
+        ]
+      }
+    },
+    {
+      "id": "i14",
+      "run": 1,
+      "name": "TDS-2026-058",
+      "exact": {
+        "invoice_number": {
+          "expected": "TDS-2026-058",
+          "got": "TDS-2026-058",
+          "ok": true
+        },
+        "total_amount": {
+          "expected": 16124.5,
+          "got": 16124.5,
+          "ok": true
+        },
+        "currency": {
+          "expected": "EUR",
+          "got": "EUR",
+          "ok": true
+        },
+        "issue_date": {
+          "expected": "2026-06-12",
+          "got": "2026-06-12",
+          "ok": true
+        },
+        "due_date": {
+          "expected": "2026-07-12",
+          "got": "2026-07-12",
+          "ok": true
+        },
+        "payment_terms": {
+          "expected": "milestone-based",
+          "got": "Milestone-based",
+          "ok": false
+        }
+      },
+      "usage": {
+        "input_tokens": 1505,
+        "output_tokens": 222,
+        "total_tokens": 1727,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 0
+        }
+      },
+      "values": {
+        "summary": "This document is an invoice from Tessellate Design Studio GmbH to Cedar Lane Retail Inc. It covers brand refresh and packaging design for three product lines, with milestone-based terms. The invoice is issued on 12 June 2026 and is due on 12 July 2026 for a total due of EUR 16,124.50.",
+        "document_type": "invoice",
+        "vendor_name": "Tessellate Design Studio GmbH",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "TDS-2026-058",
+        "total_amount": 16124.5,
+        "currency": "EUR",
+        "issue_date": "2026-06-12",
+        "due_date": "2026-07-12",
+        "payment_terms": "Milestone-based",
+        "line_item_categories": [
+          "branding",
+          "packaging design"
+        ],
+        "line_items": [
+          {
+            "amount": 9200.0,
+            "quantity": 1.0,
+            "unit_price": 9200.0,
+            "description": "Brand refresh, final identity"
+          },
+          {
+            "amount": 1450.0,
+            "quantity": 3.0,
+            "unit_price": 1450.0,
+            "description": "Packaging design, 3 product lines"
+          }
+        ]
+      }
+    },
+    {
+      "id": "i15",
+      "run": 1,
+      "name": "TDS-2026-077",
+      "exact": {
+        "invoice_number": {
+          "expected": "TDS-2026-077",
+          "got": "TDS-2026-077",
+          "ok": true
+        },
+        "total_amount": {
+          "expected": 5712.0,
+          "got": 5712.0,
+          "ok": true
+        },
+        "currency": {
+          "expected": "EUR",
+          "got": "EUR",
+          "ok": true
+        },
+        "issue_date": {
+          "expected": "2026-09-30",
+          "got": "2026-09-30",
+          "ok": true
+        },
+        "due_date": {
+          "expected": "2026-10-30",
+          "got": "2026-10-30",
+          "ok": true
+        },
+        "payment_terms": {
+          "expected": "net 30",
+          "got": "net 30",
+          "ok": true
+        }
+      },
+      "usage": {
+        "input_tokens": 1477,
+        "output_tokens": 289,
+        "total_tokens": 1766,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 125
+        }
+      },
+      "values": {
+        "summary": "This invoice is issued by Tessellate Design Studio GmbH to Cedar Lane Retail Inc. for holiday campaign artwork. The invoice is for EUR 5,712.00 total due, including USt (19%).",
+        "document_type": "invoice",
+        "vendor_name": "Tessellate Design Studio GmbH",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "TDS-2026-077",
+        "total_amount": 5712.0,
+        "currency": "EUR",
+        "issue_date": "2026-09-30",
+        "due_date": "2026-10-30",
+        "payment_terms": "net 30",
+        "line_item_categories": null,
+        "line_items": [
+          {
+            "amount": 4800.0,
+            "quantity": 1.0,
+            "unit_price": 4800.0,
+            "description": "Holiday campaign artwork"
+          }
+        ]
+      }
+    },
+    {
+      "id": "i16",
+      "run": 1,
+      "name": "QSL-88412",
+      "exact": {
+        "invoice_number": {
+          "expected": "QSL-88412",
+          "got": "QSL-88412",
+          "ok": true
+        },
+        "total_amount": {
+          "expected": 16400.0,
+          "got": 16400.0,
+          "ok": true
+        },
+        "currency": {
+          "expected": "USD",
+          "got": "USD",
+          "ok": true
+        },
+        "issue_date": {
+          "expected": "2026-01-31",
+          "got": "2026-01-31",
+          "ok": true
+        },
+        "due_date": {
+          "expected": "2026-03-02",
+          "got": "2026-03-02",
+          "ok": true
+        },
+        "payment_terms": {
+          "expected": "net 30",
+          "got": "Net 30",
+          "ok": false
+        }
+      },
+      "usage": {
+        "input_tokens": 1480,
+        "output_tokens": 581,
+        "total_tokens": 2061,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 301
+        }
+      },
+      "values": {
+        "summary": "This invoice from Quillmark Software Licensing bills Cedar Lane Retail Inc. for point-of-sale software (annual license) and implementation support. The invoice lists line-item quantities, unit prices, and amounts, and totals the total due at $16,400.00 with $0.00 sales tax.",
+        "document_type": "invoice",
+        "vendor_name": "Quillmark Software Licensing",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "QSL-88412",
+        "total_amount": 16400.0,
+        "currency": "USD",
+        "issue_date": "2026-01-31",
+        "due_date": "2026-03-02",
+        "payment_terms": "Net 30",
+        "line_item_categories": [
+          "software licenses",
+          "implementation support"
+        ],
+        "line_items": [
+          {
+            "amount": 14160.0,
+            "quantity": 12.0,
+            "unit_price": 1180.0,
+            "description": "Point-of-sale software, annual licence (12 stores)"
+          },
+          {
+            "amount": 2240.0,
+            "quantity": 16.0,
+            "unit_price": 140.0,
+            "description": "Implementation support"
+          }
+        ]
+      }
+    },
+    {
+      "id": "i17",
+      "run": 1,
+      "name": "QSL-89037",
+      "exact": {
+        "invoice_number": {
+          "expected": "QSL-89037",
+          "got": "QSL-89037",
+          "ok": true
+        },
+        "total_amount": {
+          "expected": 5970.0,
+          "got": 5970.0,
+          "ok": true
+        },
+        "currency": {
+          "expected": "USD",
+          "got": "USD",
+          "ok": true
+        },
+        "issue_date": {
+          "expected": "2026-07-31",
+          "got": "2026-07-31",
+          "ok": true
+        },
+        "due_date": {
+          "expected": "2026-08-30",
+          "got": "2026-08-30",
+          "ok": true
+        },
+        "payment_terms": {
+          "expected": "net 30",
+          "got": "Net 30",
+          "ok": false
+        }
+      },
+      "usage": {
+        "input_tokens": 1487,
+        "output_tokens": 555,
+        "total_tokens": 2042,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 262
+        }
+      },
+      "values": {
+        "summary": "This invoice from Quillmark Software Licensing bills Cedar Lane Retail Inc. for software licensing, including point-of-sale software coverage for additional stores and an inventory add-on module. The invoice is for USD 5,970.00 total due, with terms of Net 30 and no sales tax.",
+        "document_type": "invoice",
+        "vendor_name": "Quillmark Software Licensing",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "QSL-89037",
+        "total_amount": 5970.0,
+        "currency": "USD",
+        "issue_date": "2026-07-31",
+        "due_date": "2026-08-30",
+        "payment_terms": "Net 30",
+        "line_item_categories": [
+          "software licensing",
+          "point-of-sale",
+          "inventory add-on"
+        ],
+        "line_items": [
+          {
+            "amount": 1770.0,
+            "quantity": 3.0,
+            "unit_price": 590.0,
+            "description": "Point-of-sale software, 3 additional stores (prorated)"
+          },
+          {
+            "amount": 4200.0,
+            "quantity": 1.0,
+            "unit_price": 4200.0,
+            "description": "Inventory add-on module, annual"
+          }
+        ]
+      }
+    },
+    {
+      "id": "i18",
+      "run": 1,
+      "name": "QSL-89590",
+      "exact": {
+        "invoice_number": {
+          "expected": "QSL-89590",
+          "got": "QSL-89590",
+          "ok": true
+        },
+        "total_amount": {
+          "expected": 5580.0,
+          "got": 5580.0,
+          "ok": true
+        },
+        "currency": {
+          "expected": "USD",
+          "got": "USD",
+          "ok": true
+        },
+        "issue_date": {
+          "expected": "2026-10-15",
+          "got": "2026-10-15",
+          "ok": true
+        },
+        "due_date": {
+          "expected": "2026-11-14",
+          "got": "2026-11-14",
+          "ok": true
+        },
+        "payment_terms": {
+          "expected": "net 30",
+          "got": "Net 30",
+          "ok": false
+        }
+      },
+      "usage": {
+        "input_tokens": 1482,
+        "output_tokens": 315,
+        "total_tokens": 1797,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 121
+        }
+      },
+      "values": {
+        "summary": "This invoice from Quillmark Software Licensing bills Cedar Lane Retail Inc. for annual premium support and cloud backup services for POS data. The total due is $5,580 USD with no sales tax, payable under Net 30 terms.",
+        "document_type": "invoice",
+        "vendor_name": "Quillmark Software Licensing",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "QSL-89590",
+        "total_amount": 5580.0,
+        "currency": "USD",
+        "issue_date": "2026-10-15",
+        "due_date": "2026-11-14",
+        "payment_terms": "Net 30",
+        "line_item_categories": [
+          "support services",
+          "cloud backup"
+        ],
+        "line_items": [
+          {
+            "amount": 3600.0,
+            "quantity": 1.0,
+            "unit_price": 3600.0,
+            "description": "Premium support upgrade, annual"
+          },
+          {
+            "amount": 1980.0,
+            "quantity": 1.0,
+            "unit_price": 1980.0,
+            "description": "Cloud backup for POS data, annual"
+          }
+        ]
+      }
+    },
+    {
+      "id": "i01",
+      "run": 2,
+      "name": "BCH-2026-0418",
+      "exact": {
+        "invoice_number": {
+          "expected": "BCH-2026-0418",
+          "got": "BCH-2026-0418",
+          "ok": true
+        },
+        "total_amount": {
+          "expected": 3237.0,
+          "got": 3237.0,
+          "ok": true
+        },
+        "currency": {
+          "expected": "EUR",
+          "got": "EUR",
+          "ok": true
+        },
+        "issue_date": {
+          "expected": "2026-04-30",
+          "got": "2026-04-30",
+          "ok": true
+        },
+        "due_date": {
+          "expected": "2026-05-30",
+          "got": "2026-05-30",
+          "ok": true
+        },
+        "payment_terms": {
+          "expected": "net 30",
+          "got": "Net 30",
+          "ok": false
+        }
+      },
+      "usage": {
+        "input_tokens": 1506,
+        "output_tokens": 775,
+        "total_tokens": 2281,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 446
+        }
+      },
+      "values": {
+        "summary": "This document is an invoice from Bramblecloud Hosting Ltd. to Cedar Lane Retail Inc. for managed hosting services covering April, including a managed Kubernetes cluster, object storage, and a premium support plan. The invoice is issued with Net 30 terms in EUR and a total due of €3,237.00.",
+        "document_type": "invoice",
+        "vendor_name": "Bramblecloud Hosting Ltd.",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "BCH-2026-0418",
+        "total_amount": 3237.0,
+        "currency": "EUR",
+        "issue_date": "2026-04-30",
+        "due_date": "2026-05-30",
+        "payment_terms": "Net 30",
+        "line_item_categories": [
+          "managed kubernetes",
+          "object storage",
+          "support"
+        ],
+        "line_items": [
+          {
+            "amount": 2400.0,
+            "quantity": 1.0,
+            "unit_price": 2400.0,
+            "description": "Managed Kubernetes cluster, April"
+          },
+          {
+            "amount": 387.0,
+            "quantity": 18.0,
+            "unit_price": 21.5,
+            "description": "Object storage, 18 TB-month"
+          },
+          {
+            "amount": 450.0,
+            "quantity": 1.0,
+            "unit_price": 450.0,
+            "description": "Premium support plan"
+          }
+        ]
+      }
+    },
+    {
+      "id": "i02",
+      "run": 2,
+      "name": "BCH-2026-0519",
+      "exact": {
+        "invoice_number": {
+          "expected": "BCH-2026-0519",
+          "got": "BCH-2026-0519",
+          "ok": true
+        },
+        "total_amount": {
+          "expected": 3301.5,
+          "got": 3301.5,
+          "ok": true
+        },
+        "currency": {
+          "expected": "EUR",
+          "got": "EUR",
+          "ok": true
+        },
+        "issue_date": {
+          "expected": "2026-05-31",
+          "got": "2026-05-31",
+          "ok": true
+        },
+        "due_date": {
+          "expected": "2026-06-30",
+          "got": "2026-06-30",
+          "ok": true
+        },
+        "payment_terms": {
+          "expected": "net 30",
+          "got": "Net 30",
+          "ok": false
+        }
+      },
+      "usage": {
+        "input_tokens": 1506,
+        "output_tokens": 675,
+        "total_tokens": 2181,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 424
+        }
+      },
+      "values": {
+        "summary": "This document is an invoice from Bramblecloud Hosting Ltd. to Cedar Lane Retail Inc. for managed hosting services for May 2026. It lists charges for a managed Kubernetes cluster, object storage, and a premium support plan, with VAT shown as €0.00 and a total due of €3,301.50 (net 30 terms).",
+        "document_type": "invoice",
+        "vendor_name": "Bramblecloud Hosting Ltd.",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "BCH-2026-0519",
+        "total_amount": 3301.5,
+        "currency": "EUR",
+        "issue_date": "2026-05-31",
+        "due_date": "2026-06-30",
+        "payment_terms": "Net 30",
+        "line_item_categories": [
+          "managed kubernetes",
+          "object storage",
+          "premium support"
+        ],
+        "line_items": [
+          {
+            "amount": 2400.0,
+            "quantity": 1.0,
+            "unit_price": 2400.0,
+            "description": "Managed Kubernetes cluster, May"
+          },
+          {
+            "amount": 451.5,
+            "quantity": 21.0,
+            "unit_price": 21.5,
+            "description": "Object storage, 21 TB-month"
+          },
+          {
+            "amount": 450.0,
+            "quantity": 1.0,
+            "unit_price": 450.0,
+            "description": "Premium support plan"
+          }
+        ]
+      }
+    },
+    {
+      "id": "i03",
+      "run": 2,
+      "name": "BCH-2026-0620",
+      "exact": {
+        "invoice_number": {
+          "expected": "BCH-2026-0620",
+          "got": "BCH-2026-0620",
+          "ok": true
+        },
+        "total_amount": {
+          "expected": 3928.4,
+          "got": 3928.4,
+          "ok": true
+        },
+        "currency": {
+          "expected": "EUR",
+          "got": "EUR",
+          "ok": true
+        },
+        "issue_date": {
+          "expected": "2026-06-30",
+          "got": "2026-06-30",
+          "ok": true
+        },
+        "due_date": {
+          "expected": "2026-07-30",
+          "got": "2026-07-30",
+          "ok": true
+        },
+        "payment_terms": {
+          "expected": "net 30",
+          "got": "Net 30",
+          "ok": false
+        }
+      },
+      "usage": {
+        "input_tokens": 1524,
+        "output_tokens": 744,
+        "total_tokens": 2268,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 453
+        }
+      },
+      "values": {
+        "summary": "This document is an invoice from Bramblecloud Hosting Ltd. to Cedar Lane Retail Inc. for June 2026 cloud services, including a managed Kubernetes cluster, object storage, premium support, and data egress overage. The invoice is issued on 2026-06-30 with payment due on 2026-07-30 (Net 30), totaling €3,928.40 with €0.00 VAT.",
+        "document_type": "invoice",
+        "vendor_name": "Bramblecloud Hosting Ltd.",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "BCH-2026-0620",
+        "total_amount": 3928.4,
+        "currency": "EUR",
+        "issue_date": "2026-06-30",
+        "due_date": "2026-07-30",
+        "payment_terms": "Net 30",
+        "line_item_categories": [
+          "managed hosting",
+          "object storage",
+          "premium support",
+          "data egress"
+        ],
+        "line_items": [
+          {
+            "amount": 2650.0,
+            "quantity": 1.0,
+            "unit_price": 2650.0,
+            "description": "Managed Kubernetes cluster, June"
+          },
+          {
+            "amount": 516.0,
+            "quantity": 24.0,
+            "unit_price": 21.5,
+            "description": "Object storage, 24 TB-month"
+          },
+          {
+            "amount": 450.0,
+            "quantity": 1.0,
+            "unit_price": 450.0,
+            "description": "Premium support plan"
+          },
+          {
+            "amount": 312.4,
+            "quantity": 1.0,
+            "unit_price": 312.4,
+            "description": "Data egress overage"
+          }
+        ]
+      }
+    },
+    {
+      "id": "i04",
+      "run": 2,
+      "name": "LRA-1107",
+      "exact": {
+        "invoice_number": {
+          "expected": "LRA-1107",
+          "got": "LRA-1107",
+          "ok": true
+        },
+        "total_amount": {
+          "expected": 7090.0,
+          "got": 7090.0,
+          "ok": true
+        },
+        "currency": {
+          "expected": "USD",
+          "got": "USD",
+          "ok": true
+        },
+        "issue_date": {
+          "expected": "2026-03-15",
+          "got": "2026-03-15",
+          "ok": true
+        },
+        "due_date": {
+          "expected": "2026-04-14",
+          "got": "2026-04-14",
+          "ok": true
+        },
+        "payment_terms": {
+          "expected": "net 30",
+          "got": "Net 30",
+          "ok": false
+        }
+      },
+      "usage": {
+        "input_tokens": 1480,
+        "output_tokens": 611,
+        "total_tokens": 2091,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 329
+        }
+      },
+      "values": {
+        "summary": "This invoice from Lumen Ridge Analytics LLC bills Cedar Lane Retail Inc. for a customer churn model discovery phase and analytics dashboard licenses. The invoice number is LRA-1107, issued on 2026-03-15 with terms Net 30, and the total due is $7,090.00 USD.",
+        "document_type": "invoice",
+        "vendor_name": "Lumen Ridge Analytics LLC",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "LRA-1107",
+        "total_amount": 7090.0,
+        "currency": "USD",
+        "issue_date": "2026-03-15",
+        "due_date": "2026-04-14",
+        "payment_terms": "Net 30",
+        "line_item_categories": [
+          "consulting",
+          "software licenses"
+        ],
+        "line_items": [
+          {
+            "amount": 6600.0,
+            "quantity": 40.0,
+            "unit_price": 165.0,
+            "description": "Customer churn model, discovery phase"
+          },
+          {
+            "amount": 490.0,
+            "quantity": 10.0,
+            "unit_price": 49.0,
+            "description": "Analytics dashboard licences (10 seats)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "i05",
+      "run": 2,
+      "name": "LRA-1152",
+      "exact": {
+        "invoice_number": {
+          "expected": "LRA-1152",
+          "got": "LRA-1152",
+          "ok": true
+        },
+        "total_amount": {
+          "expected": 16330.0,
+          "got": 16330.0,
+          "ok": true
+        },
+        "currency": {
+          "expected": "USD",
+          "got": "USD",
+          "ok": true
+        },
+        "issue_date": {
+          "expected": "2026-06-15",
+          "got": "2026-06-15",
+          "ok": true
+        },
+        "due_date": {
+          "expected": "2026-07-15",
+          "got": "2026-07-15",
+          "ok": true
+        },
+        "payment_terms": {
+          "expected": "net 30",
+          "got": "Net 30",
+          "ok": false
+        }
+      },
+      "usage": {
+        "input_tokens": 1481,
+        "output_tokens": 239,
+        "total_tokens": 1720,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 0
+        }
+      },
+      "values": {
+        "summary": "This document is an invoice from Lumen Ridge Analytics LLC to Cedar Lane Retail Inc. It includes charges for building/validating a customer churn model and analytics dashboard licenses, along with a subtotal, $0.00 sales tax, and a total due of $16,330.00. The invoice number is LRA-1152, issued on 2026-06-15 and due on 2026-07-15 under Net 30 terms.",
+        "document_type": "invoice",
+        "vendor_name": "Lumen Ridge Analytics LLC",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "LRA-1152",
+        "total_amount": 16330.0,
+        "currency": "USD",
+        "issue_date": "2026-06-15",
+        "due_date": "2026-07-15",
+        "payment_terms": "Net 30",
+        "line_item_categories": [
+          "analytics",
+          "software licenses",
+          "consulting"
+        ],
+        "line_items": [
+          {
+            "amount": 15840.0,
+            "quantity": 96.0,
+            "unit_price": 165.0,
+            "description": "Customer churn model, build and validation"
+          },
+          {
+            "amount": 490.0,
+            "quantity": 10.0,
+            "unit_price": 49.0,
+            "description": "Analytics dashboard licences (10 seats)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "i06",
+      "run": 2,
+      "name": "LRA-1189",
+      "exact": {
+        "invoice_number": {
+          "expected": "LRA-1189",
+          "got": "LRA-1189",
+          "ok": true
+        },
+        "total_amount": {
+          "expected": 11686.0,
+          "got": 11686.0,
+          "ok": true
+        },
+        "currency": {
+          "expected": "USD",
+          "got": "USD",
+          "ok": true
+        },
+        "issue_date": {
+          "expected": "2026-09-15",
+          "got": "2026-09-15",
+          "ok": true
+        },
+        "due_date": {
+          "expected": "2026-10-15",
+          "got": "2026-10-15",
+          "ok": true
+        },
+        "payment_terms": {
+          "expected": "milestone-based",
+          "got": "Milestone-based",
+          "ok": false
+        }
+      },
+      "usage": {
+        "input_tokens": 1502,
+        "output_tokens": 464,
+        "total_tokens": 1966,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 214
+        }
+      },
+      "values": {
+        "summary": "This document is an invoice from Lumen Ridge Analytics LLC to Cedar Lane Retail Inc. It lists three billed items (a go-live milestone, analytics dashboard licenses, and a team training workshop) and shows a subtotal with $0.00 sales tax, resulting in a total due of $11,686.00 USD. The invoice is due on 2026-10-15 with milestone-based terms.",
+        "document_type": "invoice",
+        "vendor_name": "Lumen Ridge Analytics LLC",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "LRA-1189",
+        "total_amount": 11686.0,
+        "currency": "USD",
+        "issue_date": "2026-09-15",
+        "due_date": "2026-10-15",
+        "payment_terms": "Milestone-based",
+        "line_item_categories": [
+          "consulting",
+          "software licenses",
+          "training"
+        ],
+        "line_items": [
+          {
+            "amount": 9800.0,
+            "quantity": 1.0,
+            "unit_price": 9800.0,
+            "description": "Churn model go-live milestone"
+          },
+          {
+            "amount": 686.0,
+            "quantity": 14.0,
+            "unit_price": 49.0,
+            "description": "Analytics dashboard licences (14 seats)"
+          },
+          {
+            "amount": 1200.0,
+            "quantity": 1.0,
+            "unit_price": 1200.0,
+            "description": "Team training workshop"
+          }
+        ]
+      }
+    },
+    {
+      "id": "i07",
+      "run": 2,
+      "name": "CO-55120",
+      "exact": {
+        "invoice_number": {
+          "expected": "CO-55120",
+          "got": "CO-55120",
+          "ok": true
+        },
+        "total_amount": {
+          "expected": 1480.2,
+          "got": 1480.2,
+          "ok": true
+        },
+        "currency": {
+          "expected": "USD",
+          "got": "USD",
+          "ok": true
+        },
+        "issue_date": {
+          "expected": "2026-02-03",
+          "got": "2026-02-03",
+          "ok": true
+        },
+        "due_date": {
+          "expected": "2026-02-03",
+          "got": "2026-02-03",
+          "ok": true
+        },
+        "payment_terms": {
+          "expected": "due on receipt",
+          "got": "Due on receipt",
+          "ok": false
+        }
+      },
+      "usage": {
+        "input_tokens": 1491,
+        "output_tokens": 436,
+        "total_tokens": 1927,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 197
+        }
+      },
+      "values": {
+        "summary": "This document is an invoice from Copperleaf Office Supply Co. to Cedar Lane Retail Inc. for office and printing supplies, listing line items including printer paper (A4, 20 boxes), black toner cartridges, and desk organisers. The invoice is due upon receipt and totals $1,480.20 USD with no sales tax.",
+        "document_type": "invoice",
+        "vendor_name": "Copperleaf Office Supply Co.",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "CO-55120",
+        "total_amount": 1480.2,
+        "currency": "USD",
+        "issue_date": "2026-02-03",
+        "due_date": "2026-02-03",
+        "payment_terms": "Due on receipt",
+        "line_item_categories": [
+          "office supplies",
+          "printing consumables"
+        ],
+        "line_items": [
+          {
+            "amount": 775.0,
+            "quantity": 20.0,
+            "unit_price": 38.75,
+            "description": "Printer paper, A4, 20 boxes"
+          },
+          {
+            "amount": 519.2,
+            "quantity": 8.0,
+            "unit_price": 64.9,
+            "description": "Toner cartridges, black"
+          },
+          {
+            "amount": 186.0,
+            "quantity": 15.0,
+            "unit_price": 12.4,
+            "description": "Desk organisers"
+          }
+        ]
+      }
+    },
+    {
+      "id": "i08",
+      "run": 2,
+      "name": "CO-55388",
+      "exact": {
+        "invoice_number": {
+          "expected": "CO-55388",
+          "got": "CO-55388",
+          "ok": true
+        },
+        "total_amount": {
+          "expected": 2121.5,
+          "got": 2121.5,
+          "ok": true
+        },
+        "currency": {
+          "expected": "USD",
+          "got": "USD",
+          "ok": true
+        },
+        "issue_date": {
+          "expected": "2026-05-12",
+          "got": "2026-05-12",
+          "ok": true
+        },
+        "due_date": {
+          "expected": "2026-05-12",
+          "got": "2026-05-12",
+          "ok": true
+        },
+        "payment_terms": {
+          "expected": "due on receipt",
+          "got": "due on receipt",
+          "ok": true
+        }
+      },
+      "usage": {
+        "input_tokens": 1478,
+        "output_tokens": 210,
+        "total_tokens": 1688,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 0
+        }
+      },
+      "values": {
+        "summary": "This document is an invoice from Copperleaf Office Supply Co. to Cedar Lane Retail Inc. for ergonomic office chairs and printer paper (A4). The invoice totals $2,121.50 USD with payment due on receipt, and shows no sales tax amount due ($0.00).",
+        "document_type": "invoice",
+        "vendor_name": "Copperleaf Office Supply Co.",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "CO-55388",
+        "total_amount": 2121.5,
+        "currency": "USD",
+        "issue_date": "2026-05-12",
+        "due_date": "2026-05-12",
+        "payment_terms": "due on receipt",
+        "line_item_categories": [
+          "office furniture",
+          "office supplies",
+          "printing supplies"
+        ],
+        "line_items": [
+          {
+            "amount": 1734.0,
+            "quantity": 6.0,
+            "unit_price": 289.0,
+            "description": "Ergonomic office chairs"
+          },
+          {
+            "amount": 387.5,
+            "quantity": 10.0,
+            "unit_price": 38.75,
+            "description": "Printer paper, A4, 10 boxes"
+          }
+        ]
+      }
+    },
+    {
+      "id": "i09",
+      "run": 2,
+      "name": "CO-55701",
+      "exact": {
+        "invoice_number": {
+          "expected": "CO-55701",
+          "got": "CO-55701",
+          "ok": true
+        },
+        "total_amount": {
+          "expected": 3624.0,
+          "got": 3624.0,
+          "ok": true
+        },
+        "currency": {
+          "expected": "USD",
+          "got": "USD",
+          "ok": true
+        },
+        "issue_date": {
+          "expected": "2026-08-21",
+          "got": "2026-08-21",
+          "ok": true
+        },
+        "due_date": {
+          "expected": "2026-09-05",
+          "got": "2026-09-05",
+          "ok": true
+        },
+        "payment_terms": {
+          "expected": "net 15",
+          "got": "net 15",
+          "ok": true
+        }
+      },
+      "usage": {
+        "input_tokens": 1487,
+        "output_tokens": 614,
+        "total_tokens": 2101,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 383
+        }
+      },
+      "values": {
+        "summary": "This document is an invoice from Copperleaf Office Supply Co. to Cedar Lane Retail Inc. It lists charges for standing desks, monitor arms, and toner cartridges, then shows a subtotal and total due. The invoice is issued on 2026-08-21, due on 2026-09-05, with Net 15 terms.",
+        "document_type": "invoice",
+        "vendor_name": "Copperleaf Office Supply Co.",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "CO-55701",
+        "total_amount": 3624.0,
+        "currency": "USD",
+        "issue_date": "2026-08-21",
+        "due_date": "2026-09-05",
+        "payment_terms": "net 15",
+        "line_item_categories": [
+          "office furniture",
+          "electronics accessories",
+          "printing supplies"
+        ],
+        "line_items": [
+          {
+            "amount": 2180.0,
+            "quantity": 4.0,
+            "unit_price": 545.0,
+            "description": "Standing desks"
+          },
+          {
+            "amount": 716.0,
+            "quantity": 8.0,
+            "unit_price": 89.5,
+            "description": "Monitor arms"
+          },
+          {
+            "amount": 728.0,
+            "quantity": 4.0,
+            "unit_price": 182.0,
+            "description": "Toner cartridges, colour set"
+          }
+        ]
+      }
+    },
+    {
+      "id": "i10",
+      "run": 2,
+      "name": "HPC/26-27/014",
+      "exact": {
+        "invoice_number": {
+          "expected": "HPC/26-27/014",
+          "got": "HPC/26-27/014",
+          "ok": true
+        },
+        "total_amount": {
+          "expected": 555190.0,
+          "got": 555190.0,
+          "ok": true
+        },
+        "currency": {
+          "expected": "INR",
+          "got": "INR",
+          "ok": true
+        },
+        "issue_date": {
+          "expected": "2026-04-10",
+          "got": "2026-04-10",
+          "ok": true
+        },
+        "due_date": {
+          "expected": "2026-05-10",
+          "got": "2026-05-10",
+          "ok": true
+        },
+        "payment_terms": {
+          "expected": "net 30",
+          "got": "Net 30",
+          "ok": false
+        }
+      },
+      "usage": {
+        "input_tokens": 1492,
+        "output_tokens": 476,
+        "total_tokens": 1968,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 280
+        }
+      },
+      "values": {
+        "summary": "This invoice from Harbor & Pine Consulting bills Cedar Lane Retail Inc. for warehouse process review (6 days) and travel & accommodation. It lists the line-item amounts, applies GST at 18%, and states the total amount due.",
+        "document_type": "invoice",
+        "vendor_name": "Harbor & Pine Consulting",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "HPC/26-27/014",
+        "total_amount": 555190.0,
+        "currency": "INR",
+        "issue_date": "2026-04-10",
+        "due_date": "2026-05-10",
+        "payment_terms": "Net 30",
+        "line_item_categories": [
+          "consulting",
+          "travel & accommodation"
+        ],
+        "line_items": [
+          {
+            "amount": 432000.0,
+            "quantity": 6.0,
+            "unit_price": 72000.0,
+            "description": "Warehouse process review, 6 days"
+          },
+          {
+            "amount": 38500.0,
+            "quantity": 1.0,
+            "unit_price": 38500.0,
+            "description": "Travel and accommodation"
+          }
+        ]
+      }
+    },
+    {
+      "id": "i11",
+      "run": 2,
+      "name": "HPC/26-27/039",
+      "exact": {
+        "invoice_number": {
+          "expected": "HPC/26-27/039",
+          "got": "HPC/26-27/039",
+          "ok": true
+        },
+        "total_amount": {
+          "expected": 849600.0,
+          "got": 849600.0,
+          "ok": true
+        },
+        "currency": {
+          "expected": "INR",
+          "got": "INR",
+          "ok": true
+        },
+        "issue_date": {
+          "expected": "2026-07-08",
+          "got": "2026-07-08",
+          "ok": true
+        },
+        "due_date": {
+          "expected": "2026-08-07",
+          "got": "2026-08-07",
+          "ok": true
+        },
+        "payment_terms": {
+          "expected": "net 30",
+          "got": "Net 30",
+          "ok": false
+        }
+      },
+      "usage": {
+        "input_tokens": 1473,
+        "output_tokens": 357,
+        "total_tokens": 1830,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 168
+        }
+      },
+      "values": {
+        "summary": "This document is an invoice from Harbor & Pine Consulting to Cedar Lane Retail Inc. for inventory system rollout support (10 days), billed as a quantity of 10 units. The invoice specifies Net 30 terms, an INR currency, and a total due of ₹849,600.00 including GST (18%).",
+        "document_type": "invoice",
+        "vendor_name": "Harbor & Pine Consulting",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "HPC/26-27/039",
+        "total_amount": 849600.0,
+        "currency": "INR",
+        "issue_date": "2026-07-08",
+        "due_date": "2026-08-07",
+        "payment_terms": "Net 30",
+        "line_item_categories": [
+          "consulting"
+        ],
+        "line_items": [
+          {
+            "amount": 720000.0,
+            "quantity": 10.0,
+            "unit_price": 72000.0,
+            "description": "Inventory system rollout support, 10 days"
+          }
+        ]
+      }
+    },
+    {
+      "id": "i12",
+      "run": 2,
+      "name": "HPC/26-27/061",
+      "exact": {
+        "invoice_number": {
+          "expected": "HPC/26-27/061",
+          "got": "HPC/26-27/061",
+          "ok": true
+        },
+        "total_amount": {
+          "expected": 365505.0,
+          "got": 365505.0,
+          "ok": true
+        },
+        "currency": {
+          "expected": "INR",
+          "got": "INR",
+          "ok": true
+        },
+        "issue_date": {
+          "expected": "2026-10-05",
+          "got": "2026-10-05",
+          "ok": true
+        },
+        "due_date": {
+          "expected": "2026-11-04",
+          "got": "2026-11-04",
+          "ok": true
+        },
+        "payment_terms": {
+          "expected": "net 30",
+          "got": "Net 30",
+          "ok": false
+        }
+      },
+      "usage": {
+        "input_tokens": 1493,
+        "output_tokens": 550,
+        "total_tokens": 2043,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 269
+        }
+      },
+      "values": {
+        "summary": "This document is an invoice from Harbor & Pine Consulting to Cedar Lane Retail Inc. It bills for a peak-season staffing plan (4 days) and travel and accommodation, with an 18% GST applied. The total due is INR 365,505, payable under Net 30 terms.",
+        "document_type": "invoice",
+        "vendor_name": "Harbor & Pine Consulting",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "HPC/26-27/061",
+        "total_amount": 365505.0,
+        "currency": "INR",
+        "issue_date": "2026-10-05",
+        "due_date": "2026-11-04",
+        "payment_terms": "Net 30",
+        "line_item_categories": [
+          "consulting",
+          "travel"
+        ],
+        "line_items": [
+          {
+            "amount": 288000.0,
+            "quantity": 4.0,
+            "unit_price": 72000.0,
+            "description": "Peak-season staffing plan, 4 days"
+          },
+          {
+            "amount": 21750.0,
+            "quantity": 1.0,
+            "unit_price": 21750.0,
+            "description": "Travel and accommodation"
+          }
+        ]
+      }
+    },
+    {
+      "id": "i13",
+      "run": 2,
+      "name": "TDS-2026-031",
+      "exact": {
+        "invoice_number": {
+          "expected": "TDS-2026-031",
+          "got": "TDS-2026-031",
+          "ok": true
+        },
+        "total_amount": {
+          "expected": 8234.8,
+          "got": 8234.8,
+          "ok": true
+        },
+        "currency": {
+          "expected": "EUR",
+          "got": "EUR",
+          "ok": true
+        },
+        "issue_date": {
+          "expected": "2026-03-20",
+          "got": "2026-03-20",
+          "ok": true
+        },
+        "due_date": {
+          "expected": "2026-04-19",
+          "got": "2026-04-19",
+          "ok": true
+        },
+        "payment_terms": {
+          "expected": "net 30",
+          "got": "net 30",
+          "ok": true
+        }
+      },
+      "usage": {
+        "input_tokens": 1497,
+        "output_tokens": 325,
+        "total_tokens": 1822,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 117
+        }
+      },
+      "values": {
+        "summary": "This document is an invoice from Tessellate Design Studio GmbH to Cedar Lane Retail Inc. It covers services for a brand refresh (concept phase) and stock image licenses, with VAT applied at 19%. The total due is €8,234.80, payable under Net 30 terms.",
+        "document_type": "invoice",
+        "vendor_name": "Tessellate Design Studio GmbH",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "TDS-2026-031",
+        "total_amount": 8234.8,
+        "currency": "EUR",
+        "issue_date": "2026-03-20",
+        "due_date": "2026-04-19",
+        "payment_terms": "net 30",
+        "line_item_categories": [
+          "branding",
+          "stock image licenses"
+        ],
+        "line_items": [
+          {
+            "amount": 6500.0,
+            "quantity": 1.0,
+            "unit_price": 6500.0,
+            "description": "Brand refresh, concept phase"
+          },
+          {
+            "amount": 420.0,
+            "quantity": 12.0,
+            "unit_price": 35.0,
+            "description": "Stock image licences"
+          }
+        ]
+      }
+    },
+    {
+      "id": "i14",
+      "run": 2,
+      "name": "TDS-2026-058",
+      "exact": {
+        "invoice_number": {
+          "expected": "TDS-2026-058",
+          "got": "TDS-2026-058",
+          "ok": true
+        },
+        "total_amount": {
+          "expected": 16124.5,
+          "got": 16124.5,
+          "ok": true
+        },
+        "currency": {
+          "expected": "EUR",
+          "got": "EUR",
+          "ok": true
+        },
+        "issue_date": {
+          "expected": "2026-06-12",
+          "got": "2026-06-12",
+          "ok": true
+        },
+        "due_date": {
+          "expected": "2026-07-12",
+          "got": "2026-07-12",
+          "ok": true
+        },
+        "payment_terms": {
+          "expected": "milestone-based",
+          "got": "Milestone-based",
+          "ok": false
+        }
+      },
+      "usage": {
+        "input_tokens": 1505,
+        "output_tokens": 461,
+        "total_tokens": 1966,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 251
+        }
+      },
+      "values": {
+        "summary": "This document is an invoice from Tessellate Design Studio GmbH to Cedar Lane Retail Inc. for brand refresh and packaging design services across three product lines. It lists line-item charges, applies VAT (USt 19%), and states the total due by the given due date.",
+        "document_type": "invoice",
+        "vendor_name": "Tessellate Design Studio GmbH",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "TDS-2026-058",
+        "total_amount": 16124.5,
+        "currency": "EUR",
+        "issue_date": "2026-06-12",
+        "due_date": "2026-07-12",
+        "payment_terms": "Milestone-based",
+        "line_item_categories": [
+          "branding",
+          "packaging design"
+        ],
+        "line_items": [
+          {
+            "amount": 9200.0,
+            "quantity": 1.0,
+            "unit_price": 9200.0,
+            "description": "Brand refresh, final identity"
+          },
+          {
+            "amount": 4350.0,
+            "quantity": 3.0,
+            "unit_price": 1450.0,
+            "description": "Packaging design, 3 product lines"
+          }
+        ]
+      }
+    },
+    {
+      "id": "i15",
+      "run": 2,
+      "name": "TDS-2026-077",
+      "exact": {
+        "invoice_number": {
+          "expected": "TDS-2026-077",
+          "got": "TDS-2026-077",
+          "ok": true
+        },
+        "total_amount": {
+          "expected": 5712.0,
+          "got": 5712.0,
+          "ok": true
+        },
+        "currency": {
+          "expected": "EUR",
+          "got": "EUR",
+          "ok": true
+        },
+        "issue_date": {
+          "expected": "2026-09-30",
+          "got": "2026-09-30",
+          "ok": true
+        },
+        "due_date": {
+          "expected": "2026-10-30",
+          "got": "2026-10-30",
+          "ok": true
+        },
+        "payment_terms": {
+          "expected": "net 30",
+          "got": "net 30",
+          "ok": true
+        }
+      },
+      "usage": {
+        "input_tokens": 1477,
+        "output_tokens": 439,
+        "total_tokens": 1916,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 189
+        }
+      },
+      "values": {
+        "summary": "This document is an invoice from Tessellate Design Studio GmbH to Cedar Lane Retail Inc. for holiday campaign artwork. It lists one line item with a subtotal of EUR 4,800.00, VAT (19%) of EUR 912.00, and a total due of EUR 5,712.00, due under Net 30 terms.",
+        "document_type": "invoice",
+        "vendor_name": "Tessellate Design Studio GmbH",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "TDS-2026-077",
+        "total_amount": 5712.0,
+        "currency": "EUR",
+        "issue_date": "2026-09-30",
+        "due_date": "2026-10-30",
+        "payment_terms": "net 30",
+        "line_item_categories": [
+          "artwork"
+        ],
+        "line_items": [
+          {
+            "amount": 4800.0,
+            "quantity": 1.0,
+            "unit_price": 4800.0,
+            "description": "Holiday campaign artwork"
+          }
+        ]
+      }
+    },
+    {
+      "id": "i16",
+      "run": 2,
+      "name": "QSL-88412",
+      "exact": {
+        "invoice_number": {
+          "expected": "QSL-88412",
+          "got": "QSL-88412",
+          "ok": true
+        },
+        "total_amount": {
+          "expected": 16400.0,
+          "got": 16400.0,
+          "ok": true
+        },
+        "currency": {
+          "expected": "USD",
+          "got": "USD",
+          "ok": true
+        },
+        "issue_date": {
+          "expected": "2026-01-31",
+          "got": "2026-01-31",
+          "ok": true
+        },
+        "due_date": {
+          "expected": "2026-03-02",
+          "got": "2026-03-02",
+          "ok": true
+        },
+        "payment_terms": {
+          "expected": "net 30",
+          "got": "Net 30",
+          "ok": false
+        }
+      },
+      "usage": {
+        "input_tokens": 1480,
+        "output_tokens": 483,
+        "total_tokens": 1963,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 273
+        }
+      },
+      "values": {
+        "summary": "This invoice from Quillmark Software Licensing bills Cedar Lane Retail Inc. for point-of-sale software licensing and related implementation support. The invoice lists two line items, calculates a subtotal of $16,400.00 with $0.00 sales tax, and shows the total due as $16,400.00.",
+        "document_type": "invoice",
+        "vendor_name": "Quillmark Software Licensing",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "QSL-88412",
+        "total_amount": 16400.0,
+        "currency": "USD",
+        "issue_date": "2026-01-31",
+        "due_date": "2026-03-02",
+        "payment_terms": "Net 30",
+        "line_item_categories": [
+          "software licensing",
+          "implementation support"
+        ],
+        "line_items": [
+          {
+            "amount": 14160.0,
+            "quantity": 12.0,
+            "unit_price": 1180.0,
+            "description": "Point-of-sale software, annual licence (12 stores)"
+          },
+          {
+            "amount": 2240.0,
+            "quantity": 16.0,
+            "unit_price": 140.0,
+            "description": "Implementation support"
+          }
+        ]
+      }
+    },
+    {
+      "id": "i17",
+      "run": 2,
+      "name": "QSL-89037",
+      "exact": {
+        "invoice_number": {
+          "expected": "QSL-89037",
+          "got": "QSL-89037",
+          "ok": true
+        },
+        "total_amount": {
+          "expected": 5970.0,
+          "got": 5970.0,
+          "ok": true
+        },
+        "currency": {
+          "expected": "USD",
+          "got": "USD",
+          "ok": true
+        },
+        "issue_date": {
+          "expected": "2026-07-31",
+          "got": "2026-07-31",
+          "ok": true
+        },
+        "due_date": {
+          "expected": "2026-08-30",
+          "got": "2026-08-30",
+          "ok": true
+        },
+        "payment_terms": {
+          "expected": "net 30",
+          "got": "Net 30",
+          "ok": false
+        }
+      },
+      "usage": {
+        "input_tokens": 1487,
+        "output_tokens": 926,
+        "total_tokens": 2413,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 714
+        }
+      },
+      "values": {
+        "summary": "This document is an invoice from Quillmark Software Licensing to Cedar Lane Retail Inc. for point-of-sale software and an inventory add-on module. The invoice is for USD 5,970.00 due with Net 30 terms, and sales tax is listed as $0.00.",
+        "document_type": "invoice",
+        "vendor_name": "Quillmark Software Licensing",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "QSL-89037",
+        "total_amount": 5970.0,
+        "currency": "USD",
+        "issue_date": "2026-07-31",
+        "due_date": "2026-08-30",
+        "payment_terms": "Net 30",
+        "line_item_categories": [
+          "software licensing",
+          "software module"
+        ],
+        "line_items": [
+          {
+            "amount": 1770.0,
+            "quantity": 3.0,
+            "unit_price": 590.0,
+            "description": "Point-of-sale software, 3 additional stores (prorated)"
+          },
+          {
+            "amount": 4200.0,
+            "quantity": 1.0,
+            "unit_price": 1770.0,
+            "description": "Inventory add-on module, annual"
+          }
+        ]
+      }
+    },
+    {
+      "id": "i18",
+      "run": 2,
+      "name": "QSL-89590",
+      "exact": {
+        "invoice_number": {
+          "expected": "QSL-89590",
+          "got": "QSL-89590",
+          "ok": true
+        },
+        "total_amount": {
+          "expected": 5580.0,
+          "got": 5580.0,
+          "ok": true
+        },
+        "currency": {
+          "expected": "USD",
+          "got": "USD",
+          "ok": true
+        },
+        "issue_date": {
+          "expected": "2026-10-15",
+          "got": "2026-10-15",
+          "ok": true
+        },
+        "due_date": {
+          "expected": "2026-11-14",
+          "got": "2026-11-14",
+          "ok": true
+        },
+        "payment_terms": {
+          "expected": "net 30",
+          "got": "net 30",
+          "ok": true
+        }
+      },
+      "usage": {
+        "input_tokens": 1482,
+        "output_tokens": 409,
+        "total_tokens": 1891,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 123
+        }
+      },
+      "values": {
+        "summary": "This document is an invoice from Quillmark Software Licensing to Cedar Lane Retail Inc. It bills two annual services: a premium support upgrade and cloud backup for POS data. The invoice is due on 2026-11-14 for a total due of $5,580.00 (USD), with no sales tax.",
+        "document_type": "invoice",
+        "vendor_name": "Quillmark Software Licensing",
+        "customer_name": "Cedar Lane Retail Inc.",
+        "invoice_number": "QSL-89590",
+        "total_amount": 5580.0,
+        "currency": "USD",
+        "issue_date": "2026-10-15",
+        "due_date": "2026-11-14",
+        "payment_terms": "net 30",
+        "line_item_categories": [
+          "software support",
+          "cloud backup"
+        ],
+        "line_items": [
+          {
+            "amount": 3600.0,
+            "quantity": 1.0,
+            "unit_price": 3600.0,
+            "description": "Premium support upgrade, annual"
+          },
+          {
+            "amount": 1980.0,
+            "quantity": 1.0,
+            "unit_price": 1980.0,
+            "description": "Cloud backup for POS data, annual"
+          }
+        ]
+      }
+    }
+  ]
+}

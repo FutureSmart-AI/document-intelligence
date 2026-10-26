@@ -368,3 +368,44 @@ def test_include_charts_false_appends_no_charts_directive(monkeypatch):
     asyncio.run(rag_node_module.rag_node(query="q", knowledge_id="kb-1", owner_id="owner-1"))
     assert "Do not format the answer as a markdown table" in captured["generate_answer_instructions"]
     assert captured["answer_max_tokens"] == 1024
+
+
+def test_include_charts_true_tells_the_answer_the_app_draws_the_chart(monkeypatch):
+    """chart_node draws the real chart after the answer is written. Without this
+    directive the answer drew ASCII bars beside it and offered 'I can also turn
+    this into a simple bar chart' above the chart it already had (hosted resume
+    sample, 2026-10-25)."""
+    captured = {}
+
+    async def _fake_resolve_chat_config(knowledge_id, node_name=None, **kwargs):
+        return chat_config_module.ResolvedChatConfig(
+            llm_provider="openai", llm_model="gpt-5.4-mini", temperature=0.0,
+            system_prompt=None, show_sources=True, chat_enabled=True,
+            max_tokens=1024, include_charts=True,
+        )
+    monkeypatch.setattr(chat_config_module, "resolve_chat_config", _fake_resolve_chat_config)
+
+    async def _fake_get_node_config_row(knowledge_id, node_name):
+        return None
+    monkeypatch.setattr("chat.config._get_node_config_row", _fake_get_node_config_row)
+
+    async def _fake_fetch_schema(knowledge_id):
+        return {"document_count": -1}
+    monkeypatch.setattr(rag_node_module, "_fetch_schema", _fake_fetch_schema)
+
+    async def _fake_run_rag_agent(**kwargs):
+        captured.update(kwargs)
+        return {
+            "summaries": {}, "chunks": [], "tool_responses": [],
+            "usage_metrics": {}, "raw_output": "answer", "is_answered": True,
+            "agent_output": {},
+        }
+    monkeypatch.setattr(
+        "chat.rag_agent.agent_execution.run_rag_agent", _fake_run_rag_agent,
+    )
+
+    asyncio.run(rag_node_module.rag_node(query="q", knowledge_id="kb-1", owner_id="owner-1"))
+    instructions = captured["generate_answer_instructions"]
+    assert rag_node_module.CHART_RENDERED_SEPARATELY_DIRECTIVE in instructions
+    assert "never offer to make or convert one" in instructions
+    assert "Do not format the answer as a markdown table" not in instructions

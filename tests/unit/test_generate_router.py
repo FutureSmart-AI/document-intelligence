@@ -171,14 +171,14 @@ def test_upload_url_is_not_shadowed_by_the_knowledge_scoped_route(monkeypatch):
     monkeypatch.setattr(document_management_module, "generate_s3_presigned_urls", _fake_presign)
 
     # require_permission("write")'s dependency (used by the OLD route) calls
-    # utils.auth.dependencies.get_api_key_or_session directly rather than through
+    # utils.auth.dependencies._authenticate directly rather than through
     # FastAPI's Depends(), so app.dependency_overrides can't reach it — same gap
     # documented in test_generate_router.py's persist=false fixture above. Patch
     # the module attribute instead; a master key makes it short-circuit to None
     # (bypass) without any DB call.
     async def _fake_auth(request, api_key=None):
         return {"auth_type": "master_api_key", "api_key": "k"}
-    monkeypatch.setattr(auth_deps, "get_api_key_or_session", _fake_auth)
+    monkeypatch.setattr(auth_deps, "_authenticate", _fake_auth)
 
     app = FastAPI()
     # Same order as main.py: document_management_router before enrichment_configuration_router_new.
@@ -337,13 +337,13 @@ def knowledge_scoped_client(monkeypatch):
     lookups are needed here. app.dependency_overrides can't target this
     closure directly (it isn't the object Depends() was given — see
     utils/auth/dependencies.py::require_permission), so the module-level
-    get_api_key_or_session is monkeypatched instead: the closure looks that
+    _authenticate is monkeypatched instead: the closure looks that
     name up from utils.auth.dependencies's own globals at call time, so
     patching the attribute there is visible to it.
     """
     async def _fake_auth(request, api_key=None):
         return {"auth_type": "master_api_key", "api_key": "master"}
-    monkeypatch.setattr(auth_deps, "get_api_key_or_session", _fake_auth)
+    monkeypatch.setattr(auth_deps, "_authenticate", _fake_auth)
 
     app = FastAPI()
     app.include_router(router_module.router)

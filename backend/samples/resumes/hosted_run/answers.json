@@ -1,0 +1,856 @@
+{
+  "q01": {
+    "question": "Which candidates know Python and AWS and have at least 5 years of experience?",
+    "seconds": 9.6,
+    "response": "Candidates who know Python and AWS and have at least 5 years of experience:\n\n- Aarav Mehta — 8 years\n- Anjali Nair — 6 years\n- Arjun Malhotra — 7 years\n- Nadia Haddad — 9 years\n- Oliver Schmidt — 10 years\n- Rahul Verma — 5 years\n- Rohan Deshpande — 15 years\n- Siddharth Rao — 13 years",
+    "sources": [
+      {
+        "title": "r19-nadia-haddad.pdf"
+      },
+      {
+        "title": "r01-aarav-mehta.pdf"
+      },
+      {
+        "title": "r11-anjali-nair.pdf"
+      },
+      {
+        "title": "r22-siddharth-rao.pdf"
+      },
+      {
+        "title": "r14-oliver-schmidt.pdf"
+      },
+      {
+        "title": "r05-rahul-verma.pdf"
+      },
+      {
+        "title": "r18-rohan-deshpande.pdf"
+      },
+      {
+        "title": "r16-arjun-malhotra.pdf"
+      }
+    ],
+    "charts": [],
+    "final_keys": [
+      "byok_warnings",
+      "chat_id",
+      "data",
+      "debug_info",
+      "error",
+      "follow_up",
+      "is_answered",
+      "query",
+      "refined_query",
+      "response",
+      "session_id",
+      "usage"
+    ],
+    "data_keys": [
+      "knowledge"
+    ],
+    "session_id": "45dc97c3-8997-4c7a-94a7-0ee041849c69"
+  },
+  "q02": {
+    "question": "Who has hands-on experience building RAG or LLM applications? Cite what they built.",
+    "seconds": 25.6,
+    "response": "The candidates with explicit hands-on experience building RAG or LLM applications are:\n\n- **Arjun Malhotra** — Built RAG and agent workflows answering questions over **1.2 million legal contracts** with clause-level citations. He also designed an LLM evaluation pipeline, implemented hybrid vector search, and shipped a meeting-notes summarization feature.\n- **Aarav Mehta** — Built and evaluated RAG assistants used by **2,000+ support agents**. He led LLM-based retrieval and RAG assistants for customer support and product search, reduced hallucinations, and fine-tuned a 7B model for catalogue attribute extraction.\n- **Tanvi Joshi** — Built RAG chatbots with **LangChain and FastAPI** that answer customer questions from help-centre articles, and added pgvector search to PostgreSQL.\n- **Siddharth Rao** — Led an LLM support assistant using RAG over **50,000 policy documents**, deflecting 35% of tickets. He also advises startups on RAG architecture and evaluation.",
+    "sources": [
+      {
+        "title": "r24-tanvi-joshi.pdf"
+      },
+      {
+        "title": "r16-arjun-malhotra.pdf"
+      },
+      {
+        "title": "r01-aarav-mehta.pdf"
+      },
+      {
+        "title": "r22-siddharth-rao.pdf"
+      }
+    ],
+    "charts": [
+      {
+        "path": "data.knowledge.chart_output",
+        "value": {
+          "type": "direct_response",
+          "message": "A chart is not suitable for identifying people and describing their individual projects. A structured table is clearer; the provided data has four records with person names and descriptions of built LLM/RAG systems.",
+          "reasoning": null,
+          "graph_generated": false
+        }
+      }
+    ],
+    "final_keys": [
+      "byok_warnings",
+      "chat_id",
+      "data",
+      "debug_info",
+      "error",
+      "follow_up",
+      "is_answered",
+      "query",
+      "refined_query",
+      "response",
+      "session_id",
+      "usage"
+    ],
+    "data_keys": [
+      "knowledge"
+    ],
+    "session_id": "6da467f1-b391-46c6-b094-7feb14fbac2a"
+  },
+  "q03": {
+    "question": "Compare the strongest candidates for a Senior AI Engineer role (production LLM/RAG systems, 5+ years). Who would you shortlist and why?",
+    "seconds": 28.9,
+    "response": "## Shortlist\n\n### 1. Aarav Mehta — strongest overall fit\n- **8 years of experience** shipping ML and LLM-powered retrieval systems to production.\n- Led RAG assistants used by **2,000+ support agents**.\n- Reduced hallucinations from **11% to 3%** using retrieval evaluation and reranking.\n- Also brings model fine-tuning experience, including a 7B model with LoRA, plus AWS, Kubernetes, Docker, and MLflow.\n\nAarav offers the clearest evidence of mature production ownership and measurable LLM quality improvements.\n\n### 2. Arjun Malhotra — strongest hands-on RAG application fit\n- **7 years of experience**, including two years shipping LLM applications.\n- Builds RAG and agent workflows over **1.2 million legal contracts** with clause-level citations.\n- Designed evaluation gates for faithfulness and citation accuracy.\n- Improved answer accuracy from **71% to 88%** through hybrid search and a vector database.\n\nArjun is particularly strong for an application-focused Senior AI Engineer role requiring hands-on RAG engineering and systematic evaluation.\n\n### 3. Siddharth Rao — strong architecture-oriented option\n- **13 years of ML experience** and staff-level architecture leadership.\n- Leads a production RAG assistant over **50,000 policy documents**, deflecting **35% of tickets**.\n- Advises startups on RAG architecture and evaluation.\n\nHe is a strong addition for a role with substantial architecture or technical leadership responsibilities. However, his direct LLM/RAG experience is more recent, beginning in 2023.\n\n## Recommended shortlist\n\n**Primary interviews:** Aarav Mehta and Arjun Malhotra.  \nAarav has the strongest evidence of production maturity and measured impact, while Arjun has the deepest evidence of hands-on RAG application engineering and evaluation.\n\n**Add Siddharth Rao** if the role is staff-level or architecture-heavy.\n\nOliver Schmidt meets the experience requirement and has strong production MLOps and LLM-platform experience, but his resume provides less direct evidence of owning RAG quality or LLM application outcomes.",
+    "sources": [
+      {
+        "title": "r01-aarav-mehta.pdf"
+      },
+      {
+        "title": "r22-siddharth-rao.pdf"
+      },
+      {
+        "title": "r14-oliver-schmidt.pdf"
+      },
+      {
+        "title": "r16-arjun-malhotra.pdf"
+      }
+    ],
+    "charts": [],
+    "final_keys": [
+      "byok_warnings",
+      "chat_id",
+      "data",
+      "debug_info",
+      "error",
+      "follow_up",
+      "is_answered",
+      "query",
+      "refined_query",
+      "response",
+      "session_id",
+      "usage"
+    ],
+    "data_keys": [
+      "knowledge"
+    ],
+    "session_id": "16a7a78c-2109-4026-8788-b9001710f74c"
+  },
+  "q04": {
+    "question": "How are candidates distributed by seniority level? Show it as a chart.",
+    "seconds": 11.7,
+    "response": "| Seniority level | Candidates | Share |\n|---|---:|---:|\n| Senior | 7 | 29.2% |\n| Mid-level | 6 | 25.0% |\n| Junior | 4 | 16.7% |\n| Principal | 3 | 12.5% |\n| Lead | 2 | 8.3% |\n| Executive | 1 | 4.2% |\n| **Total** | **24** | **100%** |\n\n```text\nSenior     ██████████████  7\nMid-level  ████████████    6\nJunior     ████████        4\nPrincipal  ██████          3\nLead       ████            2\nExecutive  ██              1\n```",
+    "sources": [
+      {
+        "title": "r04-sneha-kulkarni.pdf"
+      },
+      {
+        "title": "r07-kenji-watanabe.pdf"
+      },
+      {
+        "title": "r09-lucas-fernandez.pdf"
+      },
+      {
+        "title": "r19-nadia-haddad.pdf"
+      },
+      {
+        "title": "r10-ishaan-chatterjee.pdf"
+      },
+      {
+        "title": "r20-vikram-singh.pdf"
+      },
+      {
+        "title": "r12-michael-brennan.pdf"
+      },
+      {
+        "title": "r01-aarav-mehta.pdf"
+      },
+      {
+        "title": "r21-emily-carter.pdf"
+      },
+      {
+        "title": "r24-tanvi-joshi.pdf"
+      },
+      {
+        "title": "r11-anjali-nair.pdf"
+      },
+      {
+        "title": "r06-meera-iyer.pdf"
+      },
+      {
+        "title": "r03-daniel-okafor.pdf"
+      },
+      {
+        "title": "r22-siddharth-rao.pdf"
+      },
+      {
+        "title": "r23-hannah-becker.pdf"
+      },
+      {
+        "title": "r14-oliver-schmidt.pdf"
+      },
+      {
+        "title": "r13-zoya-ahmed.pdf"
+      },
+      {
+        "title": "r05-rahul-verma.pdf"
+      },
+      {
+        "title": "r18-rohan-deshpande.pdf"
+      },
+      {
+        "title": "r16-arjun-malhotra.pdf"
+      },
+      {
+        "title": "r02-priya-raghunathan.pdf"
+      },
+      {
+        "title": "r17-grace-liu.pdf"
+      },
+      {
+        "title": "r08-fatima-sheikh.pdf"
+      },
+      {
+        "title": "r15-kavya-reddy.pdf"
+      }
+    ],
+    "charts": [],
+    "final_keys": [
+      "byok_warnings",
+      "chat_id",
+      "data",
+      "debug_info",
+      "error",
+      "follow_up",
+      "is_answered",
+      "query",
+      "refined_query",
+      "response",
+      "session_id",
+      "usage"
+    ],
+    "data_keys": [
+      "knowledge"
+    ],
+    "session_id": "2f532045-c259-4cf3-9367-ee2b45c7289e"
+  },
+  "q05": {
+    "question": "What is the distribution of years of experience across candidates? Show a chart.",
+    "seconds": 34.6,
+    "response": "The retrieved profiles provide years-of-experience data for **10 candidates**, not the full 24. The available distribution is:\n\n| Years of experience | Candidates |\n|---:|---:|\n| 2 | 2 |\n| 4 | 2 |\n| 5 | 1 |\n| 7 | 2 |\n| 8 | 1 |\n| 11 | 1 |\n| 18 | 1 |\n\n### Chart\n\n```text\nYears       Candidates\n2           ██ 2\n4           ██ 2\n5           █  1\n7           ██ 2\n8           █  1\n11          █  1\n18          █  1\n```\n\nA complete distribution and chart for all 24 candidates cannot be verified because the experience values for the remaining 14 candidates are unavailable.",
+    "sources": [],
+    "charts": [
+      {
+        "path": "data.knowledge.chart_output",
+        "value": {
+          "type": "chart_response",
+          "chart_suggestion": "Bar Chart",
+          "chart_data": {
+            "data": [
+              {
+                "category": "Tanvi Joshi",
+                "value": 2.0
+              },
+              {
+                "category": "Vikram Singh",
+                "value": 2.0
+              },
+              {
+                "category": "Grace Liu",
+                "value": 4.0
+              },
+              {
+                "category": "Hannah Becker",
+                "value": 4.0
+              },
+              {
+                "category": "Rahul Verma",
+                "value": 5.0
+              },
+              {
+                "category": "Arjun Malhotra",
+                "value": 7.0
+              },
+              {
+                "category": "Zoya Ahmed",
+                "value": 7.0
+              },
+              {
+                "category": "Aarav Mehta",
+                "value": 8.0
+              },
+              {
+                "category": "Meera Iyer",
+                "value": 11.0
+              },
+              {
+                "category": "Michael Brennan",
+                "value": 18.0
+              }
+            ],
+            "metadata": {
+              "title": "Years of Experience Across Candidates",
+              "x_axis": {
+                "label": "Candidate",
+                "field": "candidate_name"
+              },
+              "y_axis": {
+                "label": "Years of Experience",
+                "field": "years_of_experience"
+              },
+              "legend": {
+                "show": false,
+                "position": "right"
+              },
+              "colors": [
+                "#3498db",
+                "#e74c3c",
+                "#2ecc71",
+                "#f39c12",
+                "#9b59b6",
+                "#1abc9c",
+                "#34495e",
+                "#e67e22",
+                "#95a5a6",
+                "#c0392b"
+              ]
+            }
+          },
+          "dataframe": {
+            "columns": [
+              "candidate_name",
+              "document_id",
+              "file_name",
+              "years_of_experience"
+            ],
+            "data": [
+              {
+                "candidate_name": "Tanvi Joshi",
+                "document_id": "f2842159-4a08-49db-80ec-824ad8d383f4",
+                "file_name": "r24-tanvi-joshi.pdf",
+                "years_of_experience": 2
+              },
+              {
+                "candidate_name": "Vikram Singh",
+                "document_id": "7c2fbe0b-dfd5-4b20-ba91-26ed8d012744",
+                "file_name": "r20-vikram-singh.pdf",
+                "years_of_experience": 2
+              },
+              {
+                "candidate_name": "Grace Liu",
+                "document_id": "c3066f27-fae7-4e9f-82bd-caa5c8323f0f",
+                "file_name": "r17-grace-liu.pdf",
+                "years_of_experience": 4
+              },
+              {
+                "candidate_name": "Hannah Becker",
+                "document_id": "6e058419-0810-4c30-90ec-cc5312e9670f",
+                "file_name": "r23-hannah-becker.pdf",
+                "years_of_experience": 4
+              },
+              {
+                "candidate_name": "Rahul Verma",
+                "document_id": "1ec00067-e043-483f-9200-d4e9fd164e70",
+                "file_name": "r05-rahul-verma.pdf",
+                "years_of_experience": 5
+              },
+              {
+                "candidate_name": "Arjun Malhotra",
+                "document_id": "6ecbd7dc-c640-4f54-a8ef-f69730d103e6",
+                "file_name": "r16-arjun-malhotra.pdf",
+                "years_of_experience": 7
+              },
+              {
+                "candidate_name": "Zoya Ahmed",
+                "document_id": "f3c84fe3-167f-40a6-a687-7369b9e34301",
+                "file_name": "r13-zoya-ahmed.pdf",
+                "years_of_experience": 7
+              },
+              {
+                "candidate_name": "Aarav Mehta",
+                "document_id": "12e725dc-2358-4a75-a4aa-491d6ba9a6d6",
+                "file_name": "r01-aarav-mehta.pdf",
+                "years_of_experience": 8
+              },
+              {
+                "candidate_name": "Meera Iyer",
+                "document_id": "643eb2f0-ecce-419f-96f7-744810d0bd18",
+                "file_name": "r06-meera-iyer.pdf",
+                "years_of_experience": 11
+              },
+              {
+                "candidate_name": "Michael Brennan",
+                "document_id": "5fb86d5c-bcb1-4108-9f86-c718389829d5",
+                "file_name": "r12-michael-brennan.pdf",
+                "years_of_experience": 18
+              }
+            ],
+            "shape": [
+              10,
+              4
+            ],
+            "dtypes": {
+              "candidate_name": "str",
+              "document_id": "str",
+              "file_name": "str",
+              "years_of_experience": "int64"
+            }
+          },
+          "chart_generated": true
+        }
+      }
+    ],
+    "final_keys": [
+      "byok_warnings",
+      "chat_id",
+      "data",
+      "debug_info",
+      "error",
+      "follow_up",
+      "is_answered",
+      "query",
+      "refined_query",
+      "response",
+      "session_id",
+      "usage"
+    ],
+    "data_keys": [
+      "knowledge"
+    ],
+    "session_id": "a37fc82a-ceeb-488e-80f1-9bd8e86fcf9b"
+  },
+  "q06": {
+    "question": "What are the most common skills across all candidates? Chart the top 10.",
+    "seconds": 86.0,
+    "response": "\nRELEVANT CHUNKS:\n[Chunk 1 | Doc: c3066f27-fae7-4e9f-82bd-caa5c8323f0f] File Name: r17-grace-liu.pdf\n\nExtra Info: file title: Grace Liu \n\n\nExtracted Text: Grace Liu\nData Scientist\ngrace.liu@example.net · Singapore\nPROFILE\nData scientist with 4 years of experience in payments fraud and NLP for customer support.\nEXPERIENCE\nData Scientist\nMangrove Pay, Singapore - Digital wallet (fintech)\n2022 - Present\nBuilds fraud-detection models on BigQuery features; prevented an estimated $3.1M in losses in\n2025.\nFine-tuned a transformer classifier that routes support tickets in 6 languages.\nEDUCATION\nM.S., Business Analytics\nStraits Institute of Technology, 2022\nB.Sc., Economics\nStraits Institute of Technology, 2021\nSKILLS\npython\nsql\nscikit-learn\nnlp\ntransformers\ngcp\nbigquery\nexperimentation\ntableau\nCERTIFICATIONS\nGoogle Cloud Professional Data Engineer\nLANGUAGES\nEnglish\nMandarin\n[Chunk 2 | Doc: 5fb86d5c-bcb1-4108-9f86-c718389829d5] File Name: r12-michael-brennan.pdf\n\nExtra Info: file title: Michael Brennan \n\n\nExtracted Text: Michael Brennan\nVP of Engineering\nmichael.brennan@example.org · +1 512-555-0142 · Austin, TX\nPROFILE\nEngineering executive with 18 years of experience, the last nine leading engineering organisations of 40-\n120 people in healthcare SaaS.\nEXPERIENCE\nVP of Engineering\nTallgrass Health, Austin, TX - Clinical scheduling SaaS (healthcare)\n2021 - Present\nRuns a 120-person engineering organisation across 14 teams and a $22M budget.\nLed the platform consolidation onto AWS and Kubernetes; infrastructure cost down 31%.\nDirector of Engineering\nTallgrass Health, Austin, TX - Clinical scheduling SaaS (healthcare)\nGrew the engineering team from 40 to 85 and launched the patient mobile app.\nEngineering Manager\nCobaltline Software, Dallas, TX - B2B workflow software (saas)\nManaged two backend teams building workflow automation services in Go.\nSenior Software Engineer\nCobaltline Software, Dallas, TX - B2B workflow software (saas)\nBuilt the document routing engine and its public API.\n2017 - 2021\n2013 - 2017\n2008 - 2013\nEDUCATION\nM.S., Computer Science\nLone Prairie University, 2008\nB.S., Computer Science\nLone Prairie University, 2006\nSKILLS\nengineering leadership\nsystem design\naws\nhiring\nbudgeting\nplatform strategy\ngo\nkubernetes\nLANGUAGES\nEnglish\n[Chunk 3 | Doc: 52318c4a-4f1c-4f90-973d-c5db5c45ac2b] File Name: r19-nadia-haddad.pdf\n\nExtra Info: file title: Nadia \n\n\nExtracted Text: Nadia\nHaddad\nSenior Site Reliability\nEngineer\nCONTACT\nnadia.haddad@example.org\nDubai\nSKILLS\nkubernetes\ngcp\naws\nterraform go\npython\nprometheus\nincident management\nlinux\nhelm\nCERTIFICATIONS\nCertified Kubernetes\nAdministrator (CKA)\nGoogle Professional\nCloud DevOps Engineer\nL ANGUAGES\nArabic\nEnglish\nFrench\nPROFILE\nSite reliability engineer with 9 years of experience running Kubernetes\nplatforms on GCP and AWS and leading incident response for logistics\nsystems.\nE XPERIENCE\nSenior Site Reliability Engineer\nSandpiper Logistics, Dubai - Last-mile delivery network (logistics)\n2021 - Present\nLeads reliability for the dispatch platform (99.95% SLO) and runs the\nincident-response rotation.\nWrote the Go operator that autoscales routing workers on GKE.\nSite Reliability Engineer\nSandpiper Logistics, Dubai - Last-mile delivery network (logistics)\n2019 - 2021\nMoved 40 services to Kubernetes with Helm charts and Terraform.\nSystems Administrator\nOasisnet Hosting, Amman - Web hosting provider (cloud hosting)\n2017 - 2019\nAdministered 600 Linux servers and Prometheus monitoring for hosting\ncustomers.\nEDUCATION\nB.Sc., Computer Science\nLevant Polytechnic University, 2017\n[Chunk 4 | Doc: ffc60fa5-abec-4276-a0c7-e9b556b75a18] File Name: r04-sneha-kulkarni.pdf\n\nExtra Info: file title: Sneha Kulkarni \n\n\nExtracted Text: Sneha Kulkarni\nData Analyst\nPROFILE\nsneha.kulkarni@example.com · Pune\nData analyst with 1 year of experience turning retail sales data into Power BI dashboards and weekly business reviews.\nSKILLS\nsql\nexcel\npower bi\npython\npandas\ndata visualization\nE XPERIENCE\nData Analyst\nTarang Retail, Pune - Apparel retail chain (retail)\nBuilds Power BI dashboards and weekly sales reviews for 120 stores.\nAutomated the inventory ageing report with Python and pandas, saving 6 hours a week.\nAnalytics Intern\nTarang Retail, Pune - Apparel retail chain (retail)\nCleaned point-of-sale data and built Excel reports during a 3-month summer internship.\n2025 - Present\n2024 - 2024\nEDUCATION\nB.Sc., Statistics\nSahyadri College of Science, 2025\nCERTIFICATIONS\nGoogle Data Analytics Professional Certificate\nL ANGUAGES\nEnglish\nMarathi\nHindi\n[Chunk 5 | Doc: 1ec00067-e043-483f-9200-d4e9fd164e70] File Name: r05-rahul-verma.pdf\n\nExtra Info: file title: Rahul Verma \n\n\nExtracted Text: Rahul Verma\nDevOps Engineer\nPROFILE\nDevOps engineer with 5 years of experience automating AWS\ninfrastructure with Terraform and running Kubernetes platforms for\nSaaS products.\nEXPERIENCE\nDevOps Engineer\nZentrix Cloud Services, Hyderabad - B2B SaaS platform (saas)\n2023 - Present\nRuns the EKS platform and Terraform-managed AWS infrastructure\nfor 60 microservices.\nBuilt Prometheus and Grafana alerting that cut mean time to detect\nfrom 25 to 4 minutes.\nAssociate DevOps Engineer\nOrbitwave Software, Hyderabad - HR software vendor (saas)\n2021 - 2023\nMaintained Jenkins CI/CD pipelines and Ansible-based server\nconfiguration.\nEDUCATION\nB.Tech, Information Technology\nGolconda Institute of Engineering, 2021\nCONTACT\nrahul.verma@example.org\nHyderabad\nSKILLS\naws\nterraform\nkubernetes\ndocker\njenkins\npython\nbash\nprometheus\ngrafana\nansible\nCERTIFICATIONS\nAWS Certified DevOps\nEngineer - Professional\nCertified Kubernetes\nAdministrator (CKA)\nLANGUAGES\nEnglish\nHindi\nTelugu\n[Chunk 6 | Doc: 0212b241-52c8-4e0e-be49-66c600cd287e] File Name: r21-emily-carter.pdf\n\nExtra Info: file title: Emily Carter \n\n\nExtracted Text: Emily Carter\nAnalytics Engineer\nPROFILE\nemily.carter@example.com · +1 416-555-0187 · Toronto\nAnalytics engineer with 5 years of experience modelling retail and banking data in dbt and Snowflake and building\nLooker self-serve analytics.\nSKILLS\nsql\ndbt\npython\nlooker\nsnowflake\nairflow data modeling\ngit\nE XPERIENCE\nAnalytics Engineer\nMaplecrest Retail, Toronto - Home goods retailer (retail)\nMaintains 300 dbt models in Snowflake and the Looker explores used by 200 staff.\nData Analyst\nNorthlake Bank, Toronto - Regional bank (banking)\nProduced SQL reporting on deposits and loan portfolios; automated it with Airflow.\n2023 - Present\n2021 - 2023\nEDUCATION\nB.Sc., Mathematics\nLakeshore University, 2021\nCERTIFICATIONS\ndbt Analytics Engineering Certification\nL ANGUAGES\nEnglish\nFrench\n[Chunk 7 | Doc: f2842159-4a08-49db-80ec-824ad8d383f4] File Name: r24-tanvi-joshi.pdf\n\nExtra Info: file title: Tanvi Joshi \n\n\nExtracted Text: Tanvi Joshi\nJunior AI Engineer\nCONTACT\ntanvi.joshi@example.net\nAhmedabad (open to Remote)\nSKILLS\npython\njavascript\nreact\nfastapi\nlangchain\nrag\npostgresql\ndocker\nL ANGUAGES\nEnglish\nGujarati\nHindi\nPROFILE\nAI engineer with 2 years of experience, moving from full-stack web\ndevelopment to building RAG chatbots and document question-answering\nwith LangChain and FastAPI.\nE XPERIENCE\nJunior AI Engineer\nKesar Labs, Ahmedabad - Customer support software (saas)\n2025 - Present\nBuilds RAG chatbots with LangChain and FastAPI that answer customer\nquestions from help-centre articles.\nAdded pgvector search to the existing PostgreSQL database.\nAssociate Software Engineer\nKesar Labs, Ahmedabad - Customer support software (saas)\n2024 - 2025\nBuilt React screens and REST endpoints for the support dashboard.\nEDUCATION\nB.E., Information Technology\nSabarmati Institute of Engineering, 2024\n[Chunk 8 | Doc: dae2d1ae-830e-4378-929e-cd75d79afda8] File Name: r14-oliver-schmidt.pdf\n\nExtra Info: file title: Oliver \n\n\nExtracted Text: Oliver\nSchmidt\nLead MLOps Engineer\nCONTACT\noliver.schmidt@example.net\nBerlin\nSKILLS\npython\nkubernetes\nmlflow kubeflow aws\ngcp\nterraform docker\nfeature stores\nllmops\nCERTIFICATIONS\nGoogle Professional\nMachine Learning\nEngineer\nCertified Kubernetes\nAdministrator (CKA)\nL ANGUAGES\nGerman\nEnglish\nPROFILE\nMLOps lead with 10 years of experience taking machine learning and LLM\nservices from notebook to production on AWS and GCP.\nE XPERIENCE\nLead MLOps Engineer\nGlasswing Mobility, Berlin - Ride-sharing and micromobility (mobility)\n2022 - Present\nLeads the 6-person ML platform team that deploys pricing, ETA and LLM\nsupport models.\nBuilt the feature store and model registry on Kubeflow and MLflow;\ndeploy time from 2 weeks to 1 day.\nSenior Machine Learning Engineer\nGlasswing Mobility, Berlin - Ride-sharing and micromobility (mobility)\n2019 - 2022\nProductionised demand-forecasting models on GCP with automated\nretraining.\nData Engineer\nFeldmark Versicherung, Hamburg - Insurance group (insurance)\n2016 - 2019\nBuilt the claims data warehouse feeding actuarial models.\nEDUCATION\nM.Sc., Informatics\nTechnische Hochschule Rabenfeld, 2016\n[Chunk 9 | Doc: 643eb2f0-ecce-419f-96f7-744810d0bd18] File Name: r06-meera-iyer.pdf\n\nExtra Info: file title: Meera Iyer \n\n\nExtracted Text: Meera Iyer\nSenior Product Manager\nmeera.iyer@example.com · Mumbai\nPROFILE\nProduct manager with 11 years of professional experience: two years as a software engineer, then nine\nyears leading consumer product teams in e-commerce and edtech.\nEXPERIENCE\nSenior Product Manager\nVidyanta Learning, Mumbai - Online learning platform (edtech)\nOwns the learner experience roadmap for 3 million monthly learners.\nRan 40+ A/B tests that lifted course completion by 18%.\nProduct Manager\nBasketly, Mumbai - Grocery delivery app (e-commerce)\nManaged the checkout and payments product; reduced cart abandonment by 9%.\nSoftware Engineer\nSunfield Infotech, Pune - IT services firm\nDeveloped Java web applications for enterprise clients.\n2021 - Present\n2017 - 2021\n2013 - 2015\nEDUCATION\nMBA, Marketing\nKonkan School of Management, 2017\nB.E., Computer Engineering\nDeccan Plateau Engineering College, 2013\nSKILLS\nproduct strategy\nroadmapping\na/b testing\nsql\nuser research\nagile\njira\nstakeholder management\nproduct analytics\nCERTIFICATIONS\nCertified Scrum Product Owner (CSPO)\nLANGUAGES\nEnglish\nHindi\nMarathi\n[Chunk 10 | Doc: 1e9c7615-3729-4fef-a19b-9b9569e5057a] File Name: r15-kavya-reddy.pdf\n\nExtra Info: file title: Kavya Reddy \n\n\nExtracted Text: Kavya Reddy\nSoftware Engineer II\nPROFILE\nkavya.reddy@example.org · Bengaluru\nBackend engineer building Java and Spring Boot microservices for a digital health platform.\nSKILLS\njava\nspring boot\npostgresql\nredis microservices\naws\ndocker\nrest apis\nE XPERIENCE\nSoftware Engineer II\nHaldi Health, Bengaluru - Digital health platform (healthcare)\nOwns the appointment-booking microservices (Java, Spring Boot, PostgreSQL, Redis).\nCut p95 booking latency from 900 ms to 180 ms.\nSoftware Engineer I\nHaldi Health, Bengaluru - Digital health platform (healthcare)\nBuilt REST APIs for patient records deployed with Docker on AWS.\nEDUCATION\nB.Tech, Electronics and Communication Engineering\nKrishna Delta Institute of Technology, 2023\nL ANGUAGES\nEnglish\nTelugu\nKannada\n2025 - Present\n2023 - 2025\n[Chunk 11 | Doc: unknown] File Name: r07-kenji-watanabe.pdf\n\nExtra Info: file title: Kenji Watanabe \n\n\nExtracted Text: Kenji Watanabe\nAI Research Engineer\nkenji.watanabe@example.net · Tokyo (open to Remote)\nProfile\nResearch engineer with 4 years of industry experience training and evaluating large language\nmodels. PhD on retrieval-augmented language models; currently works on RLHF and long-context\nevaluation.\nEducation\nPh.D., Computer Science\nKanto Institute of Science, 2022\nM.Eng., Information Engineering\nKanto Institute of Science, 2018\nExperience\nAI Research Engineer\nSorahana Labs, Tokyo - AI research lab (artiﬁcial intelligence)\n2022 - Present\nTrains and evaluates 1B-13B parameter language models on a 512-GPU cluster.\nBuilt the long-context retrieval evaluation suite used to gate every model release.\nWrote custom CUDA kernels that sped up attention by 1.4x.\nResearch Intern\nSorahana Labs, Tokyo - AI research lab (artiﬁcial intelligence)\n2021 - 2021\nPrototyped a retrieval-augmented question-answering model (summer internship).\nSkills\npython\npytorch\njax\ntransformers\nllm pretraining\nrlhf\ncuda\ndistributed training\nrag\nllm evaluation\nLanguages\nJapanese\nEnglish\n[Chunk 12 | Doc: unknown] File Name: r09-lucas-fernandez.pdf\n\nExtra Info: file title: Lucas Fernandez \n\n\nExtracted Text: Lucas Fernandez\nSenior Frontend Engineer\nlucas.fernandez@example.com · Madrid\nPROFILE\nFrontend engineer with 7 years of experience building accessible React and Next.js applications for travel and SaaS\ncompanies.\nEXPERIENCE\nSenior Frontend Engineer\nBrisa Travel Tech, Madrid - Online travel booking (travel)\n2022 - Present\nLeads the Next.js rebuild of the ﬂight booking web app; Core Web Vitals now green on 95% of pages.\nMade checkout WCAG 2.2 AA compliant.\nFrontend Developer\nNodoverde Studio, Barcelona - Product studio building SaaS tools (saas)\nBuilt React and GraphQL dashboards for 12 SaaS clients.\n2019 - 2022\nEDUCATION\nBachelor's, Computer Engineering\nUniversidad de Valdemora, 2019\nSKILLS\ntypescript\nreact\nnext.js\ngraphql\nnode.js\ncss\nfrontend testing\naccessibility webpack\nLANGUAGES\nSpanish\nEnglish\nCatalan\n[Chunk 13 | Doc: unknown] File Name: r10-ishaan-chatterjee.pdf\n\nExtra Info: file title: Ishaan Chatterjee \n\n\nExtracted Text: Ishaan Chatterjee\nComputer Science Graduate\nPROFILE\nishaan.chatterjee@example.net · Kolkata (open to Bengaluru, Remote)\n2026 computer science graduate looking for an entry-level software or machine learning role. Open to Bengaluru or\nremote.\nSKILLS\npython\nc++ data structures machine learning\nsql\ngit\nflask\nlangchain\nE XPERIENCE\nSoftware Engineering Intern\nQuillstone Labs, Remote - Developer tools startup (software)\nBuilt Flask API endpoints and unit tests during a two-month summer internship.\n2025 - 2025\nPROJECTS\nCampusQA: a RAG chatbot over 400 pages of college course notes, built with LangChain and a local vector store.\nRoute planner in C++ using Dijkstra's algorithm for the campus shuttle.\nEDUCATION\nB.Tech, Computer Science and Engineering\nHooghly Riverside Institute of Technology, 2026\nL ANGUAGES\nEnglish\nBengali\nHindi\n[Chunk 14 | Doc: unknown] File Name: r20-vikram-singh.pdf\n\nExtra Info: file title: Vikram Singh \n\n\nExtracted Text: Vikram Singh\nAssociate Product Manager\nvikram.singh@example.net · Bengaluru\nPROFILE\nAssociate product manager with 2 years of experience on learner onboarding and growth for an edtech app.\nEXPERIENCE\nAssociate Product Manager\nGyaanpath Learning, Bengaluru - Test-prep app (edtech)\n2024 - Present\nOwns learner onboarding; redesigned the ﬁrst-week ﬂow in Figma and lifted day-7 retention by 11%.\nLaunched the referral programme, now 14% of new sign-ups.\nEDUCATION\nB.Tech, Mechanical Engineering\nAravalli Institute of Technology, 2024\nSKILLS\nproduct discovery\nsql\nﬁgma\njira\nuser research\nproduct analytics wireframing\nLANGUAGES\nEnglish\nHindi\n[Chunk 15 | Doc: unknown] File Name: r01-aarav-mehta.pdf\n\nExtra Info: file title: Aarav Mehta \n\n\nExtracted Text: Aarav Mehta\nSenior Machine Learning\nEngineer\nCONTACT\naarav.mehta@example.com\nBengaluru\nSKILLS\npython\npytorch\naws\nlangchain\nrag\nllm fine-tuning\ndocker\nkubernetes mlflow\nsql\nCERTIFICATIONS\nAWS Certified Machine\nLearning - Specialty\nL ANGUAGES\nEnglish\nHindi\nKannada\nPROFILE\nMachine learning engineer with 8 years of experience shipping\nrecommendation, ranking and LLM-powered retrieval systems to production\non AWS. Built and evaluated retrieval-augmented generation (RAG)\nassistants used by 2,000+ support agents.\nE XPERIENCE\nSenior Machine Learning Engineer\nLumora Commerce, Bengaluru - Online marketplace (e-commerce)\n2022 - Present\nLeads a 4-person team building LLM-based retrieval and RAG assistants\nfor customer support and product search.\nCut assistant hallucination rate from 11% to 3% with a retrieval\nevaluation harness and reranking.\nFine-tuned a 7B open-weight model with LoRA for catalogue attribute\nextraction.\nMachine Learning Engineer\nLumora Commerce, Bengaluru - Online marketplace (e-commerce)\n2020 - 2022\nBuilt and deployed product recommendation and ranking models serving\n30M sessions a month.\nMoved model training to Kubernetes with MLflow tracking.\nData Scientist\nBrightpath Lending, Bengaluru - Digital lending startup (fintech)\n2018 - 2020\nDeveloped credit-risk scoring models for small-business loans using\ngradient boosting.\nAutomated weekly model monitoring reports in SQL and Python.\nEDUCATION\nM.Tech, Computer Science\nWestern Ghats Institute of Technology, 2018\nB.E., Information Science\nMalnad College of Engineering Studies, 2016\n[Chunk 16 | Doc: unknown] File Name: r11-anjali-nair.pdf\n\nExtra Info: file title: Anjali Nair \n\n\nExtracted Text: Anjali Nair\nSenior Data Engineer\nPROFILE\nData engineer with 6 years of experience building batch and\nstreaming pipelines on AWS, Snowflake and Airflow for logistics and\nSaaS companies. Relocating to Bengaluru.\nEXPERIENCE\nSenior Data Engineer\nPelican Freight Analytics, Kochi - Freight visibility platform (logistics)\n2023 - Present\nOwns streaming shipment-tracking pipelines (Kafka, Spark\nStructured Streaming) landing in Snowflake.\nIntroduced dbt models and data contracts; failed loads dropped by\n70%.\nData Engineer\nCoral Bay Systems, Kochi - Subscription billing SaaS (saas)\n2020 - 2023\nBuilt Airflow batch pipelines from AWS RDS and S3 into the\nanalytics warehouse.\nEDUCATION\nB.Tech, Computer Science\nMalabar Coast College of Engineering, 2020\nCONTACT\nanjali.nair@example.com\nKochi (open to Bengaluru)\nSKILLS\npython\nspark\nairflow\nsql\nsnowflake\ndbt\naws\nkafka\ndata modeling\nscala\nCERTIFICATIONS\nAWS Certified Data\nEngineer - Associate\nSnowPro Core Certification\nLANGUAGES\nEnglish\nMalayalam\nHindi\n[Chunk 17 | Doc: unknown] File Name: r03-daniel-okafor.pdf\n\nExtra Info: file title: Daniel Okafor \n\n\nExtracted Text: Daniel Okafor\nPrincipal Software Engineer\ndaniel.okafor@example.net · +44 7700 900123 · London\nPROFILE\nPrincipal engineer who designs high-throughput payment systems. Deep experience in distributed systems, event\nstreaming and platform reliability; mentors staﬀ engineers across four teams.\nEXPERIENCE\nPrincipal Software Engineer\nHalcyon Payments, London - Card payments processor (ﬁntech)\n2019 - Present\nSets the architecture for the card-authorisation platform (4,000 TPS, 99.99% availability).\nLed the migration from a monolith to Go and Java services on Kubernetes with Kafka event streams.\nStaﬀ Software Engineer\nHalcyon Payments, London - Card payments processor (ﬁntech)\nDesigned the double-entry ledger and settlement services on PostgreSQL and Kafka.\nSoftware Engineer\nRidgeway Telecom, Manchester - Mobile network operator (telecommunications)\nBuilt billing and SIM provisioning services in Java for 6 million subscribers.\n2016 - 2019\n2010 - 2016\nEDUCATION\nB.Eng., Computer Engineering\nUniversity of Eastmere, 2010\nSKILLS\njava\ngo\nkubernetes\naws\npostgresql\nkafka\ndistributed systems\nsystem design\nterraform grpc\nCERTIFICATIONS\nAWS Certiﬁed Solutions Architect - Professional\nCertiﬁed Kubernetes Administrator (CKA)\nLANGUAGES\nEnglish\nYoruba\n[Chunk 18 | Doc: unknown] File Name: r22-siddharth-rao.pdf\n\nExtra Info: file title: Siddharth Rao \n\n\nExtracted Text: CONTACT\nsiddharth.rao@example.org\nHyderabad (open to Remote)\nSKILLS\npython\ntensorflow\npytorch\nrecommender systems\nrag\nllms\nspark\naws\nkubernetes mlops\nLANGUAGES\nEnglish\nTelugu\nHindi\nSiddharth Rao\nStaff Machine Learning Engineer\nPROFILE\nMachine learning engineer with 13 years of experience in\nrecommender systems and, since 2023, LLM and RAG systems. Holds\na full-time staff role and, in parallel, a part-time consulting practice\nadvising startups on RAG architecture.\nEXPERIENCE\nStaff Machine Learning Engineer\nTejas Mobility, Hyderabad - Ride-hailing platform (mobility)\n2021 - Present\nSets ML architecture for rider-driver matching across 30 cities.\nLeads the LLM support-assistant program: RAG over 50k policy\ndocuments, deflecting 35% of tickets.\nML Consultant\nIndependent, Remote - Part-time consulting practice (consulting)\n2023 - Present\nAdvises early-stage startups on RAG architecture and evaluation\n(part-time, alongside the staff role).\nSenior Machine Learning Engineer\nTejas Mobility, Hyderabad - Ride-hailing platform (mobility)\n2018 - 2021\nBuilt the TensorFlow ETA prediction and surge-pricing models.\nData Scientist\nArrowroot Analytics, Hyderabad - Analytics consultancy (consulting)\n2013 - 2018\nBuilt recommender systems for retail clients on Spark.\nEDUCATION\nM.S., Computer Science\nGodavari Institute of Science and Technology, 2013\n[Chunk 19 | Doc: unknown] File Name: r23-hannah-becker.pdf\n\nExtra Info: file title: Hannah Becker \n\n\nExtracted Text: Hannah Becker\nProduct Analyst\nhannah.becker@example.com · Munich\nProfile\nProduct analyst with 4 years of experience in mobility apps. Took a gap year after graduation to\nvolunteer on a rural education project in Peru.\nEducation\nB.Sc., Economics\nIsar Valley University, 2021\nExperience\nProduct Analyst\nAlpenrot Mobility, Munich - E-scooter and bike sharing (mobility)\n2022 - Present\nAnalyses rider behaviour in Amplitude and SQL; runs 3-4 app experiments a month.\nBuilt the pricing-elasticity model behind the 2025 subscription launch.\nGap Year\n2021-2022: Volunteer teacher, rural education project, Cusco region, Peru (unpaid).\nSkills\nsql\npython\namplitude\na/b testing\nproduct analytics\ntableau\nstatistics\nLanguages\nGerman\nEnglish\nSpanish\n[Chunk 20 | Doc: unknown] File Name: r13-zoya-ahmed.pdf\n\nExtra Info: file title: Zoya Ahmed \n\n\nExtracted Text: Zoya Ahmed\nSenior Business Analyst\nzoya.ahmed@example.com · New Delhi (open to Gurugram)\nPROFILE\nBusiness analyst with 7 years of experience in payments and e-commerce analytics. Returned to work in 2022 after\na one-year career break to care for a family member.\nEXPERIENCE\nSenior Business Analyst\nSaﬀronkart, Gurugram - Online fashion marketplace (e-commerce)\n2022 - Present\nLeads pricing and promotions analytics; built the Looker promotion-ROI model used in every campaign review.\nDesigned the A/B testing guardrails adopted by the growth team.\nBusiness Analyst\nMintfield Payments, New Delhi - Merchant payments company (ﬁntech)\nForecast merchant transaction volumes and reported on payment success rates in Power BI.\n2018 - 2021\nCAREER BREAK\nJul 2021 - Jun 2022: Planned career break to care for a family member. Completed an online Python for analytics\ncourse during this period.\nEDUCATION\nMBA, Business Analytics\nYamuna School of Business, 2018\nB.A., Economics\nIndraprastha Arts and Commerce College, 2016\nSKILLS\nsql\npython\npower bi\nexcel\nstakeholder management\nforecasting\na/b testing\nlooker\nLANGUAGES\nEnglish\nHindi\nUrdu",
+    "sources": [],
+    "charts": [
+      {
+        "path": "data.knowledge.chart_output",
+        "value": {
+          "type": "chart_response",
+          "chart_suggestion": "Bar Chart",
+          "chart_data": {
+            "data": [
+              {
+                "category": "python",
+                "value": 4.0
+              },
+              {
+                "category": "python",
+                "value": 4.0
+              },
+              {
+                "category": "python",
+                "value": 4.0
+              },
+              {
+                "category": "python",
+                "value": 4.0
+              },
+              {
+                "category": "aws",
+                "value": 3.0
+              },
+              {
+                "category": "aws",
+                "value": 3.0
+              },
+              {
+                "category": "aws",
+                "value": 3.0
+              },
+              {
+                "category": "kubernetes",
+                "value": 3.0
+              },
+              {
+                "category": "kubernetes",
+                "value": 3.0
+              },
+              {
+                "category": "kubernetes",
+                "value": 3.0
+              },
+              {
+                "category": "gcp",
+                "value": 2.0
+              },
+              {
+                "category": "gcp",
+                "value": 2.0
+              },
+              {
+                "category": "go",
+                "value": 2.0
+              },
+              {
+                "category": "go",
+                "value": 2.0
+              },
+              {
+                "category": "prometheus",
+                "value": 2.0
+              },
+              {
+                "category": "prometheus",
+                "value": 2.0
+              },
+              {
+                "category": "sql",
+                "value": 2.0
+              },
+              {
+                "category": "sql",
+                "value": 2.0
+              },
+              {
+                "category": "terraform",
+                "value": 2.0
+              },
+              {
+                "category": "terraform",
+                "value": 2.0
+              },
+              {
+                "category": "ansible",
+                "value": 1.0
+              },
+              {
+                "category": "bash",
+                "value": 1.0
+              }
+            ],
+            "metadata": {
+              "title": "Top 10 Most Common Skills Across Candidates",
+              "x_axis": {
+                "label": "Skill",
+                "field": "skill_normalized"
+              },
+              "y_axis": {
+                "label": "Number of Candidates",
+                "field": "candidate_count"
+              },
+              "legend": {
+                "show": false,
+                "position": "right"
+              },
+              "colors": [
+                "#4facfe",
+                "#00f2fe",
+                "#43e97b",
+                "#38f9d7",
+                "#667eea",
+                "#764ba2",
+                "#667eea",
+                "#f093fb",
+                "#4facfe",
+                "#00f2fe",
+                "#4facfe",
+                "#00f2fe",
+                "#43e97b",
+                "#38f9d7",
+                "#667eea",
+                "#764ba2",
+                "#667eea",
+                "#f093fb",
+                "#4facfe",
+                "#00f2fe",
+                "#4facfe",
+                "#00f2fe"
+              ]
+            }
+          },
+          "dataframe": {
+            "columns": [
+              "candidate_name",
+              "document_id",
+              "file_name",
+              "skill_name",
+              "skill_normalized",
+              "candidate_count"
+            ],
+            "data": [
+              {
+                "candidate_name": "Grace Liu",
+                "document_id": "c3066f27-fae7-4e9f-82bd-caa5c8323f0f",
+                "file_name": "r17-grace-liu.pdf",
+                "skill_name": "python",
+                "skill_normalized": "python",
+                "candidate_count": 4
+              },
+              {
+                "candidate_name": "Nadia Haddad",
+                "document_id": "52318c4a-4f1c-4f90-973d-c5db5c45ac2b",
+                "file_name": "r19-nadia-haddad.pdf",
+                "skill_name": "python",
+                "skill_normalized": "python",
+                "candidate_count": 4
+              },
+              {
+                "candidate_name": "Rahul Verma",
+                "document_id": "1ec00067-e043-483f-9200-d4e9fd164e70",
+                "file_name": "r05-rahul-verma.pdf",
+                "skill_name": "python",
+                "skill_normalized": "python",
+                "candidate_count": 4
+              },
+              {
+                "candidate_name": "Sneha Kulkarni",
+                "document_id": "ffc60fa5-abec-4276-a0c7-e9b556b75a18",
+                "file_name": "r04-sneha-kulkarni.pdf",
+                "skill_name": "python",
+                "skill_normalized": "python",
+                "candidate_count": 4
+              },
+              {
+                "candidate_name": "Michael Brennan",
+                "document_id": "5fb86d5c-bcb1-4108-9f86-c718389829d5",
+                "file_name": "r12-michael-brennan.pdf",
+                "skill_name": "aws",
+                "skill_normalized": "aws",
+                "candidate_count": 3
+              },
+              {
+                "candidate_name": "Nadia Haddad",
+                "document_id": "52318c4a-4f1c-4f90-973d-c5db5c45ac2b",
+                "file_name": "r19-nadia-haddad.pdf",
+                "skill_name": "aws",
+                "skill_normalized": "aws",
+                "candidate_count": 3
+              },
+              {
+                "candidate_name": "Rahul Verma",
+                "document_id": "1ec00067-e043-483f-9200-d4e9fd164e70",
+                "file_name": "r05-rahul-verma.pdf",
+                "skill_name": "aws",
+                "skill_normalized": "aws",
+                "candidate_count": 3
+              },
+              {
+                "candidate_name": "Michael Brennan",
+                "document_id": "5fb86d5c-bcb1-4108-9f86-c718389829d5",
+                "file_name": "r12-michael-brennan.pdf",
+                "skill_name": "kubernetes",
+                "skill_normalized": "kubernetes",
+                "candidate_count": 3
+              },
+              {
+                "candidate_name": "Nadia Haddad",
+                "document_id": "52318c4a-4f1c-4f90-973d-c5db5c45ac2b",
+                "file_name": "r19-nadia-haddad.pdf",
+                "skill_name": "kubernetes",
+                "skill_normalized": "kubernetes",
+                "candidate_count": 3
+              },
+              {
+                "candidate_name": "Rahul Verma",
+                "document_id": "1ec00067-e043-483f-9200-d4e9fd164e70",
+                "file_name": "r05-rahul-verma.pdf",
+                "skill_name": "kubernetes",
+                "skill_normalized": "kubernetes",
+                "candidate_count": 3
+              },
+              {
+                "candidate_name": "Grace Liu",
+                "document_id": "c3066f27-fae7-4e9f-82bd-caa5c8323f0f",
+                "file_name": "r17-grace-liu.pdf",
+                "skill_name": "gcp",
+                "skill_normalized": "gcp",
+                "candidate_count": 2
+              },
+              {
+                "candidate_name": "Nadia Haddad",
+                "document_id": "52318c4a-4f1c-4f90-973d-c5db5c45ac2b",
+                "file_name": "r19-nadia-haddad.pdf",
+                "skill_name": "gcp",
+                "skill_normalized": "gcp",
+                "candidate_count": 2
+              },
+              {
+                "candidate_name": "Michael Brennan",
+                "document_id": "5fb86d5c-bcb1-4108-9f86-c718389829d5",
+                "file_name": "r12-michael-brennan.pdf",
+                "skill_name": "go",
+                "skill_normalized": "go",
+                "candidate_count": 2
+              },
+              {
+                "candidate_name": "Nadia Haddad",
+                "document_id": "52318c4a-4f1c-4f90-973d-c5db5c45ac2b",
+                "file_name": "r19-nadia-haddad.pdf",
+                "skill_name": "go",
+                "skill_normalized": "go",
+                "candidate_count": 2
+              },
+              {
+                "candidate_name": "Nadia Haddad",
+                "document_id": "52318c4a-4f1c-4f90-973d-c5db5c45ac2b",
+                "file_name": "r19-nadia-haddad.pdf",
+                "skill_name": "prometheus",
+                "skill_normalized": "prometheus",
+                "candidate_count": 2
+              },
+              {
+                "candidate_name": "Rahul Verma",
+                "document_id": "1ec00067-e043-483f-9200-d4e9fd164e70",
+                "file_name": "r05-rahul-verma.pdf",
+                "skill_name": "prometheus",
+                "skill_normalized": "prometheus",
+                "candidate_count": 2
+              },
+              {
+                "candidate_name": "Grace Liu",
+                "document_id": "c3066f27-fae7-4e9f-82bd-caa5c8323f0f",
+                "file_name": "r17-grace-liu.pdf",
+                "skill_name": "sql",
+                "skill_normalized": "sql",
+                "candidate_count": 2
+              },
+              {
+                "candidate_name": "Sneha Kulkarni",
+                "document_id": "ffc60fa5-abec-4276-a0c7-e9b556b75a18",
+                "file_name": "r04-sneha-kulkarni.pdf",
+                "skill_name": "sql",
+                "skill_normalized": "sql",
+                "candidate_count": 2
+              },
+              {
+                "candidate_name": "Nadia Haddad",
+                "document_id": "52318c4a-4f1c-4f90-973d-c5db5c45ac2b",
+                "file_name": "r19-nadia-haddad.pdf",
+                "skill_name": "terraform",
+                "skill_normalized": "terraform",
+                "candidate_count": 2
+              },
+              {
+                "candidate_name": "Rahul Verma",
+                "document_id": "1ec00067-e043-483f-9200-d4e9fd164e70",
+                "file_name": "r05-rahul-verma.pdf",
+                "skill_name": "terraform",
+                "skill_normalized": "terraform",
+                "candidate_count": 2
+              },
+              {
+                "candidate_name": "Rahul Verma",
+                "document_id": "1ec00067-e043-483f-9200-d4e9fd164e70",
+                "file_name": "r05-rahul-verma.pdf",
+                "skill_name": "ansible",
+                "skill_normalized": "ansible",
+                "candidate_count": 1
+              },
+              {
+                "candidate_name": "Rahul Verma",
+                "document_id": "1ec00067-e043-483f-9200-d4e9fd164e70",
+                "file_name": "r05-rahul-verma.pdf",
+                "skill_name": "bash",
+                "skill_normalized": "bash",
+                "candidate_count": 1
+              }
+            ],
+            "shape": [
+              22,
+              6
+            ],
+            "dtypes": {
+              "candidate_name": "str",
+              "document_id": "str",
+              "file_name": "str",
+              "skill_name": "str",
+              "skill_normalized": "str",
+              "candidate_count": "int64"
+            }
+          },
+          "chart_generated": true
+        }
+      }
+    ],
+    "final_keys": [
+      "byok_warnings",
+      "chat_id",
+      "data",
+      "debug_info",
+      "error",
+      "follow_up",
+      "is_answered",
+      "query",
+      "refined_query",
+      "response",
+      "session_id",
+      "usage"
+    ],
+    "data_keys": [
+      "knowledge"
+    ],
+    "session_id": "549e4945-279c-4d10-82de-306989f0000b"
+  },
+  "q07": {
+    "question": "Which candidates are based in or open to Bengaluru?",
+    "seconds": 26.6,
+    "response": "Candidates based in or open to Bengaluru are:\n\n- Aarav Mehta\n- Anjali Nair\n- Ishaan Chatterjee\n- Kavya Reddy\n- Vikram Singh",
+    "sources": [],
+    "charts": [
+      {
+        "path": "data.knowledge.chart_output",
+        "value": {
+          "type": "direct_response",
+          "message": "A chart is not suitable for this candidate-level lookup. I can present the matching candidates in a structured table, but the column names alone do not show the five rows’ values. Please provide the row data so I can identify who is based in or open to Bengaluru.",
+          "reasoning": null,
+          "graph_generated": false
+        }
+      }
+    ],
+    "final_keys": [
+      "byok_warnings",
+      "chat_id",
+      "data",
+      "debug_info",
+      "error",
+      "follow_up",
+      "is_answered",
+      "query",
+      "refined_query",
+      "response",
+      "session_id",
+      "usage"
+    ],
+    "data_keys": [
+      "knowledge"
+    ],
+    "session_id": "72ac1197-e752-4cb7-943e-e0a8da4cf165"
+  },
+  "q08": {
+    "question": "Which candidates hold a master's degree or a PhD?",
+    "seconds": 23.1,
+    "response": "Candidates holding a master’s degree or PhD:\n\n- Kenji Watanabe — Ph.D. in Computer Science; M.Eng. in Information Engineering\n- Michael Brennan — M.S. in Computer Science\n- Aarav Mehta — M.Tech in Computer Science\n- Meera Iyer — MBA in Marketing\n- Zoya Ahmed — MBA in Business Analytics\n- Oliver Schmidt — M.Sc. in Informatics\n- Grace Liu — M.S. in Business Analytics",
+    "sources": [],
+    "charts": [
+      {
+        "path": "data.knowledge.chart_output",
+        "value": {
+          "type": "direct_response",
+          "message": "A chart is not suitable for identifying which candidates hold a master's degree or PhD; a structured table is clearer.",
+          "reasoning": null,
+          "graph_generated": false
+        }
+      }
+    ],
+    "final_keys": [
+      "byok_warnings",
+      "chat_id",
+      "data",
+      "debug_info",
+      "error",
+      "follow_up",
+      "is_answered",
+      "query",
+      "refined_query",
+      "response",
+      "session_id",
+      "usage"
+    ],
+    "data_keys": [
+      "knowledge"
+    ],
+    "session_id": "4e46f9d8-7f05-49eb-b3ba-c8473743e34c"
+  }
+}

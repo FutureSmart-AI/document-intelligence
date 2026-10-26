@@ -3,7 +3,7 @@ from pydantic import BaseModel, Field
 from typing import Dict, Optional
 import traceback
 
-from utils.auth.dependencies import get_api_key_or_session, require_permission
+from utils.auth.dependencies import get_api_key_session_or_scoped_key, require_permission
 from utils.logger import logger
 # from utils.db.knowledge_ops import (
 #     create_knowledge_service,
@@ -22,6 +22,7 @@ from utils.pydantic_models_knowledge_settings import (
     FieldTemplate
 )
 from utils.config import knowledge_defaults
+from utils.enrichment import model_registry
 from utils.db.knowledge_setting_ops import (
     initialize_field_configurations_by_template,
     save_knowledge_config,
@@ -266,6 +267,24 @@ async def update_knowledge_configuration_v2(
                 existing_fetched = True
             return existing
 
+        # A collection's own extraction model overrides every default for every document it
+        # ingests, so a name the worker cannot run (utils/enrichment/model_registry.py) is a
+        # 422 here, not a collection whose documents all fail later. A model sent without a
+        # provider gets the registry's provider; a provider sent alone must fit the stored
+        # model. An empty string still clears the override.
+        enrichment_model, enrichment_provider = body.enrichment_model, body.enrichment_provider
+        try:
+            if enrichment_model:
+                enrichment_model, enrichment_provider = model_registry.validate(
+                    enrichment_model, enrichment_provider
+                )
+            elif enrichment_model is None and enrichment_provider:
+                stored_model = ((await _existing()) or {}).get("enrichment_model")
+                if stored_model:
+                    model_registry.validate(stored_model, enrichment_provider)
+        except ValueError as e:
+            raise HTTPException(status_code=422, detail=str(e))
+
         # The metadata levels are DERIVED from enrichment_enabled when the caller omits
         # chunking_strategy, which is what the dashboard does: "extraction off" must mean nothing is
         # configured to extract, and "extraction on" gets the platform's own metadata-level defaults.
@@ -343,8 +362,8 @@ async def update_knowledge_configuration_v2(
             chunk_level_metadata=chunk_level_metadata,
             collection_name=body.collection_name,
             service_description=body.service_description,
-            enrichment_provider=body.enrichment_provider,
-            enrichment_model=body.enrichment_model,
+            enrichment_provider=enrichment_provider,
+            enrichment_model=enrichment_model,
             enrichment_temperature=body.enrichment_temperature,
             enrichment_prompt=body.enrichment_prompt,
             use_deterministic_chunking=use_deterministic_chunking,
@@ -364,7 +383,7 @@ async def update_knowledge_configuration_v2(
 
 
 @router.get("/v1/embedding-models")
-async def list_embedding_models_v2(auth: dict = Depends(get_api_key_or_session)):
+async def list_embedding_models_v2(auth: dict = Depends(get_api_key_session_or_scoped_key)):
     try:
         models = [model.value for model in EmbeddingModel]
         return {"embedding_models": models}
@@ -374,7 +393,7 @@ async def list_embedding_models_v2(auth: dict = Depends(get_api_key_or_session))
 
 
 @router.get("/v1/chat-models", response_model=ChatModelCatalogResponse)
-async def list_chat_models(auth: dict = Depends(get_api_key_or_session)):
+async def list_chat_models(auth: dict = Depends(get_api_key_session_or_scoped_key)):
     """Chat providers and their models, for the dashboard's model pickers.
 
     Not knowledge-scoped — the catalog is the same for every collection, so
@@ -407,7 +426,7 @@ async def list_chat_models(auth: dict = Depends(get_api_key_or_session)):
     # caller already depends on.
     response_model_exclude_none=True,
 )
-async def list_field_templates(auth: dict = Depends(get_api_key_or_session)):
+async def list_field_templates(auth: dict = Depends(get_api_key_session_or_scoped_key)):
     """Document-type presets for the create-collection wizard's step 1 picker
     (CC1, docs/plan/collection-creation-flow/gap-analysis.md).
 
@@ -430,7 +449,7 @@ async def list_field_templates(auth: dict = Depends(get_api_key_or_session)):
 
 
 @router.get("/v1/field-types", response_model=FieldTypeCatalogResponse)
-async def list_field_types(auth: dict = Depends(get_api_key_or_session)):
+async def list_field_types(auth: dict = Depends(get_api_key_session_or_scoped_key)):
     """The create-collection wizard's step 2 type dropdown (per the mock) —
     every field_type a caller may choose explicitly, with its default label.
 
