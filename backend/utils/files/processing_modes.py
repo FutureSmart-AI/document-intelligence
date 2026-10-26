@@ -68,3 +68,50 @@ def derive_use_llama_parse(mode: DocumentProcessingMode) -> bool:
     machinery instead of defaulting to plain text. Delete once every worker is upgraded.
     """
     return mode not in (DocumentProcessingMode.TEXT_BASED, DocumentProcessingMode.AUTO)
+
+
+# The modes the worker serves with LlamaParse (fs-agent-workers / workers/
+# celery_utils/processing/processing_modes.py::_LLAMAPARSE_SETTINGS). AUTO and
+# TEXT_BASED read locally and need no parser key.
+PARSER_MODES = frozenset({
+    DocumentProcessingMode.SCANNED,
+    DocumentProcessingMode.LAYOUT_AWARE,
+    DocumentProcessingMode.VISUAL,
+    DocumentProcessingMode.MIXED,
+})
+
+
+def parser_not_configured_message(mode: DocumentProcessingMode) -> str:
+    """The one wording the API and the worker use for a parser mode with no key."""
+    return (
+        f"Processing mode '{mode.value}' reads documents with LlamaParse, but no LlamaParse "
+        f"API key is configured for this installation or this account. Set LLAMA_PARSE_API_KEY "
+        f"(or add a LlamaParse key in Settings), or upload with document_processing_mode="
+        f"text_based (or auto) to read the file with the free local text extractor."
+    )
+
+
+async def ensure_parser_configured(mode: Optional[DocumentProcessingMode], owner_id: Optional[str]) -> None:
+    """Refuse, before anything is stored or queued, an explicit parser mode that cannot run.
+
+    An OpenAI-only installation has no LlamaParse key. Without this check a
+    ``scanned`` upload was accepted, queued, and then failed in the worker with an
+    opaque HTTP 401 from LlamaParse on the document row. The key can come from the
+    platform (LLAMA_PARSE_API_KEY) or from the owner's own BYOK credential, which is
+    exactly the worker's ``get_api_key(owner_id, "llamaparse", ...)`` resolution.
+    """
+    if mode is None or mode not in PARSER_MODES:
+        return
+    from utils import setup_env
+
+    if (setup_env.LLAMA_PARSE_API_KEY or "").strip():
+        return
+    if owner_id:
+        from utils.usage.credentials import get_byok_providers
+
+        if "llamaparse" in await get_byok_providers(owner_id):
+            return
+    from fastapi import HTTPException
+
+    logger.info(f"Refusing upload in mode {mode.value}: no LlamaParse key (platform or owner {owner_id})")
+    raise HTTPException(status_code=422, detail=parser_not_configured_message(mode))

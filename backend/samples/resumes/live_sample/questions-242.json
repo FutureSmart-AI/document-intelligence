@@ -1,0 +1,236 @@
+{
+ "questions": [
+  {
+   "id": "q01",
+   "question": "Which candidates know Python and AWS and have at least 5 years of experience?",
+   "answer_source": "structured_fields",
+   "why": "Exact filter on skills (contains python AND aws) plus years_of_experience >= 5.",
+   "expected": {
+    "candidates": [
+     {
+      "name": "Rohan Deshpande",
+      "years_of_experience": 15
+     },
+     {
+      "name": "Siddharth Rao",
+      "years_of_experience": 13
+     },
+     {
+      "name": "Oliver Schmidt",
+      "years_of_experience": 10
+     },
+     {
+      "name": "Nadia Haddad",
+      "years_of_experience": 9
+     },
+     {
+      "name": "Aarav Mehta",
+      "years_of_experience": 8
+     },
+     {
+      "name": "Arjun Malhotra",
+      "years_of_experience": 7
+     },
+     {
+      "name": "Anjali Nair",
+      "years_of_experience": 6
+     },
+     {
+      "name": "Rahul Verma",
+      "years_of_experience": 5
+     }
+    ],
+    "count": 8
+   },
+   "near_misses": [
+    {
+     "name": "Daniel Okafor",
+     "reason": "AWS but no Python skill listed"
+    },
+    {
+     "name": "Michael Brennan",
+     "reason": "AWS but no Python skill listed"
+    },
+    {
+     "name": "Priya Raghunathan",
+     "reason": "Python but Azure, not AWS"
+    },
+    {
+     "name": "Tanvi Joshi",
+     "reason": "Python, no AWS, 2 years"
+    }
+   ],
+   "category": "structured_fields"
+  },
+  {
+   "id": "q05",
+   "question": "What is the distribution of years of experience across candidates? Show a chart.",
+   "answer_source": "structured_fields",
+   "chart": "histogram",
+   "why": "Aggregate over the numeric years_of_experience field.",
+   "expected": {
+    "buckets": {
+     "0-2": 4,
+     "3-5": 6,
+     "6-9": 6,
+     "10-14": 5,
+     "15+": 3
+    },
+    "min": 0,
+    "max": 18,
+    "mean": 7.5,
+    "median": 7.0
+   },
+   "known_ambiguity": "Fatima Sheikh counts as 10 (total professional) or 3 (tech only); the 6-9 / 10-14 / 0-2 buckets shift by one if 3 is used.",
+   "category": "structured_fields"
+  },
+  {
+   "id": "q07",
+   "question": "Which candidates are based in or open to Bengaluru?",
+   "answer_source": "structured_fields",
+   "why": "Filter on the locations facet.",
+   "expected": {
+    "candidates": [
+     "Aarav Mehta",
+     "Ishaan Chatterjee",
+     "Anjali Nair",
+     "Kavya Reddy",
+     "Vikram Singh"
+    ],
+    "count": 5
+   },
+   "category": "structured_fields"
+  },
+  {
+   "id": "q08",
+   "question": "Which candidates hold a master's degree or a PhD?",
+   "answer_source": "structured_fields",
+   "why": "Filter on education_level in {masters, phd}. MBAs count as masters.",
+   "expected": {
+    "candidates": [
+     {
+      "name": "Aarav Mehta",
+      "education_level": "masters"
+     },
+     {
+      "name": "Priya Raghunathan",
+      "education_level": "masters"
+     },
+     {
+      "name": "Meera Iyer",
+      "education_level": "masters"
+     },
+     {
+      "name": "Kenji Watanabe",
+      "education_level": "phd"
+     },
+     {
+      "name": "Michael Brennan",
+      "education_level": "masters"
+     },
+     {
+      "name": "Zoya Ahmed",
+      "education_level": "masters"
+     },
+     {
+      "name": "Oliver Schmidt",
+      "education_level": "masters"
+     },
+     {
+      "name": "Grace Liu",
+      "education_level": "masters"
+     },
+     {
+      "name": "Siddharth Rao",
+      "education_level": "masters"
+     }
+    ],
+    "count": 9
+   },
+   "category": "structured_fields"
+  },
+  {
+   "id": "q12",
+   "question": "List everyone with Kubernetes skills, with their current role and years of experience.",
+   "answer_source": "structured_fields",
+   "why": "Filter on skills, project current_role and years_of_experience into a table.",
+   "expected": {
+    "candidates": [
+     {
+      "name": "Michael Brennan",
+      "current_role": "VP of Engineering",
+      "years_of_experience": 18
+     },
+     {
+      "name": "Daniel Okafor",
+      "current_role": "Principal Software Engineer",
+      "years_of_experience": 16
+     },
+     {
+      "name": "Siddharth Rao",
+      "current_role": "Staff Machine Learning Engineer",
+      "years_of_experience": 13
+     },
+     {
+      "name": "Oliver Schmidt",
+      "current_role": "Lead MLOps Engineer",
+      "years_of_experience": 10
+     },
+     {
+      "name": "Nadia Haddad",
+      "current_role": "Senior Site Reliability Engineer",
+      "years_of_experience": 9
+     },
+     {
+      "name": "Aarav Mehta",
+      "current_role": "Senior Machine Learning Engineer",
+      "years_of_experience": 8
+     },
+     {
+      "name": "Rahul Verma",
+      "current_role": "DevOps Engineer",
+      "years_of_experience": 5
+     }
+    ],
+    "count": 7
+   },
+   "category": "structured_fields"
+  },
+  {
+   "id": "x01",
+   "question": "Who are the three most experienced candidates, and how many years of experience does each have?",
+   "answer_source": "structured_fields",
+   "category": "years",
+   "expected": {
+    "candidates": [
+     {
+      "name": "Michael Brennan",
+      "years_of_experience": 18
+     },
+     {
+      "name": "Daniel Okafor",
+      "years_of_experience": 16
+     },
+     {
+      "name": "Rohan Deshpande",
+      "years_of_experience": 15
+     }
+    ]
+   }
+  },
+  {
+   "id": "x02",
+   "question": "Which candidates know both Kubernetes and Terraform?",
+   "answer_source": "structured_fields",
+   "category": "years",
+   "expected": {
+    "candidates": [
+     "Daniel Okafor",
+     "Rahul Verma",
+     "Oliver Schmidt",
+     "Nadia Haddad"
+    ]
+   }
+  }
+ ]
+}

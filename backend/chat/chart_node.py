@@ -6,7 +6,8 @@ response, produced by chat/chart_generator.py (ported from
 fs-agent-chat/chat_utils/chart_utils_module/).
 
 Kept as its own graph node (not folded into rag_node) so chart generation —
-an extra LLM extraction pass plus an external API call — is a clearly
+an extra LLM extraction pass plus the Chart API call (or the in-process
+renderer, chat/local_chart_renderer.py, when CHART_API_URL is unset) — is a clearly
 separate, independently-failing step: a chart failure never touches
 rag_node's result, and this node's own failures are swallowed here, not
 propagated to the graph.
@@ -28,31 +29,64 @@ async def chart_node(
     owner_id: Optional[str],
     detailed_chunks: Optional[Dict[str, List[dict]]],
     session_id: Optional[str] = None,
+    summaries: Optional[Dict[str, Any]] = None,
+    rag_context: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, Any]:
     """Resolve include_charts for this knowledge_id and, when enabled and
-    there are chunks to work with, generate a chart. Always returns a dict
+    there is evidence to work with, generate a chart. Always returns a dict
     with a chart_output key (None when charts are off, there's nothing to
     chart, or generation failed) — never raises, so a chart problem can
-    never fail an otherwise-successful chat turn."""
+    never fail an otherwise-successful chat turn.
+
+    The chart is computed over the answer's DOCUMENT population (summaries /
+    rag_context — see chart_generator.build_population), not over its top-k
+    chunks: an exhaustive aggregate retrieval returns every document's
+    extracted fields and no chunks at all, which used to mean no chart."""
     try:
         from chat.config import resolve_chat_config
 
         chat_config = await resolve_chat_config(knowledge_id, node_name="generate_answer")
-        from utils.setup_env import CHART_API_URL
-        if not chat_config.include_charts or not CHART_API_URL:
+        # No CHART_API_URL is no longer "no charts": chart_generator draws the chart
+        # in-process (chat/local_chart_renderer.py) when the external API is unset.
+        if not chat_config.include_charts:
             return {"chart_output": None}
 
         chunks_list: List[dict] = [
             chunk for group in (detailed_chunks or {}).values() for chunk in group
         ]
-        if not chunks_list:
-            return {"chart_output": None}
 
-        from chat.chart_generator import process_chart_visualization
+        from chat.chart_generator import build_population, process_chart_visualization
 
         _t0 = _time.perf_counter()
+        shared = (rag_context or {}).get("aggregation")
+        if isinstance(shared, dict):
+            # The numbers the answer text was given (agent_execution computed
+            # them before the answer). Plot those rows; never recompute — a
+            # second computation is how the text said "1 candidate with 5
+            # years" under a chart showing 2.
+            logger.info(
+                f"[chart_node] Charting the turn's shared aggregation "
+                f"(status={shared.get('status')}, {len(shared.get('rows') or [])} row(s), "
+                f"source={shared.get('source')})"
+            )
+            chart_output, _ = await process_chart_visualization(
+                query, owner_id, [], knowledge_id=knowledge_id, aggregation=shared,
+            )
+            return {"chart_output": chart_output}
+        population, population_source, complete = await build_population(
+            knowledge_id, summaries, rag_context, chunks_list,
+        )
+        documents = [doc for doc in population if doc["fields"]]
+        if not documents and not chunks_list:
+            return {"chart_output": None}
+        logger.info(
+            f"[chart_node] Charting over {len(documents)} document(s) with extracted fields "
+            f"(population={population_source}, {len(population)} doc(s), complete={complete}); "
+            f"{len(chunks_list)} chunk(s)"
+        )
         chart_output, usage = await process_chart_visualization(
-            query, owner_id, chunks_list, knowledge_id=knowledge_id
+            query, owner_id, chunks_list, knowledge_id=knowledge_id, documents=documents or None,
+            population_complete=complete,
         )
         latency_ms = int((_time.perf_counter() - _t0) * 1000)
         if chart_output:

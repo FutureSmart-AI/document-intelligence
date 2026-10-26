@@ -83,6 +83,11 @@ async def get_auth_details(request: Request, include_all_claims=False):
     # Cache only resolved results (None included); transient errors raise and are
     # intentionally not cached so a later dependency can retry / surface them.
     cache[include_all_claims] = result
+    # A verified FutureSmart / AI Demos sign-in marks the account internal (no trial
+    # ceilings). Only claims-bearing results can prove it; never raises.
+    if include_all_claims and result:
+        from utils.usage.internal_accounts import record_verified_session
+        await record_verified_session(result)
     return result
 
 
@@ -136,12 +141,38 @@ async def _fetch_auth_details(request: Request, include_all_claims=False):
 #         )
 
 
-async def get_api_key_or_session(
-    request: Request,
-    api_key: Optional[str] = Security(api_key_header),
-):
-    """Accept a valid session (cookie/Bearer token), the master API key, or a
-    per-user generated API key (see utils/db/api_key_ops.py /
+# What a generated (``sk-``) key may do — the Share screen's promise: "A key can read
+# answers and the documents behind them; it can never change settings."
+#   * resource scope: the collection it was minted for (an account-wide key: any
+#     collection its user can reach);
+#   * action scope: read/use, plus uploading and deleting documents — the public API's
+#     documented write surface. Everything else (settings, collection deletion,
+#     sharing, keys, account usage, admin) is refused, including routes added later:
+#     a route is reachable by a key only when it is listed here or reads/uses.
+# Security audit 2026-10-23: keys used to inherit the owner's full permission set on
+# every collection, and routes that only checked "is this a session?" treated a key
+# like the master key.
+API_KEY_PERMISSIONS = frozenset({"read", "public_read", "use"})
+API_KEY_CONTENT_ROUTES = frozenset({
+    ("POST", "/v1/{knowledge_id}/upload-url"),
+    ("POST", "/v1/{knowledge_id}/documents"),
+    ("POST", "/v1/{knowledge_id}/upload-urls/batch"),
+    ("POST", "/v1/{knowledge_id}/documents/batch"),
+    ("DELETE", "/v1/{knowledge_id}/documents/{object_id}"),
+})
+API_KEY_NOT_ALLOWED = "Collection API keys cannot call this endpoint"
+
+
+def _api_key_allows(permission: str, request: Request) -> bool:
+    if permission in API_KEY_PERMISSIONS:
+        return True
+    route_path = getattr(request.scope.get("route"), "path", None)
+    return (request.method.upper(), route_path) in API_KEY_CONTENT_ROUTES
+
+
+async def _authenticate(request: Request, api_key: Optional[str]) -> dict:
+    """Resolve the caller: a valid session (cookie/Bearer token), the master API key,
+    or a per-user generated API key (see utils/db/api_key_ops.py /
     routers/api_key_management.py, docs/plan/access-and-sharing/)."""
     if api_key and API_KEY_NAME and api_key == API_KEY_NAME:
         return {"auth_type": "master_api_key", "api_key": api_key}
@@ -162,6 +193,30 @@ async def get_api_key_or_session(
         status_code=status.HTTP_401_UNAUTHORIZED,
         detail="Not authenticated"
     )
+
+
+async def get_api_key_or_session(
+    request: Request,
+    api_key: Optional[str] = Security(api_key_header),
+):
+    """A session or the master API key. Generated keys are refused (403): the routes
+    that depend on this directly are account-level or collection-creation surfaces,
+    and their handlers treat any non-session caller as the master key."""
+    auth = await _authenticate(request, api_key)
+    if auth.get("auth_type") == "user_api_key":
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail=API_KEY_NOT_ALLOWED)
+    return auth
+
+
+async def get_api_key_session_or_scoped_key(
+    request: Request,
+    api_key: Optional[str] = Security(api_key_header),
+):
+    """Like get_api_key_or_session, but also returns a generated key's identity
+    (``auth_type == "user_api_key"``, with its ``user_id`` and ``knowledge_id``). Only
+    for routes whose handler scopes the result to that identity itself — listing
+    collections, validating ownership, read-only model catalogs."""
+    return await _authenticate(request, api_key)
 
 async def require_internal_service(
     x_api_key: Optional[str] = Security(api_key_header),
@@ -261,7 +316,7 @@ def require_permission(permission: str, allow_public: bool = False):
         x_api_key: Optional[str] = Security(api_key_header),
     ) -> Optional[str]:
         try:
-            auth = await get_api_key_or_session(request, x_api_key)
+            auth = await _authenticate(request, x_api_key)
         except HTTPException:
             if not allow_public:
                 raise
@@ -278,6 +333,15 @@ def require_permission(permission: str, allow_public: bool = False):
         from utils.auth.auth_utils import extract_owner_id_from_session, extract_user_from_email
 
         if auth.get("auth_type") == "user_api_key":
+            key_knowledge_id = auth.get("knowledge_id")
+            if key_knowledge_id and str(key_knowledge_id) != str(knowledge_id):
+                logger.warning(
+                    f"API key scope denied: key for knowledge={key_knowledge_id} used on knowledge={knowledge_id}"
+                )
+                raise HTTPException(status_code=403, detail="This API key is not valid for this collection")
+            if not _api_key_allows(permission, request):
+                logger.warning(f"API key action denied: permission={permission} knowledge={knowledge_id}")
+                raise HTTPException(status_code=403, detail=API_KEY_NOT_ALLOWED)
             # A generated key has no Cognito session — its user_id (the email
             # captured at generation time, see routers/api_key_management.py)
             # stands in for session_data.email/user_id so the same
@@ -301,6 +365,17 @@ def require_permission(permission: str, allow_public: bool = False):
         service_owner_id = service.get("owner_id")
         if caller_owner_id and service_owner_id and str(service_owner_id).strip().lower() == caller_owner_id:
             logger.info(f"Access granted (owner): user={user_id} permission={permission} knowledge={knowledge_id}")
+            return user_id
+
+        # A sample collection: a signed-in non-owner is a visitor with an allow-list
+        # of routes, never a role — invitations are not consulted, so nobody can be
+        # made an editor of the master copy. Keys never reach a sample they don't
+        # own. See utils/auth/sample_access.py.
+        if service.get("sample_key"):
+            if auth.get("auth_type") != "session":
+                raise HTTPException(status_code=403, detail="API keys cannot reach a sample collection")
+            from utils.auth.sample_access import authorize_sample_visitor
+            await authorize_sample_visitor(request, knowledge_id, session_data, user_id)
             return user_id
 
         # Non-owner — check this service's own invitations table + permission matrix
@@ -349,6 +424,8 @@ def require_owner():
         request: Request,
         x_api_key: Optional[str] = Security(api_key_header),
     ) -> Optional[str]:
+        # Generated keys are refused here (account-level usage, limits, BYOK
+        # credentials, owner config) — a collection key never reaches account data.
         auth = await get_api_key_or_session(request, x_api_key)
 
         if auth.get("auth_type") == "master_api_key":
@@ -356,11 +433,7 @@ def require_owner():
 
         from utils.auth.auth_utils import extract_owner_id_from_session
 
-        if auth.get("auth_type") == "user_api_key":
-            # A generated key carries no Cognito session; its captured email stands in.
-            session_data = {"email": auth["user_id"], "user_id": auth["user_id"]}
-        else:
-            session_data = auth["session_data"]
+        session_data = auth["session_data"]
 
         caller_owner_id = extract_owner_id_from_session(session_data)
         if not caller_owner_id:

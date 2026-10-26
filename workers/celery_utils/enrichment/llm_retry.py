@@ -14,7 +14,7 @@ from pydantic import ValidationError
 from typing import Any, Callable, Optional, Tuple
 
 from services.celery_logger import logger
-from celery_utils.enrichment.llm_factory import FallbackLLM
+from celery_utils.enrichment.llm_factory import FallbackLLM, served_model_identity
 from celery_utils.shared.credentials_utils import (
     classify_provider_error,
     is_terminal,
@@ -35,7 +35,7 @@ def extract_token_usage(response_or_exception) -> dict:
     Returns:
         {"input_tokens": int, "output_tokens": int}  — defaults to 0 if not found.
     """
-    token_usage = {"input_tokens": 0, "output_tokens": 0}
+    token_usage = {"input_tokens": 0, "output_tokens": 0, "cached_input_tokens": 0}
 
     # Shape 1: dict {"raw": AIMessage, "parsed": ..., "parsing_error": ...}
     if isinstance(response_or_exception, dict) and "raw" in response_or_exception:
@@ -44,6 +44,10 @@ def extract_token_usage(response_or_exception) -> dict:
             m = raw.usage_metadata
             token_usage["input_tokens"] = m.get("input_tokens", 0) or m.get("prompt_tokens", 0)
             token_usage["output_tokens"] = m.get("output_tokens", 0) or m.get("completion_tokens", 0)
+            # Cache-read subset of input_tokens (prompt caching), for pricing.
+            token_usage["cached_input_tokens"] = int(
+                ((m.get("input_token_details") or {}).get("cache_read")) or 0
+            )
         elif hasattr(raw, "response_metadata") and raw.response_metadata:
             m = raw.response_metadata
             if "token_usage" in m:
@@ -83,6 +87,7 @@ def accumulate_token_usage(
     if attempt["input_tokens"] > 0 or attempt["output_tokens"] > 0:
         total["input_tokens"] += attempt["input_tokens"]
         total["output_tokens"] += attempt["output_tokens"]
+        total["cached_input_tokens"] = total.get("cached_input_tokens", 0) + attempt.get("cached_input_tokens", 0)
         label = "failed attempt" if is_failed else "attempt"
         logger.info(
             f"Token usage from {label} {attempt_number}: "
@@ -124,6 +129,10 @@ def _exec_meta(
         "used_fallback": used_fallback,
         "attempts": int(attempts or 0),
     }
+    # `model` is the WIRE model the provider billed ("gpt-5.6-luna" for the
+    # registry name "gpt-5.6-luna-low"), so every record built from this dict
+    # prices; `configured_model` and `reasoning_effort` keep which configuration ran.
+    meta.update(served_model_identity(model))
     # Only meaningful when a substitution actually happened; emitting it on a
     # clean call would put a stale reason on a row that never fell back.
     if used_fallback and fallback_reason:

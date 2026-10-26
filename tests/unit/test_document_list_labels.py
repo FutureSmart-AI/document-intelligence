@@ -23,7 +23,8 @@ class _Row:
     """The subset of a Document row that the v2 listing reads."""
 
     def __init__(self, object_id="obj-1", content_type="file", extra_metadata=None,
-                 document_processing_mode=None, source_object_id=None):
+                 document_processing_mode=None, source_object_id=None,
+                 processing_telemetry=None):
         self.id = 1
         self.object_id = object_id
         self.file_name = "report.pdf"
@@ -39,6 +40,8 @@ class _Row:
         self.extra_metadata = extra_metadata
         self.document_processing_mode = document_processing_mode
         self.source_object_id = source_object_id
+        self.processing_telemetry = processing_telemetry
+        self.task_duration_ms = None
 
 
 class _FakeResult:
@@ -219,3 +222,23 @@ def test_reindex_without_a_mode_leaves_the_stored_one_alone(monkeypatch):
     ))
 
     assert row.document_processing_mode == "visual"
+
+
+# --------------------------------------------------- processing telemetry
+
+def test_processing_telemetry_is_priced_on_read(monkeypatch):
+    """The worker stores raw measurements; the listing returns them priced with
+    the backend price table (utils/processing_telemetry.py)."""
+    raw = {"total_ms": 900, "parse": {"parser": "local_text", "mode": "text_based", "ms": 50},
+           "operations": [{"operation": "extraction", "provider": "openai", "model": "gpt-5.4-nano",
+                           "calls": 1, "input_tokens": 1_000_000, "output_tokens": 0, "latency_ms": 800}]}
+    doc = _list_documents(monkeypatch, [_Row(processing_telemetry=raw)])[0]
+
+    telemetry = doc["processing_telemetry"]
+    assert telemetry["operations"][0]["estimated_cost_usd"] == 0.2
+    assert telemetry["cost_complete"] is True
+    assert telemetry["price_table"]
+
+
+def test_processing_telemetry_is_null_for_unrecorded_documents(monkeypatch):
+    assert _list_documents(monkeypatch, [_Row()])[0]["processing_telemetry"] is None

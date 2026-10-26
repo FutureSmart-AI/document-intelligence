@@ -218,6 +218,7 @@ from routers.knowledge_enrichment_health import router as knowledge_enrichment_h
 from routers.knowledge_invitations import router as knowledge_invitations_router
 from routers.reports import router as reports_router
 from routers.reports_internal import router as reports_internal_router
+from routers.samples import router as samples_router
 
 # Universal per-request access audit (writes one row to knowledge_audit_log).
 # Attached at every router mount so it covers all current and future routes.
@@ -226,6 +227,9 @@ from utils.auth.dependencies import audit_access
 
 _audit = [Depends(audit_access)]
 
+# Before every /v1/{knowledge_id}/... router, so "/v1/samples/usage" is never read as a
+# knowledge id.
+app.include_router(samples_router, tags=["Sample Collections"], dependencies=_audit)
 app.include_router(knowledge_management_router, tags=["Knowledge Management"], dependencies=_audit)
 app.include_router(document_management_router, tags=["Document Management"], dependencies=_audit)
 app.include_router(batch_document_management_router, tags=["Batch Document Management"], dependencies=_audit)

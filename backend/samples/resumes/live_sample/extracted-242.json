@@ -1,0 +1,1723 @@
+{
+  "source": "https://app.futuresmart.ai/api/knowledge c4d3189f-8f93-4fa9-8f75-07ad08bd71c8",
+  "results": [
+    {
+      "id": "r01",
+      "run": 1,
+      "name": "Aarav Mehta",
+      "object_id": "d463f890-73be-453d-9bd7-0db26dc4f7d4",
+      "status": "completed",
+      "values": {
+        "summary": "Aarav Mehta is a senior machine learning engineer with 8 years of experience building and deploying recommendation, ranking, and LLM-powered retrieval systems on AWS. He leads the development of LLM-based RAG assistants for customer support and product search, including reducing assistant hallucinations from 11% to 3%. He has also fine-tuned a 7B LoRA model and previously built large-scale recommendation and credit-risk scoring models.",
+        "document_type": "resume",
+        "candidate_name": "Aarav Mehta",
+        "candidate_email": "aarav.mehta@example.com",
+        "work_experience": [
+          {
+            "title": "Senior Machine Learning Engineer",
+            "company": "Lumora Commerce",
+            "summary": "Leads a 4-person team building LLM-based retrieval and RAG assistants for customer support and product search.",
+            "end_year": null,
+            "start_year": 2022
+          },
+          {
+            "title": "Machine Learning Engineer",
+            "company": "Lumora Commerce",
+            "summary": "Built and deployed product recommendation and ranking models and moved model training to Kubernetes with MLflow tracking.",
+            "end_year": 2022,
+            "start_year": 2020
+          },
+          {
+            "title": "Data Scientist",
+            "company": "Brightpath Lending",
+            "summary": "Developed credit-risk scoring models and automated weekly model monitoring reports using SQL and Python.",
+            "end_year": 2020,
+            "start_year": 2018
+          }
+        ],
+        "education": [
+          {
+            "degree": "M.Tech",
+            "institution": "Western Ghats Institute of Technology",
+            "field_of_study": "Computer Science",
+            "graduation_year": 2018
+          },
+          {
+            "degree": "B.E.",
+            "institution": "Malnad College of Engineering Studies",
+            "field_of_study": "Information Science",
+            "graduation_year": 2016
+          }
+        ],
+        "current_role": "Senior Machine Learning Engineer",
+        "seniority_level": "senior",
+        "years_of_experience": 8,
+        "skills": [
+          "python",
+          "pytorch",
+          "aws",
+          "langchain",
+          "rag",
+          "llm fine-tuning",
+          "docker",
+          "kubernetes",
+          "mlflow",
+          "sql"
+        ],
+        "education_level": "masters",
+        "certifications": [
+          "AWS Certified Machine Learning - Specialty"
+        ],
+        "locations": [
+          "Bengaluru"
+        ],
+        "industries": [
+          "e-commerce",
+          "fintech"
+        ],
+        "languages": [
+          "english",
+          "hindi",
+          "kannada"
+        ],
+        "file_name": "r01-aarav-mehta.pdf"
+      }
+    },
+    {
+      "id": "r02",
+      "run": 1,
+      "name": "Priya Raghunathan",
+      "object_id": "4201a04a-b9fd-43eb-8e82-80149a516403",
+      "status": "completed",
+      "values": {
+        "summary": "Priya Raghunathan is a data science leader with 12 years of experience in healthcare and insurance analytics. She specializes in forecasting and causal inference, and has led teams and deployments of models into hospital clinical and claims operations. Her experience includes lead work on patient-flow forecasting and readmission-risk models, as well as prior roles building hospital operations dashboards and analyzing claims for fraud detection and pricing.",
+        "document_type": "resume",
+        "candidate_name": "Priya Raghunathan",
+        "candidate_email": "priya.raghunathan@example.org",
+        "work_experience": [
+          {
+            "title": "Lead Data Scientist",
+            "company": "Veridia Health Analytics",
+            "summary": "Leads a team of 7 data scientists building patient-flow forecasting and readmission-risk models for 40 hospitals, including causal-inference reviews prior to clinical operations.",
+            "end_year": null,
+            "start_year": 2021
+          },
+          {
+            "title": "Senior Data Scientist",
+            "company": "Veridia Health Analytics",
+            "summary": "Built bed-occupancy forecasting models and Tableau dashboards for hospital operations.",
+            "end_year": 2021,
+            "start_year": 2018
+          },
+          {
+            "title": "Data Analyst",
+            "company": "Copperleaf Insurance",
+            "summary": "Analyzed claims data in R and SQL to detect fraud patterns and support motor policy pricing.",
+            "end_year": 2018,
+            "start_year": 2014
+          }
+        ],
+        "education": [
+          {
+            "degree": "M.Sc.",
+            "institution": "Coromandel University",
+            "field_of_study": "Statistics",
+            "graduation_year": 2014
+          },
+          {
+            "degree": "B.Sc.",
+            "institution": "Coromandel University",
+            "field_of_study": "Mathematics",
+            "graduation_year": 2012
+          }
+        ],
+        "current_role": "Lead Data Scientist",
+        "seniority_level": "lead",
+        "years_of_experience": 12,
+        "skills": [
+          "python",
+          "r",
+          "sql",
+          "statistics",
+          "xgboost",
+          "spark",
+          "azure",
+          "tableau",
+          "causal inference",
+          "forecasting"
+        ],
+        "education_level": "masters",
+        "locations": [
+          "Chennai",
+          "Remote"
+        ],
+        "industries": [
+          "healthcare",
+          "insurance"
+        ],
+        "languages": [
+          "english",
+          "tamil"
+        ],
+        "file_name": "r02-priya-raghunathan.pdf"
+      }
+    },
+    {
+      "id": "r03",
+      "run": 1,
+      "name": "Daniel Okafor",
+      "object_id": "b7e16da9-070a-465e-bdd7-69ea90e50b4e",
+      "status": "completed",
+      "values": {
+        "summary": "Daniel Okafor is a Principal Software Engineer focused on designing high-throughput payment systems. He has led platform architecture and migrations at Halcyon Payments, including moving from a monolith to Go/Java services on Kubernetes with Kafka. His background also includes building billing and SIM provisioning services for millions of subscribers at Ridgeway Telecom.",
+        "document_type": "resume",
+        "candidate_name": "Daniel Okafor",
+        "candidate_email": "daniel.okafor@example.net",
+        "work_experience": [
+          {
+            "title": "Principal Software Engineer",
+            "company": "Halcyon Payments",
+            "summary": "Set the architecture for the card-authorization platform, including achieving 4,000 TPS and 99.99% availability, and led a migration to Go and Java services on Kubernetes with Kafka event streams.",
+            "end_year": null,
+            "start_year": 2019
+          },
+          {
+            "title": "Staff Software Engineer",
+            "company": "Halcyon Payments",
+            "summary": "Designed double-entry ledger and settlement services using PostgreSQL and Kafka.",
+            "end_year": 2019,
+            "start_year": 2016
+          },
+          {
+            "title": "Software Engineer",
+            "company": "Ridgeway Telecom",
+            "summary": "Built billing and SIM provisioning services in Java for 6 million subscribers.",
+            "end_year": 2016,
+            "start_year": 2010
+          }
+        ],
+        "education": [
+          {
+            "degree": "B.Eng.",
+            "institution": "University of Eastmere",
+            "field_of_study": "Computer Engineering",
+            "graduation_year": 2010
+          }
+        ],
+        "current_role": "Principal Software Engineer",
+        "seniority_level": "principal",
+        "years_of_experience": 16,
+        "skills": [
+          "java",
+          "go",
+          "kubernetes",
+          "aws",
+          "postgresql",
+          "kafka",
+          "distributed systems",
+          "system design",
+          "terraform",
+          "grpc"
+        ],
+        "education_level": "bachelors",
+        "certifications": [
+          "aws certified solutions architect - professional",
+          "certified kubernetes administrator (cka)"
+        ],
+        "locations": [
+          "London",
+          "Manchester"
+        ],
+        "industries": [
+          "fintech",
+          "telecommunications"
+        ],
+        "languages": [
+          "english",
+          "yoruba"
+        ],
+        "file_name": "r03-daniel-okafor.pdf"
+      }
+    },
+    {
+      "id": "r04",
+      "run": 1,
+      "name": "Sneha Kulkarni",
+      "object_id": "1e1f0e01-c125-42ff-89e7-1810f0fd9855",
+      "status": "completed",
+      "values": {
+        "summary": "This resume presents Sneha Kulkarni, a data analyst with about 1 year of experience, focused on building Power BI dashboards and weekly sales reviews from retail data. It highlights her work automating inventory ageing reporting with Python/pandas and her earlier internship cleaning POS data and producing Excel reports. The document also lists her skills, certifications, languages, and education.",
+        "document_type": "resume",
+        "candidate_name": "Sneha Kulkarni",
+        "candidate_email": "sneha.kulkarni@example.com",
+        "work_experience": [
+          {
+            "title": "Data Analyst",
+            "company": "Tarang Retail",
+            "summary": "Built Power BI dashboards and weekly sales reviews for 120 stores and automated an inventory ageing report using Python and pandas, saving 6 hours per week.",
+            "end_year": null,
+            "start_year": 2025
+          },
+          {
+            "title": "Analytics Intern",
+            "company": "Tarang Retail",
+            "summary": "Cleaned point-of-sale data and built Excel reports during a 3-month summer internship.",
+            "end_year": 2024,
+            "start_year": 2024
+          }
+        ],
+        "education": [
+          {
+            "degree": "B.Sc.",
+            "institution": "Sahyadri College of Science",
+            "field_of_study": "Statistics",
+            "graduation_year": 2025
+          }
+        ],
+        "current_role": "Data Analyst",
+        "seniority_level": "junior",
+        "years_of_experience": 1,
+        "skills": [
+          "sql",
+          "excel",
+          "power bi",
+          "python",
+          "pandas",
+          "data visualization"
+        ],
+        "education_level": "bachelors",
+        "certifications": [
+          "Google Data Analytics Professional Certificate"
+        ],
+        "locations": [
+          "Pune"
+        ],
+        "industries": [
+          "retail"
+        ],
+        "languages": [
+          "english",
+          "marathi",
+          "hindi"
+        ],
+        "file_name": "r04-sneha-kulkarni.pdf"
+      }
+    },
+    {
+      "id": "r05",
+      "run": 1,
+      "name": "Rahul Verma",
+      "object_id": "e4b92ca8-da70-454b-8fe6-49639bc77001",
+      "status": "completed",
+      "values": {
+        "summary": "Resume for Rahul Verma, a DevOps engineer with about 5 years of experience automating AWS infrastructure with Terraform and operating Kubernetes platforms for SaaS products. It highlights managing EKS and Terraform for microservices, building Prometheus/Grafana alerting to reduce MTTD, and maintaining CI/CD and server configuration using Jenkins and Ansible. The document also lists education, skills, certifications, languages, and contact details.",
+        "document_type": "resume",
+        "candidate_name": "Rahul Verma",
+        "candidate_email": "rahul.verma@example.org",
+        "work_experience": [
+          {
+            "title": "DevOps Engineer",
+            "company": "Zentrix Cloud Services",
+            "summary": "Runs the EKS platform and Terraform-managed AWS infrastructure for 60 microservices and built Prometheus/Grafana alerting to reduce mean time to detect from 25 to 4 minutes.",
+            "end_year": null,
+            "start_year": 2023
+          },
+          {
+            "title": "Associate DevOps Engineer",
+            "company": "Orbitwave Software",
+            "summary": "Maintained Jenkins CI/CD pipelines and Ansible-based server configuration for an HR SaaS platform.",
+            "end_year": 2023,
+            "start_year": 2021
+          }
+        ],
+        "education": [
+          {
+            "degree": "B.Tech",
+            "institution": "Golconda Institute of Engineering",
+            "field_of_study": "Information Technology",
+            "graduation_year": 2021
+          }
+        ],
+        "current_role": "DevOps Engineer",
+        "seniority_level": "mid_level",
+        "years_of_experience": 5,
+        "skills": [
+          "aws",
+          "terraform",
+          "kubernetes",
+          "docker",
+          "jenkins",
+          "python",
+          "bash",
+          "prometheus",
+          "grafana",
+          "ansible"
+        ],
+        "education_level": "bachelors",
+        "certifications": [
+          "AWS Certified DevOps Engineer - Professional",
+          "Certified Kubernetes Administrator (CKA)"
+        ],
+        "locations": [
+          "Hyderabad"
+        ],
+        "industries": [
+          "saas",
+          "hr software"
+        ],
+        "languages": [
+          "english",
+          "hindi",
+          "telugu"
+        ],
+        "file_name": "r05-rahul-verma.pdf"
+      }
+    },
+    {
+      "id": "r06",
+      "run": 1,
+      "name": "Meera Iyer",
+      "object_id": "899f85d9-baf5-4b2d-8eab-22c62e59526c",
+      "status": "completed",
+      "values": {
+        "summary": "Resume for Meera Iyer, a Senior Product Manager with 11 years of professional experience across software engineering and product leadership. It highlights her work leading learner and consumer product teams, including running 40+ A/B tests and improving course completion, checkout, and payment outcomes. The document also lists her education, skills, certifications, and languages.",
+        "document_type": "resume",
+        "candidate_name": "Meera Iyer",
+        "candidate_email": "meera.iyer@example.com",
+        "work_experience": [
+          {
+            "title": "Senior Product Manager",
+            "company": "Vidyanta Learning",
+            "summary": "Owned the learner experience roadmap for 3 million monthly learners and ran 40+ A/B tests to lift course completion by 18%.",
+            "end_year": null,
+            "start_year": 2021
+          },
+          {
+            "title": "Product Manager",
+            "company": "Basketly",
+            "summary": "Managed the checkout and payments product and reduced cart abandonment by 9%.",
+            "end_year": 2021,
+            "start_year": 2017
+          },
+          {
+            "title": "Software Engineer",
+            "company": "Sunfield Infotech",
+            "summary": "Developed Java web applications for enterprise clients.",
+            "end_year": 2015,
+            "start_year": 2013
+          }
+        ],
+        "education": [
+          {
+            "degree": "MBA",
+            "institution": "Konkan School of Management",
+            "field_of_study": "Marketing",
+            "graduation_year": 2017
+          },
+          {
+            "degree": "B.E.",
+            "institution": "Deccan Plateau Engineering College",
+            "field_of_study": "Computer Engineering",
+            "graduation_year": 2013
+          }
+        ],
+        "current_role": "Senior Product Manager",
+        "seniority_level": "senior",
+        "years_of_experience": 11,
+        "skills": [
+          "product strategy",
+          "roadmapping",
+          "a/b testing",
+          "sql",
+          "user research",
+          "agile",
+          "jira",
+          "stakeholder management",
+          "product analytics"
+        ],
+        "education_level": "masters",
+        "certifications": [
+          "Certified Scrum Product Owner (CSPO)"
+        ],
+        "locations": [
+          "Mumbai"
+        ],
+        "industries": [
+          "edtech",
+          "e-commerce",
+          "it services"
+        ],
+        "languages": [
+          "english",
+          "hindi",
+          "marathi"
+        ],
+        "file_name": "r06-meera-iyer.pdf"
+      }
+    },
+    {
+      "id": "r07",
+      "run": 1,
+      "name": "Kenji Watanabe",
+      "object_id": "3e3f5153-ff27-4960-a14e-2759bdc9ced8",
+      "status": "completed",
+      "values": {
+        "summary": "Kenji Watanabe is an AI Research Engineer with 4 years of industry experience focused on training and evaluating large language models. He has a PhD in retrieval-augmented language models and currently works on RLHF and long-context evaluation, including building a long-context retrieval evaluation suite and optimizing attention with custom CUDA kernels. Previously, he completed a research internship prototyping a retrieval-augmented question-answering model.",
+        "document_type": "resume",
+        "candidate_name": "Kenji Watanabe",
+        "candidate_email": "kenji.watanabe@example.net",
+        "work_experience": [
+          {
+            "title": "AI Research Engineer",
+            "company": "Sorahana Labs",
+            "summary": "Trains and evaluates 1B–13B parameter language models, built a long-context retrieval evaluation suite for gating releases, and optimized attention using custom CUDA kernels.",
+            "end_year": null,
+            "start_year": 2022
+          },
+          {
+            "title": "Research Intern",
+            "company": "Sorahana Labs",
+            "summary": "Prototyped a retrieval-augmented question-answering model as a summer internship.",
+            "end_year": 2021,
+            "start_year": 2021
+          }
+        ],
+        "education": [
+          {
+            "degree": "Ph.D.",
+            "institution": "Kanto Institute of Science",
+            "field_of_study": "Computer Science",
+            "graduation_year": 2022
+          },
+          {
+            "degree": "M.Eng.",
+            "institution": "Kanto Institute of Science",
+            "field_of_study": "Information Engineering",
+            "graduation_year": 2018
+          }
+        ],
+        "current_role": "AI Research Engineer",
+        "seniority_level": "mid_level",
+        "years_of_experience": 4,
+        "skills": [
+          "python",
+          "pytorch",
+          "jax",
+          "transformers",
+          "llm pretraining",
+          "rlhf",
+          "cuda",
+          "distributed training",
+          "rag",
+          "llm evaluation"
+        ],
+        "education_level": "phd",
+        "certifications": [],
+        "locations": [
+          "Tokyo",
+          "Remote"
+        ],
+        "industries": [
+          "artificial intelligence",
+          "ai research"
+        ],
+        "languages": [
+          "japanese",
+          "english"
+        ],
+        "file_name": "r07-kenji-watanabe.pdf"
+      }
+    },
+    {
+      "id": "r08",
+      "run": 1,
+      "name": "Fatima Sheikh",
+      "object_id": "00db6f11-7bc1-4b1c-bc0f-d8146f28a44d",
+      "status": "completed",
+      "values": {
+        "summary": "Resume for Fatima Sheikh, a junior data scientist who transitioned from teaching into data science in 2022. She has experience in healthcare analytics at Medivance Diagnostics, including building scikit-learn models for abnormal lab result flagging and Tableau dashboards for operational turnaround-time analytics.",
+        "document_type": "resume",
+        "candidate_name": "Fatima Sheikh",
+        "candidate_email": "fatima.sheikh@example.org",
+        "work_experience": [
+          {
+            "title": "Junior Data Scientist",
+            "company": "Medivance Diagnostics, Hyderabad - Diagnostic lab network (healthcare)",
+            "summary": "Built scikit-learn models that flag abnormal lab results for pathologist review, reducing manual review volume by 22% while maintaining recall above 98%.",
+            "end_year": null,
+            "start_year": 2024
+          },
+          {
+            "title": "Data Analyst",
+            "company": "Medivance Diagnostics, Hyderabad - Diagnostic lab network (healthcare)",
+            "summary": "Cleaned lab operations data and built Tableau turnaround-time dashboards.",
+            "end_year": 2024,
+            "start_year": 2023
+          },
+          {
+            "title": "Chemistry Teacher",
+            "company": "Crescent Valley High School, Hyderabad - Secondary school (education)",
+            "summary": "Taught chemistry to grades 9–12, ran the science olympiad programme, and built a spreadsheet grade tracker adopted by the whole school.",
+            "end_year": 2022,
+            "start_year": 2015
+          }
+        ],
+        "education": [
+          {
+            "degree": "B.Ed.",
+            "institution": "Nizam Plateau College of Education",
+            "field_of_study": "Science Education",
+            "graduation_year": 2015
+          },
+          {
+            "degree": "B.Sc.",
+            "institution": "Nizam Plateau College of Education",
+            "field_of_study": "Chemistry",
+            "graduation_year": 2014
+          }
+        ],
+        "current_role": "Junior Data Scientist",
+        "seniority_level": "junior",
+        "years_of_experience": 10,
+        "skills": [
+          "python",
+          "pandas",
+          "scikit-learn",
+          "sql",
+          "statistics",
+          "tableau",
+          "machine learning",
+          "data cleaning"
+        ],
+        "education_level": "bachelors",
+        "certifications": [
+          "Applied Data Science Bootcamp Certificate"
+        ],
+        "locations": [
+          "Hyderabad"
+        ],
+        "industries": [
+          "healthcare",
+          "education"
+        ],
+        "languages": [
+          "english",
+          "urdu",
+          "hindi",
+          "telugu"
+        ],
+        "file_name": "r08-fatima-sheikh.pdf"
+      }
+    },
+    {
+      "id": "r09",
+      "run": 1,
+      "name": "Lucas Fernandez",
+      "object_id": "600bf9b2-e6cb-420b-93df-2776322550b5",
+      "status": "completed",
+      "values": {
+        "summary": "This document is a resume for Lucas Fernandez, a senior frontend engineer specializing in accessible React and Next.js applications. It highlights his experience rebuilding a travel flight booking platform with strong Core Web Vitals and WCAG 2.2 AA compliance, along with prior work building React/GraphQL SaaS dashboards. It also lists his education, core technical skills, and spoken languages.",
+        "document_type": "resume",
+        "candidate_name": "Lucas Fernandez",
+        "candidate_email": "lucas.fernandez@example.com",
+        "work_experience": [
+          {
+            "title": "Senior Frontend Engineer",
+            "company": "Brisa Travel Tech",
+            "summary": "Leads the Next.js rebuild of the flight booking web app, achieving Core Web Vitals green on 95% of pages and making checkout WCAG 2.2 AA compliant.",
+            "end_year": null,
+            "start_year": 2022
+          },
+          {
+            "title": "Frontend Developer",
+            "company": "Nodoverde Studio",
+            "summary": "Built React and GraphQL dashboards for 12 SaaS clients.",
+            "end_year": 2022,
+            "start_year": 2019
+          }
+        ],
+        "education": [
+          {
+            "degree": "Bachelor's",
+            "institution": "Universidad de Valdemora",
+            "field_of_study": "Computer Engineering",
+            "graduation_year": 2019
+          }
+        ],
+        "current_role": "Senior Frontend Engineer",
+        "seniority_level": "senior",
+        "years_of_experience": 7,
+        "skills": [
+          "typescript",
+          "react",
+          "next.js",
+          "graphql",
+          "node.js",
+          "css",
+          "frontend testing",
+          "accessibility",
+          "webpack"
+        ],
+        "education_level": "bachelors",
+        "certifications": [],
+        "locations": [
+          "Madrid",
+          "Barcelona"
+        ],
+        "industries": [
+          "travel",
+          "saas"
+        ],
+        "languages": [
+          "spanish",
+          "english",
+          "catalan"
+        ],
+        "file_name": "r09-lucas-fernandez.pdf"
+      }
+    },
+    {
+      "id": "r10",
+      "run": 1,
+      "name": "Ishaan Chatterjee",
+      "object_id": "41497ac6-ee78-43ec-84db-ce04cea2c407",
+      "status": "completed",
+      "values": {
+        "summary": "This resume presents Ishaan Chatterjee, a 2026 computer science graduate seeking an entry-level software or machine learning role. It highlights skills in Python, C++, SQL, Flask, LangChain, and Git, along with a Software Engineering Intern experience building Flask API endpoints and unit tests. The document also lists academic background (B.Tech in Computer Science and Engineering) and relevant projects such as a LangChain-based RAG chatbot and a C++ route planner.",
+        "document_type": "resume",
+        "candidate_name": "Ishaan Chatterjee",
+        "candidate_email": "ishaan.chatterjee@example.net",
+        "work_experience": [
+          {
+            "title": "Software Engineering Intern",
+            "company": "Quillstone Labs",
+            "summary": "Built Flask API endpoints and unit tests during a two-month summer internship.",
+            "end_year": 2025,
+            "start_year": 2025
+          }
+        ],
+        "education": [
+          {
+            "degree": "B.Tech",
+            "institution": "Hooghly Riverside Institute of Technology",
+            "field_of_study": "Computer Science and Engineering",
+            "graduation_year": 2026
+          }
+        ],
+        "current_role": "Software Engineering Intern",
+        "seniority_level": "intern",
+        "years_of_experience": 0,
+        "skills": [
+          "python",
+          "c++",
+          "data structures",
+          "machine learning",
+          "sql",
+          "git",
+          "flask",
+          "langchain"
+        ],
+        "education_level": "bachelors",
+        "certifications": [],
+        "locations": [
+          "Kolkata",
+          "Bengaluru",
+          "Remote"
+        ],
+        "industries": [
+          "developer tools",
+          "software"
+        ],
+        "languages": [
+          "english",
+          "bengali",
+          "hindi"
+        ],
+        "file_name": "r10-ishaan-chatterjee.pdf"
+      }
+    },
+    {
+      "id": "r11",
+      "run": 1,
+      "name": "Anjali Nair",
+      "object_id": "0cc9dee1-2c56-41b6-b94e-e0470b3791fa",
+      "status": "completed",
+      "values": {
+        "summary": "Resume for Anjali Nair, a Senior Data Engineer focused on building batch and streaming data pipelines on AWS, Snowflake, and Airflow. Her experience includes owning Kafka/Spark Structured Streaming pipelines for logistics, implementing dbt models and data contracts that reduced failed loads by 70%, and building Airflow pipelines for a subscription billing SaaS. She is relocating to Bengaluru and is open to Bengaluru/Kochi roles.",
+        "document_type": "resume",
+        "candidate_name": "Anjali Nair",
+        "candidate_email": "anjali.nair@example.com",
+        "work_experience": [
+          {
+            "title": "Senior Data Engineer",
+            "company": "Pelican Freight Analytics",
+            "summary": "Owns streaming shipment-tracking pipelines (Kafka, Spark Structured Streaming) landing in Snowflake and introduced dbt models/data contracts to drop failed loads by 70%.",
+            "end_year": null,
+            "start_year": 2023
+          },
+          {
+            "title": "Data Engineer",
+            "company": "Coral Bay Systems",
+            "summary": "Built Airflow batch pipelines from AWS RDS and S3 into the analytics warehouse for a subscription billing SaaS.",
+            "end_year": 2023,
+            "start_year": 2020
+          }
+        ],
+        "education": [
+          {
+            "degree": "B.Tech",
+            "institution": "Malabar Coast College of Engineering",
+            "field_of_study": "Computer Science",
+            "graduation_year": 2020
+          }
+        ],
+        "current_role": "Senior Data Engineer",
+        "seniority_level": "senior",
+        "years_of_experience": 6,
+        "skills": [
+          "python",
+          "spark",
+          "airflow",
+          "sql",
+          "snowflake",
+          "dbt",
+          "aws",
+          "kafka",
+          "data modeling",
+          "scala"
+        ],
+        "education_level": "bachelors",
+        "certifications": [
+          "AWS Certified Data Engineer - Associate",
+          "SnowPro Core Certification"
+        ],
+        "locations": [
+          "Kochi",
+          "Bengaluru"
+        ],
+        "industries": [
+          "logistics",
+          "saas"
+        ],
+        "languages": [
+          "english",
+          "malayalam",
+          "hindi"
+        ],
+        "file_name": "r11-anjali-nair.pdf"
+      }
+    },
+    {
+      "id": "r12",
+      "run": 1,
+      "name": "Michael Brennan",
+      "object_id": "11e57093-269b-47ca-9948-b8d089b5e587",
+      "status": "completed",
+      "values": {
+        "summary": "Michael Brennan is an engineering executive and VP of Engineering with 18 years of experience, including the last nine years leading engineering organizations in healthcare SaaS. He has led platform consolidation to AWS and Kubernetes, managed engineering teams across multiple stages of growth, and built backend services and public APIs.",
+        "document_type": "resume",
+        "candidate_name": "Michael Brennan",
+        "candidate_email": "michael.brennan@example.org",
+        "work_experience": [
+          {
+            "title": "VP of Engineering",
+            "company": "Tallgrass Health",
+            "summary": "Runs a 120-person engineering organization across 14 teams and a $22M budget, including consolidating platforms onto AWS and Kubernetes to reduce infrastructure costs by 31%.",
+            "end_year": null,
+            "start_year": 2021
+          },
+          {
+            "title": "Director of Engineering",
+            "company": "Tallgrass Health",
+            "summary": "Grew the engineering team from 40 to 85 and launched the patient mobile app.",
+            "end_year": 2021,
+            "start_year": 2017
+          },
+          {
+            "title": "Engineering Manager",
+            "company": "Cobaltline Software",
+            "summary": "Managed two backend teams building workflow automation services in Go.",
+            "end_year": 2017,
+            "start_year": 2013
+          },
+          {
+            "title": "Senior Software Engineer",
+            "company": "Cobaltline Software",
+            "summary": "Built the document routing engine and its public API.",
+            "end_year": 2013,
+            "start_year": 2008
+          }
+        ],
+        "education": [
+          {
+            "degree": "M.S.",
+            "institution": "Lone Prairie University",
+            "field_of_study": "Computer Science",
+            "graduation_year": 2008
+          },
+          {
+            "degree": "B.S.",
+            "institution": "Lone Prairie University",
+            "field_of_study": "Computer Science",
+            "graduation_year": 2006
+          }
+        ],
+        "current_role": "VP of Engineering",
+        "seniority_level": "executive",
+        "years_of_experience": 18,
+        "skills": [
+          "engineering leadership",
+          "system design",
+          "aws",
+          "hiring",
+          "budgeting",
+          "platform strategy",
+          "go",
+          "kubernetes"
+        ],
+        "education_level": "masters",
+        "certifications": [],
+        "locations": [
+          "Austin, TX",
+          "Dallas, TX"
+        ],
+        "industries": [
+          "healthcare",
+          "saas",
+          "b2b workflow"
+        ],
+        "languages": [
+          "english"
+        ],
+        "file_name": "r12-michael-brennan.pdf"
+      }
+    },
+    {
+      "id": "r13",
+      "run": 1,
+      "name": "Zoya Ahmed",
+      "object_id": "3609c1c3-45fb-4bf3-b33b-4c7721488854",
+      "status": "completed",
+      "values": {
+        "summary": "Resume for Zoya Ahmed, a Senior Business Analyst with 7 years of experience in payments and e-commerce analytics. She leads pricing and promotions analytics at Saffronkart, building a Looker promotion-ROI model and designing A/B testing guardrails used in campaign reviews. Previously, she forecast merchant transaction volumes and reported payment success rates in Power BI at Mintfield Payments, and she returned to work in 2022 after a one-year career break.",
+        "document_type": "resume",
+        "candidate_name": "Zoya Ahmed",
+        "candidate_email": "zoya.ahmed@example.com",
+        "work_experience": [
+          {
+            "title": "Senior Business Analyst",
+            "company": "Saffronkart",
+            "summary": "Leads pricing and promotions analytics, including building a Looker promotion-ROI model and designing A/B testing guardrails for campaign review.",
+            "end_year": null,
+            "start_year": 2022
+          },
+          {
+            "title": "Business Analyst",
+            "company": "Mintfield Payments",
+            "summary": "Forecasts merchant transaction volumes and reports payment success rates in Power BI.",
+            "end_year": 2021,
+            "start_year": 2018
+          }
+        ],
+        "education": [
+          {
+            "degree": "MBA",
+            "institution": "Yamuna School of Business",
+            "field_of_study": "Business Analytics",
+            "graduation_year": 2018
+          },
+          {
+            "degree": "B.A.",
+            "institution": "Indraprastha Arts and Commerce College",
+            "field_of_study": "Economics",
+            "graduation_year": 2016
+          }
+        ],
+        "current_role": "Senior Business Analyst",
+        "seniority_level": "senior",
+        "years_of_experience": 7,
+        "skills": [
+          "sql",
+          "python",
+          "power bi",
+          "excel",
+          "stakeholder management",
+          "forecasting",
+          "a/b testing",
+          "looker"
+        ],
+        "education_level": "masters",
+        "certifications": [],
+        "locations": [
+          "New Delhi",
+          "Gurugram"
+        ],
+        "industries": [
+          "e-commerce",
+          "fintech"
+        ],
+        "languages": [
+          "english",
+          "hindi",
+          "urdu"
+        ],
+        "file_name": "r13-zoya-ahmed.pdf"
+      }
+    },
+    {
+      "id": "r14",
+      "run": 1,
+      "name": "Oliver Schmidt",
+      "object_id": "c957a108-306b-4e98-a6f2-fc2858cb7fbb",
+      "status": "completed",
+      "values": {
+        "summary": "This resume presents Oliver Schmidt, a Lead MLOps Engineer in Berlin, focused on taking machine learning and LLM services from notebook to production on AWS and GCP. It highlights his leadership of an ML platform team at Glasswing Mobility, including building feature store and model registry capabilities, along with prior roles in machine learning engineering and data engineering. The document also lists his certifications (Google Professional Machine Learning Engineer, CKA), core skills, languages, and his M.Sc. in Informatics.",
+        "document_type": "resume",
+        "candidate_name": "Oliver Schmidt",
+        "candidate_email": "oliver.schmidt@example.net",
+        "work_experience": [
+          {
+            "title": "Lead MLOps Engineer",
+            "company": "Glasswing Mobility",
+            "summary": "Leads the ML platform team deploying pricing, ETA, and LLM support models, building feature store and model registry on Kubeflow and MLflow to reduce deployment time from 2 weeks to 1 day.",
+            "end_year": null,
+            "start_year": 2022
+          },
+          {
+            "title": "Senior Machine Learning Engineer",
+            "company": "Glasswing Mobility",
+            "summary": "Productionised demand-forecasting models on GCP with automated retraining.",
+            "end_year": 2022,
+            "start_year": 2019
+          },
+          {
+            "title": "Data Engineer",
+            "company": "Feldmark Versicherung",
+            "summary": "Built the claims data warehouse feeding actuarial models.",
+            "end_year": 2019,
+            "start_year": 2016
+          }
+        ],
+        "education": [
+          {
+            "degree": "M.Sc.",
+            "institution": "Technische Hochschule Rabenfeld",
+            "field_of_study": "Informatics",
+            "graduation_year": 2016
+          }
+        ],
+        "current_role": "Lead MLOps Engineer",
+        "seniority_level": "lead",
+        "years_of_experience": 10,
+        "skills": [
+          "python",
+          "kubernetes",
+          "mlflow",
+          "kubeflow",
+          "aws",
+          "gcp",
+          "terraform",
+          "docker",
+          "feature stores",
+          "llmops"
+        ],
+        "education_level": "masters",
+        "certifications": [
+          "Google Professional Machine Learning Engineer",
+          "Certified Kubernetes Administrator (CKA)"
+        ],
+        "locations": [
+          "Berlin"
+        ],
+        "industries": [
+          "mobility",
+          "insurance"
+        ],
+        "languages": [
+          "german",
+          "english"
+        ],
+        "file_name": "r14-oliver-schmidt.pdf"
+      }
+    },
+    {
+      "id": "r15",
+      "run": 1,
+      "name": "Kavya Reddy",
+      "object_id": "ab9acf36-bdf6-424e-8b0b-9b67fb951dca",
+      "status": "completed",
+      "values": {
+        "summary": "Resume for Kavya Reddy, a Bengaluru-based backend engineer building Java and Spring Boot microservices for a digital health platform. She has progressed from Software Engineer I to Software Engineer II at Haldi Health, owning appointment-booking microservices and improving booking p95 latency, along with building REST APIs for patient records. Her education is a B.Tech in Electronics and Communication Engineering (graduated 2023), and she lists skills spanning Java, Spring Boot, PostgreSQL, Redis, AWS, Docker, and REST APIs.",
+        "document_type": "resume",
+        "candidate_name": "Kavya Reddy",
+        "candidate_email": "kavya.reddy@example.org",
+        "work_experience": [
+          {
+            "title": "Software Engineer II",
+            "company": "Haldi Health",
+            "summary": "Owned the appointment-booking microservices for a digital health platform and improved booking p95 latency from 900 ms to 180 ms.",
+            "end_year": null,
+            "start_year": 2025
+          },
+          {
+            "title": "Software Engineer I",
+            "company": "Haldi Health",
+            "summary": "Built REST APIs for patient records and deployed them with Docker on AWS.",
+            "end_year": 2025,
+            "start_year": 2023
+          }
+        ],
+        "education": [
+          {
+            "degree": "B.Tech",
+            "institution": "Krishna Delta Institute of Technology",
+            "field_of_study": "Electronics and Communication Engineering",
+            "graduation_year": 2023
+          }
+        ],
+        "current_role": "Software Engineer II",
+        "seniority_level": "mid_level",
+        "years_of_experience": 3,
+        "skills": [
+          "java",
+          "spring boot",
+          "postgresql",
+          "redis",
+          "microservices",
+          "aws",
+          "docker",
+          "rest apis"
+        ],
+        "education_level": "bachelors",
+        "certifications": [],
+        "locations": [
+          "Bengaluru"
+        ],
+        "industries": [
+          "digital health",
+          "healthcare"
+        ],
+        "languages": [
+          "english",
+          "telugu",
+          "kannada"
+        ],
+        "file_name": "r15-kavya-reddy.pdf"
+      }
+    },
+    {
+      "id": "r16",
+      "run": 1,
+      "name": "Arjun Malhotra",
+      "object_id": "d69f257e-ab9f-43ab-8481-75371057bf70",
+      "status": "completed",
+      "values": {
+        "summary": "Resume for Arjun Malhotra, a Senior AI Engineer with 7 years of experience spanning Python backend development and shipping LLM applications. Most recently, he built RAG and agent workflows for legal documents, implemented LLM evaluation pipelines to gate prompt changes, and improved answer accuracy from 71% to 88%. He previously built AWS-based Python/FastAPI services at a SaaS company and shipped the first LLM feature for meeting-notes summarization.",
+        "document_type": "resume",
+        "candidate_name": "Arjun Malhotra",
+        "candidate_email": "arjun.malhotra@example.com",
+        "work_experience": [
+          {
+            "title": "Senior AI Engineer",
+            "company": "Prismatica AI",
+            "summary": "Built RAG and agent workflows over legal contracts with clause-level citations, designed an LLM evaluation pipeline, and improved accuracy using hybrid search with a vector database.",
+            "end_year": null,
+            "start_year": 2024
+          },
+          {
+            "title": "Backend Engineer",
+            "company": "Kitebird Software",
+            "summary": "Developed Python and FastAPI services on AWS and shipped the product’s first LLM feature for meeting-notes summarization.",
+            "end_year": 2024,
+            "start_year": 2019
+          }
+        ],
+        "education": [
+          {
+            "degree": "B.Tech",
+            "institution": "Shivalik Institute of Technology",
+            "field_of_study": "Computer Science",
+            "graduation_year": 2019
+          }
+        ],
+        "current_role": "Senior AI Engineer",
+        "seniority_level": "senior",
+        "years_of_experience": 7,
+        "skills": [
+          "python",
+          "langchain",
+          "llamaindex",
+          "rag",
+          "openai api",
+          "vector databases",
+          "fastapi",
+          "aws",
+          "prompt engineering",
+          "llm evaluation"
+        ],
+        "education_level": "bachelors",
+        "certifications": [
+          "aws certified solutions architect - associate"
+        ],
+        "locations": [
+          "gurugram",
+          "remote"
+        ],
+        "industries": [
+          "legal tech",
+          "saas"
+        ],
+        "languages": [
+          "english",
+          "hindi",
+          "punjabi"
+        ],
+        "file_name": "r16-arjun-malhotra.pdf"
+      }
+    },
+    {
+      "id": "r17",
+      "run": 1,
+      "name": "Grace Liu",
+      "object_id": "4716472c-9dc2-48a9-91f8-3b6700436789",
+      "status": "completed",
+      "values": {
+        "summary": "This resume profiles Grace Liu, a Singapore-based data scientist with 4 years of experience in payments fraud and NLP for customer support. It highlights her work building fraud-detection models and multilingual support-ticket routing using transformer models, alongside relevant education, skills, and professional certification.",
+        "document_type": "resume",
+        "candidate_name": "Grace Liu",
+        "candidate_email": "grace.liu@example.net",
+        "work_experience": [
+          {
+            "title": "Data Scientist",
+            "company": "Mangrove Pay",
+            "summary": "Built fraud-detection models on BigQuery features and fine-tuned a transformer classifier to route support tickets in 6 languages.",
+            "end_year": null,
+            "start_year": 2022
+          }
+        ],
+        "education": [
+          {
+            "degree": "M.S.",
+            "institution": "Straits Institute of Technology",
+            "field_of_study": "Business Analytics",
+            "graduation_year": 2022
+          },
+          {
+            "degree": "B.Sc.",
+            "institution": "Straits Institute of Technology",
+            "field_of_study": "Economics",
+            "graduation_year": 2021
+          }
+        ],
+        "current_role": "Data Scientist",
+        "seniority_level": "mid_level",
+        "years_of_experience": 4,
+        "skills": [
+          "python",
+          "sql",
+          "scikit-learn",
+          "nlp",
+          "transformers",
+          "gcp",
+          "bigquery",
+          "experimentation",
+          "tableau"
+        ],
+        "education_level": "masters",
+        "certifications": [
+          "Google Cloud Professional Data Engineer"
+        ],
+        "locations": [
+          "Singapore"
+        ],
+        "industries": [
+          "fintech"
+        ],
+        "languages": [
+          "english",
+          "mandarin"
+        ],
+        "file_name": "r17-grace-liu.pdf"
+      }
+    },
+    {
+      "id": "r18",
+      "run": 1,
+      "name": "Rohan Deshpande",
+      "object_id": "9c272327-44d8-4bcb-ae9f-2875776093b4",
+      "status": "completed",
+      "values": {
+        "summary": "Rohan Deshpande is a data platform architect and Principal Data Engineer with 15 years of experience building lakehouse and streaming platforms on AWS and Azure. He has led large-scale data platform initiatives including smart-meter lakehouse ingestion and Hadoop-to-Spark migration, and he sets data architecture standards across engineering teams.",
+        "document_type": "resume",
+        "candidate_name": "Rohan Deshpande",
+        "candidate_email": "rohan.deshpande@example.com",
+        "work_experience": [
+          {
+            "title": "Principal Data Engineer",
+            "company": "Indus Grid Energy",
+            "summary": "Architected a smart-meter lakehouse ingesting 2 billion readings per day on AWS and Snowflake, and set data architecture standards for 9 engineering teams.",
+            "end_year": null,
+            "start_year": 2020
+          },
+          {
+            "title": "Lead Data Engineer",
+            "company": "Vyom Telecom",
+            "summary": "Led the Hadoop-to-Spark migration of call-detail-record analytics on Azure.",
+            "end_year": 2020,
+            "start_year": 2015
+          },
+          {
+            "title": "Software Engineer",
+            "company": "Vyom Telecom",
+            "summary": "Wrote Scala and Hadoop MapReduce jobs for network usage reporting.",
+            "end_year": 2015,
+            "start_year": 2011
+          }
+        ],
+        "education": [
+          {
+            "degree": "B.E.",
+            "institution": "Pune Plateau College of Engineering",
+            "field_of_study": "Electronics and Telecommunication",
+            "graduation_year": 2011
+          }
+        ],
+        "current_role": "Principal Data Engineer",
+        "seniority_level": "principal",
+        "years_of_experience": 15,
+        "skills": [
+          "spark",
+          "hadoop",
+          "scala",
+          "python",
+          "aws",
+          "azure",
+          "data architecture",
+          "kafka",
+          "snowflake",
+          "sql"
+        ],
+        "education_level": "bachelors",
+        "certifications": [
+          "microsoft certified: azure data engineer associate",
+          "aws certified data analytics - specialty"
+        ],
+        "locations": [
+          "pune",
+          "mumbai"
+        ],
+        "industries": [
+          "energy",
+          "telecommunications"
+        ],
+        "languages": [
+          "english",
+          "marathi",
+          "hindi"
+        ],
+        "file_name": "r18-rohan-deshpande.pdf"
+      }
+    },
+    {
+      "id": "r19",
+      "run": 1,
+      "name": "Nadia Haddad",
+      "object_id": "b7396703-7137-438d-bf0f-247887192ccb",
+      "status": "completed",
+      "values": {
+        "summary": "The document is a resume for Nadia Haddad, a Site Reliability Engineer with 9 years of experience supporting Kubernetes platforms on GCP and AWS and leading incident response for logistics systems. It highlights roles at Sandpiper Logistics (Senior SRE and SRE), including SLO ownership, incident-response rotation, and building a Go-based Kubernetes operator. Earlier experience includes Linux and Prometheus administration at Oasisnet Hosting, plus a B.Sc. in Computer Science.",
+        "document_type": "resume",
+        "candidate_name": "Nadia Haddad",
+        "candidate_email": "nadia.haddad@example.org",
+        "work_experience": [
+          {
+            "title": "Senior Site Reliability Engineer",
+            "company": "Sandpiper Logistics",
+            "summary": "Leads reliability for the dispatch platform (99.95% SLO) and runs the incident-response rotation; wrote a Go operator to autoscales routing workers on GKE.",
+            "end_year": null,
+            "start_year": 2021
+          },
+          {
+            "title": "Site Reliability Engineer",
+            "company": "Sandpiper Logistics",
+            "summary": "Moved 40 services to Kubernetes using Helm charts and Terraform.",
+            "end_year": 2021,
+            "start_year": 2019
+          },
+          {
+            "title": "Systems Administrator",
+            "company": "Oasisnet Hosting",
+            "summary": "Administered 600 Linux servers and Prometheus monitoring for hosting customers.",
+            "end_year": 2019,
+            "start_year": 2017
+          }
+        ],
+        "education": [
+          {
+            "degree": "B.Sc.",
+            "institution": "Levant Polytechnic University",
+            "field_of_study": "Computer Science",
+            "graduation_year": 2017
+          }
+        ],
+        "current_role": "Senior Site Reliability Engineer",
+        "seniority_level": "senior",
+        "years_of_experience": 9,
+        "skills": [
+          "kubernetes",
+          "gcp",
+          "aws",
+          "terraform",
+          "go",
+          "python",
+          "prometheus",
+          "incident management",
+          "linux",
+          "helm"
+        ],
+        "education_level": "bachelors",
+        "certifications": [
+          "Certified Kubernetes Administrator (CKA)",
+          "Google Professional Cloud DevOps Engineer"
+        ],
+        "locations": [
+          "Dubai",
+          "Amman"
+        ],
+        "industries": [
+          "logistics",
+          "cloud hosting"
+        ],
+        "languages": [
+          "arabic",
+          "english",
+          "french"
+        ],
+        "file_name": "r19-nadia-haddad.pdf"
+      }
+    },
+    {
+      "id": "r20",
+      "run": 1,
+      "name": "Vikram Singh",
+      "object_id": "700d866e-fdf3-4fba-bdc7-5738aa500e09",
+      "status": "completed",
+      "values": {
+        "summary": "This resume presents Vikram Singh as an Associate Product Manager with 2 years of experience in learner onboarding and growth for an edtech app. It highlights ownership of onboarding, improvements to first-week flow and day-7 retention, and launching a referral program, supported by relevant skills and education.",
+        "document_type": "resume",
+        "candidate_name": "Vikram Singh",
+        "candidate_email": "vikram.singh@example.net",
+        "work_experience": [
+          {
+            "title": "Associate Product Manager",
+            "company": "Gyaanpath Learning",
+            "summary": "Owned learner onboarding, redesigned the first-week flow in Figma, improved day-7 retention by 11%, and launched a referral program contributing 14% of new sign-ups.",
+            "end_year": null,
+            "start_year": 2024
+          }
+        ],
+        "education": [
+          {
+            "degree": "B.Tech",
+            "institution": "Aravalli Institute of Technology",
+            "field_of_study": "Mechanical Engineering",
+            "graduation_year": 2024
+          }
+        ],
+        "current_role": "Associate Product Manager",
+        "seniority_level": "junior",
+        "years_of_experience": 2,
+        "skills": [
+          "product discovery",
+          "sql",
+          "figma",
+          "jira",
+          "user research",
+          "product analytics",
+          "wireframing"
+        ],
+        "education_level": "bachelors",
+        "certifications": [],
+        "locations": [
+          "Bengaluru"
+        ],
+        "industries": [
+          "edtech"
+        ],
+        "languages": [
+          "english",
+          "hindi"
+        ],
+        "file_name": "r20-vikram-singh.pdf"
+      }
+    },
+    {
+      "id": "r21",
+      "run": 1,
+      "name": "Emily Carter",
+      "object_id": "c9eaa74f-83e4-4f9f-8c39-c7a3c08b7110",
+      "status": "completed",
+      "values": {
+        "summary": "This resume presents Emily Carter, an analytics engineer based in Toronto, with 5 years of experience modeling retail and banking data using dbt and Snowflake and delivering analytics via Looker. It highlights her current role at Maplecrest Retail maintaining dbt models and Looker explores for internal staff, and a prior analyst role at Northlake Bank automating SQL reporting with Airflow. Her education is a B.Sc. in Mathematics and she holds a dbt Analytics Engineering certification.",
+        "document_type": "resume",
+        "candidate_name": "Emily Carter",
+        "candidate_email": "emily.carter@example.com",
+        "work_experience": [
+          {
+            "title": "Analytics Engineer",
+            "company": "Maplecrest Retail",
+            "summary": "Maintains 300 dbt models in Snowflake and the Looker explores used by 200 staff.",
+            "end_year": null,
+            "start_year": 2023
+          },
+          {
+            "title": "Data Analyst",
+            "company": "Northlake Bank",
+            "summary": "Produced SQL reporting on deposits and loan portfolios and automated it with Airflow.",
+            "end_year": 2023,
+            "start_year": 2021
+          }
+        ],
+        "education": [
+          {
+            "degree": "B.Sc.",
+            "institution": "Lakeshore University",
+            "field_of_study": "Mathematics",
+            "graduation_year": 2021
+          }
+        ],
+        "current_role": "Analytics Engineer",
+        "seniority_level": "mid_level",
+        "years_of_experience": 5,
+        "skills": [
+          "sql",
+          "dbt",
+          "python",
+          "looker",
+          "snowflake",
+          "airflow",
+          "data modeling",
+          "git"
+        ],
+        "education_level": "bachelors",
+        "certifications": [
+          "dbt analytics engineering certification"
+        ],
+        "locations": [
+          "Toronto"
+        ],
+        "industries": [
+          "retail",
+          "banking"
+        ],
+        "languages": [
+          "english",
+          "french"
+        ],
+        "file_name": "r21-emily-carter.pdf"
+      }
+    },
+    {
+      "id": "r22",
+      "run": 1,
+      "name": "Siddharth Rao",
+      "object_id": "bb3e9ca3-03fa-44e6-a73a-4fe561fe0a96",
+      "status": "completed",
+      "values": {
+        "summary": "This document is a resume for Siddharth Rao, a staff-level machine learning engineer with 13 years of experience focused on recommender systems and, since 2023, LLM and RAG systems. It outlines his roles at Tejas Mobility (building rider-driver ML architecture and leading a RAG-based support assistant) and earlier work plus a concurrent part-time consulting practice advising startups on RAG architecture and evaluation.",
+        "document_type": "resume",
+        "candidate_name": "Siddharth Rao",
+        "candidate_email": "siddharth.rao@example.org",
+        "work_experience": [
+          {
+            "title": "Staff Machine Learning Engineer",
+            "company": "Tejas Mobility",
+            "summary": "Set ML architecture for rider-driver matching across 30 cities and led an LLM support-assistant program using RAG over 50k policy documents, deflecting 35% of tickets.",
+            "end_year": null,
+            "start_year": 2021
+          },
+          {
+            "title": "ML Consultant",
+            "company": "Independent",
+            "summary": "Advised early-stage startups on RAG architecture and evaluation as a part-time consultant alongside his staff role.",
+            "end_year": null,
+            "start_year": 2023
+          },
+          {
+            "title": "Senior Machine Learning Engineer",
+            "company": "Tejas Mobility",
+            "summary": "Built TensorFlow ETA prediction and surge-pricing models.",
+            "end_year": 2021,
+            "start_year": 2018
+          },
+          {
+            "title": "Data Scientist",
+            "company": "Arrowroot Analytics",
+            "summary": "Built recommender systems for retail clients using Spark.",
+            "end_year": 2018,
+            "start_year": 2013
+          }
+        ],
+        "education": [
+          {
+            "degree": "M.S.",
+            "institution": "Godavari Institute of Science and Technology",
+            "field_of_study": "Computer Science",
+            "graduation_year": 2013
+          }
+        ],
+        "current_role": "Staff Machine Learning Engineer",
+        "seniority_level": "principal",
+        "years_of_experience": 13,
+        "skills": [
+          "python",
+          "tensorflow",
+          "pytorch",
+          "recommender systems",
+          "rag",
+          "llms",
+          "spark",
+          "aws",
+          "kubernetes",
+          "mlops"
+        ],
+        "education_level": "masters",
+        "locations": [
+          "Hyderabad",
+          "Remote"
+        ],
+        "industries": [
+          "mobility",
+          "consulting",
+          "analytics"
+        ],
+        "languages": [
+          "english",
+          "telugu",
+          "hindi"
+        ],
+        "file_name": "r22-siddharth-rao.pdf"
+      }
+    },
+    {
+      "id": "r23",
+      "run": 1,
+      "name": "Hannah Becker",
+      "object_id": "6f52ce8d-9cf0-4862-8051-772f2e37c512",
+      "status": "completed",
+      "values": {
+        "summary": "This resume presents Hannah Becker, a Product Analyst based in Munich, with experience in mobility apps. She has 4 years of experience analyzing rider behavior with tools like Amplitude and SQL, running A/B tests, and building models supporting product launches. She also notes an unpaid gap-year volunteer teaching role in Peru after graduating in 2021.",
+        "document_type": "resume",
+        "candidate_name": "Hannah Becker",
+        "candidate_email": "hannah.becker@example.com",
+        "work_experience": [
+          {
+            "title": "Product Analyst",
+            "company": "Alpenrot Mobility",
+            "summary": "Analyzes rider behaviour using Amplitude and SQL, runs 3–4 app experiments per month, and built the pricing-elasticity model behind the 2025 subscription launch.",
+            "end_year": null,
+            "start_year": 2022
+          }
+        ],
+        "education": [
+          {
+            "degree": "B.Sc.",
+            "institution": "Isar Valley University",
+            "field_of_study": "Economics",
+            "graduation_year": 2021
+          }
+        ],
+        "current_role": "Product Analyst",
+        "seniority_level": "mid_level",
+        "years_of_experience": 4,
+        "skills": [
+          "sql",
+          "python",
+          "amplitude",
+          "a/b testing",
+          "product analytics",
+          "tableau",
+          "statistics"
+        ],
+        "education_level": "bachelors",
+        "locations": [
+          "Munich"
+        ],
+        "industries": [
+          "mobility"
+        ],
+        "languages": [
+          "german",
+          "english",
+          "spanish"
+        ],
+        "file_name": "r23-hannah-becker.pdf"
+      }
+    },
+    {
+      "id": "r24",
+      "run": 1,
+      "name": "Tanvi Joshi",
+      "object_id": "ef426553-02dc-4d9d-9d3d-620956ee68f4",
+      "status": "completed",
+      "values": {
+        "summary": "This resume presents Tanvi Joshi’s background as a Junior AI Engineer transitioning from full-stack web development to building RAG chatbot and document Q&A systems. It highlights her experience at Kesar Labs using LangChain and FastAPI, including adding pgvector search to a PostgreSQL database, and lists her education in B.E. Information Technology.",
+        "document_type": "resume",
+        "candidate_name": "Tanvi Joshi",
+        "candidate_email": "tanvi.joshi@example.net",
+        "work_experience": [
+          {
+            "title": "Junior AI Engineer",
+            "company": "Kesar Labs",
+            "summary": "Builds RAG chatbots with LangChain and FastAPI to answer customer questions from help-centre articles, and added pgvector search to an existing PostgreSQL database.",
+            "end_year": null,
+            "start_year": 2025
+          },
+          {
+            "title": "Associate Software Engineer",
+            "company": "Kesar Labs",
+            "summary": "Built React screens and REST endpoints for a support dashboard in a customer support SaaS.",
+            "end_year": 2025,
+            "start_year": 2024
+          }
+        ],
+        "education": [
+          {
+            "degree": "B.E.",
+            "institution": "Sabarmati Institute of Engineering",
+            "field_of_study": "Information Technology",
+            "graduation_year": 2024
+          }
+        ],
+        "current_role": "Junior AI Engineer",
+        "seniority_level": "junior",
+        "years_of_experience": 2,
+        "skills": [
+          "python",
+          "javascript",
+          "react",
+          "fastapi",
+          "langchain",
+          "rag",
+          "postgresql",
+          "docker"
+        ],
+        "education_level": "bachelors",
+        "locations": [
+          "Ahmedabad",
+          "Remote"
+        ],
+        "industries": [
+          "saas",
+          "customer support"
+        ],
+        "languages": [
+          "english",
+          "gujarati",
+          "hindi"
+        ],
+        "file_name": "r24-tanvi-joshi.pdf"
+      }
+    }
+  ]
+}

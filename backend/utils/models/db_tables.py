@@ -67,6 +67,14 @@ class Document(SQLModel, table=True):
         default=None,
         sa_column=Column(JSONB, nullable=True)
     )
+    # Raw per-document processing telemetry written by the worker (migration
+    # 056): parse step, extraction call(s) with the model that served them,
+    # embeddings, total ms. Unpriced on purpose -- the API prices it on read with
+    # chat/pricing.py (utils/processing_telemetry.py), the one price table.
+    processing_telemetry: Optional[Dict[str, Any]] = Field(
+        default=None,
+        sa_column=Column(JSONB, nullable=True)
+    )
 
 
 class Batch(SQLModel, table=True):
@@ -116,6 +124,31 @@ class KnowledgeConfig(SQLModel, table=True):
     updated_at: Optional[datetime] = Field(default_factory=datetime.now)
     deleted: bool = Field(default=False)
     deleted_at: Optional[datetime] = None
+    # Migration 053. Non-NULL marks this collection as the live copy of a sample
+    # ("resumes", "invoices") that every signed-in account may open read-only —
+    # see utils/auth/sample_access.py. Set and cleared only by the master key.
+    sample_key: Optional[str] = None
+
+
+class KnowledgeSampleQuestion(SQLModel, table=True):
+    """One question a visitor asked a sample collection (migration 053).
+
+    Written before the answer runs, so it is both the visitor's allowance and the
+    record of who tried which sample. ``audience`` is "public" or "internal" (a
+    FutureSmart address, which the allowance does not limit).
+    """
+    __tablename__ = "knowledge_sample_questions"
+    __table_args__ = {'extend_existing': True}
+
+    id: Optional[int] = Field(default=None, primary_key=True)
+    knowledge_id: str
+    user_email: str
+    audience: str
+    session_id: Optional[str] = None
+    created_at: Optional[datetime] = Field(
+        default=None,
+        sa_column=Column(DateTime(timezone=True), server_default=func.now(), nullable=False),
+    )
 
 
 class KnowledgeQualityScore(SQLModel, table=True):
@@ -480,6 +513,10 @@ class KnowledgeChatLogs(SQLModel, table=True):
     attachment_url: Optional[str] = None
     is_answered: Optional[bool] = None
     feedback: Optional[str] = Field(default=None, sa_column=Column(String(10), nullable=True))
+    # The turn's usage block (migration 055): latency, per-operation model/tokens/
+    # cost, price table -- the same dict the live response carried. Null for turns
+    # stored before it existed.
+    usage: Optional[Any] = Field(default=None, sa_column=Column(JSONB, nullable=True))
     created_at: Optional[datetime] = Field(default_factory=datetime.now)
 
 

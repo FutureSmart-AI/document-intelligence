@@ -250,6 +250,12 @@ async def send_embedding_event(
         object_id (Optional[str]): Object ID (request_id)
         key_type (Optional[str]): Pre-resolved key type ("owner-key" or "platform-key"). Resolved automatically if not provided.
     """
+    # The chat turn's usage block counts this request too (no-op outside a turn).
+    try:
+        from chat.run_usage import record_embedding
+        record_embedding(provider, model, embedding_tokens, duration_ms)
+    except Exception:
+        pass
     try:
         owner_id = await get_owner_id_from_service_id(knowledge_id)
         if not key_type:

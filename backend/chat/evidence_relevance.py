@@ -29,6 +29,7 @@ from __future__ import annotations
 import logging
 import math
 import os
+import time
 from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
@@ -179,7 +180,13 @@ async def filter_evidence_by_relevance(
 
         embeddings = OpenAIEmbeddings(model=embed_model, api_key=OPENAI_API_KEY)
         # One round trip: query first, then every candidate string.
+        _embed_t0 = time.perf_counter()
         vectors = await embeddings.aembed_documents([query] + flat_texts)
+        from chat.run_usage import count_embedding_tokens, record_embedding
+        record_embedding(
+            "openai", embed_model, count_embedding_tokens([query] + flat_texts),
+            int((time.perf_counter() - _embed_t0) * 1000),
+        )
         query_vec = vectors[0]
         text_vecs = vectors[1:]
 

@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, Query
 from typing import Optional, List
 from utils.logger import logger
-from utils.auth.dependencies import get_api_key_or_session, require_permission
+from utils.auth.dependencies import get_api_key_or_session, get_api_key_session_or_scoped_key, require_permission
 from utils.auth.auth_utils import extract_owner_id_from_session
 from utils.common_utils import generate_object_id as generate_knowledge_id
 from utils.db.knowledge_invitations import list_shared_knowledge
@@ -21,11 +21,19 @@ from utils.usage.enforcement import enforce_operation
 router = APIRouter()
 
 
+def _caller_owner_id(auth: dict) -> Optional[str]:
+	"""Normalized account id for a session or generated-key caller."""
+	if auth.get("auth_type") == "user_api_key":
+		user_id = auth.get("user_id")
+		return str(user_id).strip().lower() if user_id else None
+	return extract_owner_id_from_session(auth["session_data"])
+
+
 @router.get("/v1/validate")
 async def validate_knowledge(
 	owner_id: str = Query(...),
 	knowledge_id: str = Query(...),
-	auth: dict = Depends(get_api_key_or_session),
+	auth: dict = Depends(get_api_key_session_or_scoped_key),
 	_: Optional[str] = Depends(require_permission("read")),
 ):
 	"""
@@ -36,9 +44,9 @@ async def validate_knowledge(
 		if not owner_id or not knowledge_id:
 			return {"valid": False}
 
-		# Session callers can only validate their own owner_id
-		if auth.get("auth_type") == "session":
-			caller_owner_id = extract_owner_id_from_session(auth["session_data"])
+		# Session and generated-key callers can only validate their own owner_id
+		if auth.get("auth_type") in ("session", "user_api_key"):
+			caller_owner_id = _caller_owner_id(auth)
 			if not caller_owner_id or caller_owner_id != owner_id.strip().lower():
 				return {"valid": False}
 
@@ -114,7 +122,7 @@ async def create_knowledge(request: GenerateKnowledgeRequest, auth: dict = Depen
 async def list_knowledge(
 	owner_id: Optional[str] = Query(None),
 	include: Optional[str] = Query(None, description="Set to 'summary' to get per-collection document count, processing rollup, and field counts inline instead of a bare id list. Omit to keep the original bare-id response."),
-	auth: dict = Depends(get_api_key_or_session),
+	auth: dict = Depends(get_api_key_session_or_scoped_key),
 ):
 	"""
 	List knowledge services. If owner_id is provided, returns every collection
@@ -141,11 +149,17 @@ async def list_knowledge(
 	discovery contract this endpoint feeds, not a separate "shared" listing.
 	"""
 	try:
-		# Session callers: verify the requested owner_id belongs to them
-		if auth.get("auth_type") == "session":
-			caller_owner_id = extract_owner_id_from_session(auth["session_data"])
+		# Session and generated-key callers: verify the requested owner_id belongs to
+		# them. A key with no owner_id lists its own owner's collections — never the
+		# all-collections listing, which is master-key only.
+		if auth.get("auth_type") in ("session", "user_api_key"):
+			caller_owner_id = _caller_owner_id(auth)
 			if owner_id and (not caller_owner_id or owner_id.strip().lower() != caller_owner_id):
 				raise HTTPException(status_code=403, detail="You can only list your own knowledge services")
+			if auth.get("auth_type") == "user_api_key":
+				if not caller_owner_id:
+					raise HTTPException(status_code=401, detail="Could not resolve caller identity")
+				owner_id = caller_owner_id
 
 		if owner_id:
 			owned_ids = await get_knowledge_services_by_owner(owner_id)
@@ -160,6 +174,11 @@ async def list_knowledge(
 				from sqlmodel import select
 				result = await session.execute(select(KnowledgeConfig.knowledge_id).where(KnowledgeConfig.deleted == False))
 				knowledge_ids: List[str] = list(result.scalars().all())
+
+		# A collection key sees only its own collection.
+		key_knowledge_id = auth.get("knowledge_id") if auth.get("auth_type") == "user_api_key" else None
+		if key_knowledge_id:
+			knowledge_ids = [kid for kid in knowledge_ids if kid == key_knowledge_id]
 
 		if include != "summary":
 			if owner_id:

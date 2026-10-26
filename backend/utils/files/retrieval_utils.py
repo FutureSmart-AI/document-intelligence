@@ -186,7 +186,18 @@ async def list_documents_by_filter(
         # these is dropped regardless of which positive should-conditions it satisfies.
         must_not_conditions: List[FieldCondition] = []
 
-        if metadata_filter:
+        # Strict AND (match_all=True, without the reconcile path) builds every
+        # condition with the SAME builder the query path uses
+        # (retrieval_ops._build_filter_conditions_from_dict): ranges, $ne/$nin,
+        # contains, logical $or/$not, nested-array keys. The loose builder
+        # below predates those operators — it read {"gte": 10} as a nested
+        # field literally named "gte" and matched nothing — and it is kept only
+        # for the documented loose-OR API default and the reconcile sweep.
+        strict = bool(match_all and not include_source_id and metadata_filter)
+        if strict:
+            must_conditions.extend(_build_filter_conditions_from_dict(metadata_filter))
+
+        if metadata_filter and not strict:
             # Operator keys that indicate a "scalar" filter object rather than a nested-object filter
             operator_keys = {"$in", "in", "any", "values", "eq", "value", "op", "$nin", "not_in"}
 
@@ -374,6 +385,10 @@ async def list_documents_by_filter(
         # Slim/reconcile callers must NOT see a partial/empty list mistaken for "no docs" —
         # that would silently suppress deletes. Surface the error instead.
         if include_source_id:
+            raise
+        # A strict filter that cannot be built or executed must not read as
+        # "no documents match" — the chat agent would answer "none" / "0".
+        if match_all and metadata_filter:
             raise
         return []
 

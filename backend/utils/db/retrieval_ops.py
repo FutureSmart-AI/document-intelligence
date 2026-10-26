@@ -16,6 +16,7 @@ from qdrant_client.http.models import Filter, FieldCondition, Nested, NestedCond
 from typing import Dict, Union, Optional, List, Tuple, Any
 from types import SimpleNamespace
 import asyncio
+import time
 
 from utils.tracing import track_time
 
@@ -471,10 +472,23 @@ async def search_documents_by_query(
             must_conditions.extend(_build_filter_conditions_from_dict(metadata_filter))
 
         qdrant_filter = Filter(must=must_conditions)
+        _embed_t0 = time.perf_counter()
         dense_vector = await asyncio.get_event_loop().run_in_executor(
             None,
             lambda: indexer.embedding_function.embed_query(query),
         )
+        try:
+            # Counted in the chat turn's usage block (no-op outside a turn).
+            from chat.run_usage import count_embedding_tokens, record_embedding
+            from utils.qdrant.usage_tracking import _get_embedding_provider_and_model
+            _p, _m = _get_embedding_provider_and_model(embedding_model)
+            record_embedding(
+                _p, _m,
+                count_embedding_tokens([query]) if _p == "openai" else 0,
+                int((time.perf_counter() - _embed_t0) * 1000),
+            )
+        except Exception:
+            pass
 
         payload_spec = True if include_metadata else ["object_id", "file_name", "url"]
 
@@ -1312,6 +1326,14 @@ def _build_filter_conditions_from_dict(filters: Dict[str, Any]) -> List[Any]:
 
     for field_path, value in filters.items():
         try:
+            # Logical operators. Each branch is itself a filter dict whose keys
+            # are AND-ed; `$or` needs at least one branch to hold, `$nor`/`$not`
+            # exclude every branch. They used to be rewritten upstream (`$or`
+            # cut to its first branch, `$not` dropped), which silently changed
+            # the population the answer was computed over.
+            if field_path in _LOGICAL_OPS:
+                conditions.append(_build_logical_condition(field_path, value))
+                continue
             if "[]." in field_path:
                 # Array of dicts — wrap inner condition in NestedCondition
                 array_field, nested_key = field_path.split("[].")
@@ -1344,6 +1366,22 @@ def _build_filter_conditions_from_dict(filters: Dict[str, Any]) -> List[Any]:
 
 
 _RANGE_OPS = ("gte", "lte", "gt", "lt")
+_LOGICAL_OPS = ("$and", "$or", "$nor", "$not")
+
+
+def _build_logical_condition(op: str, branches: Any) -> Filter:
+    """`{"$or": [f1, f2]}` → Filter(should=[...]) etc. Raises on a malformed
+    clause instead of skipping it: a skipped condition widens the result."""
+    if isinstance(branches, dict):
+        branches = [branches]
+    if not isinstance(branches, list) or not branches or not all(isinstance(b, dict) and b for b in branches):
+        raise ValueError(f"Logical operator '{op}' needs a non-empty list of filter objects, got {branches!r}")
+    built = [Filter(must=_build_filter_conditions_from_dict(b)) for b in branches]
+    if op == "$and":
+        return Filter(must=built)
+    if op == "$or":
+        return Filter(should=built)
+    return Filter(must_not=built)  # $nor / $not
 
 
 def _looks_like_date_bound(v: Any) -> bool:
@@ -1511,6 +1549,11 @@ def _build_simple_field_condition(field: str, value: Any) -> tuple:
                     expanded.append(v)
             logger.info(f"Field '{field}': shorthand not_in → must_not MatchAny({len(expanded)} values)")
             return FieldCondition(key=field, match=MatchAny(any=expanded)), True
+        # Shorthand single-key operators: {"$ne": x}, {"$eq": x}, {"$contains": x}
+        # route through the verbose op-syntax above so both spellings mean the same.
+        elif len(value) == 1 and next(iter(value)).lstrip("$") in ("ne", "eq", "contains", "not_contains"):
+            op, op_value = next(iter(value.items()))
+            return _build_simple_field_condition(field, {"op": op.lstrip("$"), "value": op_value})
         else:
             logger.warning(f"Field '{field}': unrecognized dict filter shape {value} — no op/range/in keys found")
             raise ValueError(f"Unrecognized filter shape for field '{field}': {value}")

@@ -21,6 +21,7 @@ from utils.usage.credential_health import (
     platform_fallback_allowed,
 )
 from utils.usage.credentials import resolve_owner_id_for_knowledge
+from chat.run_usage import usage_operation
 from chat.utils.service_calls import build_service_call
 from utils.logger import logger
 from utils.tracing import track_time
@@ -132,6 +133,9 @@ def _render_prior_evidence(
             chunk_groups.append(group)
             continue
         label_parts = []
+        if group.get("source") == "answer_result_set":
+            # The documents a previous answer presented (chat/rag_agent/result_set.py).
+            label_parts.append("result of the previous answer")
         if group.get("question_shape"):
             label_parts.append(f'shape={group["question_shape"]}')
         if group.get("query"):
@@ -186,7 +190,10 @@ def _render_prior_evidence(
             "one now being queried (a switch of source, not of subject — the same question can "
             "be uncovered simply because the prior docs belong elsewhere). When unsure whether "
             "the block covers the question, prefer fresh retrieval over reuse. Do not re-run a "
-            "filter that already appears above."
+            "filter that already appears above. A group marked `result of the previous answer` "
+            "lists exactly the documents that answer presented: when the current question is "
+            "about that whole set ('chart their years', 'compare those', 'sort them'), set "
+            "about_previous_result=true and that set is used as is."
         )
 
     chunk_block = _render_global_chunk_scans(chunk_groups)
@@ -576,6 +583,90 @@ def _extract_retrieved_context_from_messages(messages: List[Any]) -> Dict[str, A
 
 
 @track_time("RAG: Run Agent")
+def _has_exhaustive_population(retrieved_context: Dict[str, Any]) -> bool:
+    for record in retrieved_context.get("tool_responses") or []:
+        result = record.get("result") if isinstance(record, dict) else None
+        if isinstance(result, dict) and isinstance(result.get("total_match_count"), int):
+            return True
+    return False
+
+
+async def _compute_turn_aggregation_impl(
+    *,
+    query: str,
+    knowledge_id: Optional[str],
+    owner_id: Optional[str],
+    summaries: Dict[str, Any],
+    chunks: List[Any],
+    rag_context: Dict[str, Any],
+    session_id: Optional[str] = None,
+) -> Optional[Dict[str, Any]]:
+    """Build the turn's shared aggregation from the population the chart would
+    use and emit its LLM usage event (the chart node used to emit it). Never
+    raises; None when it could not be computed."""
+    try:
+        from chat.chart_generator import build_structured_aggregation
+
+        t0 = time.perf_counter()
+        aggregation = await build_structured_aggregation(
+            query, knowledge_id, owner_id, summaries, rag_context, chunks,
+        )
+        aggregation["latency_ms"] = int((time.perf_counter() - t0) * 1000)
+        logger.info(
+            f"[aggregation] status={aggregation.get('status')} rows={len(aggregation.get('rows') or [])} "
+            f"documents={aggregation.get('documents')} complete={aggregation.get('complete')} "
+            f"source={aggregation.get('source')}"
+        )
+        usage = aggregation.get("usage")
+        if usage and (usage.get("input_tokens") or usage.get("output_tokens")):
+            try:
+                import asyncio as _asyncio_evt
+                from utils.qdrant.usage_tracking import send_llm_usage_event
+
+                _asyncio_evt.ensure_future(send_llm_usage_event(
+                    label="chart", provider=usage.get("provider"), model=usage.get("model"),
+                    input_tokens=usage.get("input_tokens", 0) or 0,
+                    output_tokens=usage.get("output_tokens", 0) or 0,
+                    owner_id=owner_id, knowledge_id=knowledge_id, session_id=session_id,
+                    key_type=usage.get("key_type") or "platform-key",
+                ))
+            except Exception as e:
+                logger.warning(f"[aggregation] Failed to emit usage event: {e}")
+        return aggregation
+    except Exception as e:
+        logger.warning(f"[aggregation] skipped: {e}")
+        return None
+
+
+async def _shared_aggregation(
+    *,
+    query: str,
+    knowledge_id: str,
+    owner_id: Optional[str],
+    retrieved_context: Dict[str, Any],
+    charts_enabled: bool,
+    session_id: Optional[str],
+) -> Optional[Dict[str, Any]]:
+    """Run the shared aggregation when the turn can present numbers from it:
+    charts are on (the chart would compute it anyway, so the text must see it
+    first), or the agent retrieved an exhaustive population (counts, groups and
+    totals are what such a turn answers). The population is built exactly as
+    chart_node builds it — rag_node's cited, normalized summaries and chunks."""
+    if not (charts_enabled or _has_exhaustive_population(retrieved_context)):
+        return None
+    from chat.rag_node import _filter_to_cited, _normalize_summaries
+
+    summaries, chunks = _filter_to_cited(
+        dict(retrieved_context.get("summaries") or {}), list(retrieved_context.get("chunks") or []),
+        retrieved_context.get("agent_output") or {},
+    )
+    return await compute_turn_aggregation(
+        query=query, knowledge_id=knowledge_id, owner_id=owner_id,
+        summaries=_normalize_summaries(summaries), chunks=chunks,
+        rag_context=retrieved_context, session_id=session_id,
+    )
+
+
 async def run_rag_agent(
     query: str,
     knowledge_id: str,
@@ -583,7 +674,7 @@ async def run_rag_agent(
     metadata_filter: Optional[Dict[str, Any]] = None,
     object_ids: Optional[list] = None,
     llm_provider: str = "openai",
-    llm_model: str = "gpt-4o-mini",
+    llm_model: str = "gpt-5.4-mini",
     user_instructions: Optional[str] = None,
     owner_id: Optional[str] = None,
     metadata_schema: Optional[Dict[str, Any]] = None,
@@ -598,6 +689,8 @@ async def run_rag_agent(
     verifier_llm_provider: Optional[str] = None,
     verifier_llm_model: Optional[str] = None,
     answer_token_queue: Optional[Any] = None,
+    charts_enabled: bool = False,
+    session_id: Optional[str] = None,
 ) -> Dict[str, Any]:
     """
     Run the RAG agent to retrieve context using modern LangGraph approach.
@@ -639,7 +732,8 @@ async def run_rag_agent(
         async def _ainvoke_agent(messages: list):
             nonlocal rag_agent, key_type
             try:
-                return await rag_agent.ainvoke({"messages": messages})
+                with usage_operation("retrieval_agent"):
+                    return await rag_agent.ainvoke({"messages": messages})
             except Exception as exc:
                 if key_type != "owner-key":
                     raise
@@ -677,7 +771,8 @@ async def run_rag_agent(
                     force_platform_key=True,
                 )
                 collect_warning(build_warning(effective_provider, error_type))
-                return await rag_agent.ainvoke({"messages": messages})
+                with usage_operation("retrieval_agent"):
+                    return await rag_agent.ainvoke({"messages": messages})
 
         initial_messages: list = []
 
@@ -821,8 +916,13 @@ async def run_rag_agent(
         result: Dict[str, Any] = {"messages": []}
         verifier_verdicts: List[Any] = []
 
+        earlier_attempt_tool_messages: List[Any] = []
+
         _retrieval_t0 = time.perf_counter()
         for attempt in range(max_retrieval_retries + 1):
+            # Messages before this index were INPUT to this attempt (setup,
+            # catalog prefetch, retry feedback) — not evidence it gathered.
+            attempt_start_index = len(current_messages)
             result = await _ainvoke_agent(current_messages)
 
             new_messages = result.get("messages", []) or []
@@ -877,6 +977,10 @@ async def run_rag_agent(
                 preliminary_context["agent_output"] = agent_output
             if prior_evidence:
                 preliminary_context["prior_turn_docs"] = _flatten_prior_docs(prior_evidence)
+            if agent_output is not None:
+                from chat.rag_agent.citations import canonicalize_citations, known_doc_ids
+
+                canonicalize_citations(agent_output, known_doc_ids(preliminary_context))
 
             try:
                 from chat.rag_agent.retrieval_verifier import (
@@ -929,6 +1033,17 @@ async def run_rag_agent(
             # every tool call tried (format_replan_message), so the agent won't
             # repeat them. The agent keeps full reasoning ability; it just isn't
             # re-reading rounds of stale tool output.
+            # The retry thread is slim, but the EVIDENCE this attempt gathered
+            # is not discarded: its tool results are carried into the final
+            # extraction below. Without this, an attempt that fetched the
+            # complete population (aggregate over all 24 documents) was thrown
+            # away whenever the verifier asked for more, and the answer was
+            # computed from the retry's 10-chunk sample instead ("11 candidates
+            # know Python" for 18) — with no sources, because the cited docs
+            # were no longer in the context.
+            earlier_attempt_tool_messages.extend(
+                m for m in new_messages[attempt_start_index:] if isinstance(m, ToolMessage)
+            )
             feedback = format_replan_message(verdict, prior_messages=new_messages)
             resolved_block = _render_resolved_docs_for_retry(preliminary_context)
             retry_messages = list(initial_messages)
@@ -957,7 +1072,12 @@ async def run_rag_agent(
 
         messages = result.get("messages", []) or []
 
-        retrieved_context = _extract_retrieved_context_from_messages(messages)
+        # Evidence from every attempt, earlier attempts first, so the final
+        # attempt's results win wherever both describe the same document.
+        retrieved_context = _extract_retrieved_context_from_messages(
+            earlier_attempt_tool_messages + list(messages)
+        )
+        retrieved_context["messages"] = messages
         # How many passes the retrieval loop actually ran. `attempt` is the
         # loop's own index and survives the loop, so this is the real count
         # (1 on the common path), not the configured budget. Free RAG-eval
@@ -981,6 +1101,26 @@ async def run_rag_agent(
                 f"[rag_agent] agent_output: stop_reason={agent_output.get('stop_reason')!r} "
                 f"confidence={agent_output.get('confidence')!r}"
             )
+            # Every consumer matches citations by id; resolve a mis-copied id
+            # to the document the agent was shown, once, here
+            # (chat/rag_agent/citations.py).
+            from chat.rag_agent.citations import canonicalize_citations, known_doc_ids
+
+            citation_stats = canonicalize_citations(agent_output, known_doc_ids(retrieved_context))
+            if citation_stats["repaired"] or citation_stats["unresolved"]:
+                retrieved_context["citation_repairs"] = citation_stats
+
+            # A follow-up about exactly the previous answer's documents: that
+            # set is this turn's population as is (chat/rag_agent/result_set.py).
+            from chat.rag_agent.result_set import carried_population
+
+            carried = carried_population(prior_evidence, agent_output)
+            if carried:
+                retrieved_context["carried_population"] = carried
+                logger.info(
+                    f"[rag_agent] the question is about the previous answer's result set: "
+                    f"carrying its {len(carried)} document(s)"
+                )
 
         if verifier_verdicts:
             # Surface verifier history for trace / debug. Final verdict is at [-1].
@@ -1018,6 +1158,30 @@ async def run_rag_agent(
                 output_tokens=usage_metrics["output_tokens"],
             ))
 
+        # ONE authoritative aggregation for the turn, computed before the answer
+        # is written: the answer node states these numbers and chart_node plots
+        # the same rows (rag_context["aggregation"]). Before this, the chart
+        # computed its table AFTER the answer, so the text counted on its own —
+        # "1 candidate with 5 years" above a chart (and data) showing 2.
+        aggregation = await _shared_aggregation(
+            query=query, knowledge_id=knowledge_id, owner_id=owner_id,
+            retrieved_context=retrieved_context, charts_enabled=charts_enabled,
+            session_id=session_id,
+        )
+        if aggregation is not None:
+            retrieved_context["aggregation"] = {k: v for k, v in aggregation.items() if k != "usage"}
+            agg_usage = aggregation.get("usage")
+            if agg_usage:
+                usage_by_model.append({
+                    "provider": agg_usage["provider"], "model": agg_usage["model"],
+                    "input_tokens": agg_usage["input_tokens"], "output_tokens": agg_usage["output_tokens"],
+                })
+                service_calls.append(build_service_call(
+                    service="chart", latency_ms=aggregation.get("latency_ms") or 0,
+                    provider=agg_usage["provider"], model=agg_usage["model"],
+                    input_tokens=agg_usage["input_tokens"], output_tokens=agg_usage["output_tokens"],
+                ))
+
         # Invoke the separate answer node now that retrieval is complete. Its
         # output replaces ``raw_output`` so the downstream ``rag_node`` can
         # surface it as the final response.
@@ -1047,6 +1211,13 @@ async def run_rag_agent(
         # downstream retry logic. True only when the answer node's LLM
         # judged its own answer as actually resolving the user's question.
         retrieved_context["is_answered"] = bool(answer_result.get("is_answered", False))
+        # The documents the answer presented — persisted with this turn's
+        # evidence (chat/evidence_builder.py) as the set a follow-up's
+        # "their"/"those" refers to.
+        if answer_result.get("result_object_ids"):
+            retrieved_context["answer_result"] = {
+                "query": query, "object_ids": list(answer_result["result_object_ids"]),
+            }
 
         a_in = answer_usage.get("input_tokens", 0) or 0
         a_out = answer_usage.get("output_tokens", 0) or 0
@@ -1096,3 +1267,10 @@ async def run_rag_agent(
             "summaries": {},
             "chunks": [],
         }
+
+
+async def compute_turn_aggregation(*args, **kwargs):
+    """``_compute_turn_aggregation_impl`` with every model call it makes attributed to the
+    ``chart_spec`` operation of the turn's usage block (chat/run_usage.py)."""
+    from chat.run_usage import in_operation
+    return await in_operation("chart_spec", _compute_turn_aggregation_impl(*args, **kwargs))

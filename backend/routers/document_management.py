@@ -27,6 +27,7 @@ from utils.models.enums import DocumentProcessingMode
 from utils.files.processing_modes import (
     derive_use_llama_parse,
     resolve_document_processing_mode,
+    ensure_parser_configured,
 )
 from utils.validation.validation_utils import (
     normalize_empty_strings,
@@ -62,7 +63,7 @@ from utils.pydantic_models_knowledge import (
 from utils.files.retrieval_utils import get_summaries_service, list_documents_get_alias, search_documents_service
 from utils.pydantic_models_retrieval import DocumentListResponse, DocumentSummariesResponse, SummaryItem
 from utils.tracing import tracer
-from utils.db.knowledge_ops import get_document_by_source_id
+from utils.db.knowledge_ops import get_document_by_source_id, retrieve_document_detail
 
 
 router = APIRouter()
@@ -243,6 +244,10 @@ async def add_document(
                 source="ingest:single",
                 byok_exempt_if_all_of=_pipeline_providers,
             )
+            # A file in a LlamaParse mode needs a LlamaParse key; say so now (422)
+            # instead of queueing a document that can only fail in the worker.
+            if (file is not None or file_url) and "llamaparse" in _pipeline_providers:
+                await ensure_parser_configured(processing_mode, _kb_owner_id)
 
         with tracer.start_as_current_span("Node: Parse Extra Metadata"):
             parsed_extra_metadata: Optional[dict] = None
@@ -612,6 +617,33 @@ async def delete_document(
     except Exception as e:
         logger.error(f"Error initiating deletion: {e}")
         raise HTTPException(status_code=500, detail=f"An unexpected error occurred while initiating deletion: {e}")
+
+
+# 11b. Get one document, with its processing telemetry
+@router.get("/v1/{knowledge_id}/documents/{object_id}")
+async def get_document(
+    knowledge_id: str,
+    object_id: str,
+    _: Optional[str] = Depends(require_permission("read")),
+):
+    """One document's record: status, timings and ``processing_telemetry`` --
+    the parse step (parser, mode, ms), each extraction call group with the model
+    that actually served it (``fallback`` / ``fallback_reason`` when the primary
+    failed), embeddings, ``total_ms`` and ``estimated_cost_usd`` priced with the
+    service's price table (``price_table``). ``cost_complete`` is false when a
+    model had no price; that cost is ``null``, never ``0``. See
+    docs/api/usage-telemetry.md."""
+    try:
+        with tracer.start_as_current_span("Node: Load Document"):
+            document = await retrieve_document_detail(knowledge_id, object_id)
+        if document is None:
+            raise HTTPException(status_code=404, detail=f"Document {object_id} not found in knowledge {knowledge_id}")
+        return document
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error loading document {knowledge_id}/{object_id}: {e}")
+        raise HTTPException(status_code=500, detail=f"An unexpected error occurred while loading the document: {e}")
 
 
 # 12. Get Document Status

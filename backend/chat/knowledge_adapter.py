@@ -110,6 +110,7 @@ async def get_docs(knowledge_id: str, metadata_filter: Optional[Dict[str, Any]] 
             filters=metadata_filter,
             limit=1000,
             include_metadata=False,
+            match_all=True,
         )
     results = await list_documents_get_alias(
         knowledge_id=knowledge_id,
@@ -137,6 +138,7 @@ async def get_document_summaries(
             filters=filtered,
             limit=limit or 10,
             include_metadata=False,
+            match_all=True,
         )
     return await get_summaries_service(knowledge_id, target_ids, include_metadata=False)
 
@@ -161,8 +163,13 @@ async def list_documents_with_metadata(
     mode: Optional[str] = None,
     include_metadata: bool = False,
     limit: int = 1000,
+    whole_collection: bool = False,
 ) -> List[Dict[str, Any]]:
-    """Mirrors get_document_summaries_v2's query / metadata_filter / direct branches."""
+    """Mirrors get_document_summaries_v2's query / metadata_filter / direct branches.
+
+    ``whole_collection`` lists every document of the collection when there is
+    neither a query nor a filter — the population of an exhaustive question
+    about the whole collection."""
     if query:
         ranked = await search_documents_service(
             knowledge_id=knowledge_id,
@@ -183,9 +190,27 @@ async def list_documents_with_metadata(
         ]
 
     if metadata_filter:
+        # match_all: every condition must hold (AND), built by the same
+        # condition builder as the query branch above. The listing's legacy
+        # default is loose OR, which turned {"education_level": "masters",
+        # "languages": "hindi"} into 17 docs instead of 4 and made every range
+        # match nothing — and exhaustive shapes (count / predicate / selection)
+        # always take this branch, because their query is stripped.
         results = await list_documents_get_alias(
             knowledge_id=knowledge_id,
             filters=metadata_filter,
+            limit=limit,
+            include_metadata=include_metadata,
+            match_all=True,
+        )
+        if include_metadata and results and isinstance(results[0], dict):
+            return results
+        return [{"object_id": oid} for oid in results]
+
+    if whole_collection:
+        results = await list_documents_get_alias(
+            knowledge_id=knowledge_id,
+            filters=None,
             limit=limit,
             include_metadata=include_metadata,
         )

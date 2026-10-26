@@ -20,6 +20,20 @@ from utils.logger import logger
 # collide with real metadata field names are avoided here: only operator-looking
 # names (nin/not_in/ne/in) are treated as operators.
 _BARE_RANGE_OPS = frozenset({"gte", "lte", "gt", "lt"})
+_LOGICAL_OPS = ("$and", "$or", "$nor", "$not")
+
+# Single-key `$` operators that have a backend equivalent in the verbose op
+# syntax (retrieval_ops._build_simple_field_condition). Anything else is
+# refused by name rather than unwrapped: `{"title": {"$contains": "engineer"}}`
+# used to become the EQUALITY filter `{"title": "engineer"}` — a different
+# question, answered without a word.
+_OP_TO_VERBOSE = {"$contains": "contains", "$not_contains": "not_contains", "$eq": "eq"}
+
+
+class UnsupportedMetadataFilter(ValueError):
+    """A metadata_filter clause the retrieval layer cannot evaluate. Raised,
+    never dropped: the tool returns it to the agent as an error so it can
+    rewrite the filter, instead of answering over a silently wider set."""
 
 _SUPPORTED_SHORTHAND_OPS = frozenset(
     {"$in", "$nin", "$not_in", "$ne",
@@ -180,45 +194,37 @@ def _normalize_metadata_filter_inner(
     #   - {field: {$op: v}}           → {field: v}    (single op, drop wrapper)
     #   - {field: {$op1: v1, ...}}    → {field: [v1, ...]}  (multi-op, collect values)
     if isinstance(metadata_filter, dict):
-        logical_keys = [k for k in metadata_filter.keys() if isinstance(k, str) and k in ("$and", "$or", "$nor", "$not")]
+        logical_keys = [k for k in metadata_filter.keys() if isinstance(k, str) and k in _LOGICAL_OPS]
         if logical_keys:
-            unwrapped: Dict[str, Any] = {}
-
-            non_logical = {k: v for k, v in metadata_filter.items() if k not in logical_keys}
-            unwrapped.update(non_logical)
-
+            # The retrieval layer evaluates $and / $or / $nor / $not natively
+            # (retrieval_ops._build_logical_condition). Each branch is normalized
+            # on its own and the operator is KEPT. This used to cut $or down to
+            # its first branch and drop $nor/$not — the answer was then computed
+            # over a different population than the user asked about, with only
+            # a log line to show for it.
+            out = dict(normalize_metadata_filter(
+                {k: v for k, v in metadata_filter.items() if k not in logical_keys} or None,
+                field_types=field_types,
+            ) or {})
             for op in logical_keys:
                 branches = metadata_filter[op]
-                if not isinstance(branches, list) or not branches:
-                    logger.warning(
-                        f"normalize_metadata_filter: ignoring '{op}' with non-list / empty value: {branches}"
+                if isinstance(branches, dict):
+                    branches = [branches]
+                if not isinstance(branches, list) or not branches or not all(isinstance(b, dict) and b for b in branches):
+                    raise UnsupportedMetadataFilter(
+                        f"'{op}' needs a non-empty list of filter objects, got {branches!r}"
                     )
-                    continue
-
-                if op == "$and":
-                    for branch in branches:
-                        if isinstance(branch, dict):
-                            unwrapped.update(branch)
-                    logger.info(
-                        f"normalize_metadata_filter: flattened $and over {len(branches)} branch(es) into a single filter"
-                    )
-                elif op == "$or":
-                    first = next((b for b in branches if isinstance(b, dict) and b), None)
-                    if first:
-                        unwrapped.update(first)
-                    logger.warning(
-                        f"normalize_metadata_filter: backend does not support $or — "
-                        f"reduced to first of {len(branches)} branch(es): {first}. "
-                        f"Result set may be NARROWER than intended."
-                    )
-                else:  # $nor, $not
-                    logger.warning(
-                        f"normalize_metadata_filter: backend does not support '{op}' — dropping it entirely. "
-                        f"Original branches: {branches}"
-                    )
-
-            # Recurse into the unwrapped dict so per-field operator stripping (below) still runs.
-            return normalize_metadata_filter(unwrapped or None, field_types=field_types)
+                normalized_branches = [normalize_metadata_filter(b, field_types=field_types) or {} for b in branches]
+                if not all(normalized_branches):
+                    raise UnsupportedMetadataFilter(f"'{op}' has a branch with no usable condition: {branches!r}")
+                if op == "$and" and not any(set(b) & set(out) for b in normalized_branches) and \
+                        len({k for b in normalized_branches for k in b}) == sum(len(b) for b in normalized_branches):
+                    # Disjoint keys: a flat dict already means AND.
+                    for b in normalized_branches:
+                        out.update(b)
+                else:
+                    out[op] = normalized_branches
+            return out or None
 
     # ---- Case 0b: Strip per-field $-operators (except supported ones) ----
     # Walks the top-level dict and unwraps any value of the form {"$op": v} or
@@ -245,24 +251,16 @@ def _normalize_metadata_filter_inner(
                     continue
 
                 had_op_wrappers = True
-                if len(value) == 1:
-                    sanitized[key] = next(iter(value.values()))
-                else:
-                    # Multi-operator wrapper. Keep the FIRST supported operator
-                    # (preserving its negation semantics); drop the rest.
-                    supported_present = [op for op in value.keys() if op in SUPPORTED_PER_FIELD_OPS]
-                    if supported_present:
-                        keep_op = supported_present[0]
-                        dropped_ops = [op for op in value.keys() if op != keep_op]
-                        sanitized[key] = {keep_op: value[keep_op]}
-                        logger.warning(
-                            f"normalize_metadata_filter: kept {keep_op} on '{key}', dropped unsupported operators: {dropped_ops}"
-                        )
-                        continue
-                    sanitized[key] = list(value.values())
-                logger.info(
-                    f"normalize_metadata_filter: stripped operator wrapper on '{key}' "
-                    f"(operators={list(value.keys())})"
+                if len(value) == 1 and next(iter(value)) in _OP_TO_VERBOSE:
+                    op, op_value = next(iter(value.items()))
+                    sanitized[key] = {"op": _OP_TO_VERBOSE[op], "value": op_value}
+                    continue
+                # Anything else changes the question if it is unwrapped or
+                # partially kept, so refuse it by name.
+                raise UnsupportedMetadataFilter(
+                    f"operator(s) {sorted(value)} on '{key}' are not supported. Supported per-field "
+                    f"operators: $in, $nin, $ne, $eq, $contains, $not_contains, $gte, $gt, $lte, $lt; "
+                    f"logical: $and, $or, $nor, $not."
                 )
             else:
                 sanitized[key] = value
@@ -275,23 +273,24 @@ def _normalize_metadata_filter_inner(
         "any" in metadata_filter or
         "not" in metadata_filter
     ):
-        normalized: Dict[str, Any] = {}
+        # Translated to the $-operators above instead of keeping only `all`
+        # (which used to drop `any`/`not` with a log line).
+        def _clauses(name: str) -> List[Dict[str, Any]]:
+            out = []
+            for clause in metadata_filter.get(name) or []:
+                if not (isinstance(clause, dict) and "key" in clause and "value" in clause):
+                    raise UnsupportedMetadataFilter(f"'{name}' clause must be {{key, value}}, got {clause!r}")
+                out.append({clause["key"]: clause["value"]})
+            return out
 
-        for clause in metadata_filter.get("all", []):
-            if (
-                isinstance(clause, dict)
-                and "key" in clause
-                and "value" in clause
-            ):
-                normalized[clause["key"]] = clause["value"]
-
-        if metadata_filter.get("any") or metadata_filter.get("not"):
-            logger.warning(
-                "Ignoring unsupported logical operators in metadata_filter: %s",
-                metadata_filter
-            )
-
-        return normalized or None
+        translated: Dict[str, Any] = {}
+        if _clauses("all"):
+            translated["$and"] = _clauses("all")
+        if _clauses("any"):
+            translated["$or"] = _clauses("any")
+        if _clauses("not"):
+            translated["$nor"] = _clauses("not")
+        return normalize_metadata_filter(translated or None, field_types=field_types)
 
     # ---- Case 2: $operator wrappers and nested dict string parsing ----
     normalized: Dict[str, Any] = {}

@@ -1,0 +1,119 @@
+name: Standalone install E2E (OpenAI key only)
+
+# A clean install, exactly as docs/installation.md says, on a fresh runner with
+# ONLY an OpenAI key: configure.py -> docker compose (with UI) -> REST API journey
+# (collections, PDF upload, extraction, metadata Q&A, chart from the in-process
+# renderer, follow-up, sources, parser-mode refusal) -> UI screenshot of a charted
+# answer. Spends real OpenAI tokens, so it runs on demand only: dispatch it, or add
+# the `standalone-e2e` label to a pull request.
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: "Branch, tag or SHA to install (default: the dispatched ref)"
+        required: false
+  pull_request:
+    types: [labeled]
+
+concurrency:
+  group: standalone-install-e2e-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  install:
+    if: github.event_name == 'workflow_dispatch' || github.event.label.name == 'standalone-e2e'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 75
+    env:
+      INSTALL_DIR: /tmp/di-install
+      EVIDENCE_DIR: /tmp/di-evidence
+    steps:
+      - name: Fresh clone into an empty directory
+        env:
+          REF: ${{ inputs.ref || github.head_ref || github.ref_name }}
+          REPO: ${{ github.repository }}
+          TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p "$INSTALL_DIR" "$EVIDENCE_DIR"
+          test -z "$(ls -A "$INSTALL_DIR")"
+          git clone --quiet "https://x-access-token:${TOKEN}@github.com/${REPO}.git" "$INSTALL_DIR"
+          git -C "$INSTALL_DIR" checkout --quiet "$REF"
+          git -C "$INSTALL_DIR" log -1 --format='installed %H %s' | tee "$EVIDENCE_DIR/installed-commit.txt"
+
+      - name: Configure with only OPENAI_API_KEY (docs/installation.md step 2)
+        working-directory: ${{ env.INSTALL_DIR }}
+        env:
+          OPENAI_API_KEY: ${{ secrets.MODEL_EVAL_OPENAI_API_KEY }}
+        run: |
+          test -n "$OPENAI_API_KEY" || { echo "::error::MODEL_EVAL_OPENAI_API_KEY secret is not set"; exit 1; }
+          # Nothing else that could stand in for another provider reaches configure.py.
+          unset ANTHROPIC_API_KEY GROQ_API_KEY GOOGLE_API_KEY GEMINI_API_KEY LLAMA_PARSE_API_KEY \
+                OPENROUTER_API_KEY FIRECRAWL_API_KEY CHART_API_URL CHART_SERVICE_KEY
+          python3 deploy/configure.py
+          python3 - <<'PY' | tee "$EVIDENCE_DIR/env-key-names.txt"
+          import re
+          for line in open('.env', encoding='utf-8'):
+              key, _, value = line.rstrip('\n').partition('=')
+              if re.search(r'(API_KEY|_KEY|SECRET|PASSWORD|SALT|_URL)$', key) or key.startswith(('CHART_', 'MODEL_PROFILE')):
+                  print(f"{key}: {'non-empty' if value else 'empty'}")
+          PY
+          # Fail if any provider key other than OpenAI's, or the hosted Chart API, is set.
+          if grep -qE '^(ANTHROPIC|GROQ|GOOGLE|GEMINI|LLAMA_PARSE|OPENROUTER|FIRECRAWL)_API_KEY=.+|^CHART_(API_URL|SERVICE_KEY)=.+' .env; then
+            echo "::error::.env carries a provider key other than OPENAI_API_KEY"; exit 1
+          fi
+
+      - name: docker compose --profile ui up -d --build (docs/installation.md step 3)
+        working-directory: ${{ env.INSTALL_DIR }}
+        run: |
+          docker compose --profile ui up -d --build
+          for i in $(seq 1 180); do
+            if curl -fsS http://127.0.0.1:8000/health > /dev/null && curl -fsS -o /dev/null http://127.0.0.1:8086/document-intelligence/; then
+              echo "api and ui answering after $((i * 5))s"; break
+            fi
+            if [ "$i" = 180 ]; then docker compose ps -a; docker compose logs --tail 80 api-init worker-init api; exit 1; fi
+            sleep 5
+          done
+          docker compose ps -a | tee "$EVIDENCE_DIR/compose-ps.txt"
+          # api-init and worker-init must have exited 0 (docs/installation.md step 4).
+          for svc in api-init worker-init; do
+            code=$(docker inspect -f '{{.State.ExitCode}}' "$(docker compose ps -a -q $svc)")
+            echo "$svc exit=$code"; test "$code" = 0
+          done
+
+      - name: REST API journey
+        working-directory: ${{ env.INSTALL_DIR }}
+        run: python3 tests/e2e/standalone_single_key.py --env-file .env --out "$EVIDENCE_DIR/api"
+
+      - name: UI screenshot of a charted answer
+        working-directory: ${{ env.INSTALL_DIR }}
+        timeout-minutes: 15
+        run: |
+          python3 -m pip install --quiet playwright==1.58.0
+          python3 -m playwright install --with-deps chromium > /dev/null
+          python3 tests/e2e/standalone_ui_chart.py --env-file .env --summary "$EVIDENCE_DIR/api/summary.json" --out "$EVIDENCE_DIR/ui"
+
+      - name: Service logs (chart and parser lines)
+        if: always()
+        working-directory: ${{ env.INSTALL_DIR }}
+        run: |
+          docker compose logs --no-color api worker > "$EVIDENCE_DIR/compose.log" 2>&1 || true
+          grep -E 'chart_render|\[chart_generator\]|\[chart_node\]|LlamaParse|Refusing upload|judge disabled|Enrichment config source|Fallback LLM' "$EVIDENCE_DIR/compose.log" | grep -v -i 'api_key=' | tail -200 > "$EVIDENCE_DIR/key-log-lines.txt" || true
+          tail -60 "$EVIDENCE_DIR/key-log-lines.txt" || true
+          # The full log stays out of the artifact: it is private installation output.
+          rm -f "$EVIDENCE_DIR/compose.log"
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: standalone-install-evidence
+          path: ${{ env.EVIDENCE_DIR }}
+          retention-days: 30
+
+      - name: docker compose down -v
+        if: always()
+        working-directory: ${{ env.INSTALL_DIR }}
+        run: docker compose --profile ui down -v --remove-orphans

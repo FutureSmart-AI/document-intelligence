@@ -214,6 +214,17 @@ def track_enrichment_health(
     attributed to the fallback and the divergence stays visible.
     """
     try:
+        # The document's own processing record (document.processing_telemetry):
+        # the same attempt, attributed to the model that served it.
+        from celery_utils.shared import document_telemetry
+        document_telemetry.record_extraction(
+            object_id, status=status, duration_ms=duration_ms,
+            requested_provider=provider, requested_model=model,
+            exec_meta=exec_meta, token_usage=token_usage,
+        )
+    except Exception as e:
+        logger.debug(f"document telemetry skipped: {e}")
+    try:
         from celery_utils.shared.enrichment_health import (
             build_field_outcomes,
             send_enrichment_health_event,

@@ -1,0 +1,4824 @@
+{
+  "generated_at": "2026-10-26T10:26:27.558028+00:00",
+  "dataset": "document-intelligence-model-eval",
+  "dataset_version": "v1",
+  "dataset_sha256": "d1eaefacafec99dfad27c1b9d5b0d2b8412a54008edf7c414f5c7ab8ca7169b3",
+  "configs": {
+    "baseline-nano-medium": {
+      "extraction": {
+        "run": {
+          "config": "baseline-nano-medium",
+          "config_sha256": "2887fb38d1762d904138353e3b4502a1712c66db582fad7203fbde7b62c2f8aa",
+          "profile": "openai-v1",
+          "settings": {
+            "ENRICHMENT_MODEL": "gpt-5.4-nano",
+            "ENRICHMENT_FALLBACK_MODEL": "gpt-5.4-nano",
+            "RAG_CHAT_REFINED_QUERY_LLM_PROVIDER": "openai",
+            "RAG_CHAT_REFINED_QUERY_LLM_MODEL": "gpt-5.4-nano",
+            "RAG_CHAT_AGENT_LLM_PROVIDER": "openai",
+            "RAG_CHAT_AGENT_LLM_MODEL": "gpt-5.6-luna",
+            "RAG_FALLBACK_PROVIDER": "openai",
+            "RAG_FALLBACK_MODEL": "gpt-5.4-mini",
+            "RAG_RETRIEVAL_VERIFIER_PROVIDER": "openai",
+            "RAG_RETRIEVAL_VERIFIER_MODEL": "gpt-5.4-nano",
+            "RAG_CHAT_ANSWER_LLM_PROVIDER": "openai",
+            "RAG_CHAT_ANSWER_LLM_MODEL": "gpt-5.6-luna",
+            "FOLLOW_UP_LLM_PROVIDER": "openai",
+            "FOLLOW_UP_LLM_MODEL": "gpt-5.4-nano",
+            "CHART_EXTRACTION_MODEL": "gpt-5.4-mini",
+            "CHART_RENDER_PROVIDER": "openai",
+            "CHART_RENDER_MODEL": "gpt-5.4-mini",
+            "TRANSCRIPT_PROVIDER": "openai",
+            "EXTRACTION_VALIDATION_LLM_ENABLED": "false",
+            "ENRICHMENT_REASONING_EFFORT": "medium"
+          },
+          "about": "What production runs on 2026-10-26: every extraction on gpt-5.4-nano at reasoning medium (the configured gemini-3.1-flash-lite has failed since 2026-10-23, so the nano fallback serves), chat refine nano, retrieval agent luna, answer luna, verifier nano, follow-up nano, chart extraction gpt-5.4-mini, RAG fallback gpt-5.4-mini.",
+          "suite": "extraction",
+          "repeats": 2,
+          "dataset": "document-intelligence-model-eval",
+          "dataset_version": "v1",
+          "dataset_sha256": "d1eaefacafec99dfad27c1b9d5b0d2b8412a54008edf7c414f5c7ab8ca7169b3",
+          "git_sha": "cb2d0cffb2ba877840e9c0c2db8a7ddaacc1d2d3",
+          "judge_model": "gpt-5.6-terra",
+          "judge_reasoning_effort": "medium",
+          "server_trace_project": "document-intelligence-model-eval-server",
+          "extraction_model": "gpt-5.4-nano",
+          "extraction_reasoning_effort": "medium",
+          "chat_models": {
+            "query_refinement": "gpt-5.4-nano",
+            "retrieval_agent": "gpt-5.6-luna",
+            "answer": "gpt-5.6-luna",
+            "retrieval_verifier": "gpt-5.4-nano",
+            "follow_up": "gpt-5.4-nano",
+            "embeddings": "text-embedding-3-small",
+            "chart_spec": "gpt-5.4-mini",
+            "chart_render": "gpt-5.4-mini"
+          },
+          "chart_model": "gpt-5.4-mini",
+          "rag_fallback_model": "gpt-5.4-mini",
+          "github_run_id": "40299739518",
+          "started_at": "2026-10-26T09:45:22.182713+00:00",
+          "concurrency": 4,
+          "collections": [
+            {
+              "repeat": 1,
+              "resumes": "da54019d-2652-4d76-a8db-f2fa36bb6443",
+              "invoices": "d4160b93-0345-498b-a987-a46e85cb7229"
+            },
+            {
+              "repeat": 2,
+              "resumes": "af71e0e8-8ec1-410d-80dc-48cc1b07b136",
+              "invoices": "ed885f10-c5e4-4f0c-98d2-42ae31fc15fa"
+            }
+          ],
+          "langsmith_experiment": "baseline-nano-medium-extraction-cb2d0cf-477e5a8f",
+          "langsmith_dataset": "document-intelligence-model-eval-extraction-v1-d1eaefac",
+          "finished_at": "2026-10-26T09:47:45.914536+00:00"
+        },
+        "summary": {
+          "documents": 84,
+          "fields_correct": 967,
+          "fields_total": 984,
+          "accuracy": 0.9827,
+          "numeric_exact": "155/156",
+          "missing_values": 2,
+          "unexpected_values": 0,
+          "complete_documents": "82/84",
+          "failed_documents": 0,
+          "latency_ms_p50": 5970,
+          "latency_ms_p95": 9414,
+          "estimated_cost_usd_mean": 0.001045,
+          "estimated_cost_usd_total": 0.087783,
+          "cost_measured": 84,
+          "cost_complete": true,
+          "cost_sources": [
+            "api"
+          ],
+          "config_verified": "84/84",
+          "served_models": [
+            "gpt-5.4-nano"
+          ],
+          "by_collection": {
+            "invoices": {
+              "fields_correct": 347,
+              "fields_total": 360,
+              "accuracy": 0.9639,
+              "documents": 36,
+              "complete_documents": 35,
+              "all_correct_documents": 24,
+              "per_repeat": {
+                "1": "172/180",
+                "2": "175/180"
+              }
+            },
+            "resumes": {
+              "fields_correct": 620,
+              "fields_total": 624,
+              "accuracy": 0.9936,
+              "documents": 48,
+              "complete_documents": 47,
+              "all_correct_documents": 44,
+              "per_repeat": {
+                "1": "309/312",
+                "2": "311/312"
+              }
+            }
+          },
+          "by_field": {
+            "invoices.currency": {
+              "correct": 36,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.customer_name": {
+              "correct": 36,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.due_date": {
+              "correct": 36,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.invoice_number": {
+              "correct": 36,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.issue_date": {
+              "correct": 36,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.line_item_categories": {
+              "correct": 29,
+              "of": 36,
+              "missing": 1,
+              "unexpected": 0,
+              "wrong": 6,
+              "judge_disagreed": 3
+            },
+            "invoices.line_items": {
+              "correct": 30,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 6,
+              "judge_disagreed": 1
+            },
+            "invoices.payment_terms": {
+              "correct": 36,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.total_amount": {
+              "correct": 36,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.vendor_name": {
+              "correct": 36,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.candidate_email": {
+              "correct": 48,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.candidate_name": {
+              "correct": 48,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.certifications": {
+              "correct": 48,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.current_role": {
+              "correct": 48,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.education": {
+              "correct": 48,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.education_level": {
+              "correct": 48,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.industries": {
+              "correct": 47,
+              "of": 48,
+              "missing": 1,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.languages": {
+              "correct": 48,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.locations": {
+              "correct": 48,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.seniority_level": {
+              "correct": 47,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 1,
+              "judge_disagreed": 0
+            },
+            "resumes.skills": {
+              "correct": 47,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 1,
+              "judge_disagreed": 0
+            },
+            "resumes.work_experience": {
+              "correct": 48,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.years_of_experience": {
+              "correct": 47,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 1,
+              "judge_disagreed": 0
+            }
+          }
+        }
+      },
+      "rag": {
+        "run": {
+          "config": "baseline-nano-medium",
+          "config_sha256": "2887fb38d1762d904138353e3b4502a1712c66db582fad7203fbde7b62c2f8aa",
+          "profile": "openai-v1",
+          "settings": {
+            "ENRICHMENT_MODEL": "gpt-5.4-nano",
+            "ENRICHMENT_FALLBACK_MODEL": "gpt-5.4-nano",
+            "RAG_CHAT_REFINED_QUERY_LLM_PROVIDER": "openai",
+            "RAG_CHAT_REFINED_QUERY_LLM_MODEL": "gpt-5.4-nano",
+            "RAG_CHAT_AGENT_LLM_PROVIDER": "openai",
+            "RAG_CHAT_AGENT_LLM_MODEL": "gpt-5.6-luna",
+            "RAG_FALLBACK_PROVIDER": "openai",
+            "RAG_FALLBACK_MODEL": "gpt-5.4-mini",
+            "RAG_RETRIEVAL_VERIFIER_PROVIDER": "openai",
+            "RAG_RETRIEVAL_VERIFIER_MODEL": "gpt-5.4-nano",
+            "RAG_CHAT_ANSWER_LLM_PROVIDER": "openai",
+            "RAG_CHAT_ANSWER_LLM_MODEL": "gpt-5.6-luna",
+            "FOLLOW_UP_LLM_PROVIDER": "openai",
+            "FOLLOW_UP_LLM_MODEL": "gpt-5.4-nano",
+            "CHART_EXTRACTION_MODEL": "gpt-5.4-mini",
+            "CHART_RENDER_PROVIDER": "openai",
+            "CHART_RENDER_MODEL": "gpt-5.4-mini",
+            "TRANSCRIPT_PROVIDER": "openai",
+            "EXTRACTION_VALIDATION_LLM_ENABLED": "false",
+            "ENRICHMENT_REASONING_EFFORT": "medium"
+          },
+          "about": "What production runs on 2026-10-26: every extraction on gpt-5.4-nano at reasoning medium (the configured gemini-3.1-flash-lite has failed since 2026-10-23, so the nano fallback serves), chat refine nano, retrieval agent luna, answer luna, verifier nano, follow-up nano, chart extraction gpt-5.4-mini, RAG fallback gpt-5.4-mini.",
+          "suite": "rag",
+          "repeats": 2,
+          "dataset": "document-intelligence-model-eval",
+          "dataset_version": "v1",
+          "dataset_sha256": "d1eaefacafec99dfad27c1b9d5b0d2b8412a54008edf7c414f5c7ab8ca7169b3",
+          "git_sha": "cb2d0cffb2ba877840e9c0c2db8a7ddaacc1d2d3",
+          "judge_model": "gpt-5.6-terra",
+          "judge_reasoning_effort": "medium",
+          "server_trace_project": "document-intelligence-model-eval-server",
+          "extraction_model": "gpt-5.4-nano",
+          "extraction_reasoning_effort": "medium",
+          "chat_models": {
+            "query_refinement": "gpt-5.4-nano",
+            "retrieval_agent": "gpt-5.6-luna",
+            "answer": "gpt-5.6-luna",
+            "retrieval_verifier": "gpt-5.4-nano",
+            "follow_up": "gpt-5.4-nano",
+            "embeddings": "text-embedding-3-small",
+            "chart_spec": "gpt-5.4-mini",
+            "chart_render": "gpt-5.4-mini"
+          },
+          "chart_model": "gpt-5.4-mini",
+          "rag_fallback_model": "gpt-5.4-mini",
+          "github_run_id": "40299739518",
+          "started_at": "2026-10-26T09:47:50.930574+00:00",
+          "concurrency": 4,
+          "collections": {
+            "resumes": "da54019d-2652-4d76-a8db-f2fa36bb6443",
+            "invoices": "d4160b93-0345-498b-a987-a46e85cb7229",
+            "_from": "baseline-nano-medium"
+          },
+          "langsmith_experiment": "baseline-nano-medium-rag-cb2d0cf-141f162b",
+          "langsmith_dataset": "document-intelligence-model-eval-rag-v1-d1eaefac",
+          "finished_at": "2026-10-26T10:25:54.620642+00:00"
+        },
+        "summary": {
+          "answers": 78,
+          "correct": 64,
+          "accuracy": 0.8205,
+          "latency_source": "server",
+          "latency_ms_p50": 10632,
+          "latency_ms_p95": 26009,
+          "client_latency_ms_p50": 10690,
+          "estimated_cost_usd_mean": 0.006014,
+          "estimated_cost_usd_total": 0.469082,
+          "cost_measured": 78,
+          "cost_complete": true,
+          "cost_sources": [
+            "api"
+          ],
+          "sources_ok": "8/8",
+          "config_verified": "78/78",
+          "served_models": [
+            "gpt-5.4-mini",
+            "gpt-5.4-nano",
+            "gpt-5.6-luna",
+            "text-embedding-3-small"
+          ],
+          "http_errors": 0,
+          "timeouts": 0,
+          "telemetry_unavailable": 0,
+          "graded_against_truth": 0,
+          "by_category": {
+            "aggregation": {
+              "correct": 6,
+              "answers": 6
+            },
+            "chart": {
+              "correct": 10,
+              "answers": 10
+            },
+            "comparison": {
+              "correct": 2,
+              "answers": 2
+            },
+            "count": {
+              "correct": 4,
+              "answers": 4
+            },
+            "exact_filter": {
+              "correct": 4,
+              "answers": 4
+            },
+            "follow_up": {
+              "correct": 3,
+              "answers": 4
+            },
+            "hybrid": {
+              "correct": 0,
+              "answers": 4
+            },
+            "invoice_structured": {
+              "correct": 4,
+              "answers": 8
+            },
+            "invoice_text": {
+              "correct": 1,
+              "answers": 2
+            },
+            "multi_doc_synthesis": {
+              "correct": 2,
+              "answers": 4
+            },
+            "multi_field_filter": {
+              "correct": 6,
+              "answers": 6
+            },
+            "negation_filter": {
+              "correct": 2,
+              "answers": 2
+            },
+            "numeric_range": {
+              "correct": 10,
+              "answers": 10
+            },
+            "passage": {
+              "correct": 4,
+              "answers": 6
+            },
+            "ranking": {
+              "correct": 6,
+              "answers": 6
+            }
+          }
+        },
+        "follow_up_regression": {
+          "passed": "1/2",
+          "chart_population": [
+            7,
+            8
+          ],
+          "expected_population": [
+            8,
+            8
+          ]
+        }
+      }
+    },
+    "chat-mini": {
+      "extraction": {
+        "run": {
+          "config": "chat-mini",
+          "config_sha256": "0fa733dcbe7fbf270b988134e96d78cd2e55b378f0e5612ad34437c9459895c0",
+          "profile": "openai-v1",
+          "settings": {
+            "ENRICHMENT_MODEL": "gpt-5.4-nano",
+            "ENRICHMENT_FALLBACK_MODEL": "gpt-5.4-nano",
+            "RAG_CHAT_REFINED_QUERY_LLM_PROVIDER": "openai",
+            "RAG_CHAT_REFINED_QUERY_LLM_MODEL": "gpt-5.4-nano",
+            "RAG_CHAT_AGENT_LLM_PROVIDER": "openai",
+            "RAG_CHAT_AGENT_LLM_MODEL": "gpt-5.4-mini",
+            "RAG_FALLBACK_PROVIDER": "openai",
+            "RAG_FALLBACK_MODEL": "gpt-5.4-mini",
+            "RAG_RETRIEVAL_VERIFIER_PROVIDER": "openai",
+            "RAG_RETRIEVAL_VERIFIER_MODEL": "gpt-5.4-nano",
+            "RAG_CHAT_ANSWER_LLM_PROVIDER": "openai",
+            "RAG_CHAT_ANSWER_LLM_MODEL": "gpt-5.4-mini",
+            "FOLLOW_UP_LLM_PROVIDER": "openai",
+            "FOLLOW_UP_LLM_MODEL": "gpt-5.4-nano",
+            "CHART_EXTRACTION_MODEL": "gpt-5.4-mini",
+            "CHART_RENDER_PROVIDER": "openai",
+            "CHART_RENDER_MODEL": "gpt-5.4-mini",
+            "TRANSCRIPT_PROVIDER": "openai",
+            "EXTRACTION_VALIDATION_LLM_ENABLED": "false",
+            "ENRICHMENT_REASONING_EFFORT": "medium"
+          },
+          "about": "Chat candidate: retrieval agent and answer on gpt-5.4-mini (the chat-config row default) instead of gpt-5.6-luna. Extraction as baseline (its RAG suite reuses the baseline collections).",
+          "suite": "extraction",
+          "repeats": 1,
+          "dataset": "document-intelligence-model-eval",
+          "dataset_version": "v1",
+          "dataset_sha256": "d1eaefacafec99dfad27c1b9d5b0d2b8412a54008edf7c414f5c7ab8ca7169b3",
+          "git_sha": "cb2d0cffb2ba877840e9c0c2db8a7ddaacc1d2d3",
+          "judge_model": "gpt-5.6-terra",
+          "judge_reasoning_effort": "medium",
+          "server_trace_project": "document-intelligence-model-eval-server",
+          "extraction_model": "gpt-5.4-nano",
+          "extraction_reasoning_effort": "medium",
+          "chat_models": {
+            "query_refinement": "gpt-5.4-nano",
+            "retrieval_agent": "gpt-5.4-mini",
+            "answer": "gpt-5.4-mini",
+            "retrieval_verifier": "gpt-5.4-nano",
+            "follow_up": "gpt-5.4-nano",
+            "embeddings": "text-embedding-3-small",
+            "chart_spec": "gpt-5.4-mini",
+            "chart_render": "gpt-5.4-mini"
+          },
+          "chart_model": "gpt-5.4-mini",
+          "rag_fallback_model": "gpt-5.4-mini",
+          "github_run_id": "40299739518",
+          "started_at": "2026-10-26T09:39:20.531946+00:00",
+          "concurrency": 4,
+          "collections": [
+            {
+              "repeat": 1,
+              "resumes": "729a8960-fd79-410e-b7ab-8f2f5ac716eb",
+              "invoices": "d9e4907a-e456-455a-baf7-ccf34097a9d8"
+            }
+          ],
+          "langsmith_experiment": "chat-mini-extraction-cb2d0cf-606f2995",
+          "langsmith_dataset": "document-intelligence-model-eval-extraction-v1-d1eaefac",
+          "finished_at": "2026-10-26T09:40:32.727061+00:00"
+        },
+        "summary": {
+          "documents": 42,
+          "fields_correct": 484,
+          "fields_total": 492,
+          "accuracy": 0.9837,
+          "numeric_exact": "77/78",
+          "missing_values": 2,
+          "unexpected_values": 0,
+          "complete_documents": "40/42",
+          "failed_documents": 0,
+          "latency_ms_p50": 6684,
+          "latency_ms_p95": 10604,
+          "estimated_cost_usd_mean": 0.001254,
+          "estimated_cost_usd_total": 0.052664,
+          "cost_measured": 42,
+          "cost_complete": true,
+          "cost_sources": [
+            "api"
+          ],
+          "config_verified": "42/42",
+          "served_models": [
+            "gpt-5.4-nano"
+          ],
+          "by_collection": {
+            "invoices": {
+              "fields_correct": 173,
+              "fields_total": 180,
+              "accuracy": 0.9611,
+              "documents": 18,
+              "complete_documents": 16,
+              "all_correct_documents": 11,
+              "per_repeat": {
+                "1": "173/180"
+              }
+            },
+            "resumes": {
+              "fields_correct": 311,
+              "fields_total": 312,
+              "accuracy": 0.9968,
+              "documents": 24,
+              "complete_documents": 24,
+              "all_correct_documents": 23,
+              "per_repeat": {
+                "1": "311/312"
+              }
+            }
+          },
+          "by_field": {
+            "invoices.currency": {
+              "correct": 18,
+              "of": 18,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.customer_name": {
+              "correct": 18,
+              "of": 18,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.due_date": {
+              "correct": 18,
+              "of": 18,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.invoice_number": {
+              "correct": 18,
+              "of": 18,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.issue_date": {
+              "correct": 18,
+              "of": 18,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.line_item_categories": {
+              "correct": 13,
+              "of": 18,
+              "missing": 2,
+              "unexpected": 0,
+              "wrong": 3,
+              "judge_disagreed": 1
+            },
+            "invoices.line_items": {
+              "correct": 16,
+              "of": 18,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 2,
+              "judge_disagreed": 0
+            },
+            "invoices.payment_terms": {
+              "correct": 18,
+              "of": 18,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.total_amount": {
+              "correct": 18,
+              "of": 18,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.vendor_name": {
+              "correct": 18,
+              "of": 18,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.candidate_email": {
+              "correct": 24,
+              "of": 24,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.candidate_name": {
+              "correct": 24,
+              "of": 24,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.certifications": {
+              "correct": 24,
+              "of": 24,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.current_role": {
+              "correct": 24,
+              "of": 24,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.education": {
+              "correct": 24,
+              "of": 24,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.education_level": {
+              "correct": 24,
+              "of": 24,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.industries": {
+              "correct": 24,
+              "of": 24,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.languages": {
+              "correct": 24,
+              "of": 24,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.locations": {
+              "correct": 24,
+              "of": 24,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.seniority_level": {
+              "correct": 24,
+              "of": 24,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.skills": {
+              "correct": 24,
+              "of": 24,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.work_experience": {
+              "correct": 24,
+              "of": 24,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.years_of_experience": {
+              "correct": 23,
+              "of": 24,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 1,
+              "judge_disagreed": 0
+            }
+          }
+        }
+      },
+      "rag": {
+        "run": {
+          "config": "chat-mini",
+          "config_sha256": "0fa733dcbe7fbf270b988134e96d78cd2e55b378f0e5612ad34437c9459895c0",
+          "profile": "openai-v1",
+          "settings": {
+            "ENRICHMENT_MODEL": "gpt-5.4-nano",
+            "ENRICHMENT_FALLBACK_MODEL": "gpt-5.4-nano",
+            "RAG_CHAT_REFINED_QUERY_LLM_PROVIDER": "openai",
+            "RAG_CHAT_REFINED_QUERY_LLM_MODEL": "gpt-5.4-nano",
+            "RAG_CHAT_AGENT_LLM_PROVIDER": "openai",
+            "RAG_CHAT_AGENT_LLM_MODEL": "gpt-5.4-mini",
+            "RAG_FALLBACK_PROVIDER": "openai",
+            "RAG_FALLBACK_MODEL": "gpt-5.4-mini",
+            "RAG_RETRIEVAL_VERIFIER_PROVIDER": "openai",
+            "RAG_RETRIEVAL_VERIFIER_MODEL": "gpt-5.4-nano",
+            "RAG_CHAT_ANSWER_LLM_PROVIDER": "openai",
+            "RAG_CHAT_ANSWER_LLM_MODEL": "gpt-5.4-mini",
+            "FOLLOW_UP_LLM_PROVIDER": "openai",
+            "FOLLOW_UP_LLM_MODEL": "gpt-5.4-nano",
+            "CHART_EXTRACTION_MODEL": "gpt-5.4-mini",
+            "CHART_RENDER_PROVIDER": "openai",
+            "CHART_RENDER_MODEL": "gpt-5.4-mini",
+            "TRANSCRIPT_PROVIDER": "openai",
+            "EXTRACTION_VALIDATION_LLM_ENABLED": "false",
+            "ENRICHMENT_REASONING_EFFORT": "medium"
+          },
+          "about": "Chat candidate: retrieval agent and answer on gpt-5.4-mini (the chat-config row default) instead of gpt-5.6-luna. Extraction as baseline (its RAG suite reuses the baseline collections).",
+          "suite": "rag",
+          "repeats": 2,
+          "dataset": "document-intelligence-model-eval",
+          "dataset_version": "v1",
+          "dataset_sha256": "d1eaefacafec99dfad27c1b9d5b0d2b8412a54008edf7c414f5c7ab8ca7169b3",
+          "git_sha": "cb2d0cffb2ba877840e9c0c2db8a7ddaacc1d2d3",
+          "judge_model": "gpt-5.6-terra",
+          "judge_reasoning_effort": "medium",
+          "server_trace_project": "document-intelligence-model-eval-server",
+          "extraction_model": "gpt-5.4-nano",
+          "extraction_reasoning_effort": "medium",
+          "chat_models": {
+            "query_refinement": "gpt-5.4-nano",
+            "retrieval_agent": "gpt-5.4-mini",
+            "answer": "gpt-5.4-mini",
+            "retrieval_verifier": "gpt-5.4-nano",
+            "follow_up": "gpt-5.4-nano",
+            "embeddings": "text-embedding-3-small",
+            "chart_spec": "gpt-5.4-mini",
+            "chart_render": "gpt-5.4-mini"
+          },
+          "chart_model": "gpt-5.4-mini",
+          "rag_fallback_model": "gpt-5.4-mini",
+          "github_run_id": "40299739518",
+          "started_at": "2026-10-26T09:40:34.868682+00:00",
+          "concurrency": 4,
+          "collections": {
+            "resumes": "729a8960-fd79-410e-b7ab-8f2f5ac716eb",
+            "invoices": "d9e4907a-e456-455a-baf7-ccf34097a9d8",
+            "_from": "chat-mini"
+          },
+          "langsmith_experiment": "chat-mini-rag-cb2d0cf-4262efdc",
+          "langsmith_dataset": "document-intelligence-model-eval-rag-v1-d1eaefac",
+          "finished_at": "2026-10-26T10:19:57.955941+00:00"
+        },
+        "summary": {
+          "answers": 78,
+          "correct": 60,
+          "accuracy": 0.7692,
+          "latency_source": "server",
+          "latency_ms_p50": 7864,
+          "latency_ms_p95": 22194,
+          "client_latency_ms_p50": 7956,
+          "estimated_cost_usd_mean": 0.015306,
+          "estimated_cost_usd_total": 1.193871,
+          "cost_measured": 78,
+          "cost_complete": true,
+          "cost_sources": [
+            "api"
+          ],
+          "sources_ok": "8/8",
+          "config_verified": "78/78",
+          "served_models": [
+            "gpt-5.4-mini",
+            "gpt-5.4-nano",
+            "text-embedding-3-small"
+          ],
+          "http_errors": 0,
+          "timeouts": 0,
+          "telemetry_unavailable": 0,
+          "graded_against_truth": 0,
+          "by_category": {
+            "aggregation": {
+              "correct": 6,
+              "answers": 6
+            },
+            "chart": {
+              "correct": 10,
+              "answers": 10
+            },
+            "comparison": {
+              "correct": 2,
+              "answers": 2
+            },
+            "count": {
+              "correct": 4,
+              "answers": 4
+            },
+            "exact_filter": {
+              "correct": 4,
+              "answers": 4
+            },
+            "follow_up": {
+              "correct": 0,
+              "answers": 4
+            },
+            "hybrid": {
+              "correct": 0,
+              "answers": 4
+            },
+            "invoice_structured": {
+              "correct": 5,
+              "answers": 8
+            },
+            "invoice_text": {
+              "correct": 2,
+              "answers": 2
+            },
+            "multi_doc_synthesis": {
+              "correct": 0,
+              "answers": 4
+            },
+            "multi_field_filter": {
+              "correct": 6,
+              "answers": 6
+            },
+            "negation_filter": {
+              "correct": 2,
+              "answers": 2
+            },
+            "numeric_range": {
+              "correct": 10,
+              "answers": 10
+            },
+            "passage": {
+              "correct": 3,
+              "answers": 6
+            },
+            "ranking": {
+              "correct": 6,
+              "answers": 6
+            }
+          }
+        },
+        "follow_up_regression": {
+          "passed": "0/2",
+          "chart_population": [
+            14,
+            7
+          ],
+          "expected_population": [
+            8,
+            8
+          ]
+        }
+      }
+    },
+    "chat-nano": {
+      "extraction": {
+        "run": {
+          "config": "chat-nano",
+          "config_sha256": "8fd053c23b40b728bf4e38de054972bfd82ddcf9756068e1ce89daa5407e15f2",
+          "profile": "openai-v1",
+          "settings": {
+            "ENRICHMENT_MODEL": "gpt-5.4-nano",
+            "ENRICHMENT_FALLBACK_MODEL": "gpt-5.4-nano",
+            "RAG_CHAT_REFINED_QUERY_LLM_PROVIDER": "openai",
+            "RAG_CHAT_REFINED_QUERY_LLM_MODEL": "gpt-5.4-nano",
+            "RAG_CHAT_AGENT_LLM_PROVIDER": "openai",
+            "RAG_CHAT_AGENT_LLM_MODEL": "gpt-5.4-nano",
+            "RAG_FALLBACK_PROVIDER": "openai",
+            "RAG_FALLBACK_MODEL": "gpt-5.4-mini",
+            "RAG_RETRIEVAL_VERIFIER_PROVIDER": "openai",
+            "RAG_RETRIEVAL_VERIFIER_MODEL": "gpt-5.4-nano",
+            "RAG_CHAT_ANSWER_LLM_PROVIDER": "openai",
+            "RAG_CHAT_ANSWER_LLM_MODEL": "gpt-5.4-nano",
+            "FOLLOW_UP_LLM_PROVIDER": "openai",
+            "FOLLOW_UP_LLM_MODEL": "gpt-5.4-nano",
+            "CHART_EXTRACTION_MODEL": "gpt-5.4-mini",
+            "CHART_RENDER_PROVIDER": "openai",
+            "CHART_RENDER_MODEL": "gpt-5.4-mini",
+            "TRANSCRIPT_PROVIDER": "openai",
+            "EXTRACTION_VALIDATION_LLM_ENABLED": "false",
+            "ENRICHMENT_REASONING_EFFORT": "medium"
+          },
+          "about": "Chat candidate: retrieval agent and answer on gpt-5.4-nano instead of gpt-5.6-luna. Extraction as baseline (its RAG suite reuses the baseline collections).",
+          "suite": "extraction",
+          "repeats": 1,
+          "dataset": "document-intelligence-model-eval",
+          "dataset_version": "v1",
+          "dataset_sha256": "d1eaefacafec99dfad27c1b9d5b0d2b8412a54008edf7c414f5c7ab8ca7169b3",
+          "git_sha": "cb2d0cffb2ba877840e9c0c2db8a7ddaacc1d2d3",
+          "judge_model": "gpt-5.6-terra",
+          "judge_reasoning_effort": "medium",
+          "server_trace_project": "document-intelligence-model-eval-server",
+          "extraction_model": "gpt-5.4-nano",
+          "extraction_reasoning_effort": "medium",
+          "chat_models": {
+            "query_refinement": "gpt-5.4-nano",
+            "retrieval_agent": "gpt-5.4-nano",
+            "answer": "gpt-5.4-nano",
+            "retrieval_verifier": "gpt-5.4-nano",
+            "follow_up": "gpt-5.4-nano",
+            "embeddings": "text-embedding-3-small",
+            "chart_spec": "gpt-5.4-mini",
+            "chart_render": "gpt-5.4-mini"
+          },
+          "chart_model": "gpt-5.4-mini",
+          "rag_fallback_model": "gpt-5.4-mini",
+          "github_run_id": "40299739518",
+          "started_at": "2026-10-26T09:40:41.427332+00:00",
+          "concurrency": 4,
+          "collections": [
+            {
+              "repeat": 1,
+              "resumes": "e6a18754-57f6-4444-a1f2-db5354e9d509",
+              "invoices": "33316194-4b7a-4955-b44c-a358f1e8acc8"
+            }
+          ],
+          "langsmith_experiment": "chat-nano-extraction-cb2d0cf-e279d95d",
+          "langsmith_dataset": "document-intelligence-model-eval-extraction-v1-d1eaefac",
+          "finished_at": "2026-10-26T09:41:51.797763+00:00"
+        },
+        "summary": {
+          "documents": 42,
+          "fields_correct": 483,
+          "fields_total": 492,
+          "accuracy": 0.9817,
+          "numeric_exact": "77/78",
+          "missing_values": 0,
+          "unexpected_values": 0,
+          "complete_documents": "42/42",
+          "failed_documents": 0,
+          "latency_ms_p50": 6413,
+          "latency_ms_p95": 10187,
+          "estimated_cost_usd_mean": 0.00106,
+          "estimated_cost_usd_total": 0.044534,
+          "cost_measured": 42,
+          "cost_complete": true,
+          "cost_sources": [
+            "api"
+          ],
+          "config_verified": "42/42",
+          "served_models": [
+            "gpt-5.4-nano"
+          ],
+          "by_collection": {
+            "invoices": {
+              "fields_correct": 176,
+              "fields_total": 180,
+              "accuracy": 0.9778,
+              "documents": 18,
+              "complete_documents": 18,
+              "all_correct_documents": 15,
+              "per_repeat": {
+                "1": "176/180"
+              }
+            },
+            "resumes": {
+              "fields_correct": 307,
+              "fields_total": 312,
+              "accuracy": 0.984,
+              "documents": 24,
+              "complete_documents": 24,
+              "all_correct_documents": 19,
+              "per_repeat": {
+                "1": "307/312"
+              }
+            }
+          },
+          "by_field": {
+            "invoices.currency": {
+              "correct": 18,
+              "of": 18,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.customer_name": {
+              "correct": 18,
+              "of": 18,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.due_date": {
+              "correct": 18,
+              "of": 18,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.invoice_number": {
+              "correct": 18,
+              "of": 18,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.issue_date": {
+              "correct": 18,
+              "of": 18,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.line_item_categories": {
+              "correct": 16,
+              "of": 18,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 2,
+              "judge_disagreed": 1
+            },
+            "invoices.line_items": {
+              "correct": 16,
+              "of": 18,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 2,
+              "judge_disagreed": 0
+            },
+            "invoices.payment_terms": {
+              "correct": 18,
+              "of": 18,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.total_amount": {
+              "correct": 18,
+              "of": 18,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.vendor_name": {
+              "correct": 18,
+              "of": 18,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.candidate_email": {
+              "correct": 24,
+              "of": 24,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.candidate_name": {
+              "correct": 24,
+              "of": 24,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.certifications": {
+              "correct": 24,
+              "of": 24,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.current_role": {
+              "correct": 24,
+              "of": 24,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.education": {
+              "correct": 24,
+              "of": 24,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.education_level": {
+              "correct": 24,
+              "of": 24,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.industries": {
+              "correct": 24,
+              "of": 24,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.languages": {
+              "correct": 24,
+              "of": 24,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.locations": {
+              "correct": 22,
+              "of": 24,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 2,
+              "judge_disagreed": 2
+            },
+            "resumes.seniority_level": {
+              "correct": 22,
+              "of": 24,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 2,
+              "judge_disagreed": 0
+            },
+            "resumes.skills": {
+              "correct": 24,
+              "of": 24,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.work_experience": {
+              "correct": 24,
+              "of": 24,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.years_of_experience": {
+              "correct": 23,
+              "of": 24,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 1,
+              "judge_disagreed": 0
+            }
+          }
+        }
+      },
+      "rag": {
+        "run": {
+          "config": "chat-nano",
+          "config_sha256": "8fd053c23b40b728bf4e38de054972bfd82ddcf9756068e1ce89daa5407e15f2",
+          "profile": "openai-v1",
+          "settings": {
+            "ENRICHMENT_MODEL": "gpt-5.4-nano",
+            "ENRICHMENT_FALLBACK_MODEL": "gpt-5.4-nano",
+            "RAG_CHAT_REFINED_QUERY_LLM_PROVIDER": "openai",
+            "RAG_CHAT_REFINED_QUERY_LLM_MODEL": "gpt-5.4-nano",
+            "RAG_CHAT_AGENT_LLM_PROVIDER": "openai",
+            "RAG_CHAT_AGENT_LLM_MODEL": "gpt-5.4-nano",
+            "RAG_FALLBACK_PROVIDER": "openai",
+            "RAG_FALLBACK_MODEL": "gpt-5.4-mini",
+            "RAG_RETRIEVAL_VERIFIER_PROVIDER": "openai",
+            "RAG_RETRIEVAL_VERIFIER_MODEL": "gpt-5.4-nano",
+            "RAG_CHAT_ANSWER_LLM_PROVIDER": "openai",
+            "RAG_CHAT_ANSWER_LLM_MODEL": "gpt-5.4-nano",
+            "FOLLOW_UP_LLM_PROVIDER": "openai",
+            "FOLLOW_UP_LLM_MODEL": "gpt-5.4-nano",
+            "CHART_EXTRACTION_MODEL": "gpt-5.4-mini",
+            "CHART_RENDER_PROVIDER": "openai",
+            "CHART_RENDER_MODEL": "gpt-5.4-mini",
+            "TRANSCRIPT_PROVIDER": "openai",
+            "EXTRACTION_VALIDATION_LLM_ENABLED": "false",
+            "ENRICHMENT_REASONING_EFFORT": "medium"
+          },
+          "about": "Chat candidate: retrieval agent and answer on gpt-5.4-nano instead of gpt-5.6-luna. Extraction as baseline (its RAG suite reuses the baseline collections).",
+          "suite": "rag",
+          "repeats": 2,
+          "dataset": "document-intelligence-model-eval",
+          "dataset_version": "v1",
+          "dataset_sha256": "d1eaefacafec99dfad27c1b9d5b0d2b8412a54008edf7c414f5c7ab8ca7169b3",
+          "git_sha": "cb2d0cffb2ba877840e9c0c2db8a7ddaacc1d2d3",
+          "judge_model": "gpt-5.6-terra",
+          "judge_reasoning_effort": "medium",
+          "server_trace_project": "document-intelligence-model-eval-server",
+          "extraction_model": "gpt-5.4-nano",
+          "extraction_reasoning_effort": "medium",
+          "chat_models": {
+            "query_refinement": "gpt-5.4-nano",
+            "retrieval_agent": "gpt-5.4-nano",
+            "answer": "gpt-5.4-nano",
+            "retrieval_verifier": "gpt-5.4-nano",
+            "follow_up": "gpt-5.4-nano",
+            "embeddings": "text-embedding-3-small",
+            "chart_spec": "gpt-5.4-mini",
+            "chart_render": "gpt-5.4-mini"
+          },
+          "chart_model": "gpt-5.4-mini",
+          "rag_fallback_model": "gpt-5.4-mini",
+          "github_run_id": "40299739518",
+          "started_at": "2026-10-26T09:41:54.539668+00:00",
+          "concurrency": 4,
+          "collections": {
+            "resumes": "e6a18754-57f6-4444-a1f2-db5354e9d509",
+            "invoices": "33316194-4b7a-4955-b44c-a358f1e8acc8",
+            "_from": "chat-nano"
+          },
+          "langsmith_experiment": "chat-nano-rag-cb2d0cf-7dc93783",
+          "langsmith_dataset": "document-intelligence-model-eval-rag-v1-d1eaefac",
+          "finished_at": "2026-10-26T10:22:55.118347+00:00"
+        },
+        "summary": {
+          "answers": 78,
+          "correct": 57,
+          "accuracy": 0.7308,
+          "latency_source": "server",
+          "latency_ms_p50": 10010,
+          "latency_ms_p95": 47109,
+          "client_latency_ms_p50": 10092,
+          "estimated_cost_usd_mean": 0.011694,
+          "estimated_cost_usd_total": 0.912154,
+          "cost_measured": 78,
+          "cost_complete": true,
+          "cost_sources": [
+            "api"
+          ],
+          "sources_ok": "8/8",
+          "config_verified": "78/78",
+          "served_models": [
+            "gpt-5.4-mini",
+            "gpt-5.4-nano",
+            "text-embedding-3-small"
+          ],
+          "http_errors": 0,
+          "timeouts": 0,
+          "telemetry_unavailable": 0,
+          "graded_against_truth": 0,
+          "by_category": {
+            "aggregation": {
+              "correct": 6,
+              "answers": 6
+            },
+            "chart": {
+              "correct": 10,
+              "answers": 10
+            },
+            "comparison": {
+              "correct": 2,
+              "answers": 2
+            },
+            "count": {
+              "correct": 4,
+              "answers": 4
+            },
+            "exact_filter": {
+              "correct": 4,
+              "answers": 4
+            },
+            "follow_up": {
+              "correct": 1,
+              "answers": 4
+            },
+            "hybrid": {
+              "correct": 1,
+              "answers": 4
+            },
+            "invoice_structured": {
+              "correct": 3,
+              "answers": 8
+            },
+            "invoice_text": {
+              "correct": 0,
+              "answers": 2
+            },
+            "multi_doc_synthesis": {
+              "correct": 1,
+              "answers": 4
+            },
+            "multi_field_filter": {
+              "correct": 5,
+              "answers": 6
+            },
+            "negation_filter": {
+              "correct": 2,
+              "answers": 2
+            },
+            "numeric_range": {
+              "correct": 7,
+              "answers": 10
+            },
+            "passage": {
+              "correct": 5,
+              "answers": 6
+            },
+            "ranking": {
+              "correct": 6,
+              "answers": 6
+            }
+          }
+        },
+        "follow_up_regression": {
+          "passed": "0/2",
+          "chart_population": [
+            14,
+            8
+          ],
+          "expected_population": [
+            8,
+            8
+          ]
+        }
+      }
+    },
+    "extract-luna-low": {
+      "extraction": {
+        "run": {
+          "config": "extract-luna-low",
+          "config_sha256": "64d14c07d49a2a056ae54cfeaea855c22261d7f775ece360998faafa631611c0",
+          "profile": "openai-v1",
+          "settings": {
+            "ENRICHMENT_MODEL": "gpt-5.6-luna",
+            "ENRICHMENT_FALLBACK_MODEL": "gpt-5.6-luna",
+            "RAG_CHAT_REFINED_QUERY_LLM_PROVIDER": "openai",
+            "RAG_CHAT_REFINED_QUERY_LLM_MODEL": "gpt-5.4-nano",
+            "RAG_CHAT_AGENT_LLM_PROVIDER": "openai",
+            "RAG_CHAT_AGENT_LLM_MODEL": "gpt-5.6-luna",
+            "RAG_FALLBACK_PROVIDER": "openai",
+            "RAG_FALLBACK_MODEL": "gpt-5.4-mini",
+            "RAG_RETRIEVAL_VERIFIER_PROVIDER": "openai",
+            "RAG_RETRIEVAL_VERIFIER_MODEL": "gpt-5.4-nano",
+            "RAG_CHAT_ANSWER_LLM_PROVIDER": "openai",
+            "RAG_CHAT_ANSWER_LLM_MODEL": "gpt-5.6-luna",
+            "FOLLOW_UP_LLM_PROVIDER": "openai",
+            "FOLLOW_UP_LLM_MODEL": "gpt-5.4-nano",
+            "CHART_EXTRACTION_MODEL": "gpt-5.4-mini",
+            "CHART_RENDER_PROVIDER": "openai",
+            "CHART_RENDER_MODEL": "gpt-5.4-mini",
+            "TRANSCRIPT_PROVIDER": "openai",
+            "EXTRACTION_VALIDATION_LLM_ENABLED": "false",
+            "ENRICHMENT_REASONING_EFFORT": "low"
+          },
+          "about": "Extraction candidate: gpt-5.6-luna at reasoning low, luna also as fallback. Chat as baseline.",
+          "suite": "extraction",
+          "repeats": 2,
+          "dataset": "document-intelligence-model-eval",
+          "dataset_version": "v1",
+          "dataset_sha256": "d1eaefacafec99dfad27c1b9d5b0d2b8412a54008edf7c414f5c7ab8ca7169b3",
+          "git_sha": "cb2d0cffb2ba877840e9c0c2db8a7ddaacc1d2d3",
+          "judge_model": "gpt-5.6-terra",
+          "judge_reasoning_effort": "medium",
+          "server_trace_project": "document-intelligence-model-eval-server",
+          "extraction_model": "gpt-5.6-luna",
+          "extraction_reasoning_effort": "low",
+          "chat_models": {
+            "query_refinement": "gpt-5.4-nano",
+            "retrieval_agent": "gpt-5.6-luna",
+            "answer": "gpt-5.6-luna",
+            "retrieval_verifier": "gpt-5.4-nano",
+            "follow_up": "gpt-5.4-nano",
+            "embeddings": "text-embedding-3-small",
+            "chart_spec": "gpt-5.4-mini",
+            "chart_render": "gpt-5.4-mini"
+          },
+          "chart_model": "gpt-5.4-mini",
+          "rag_fallback_model": "gpt-5.4-mini",
+          "github_run_id": "40299739518",
+          "started_at": "2026-10-26T09:42:27.502258+00:00",
+          "concurrency": 4,
+          "collections": [
+            {
+              "repeat": 1,
+              "resumes": "148b00a3-c70f-4831-87d3-de7c65b1cd1e",
+              "invoices": "6f58a4a6-ec6e-4eaa-9b3d-1646ae7d4e38"
+            },
+            {
+              "repeat": 2,
+              "resumes": "a3b717e4-6308-46d9-b4f9-a083c0da03a5",
+              "invoices": "a6172da0-13a2-43c3-878d-908506790117"
+            }
+          ],
+          "langsmith_experiment": "extract-luna-low-extraction-cb2d0cf-d8da91ff",
+          "langsmith_dataset": "document-intelligence-model-eval-extraction-v1-d1eaefac",
+          "finished_at": "2026-10-26T09:44:38.221758+00:00"
+        },
+        "summary": {
+          "documents": 84,
+          "fields_correct": 980,
+          "fields_total": 984,
+          "accuracy": 0.9959,
+          "numeric_exact": "156/156",
+          "missing_values": 0,
+          "unexpected_values": 0,
+          "complete_documents": "84/84",
+          "failed_documents": 0,
+          "latency_ms_p50": 5711,
+          "latency_ms_p95": 9090,
+          "estimated_cost_usd_mean": 0.000522,
+          "estimated_cost_usd_total": 0.043881,
+          "cost_measured": 84,
+          "cost_complete": true,
+          "cost_sources": [
+            "api"
+          ],
+          "config_verified": "84/84",
+          "served_models": [
+            "gpt-5.6-luna"
+          ],
+          "by_collection": {
+            "invoices": {
+              "fields_correct": 360,
+              "fields_total": 360,
+              "accuracy": 1.0,
+              "documents": 36,
+              "complete_documents": 36,
+              "all_correct_documents": 36,
+              "per_repeat": {
+                "1": "180/180",
+                "2": "180/180"
+              }
+            },
+            "resumes": {
+              "fields_correct": 620,
+              "fields_total": 624,
+              "accuracy": 0.9936,
+              "documents": 48,
+              "complete_documents": 48,
+              "all_correct_documents": 44,
+              "per_repeat": {
+                "1": "310/312",
+                "2": "310/312"
+              }
+            }
+          },
+          "by_field": {
+            "invoices.currency": {
+              "correct": 36,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.customer_name": {
+              "correct": 36,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.due_date": {
+              "correct": 36,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.invoice_number": {
+              "correct": 36,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.issue_date": {
+              "correct": 36,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.line_item_categories": {
+              "correct": 36,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.line_items": {
+              "correct": 36,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.payment_terms": {
+              "correct": 36,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.total_amount": {
+              "correct": 36,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.vendor_name": {
+              "correct": 36,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.candidate_email": {
+              "correct": 48,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.candidate_name": {
+              "correct": 48,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.certifications": {
+              "correct": 48,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.current_role": {
+              "correct": 48,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.education": {
+              "correct": 48,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.education_level": {
+              "correct": 48,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.industries": {
+              "correct": 47,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 1,
+              "judge_disagreed": 1
+            },
+            "resumes.languages": {
+              "correct": 48,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.locations": {
+              "correct": 46,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 2,
+              "judge_disagreed": 2
+            },
+            "resumes.seniority_level": {
+              "correct": 48,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.skills": {
+              "correct": 48,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.work_experience": {
+              "correct": 47,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 1,
+              "judge_disagreed": 0
+            },
+            "resumes.years_of_experience": {
+              "correct": 48,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            }
+          }
+        }
+      }
+    },
+    "extract-luna-none": {
+      "extraction": {
+        "run": {
+          "config": "extract-luna-none",
+          "config_sha256": "85604ae2a4bd366d36e87e9b767d4a7270eed9399e6df06525b99651cb63bd9c",
+          "profile": "openai-v1",
+          "settings": {
+            "ENRICHMENT_MODEL": "gpt-5.6-luna",
+            "ENRICHMENT_FALLBACK_MODEL": "gpt-5.6-luna",
+            "RAG_CHAT_REFINED_QUERY_LLM_PROVIDER": "openai",
+            "RAG_CHAT_REFINED_QUERY_LLM_MODEL": "gpt-5.4-nano",
+            "RAG_CHAT_AGENT_LLM_PROVIDER": "openai",
+            "RAG_CHAT_AGENT_LLM_MODEL": "gpt-5.6-luna",
+            "RAG_FALLBACK_PROVIDER": "openai",
+            "RAG_FALLBACK_MODEL": "gpt-5.4-mini",
+            "RAG_RETRIEVAL_VERIFIER_PROVIDER": "openai",
+            "RAG_RETRIEVAL_VERIFIER_MODEL": "gpt-5.4-nano",
+            "RAG_CHAT_ANSWER_LLM_PROVIDER": "openai",
+            "RAG_CHAT_ANSWER_LLM_MODEL": "gpt-5.6-luna",
+            "FOLLOW_UP_LLM_PROVIDER": "openai",
+            "FOLLOW_UP_LLM_MODEL": "gpt-5.4-nano",
+            "CHART_EXTRACTION_MODEL": "gpt-5.4-mini",
+            "CHART_RENDER_PROVIDER": "openai",
+            "CHART_RENDER_MODEL": "gpt-5.4-mini",
+            "TRANSCRIPT_PROVIDER": "openai",
+            "EXTRACTION_VALIDATION_LLM_ENABLED": "false",
+            "ENRICHMENT_REASONING_EFFORT": "none"
+          },
+          "about": "Extraction candidate: gpt-5.6-luna with reasoning off (its registry default), luna also as fallback so nothing silently falls back to nano. Chat as baseline.",
+          "suite": "extraction",
+          "repeats": 2,
+          "dataset": "document-intelligence-model-eval",
+          "dataset_version": "v1",
+          "dataset_sha256": "d1eaefacafec99dfad27c1b9d5b0d2b8412a54008edf7c414f5c7ab8ca7169b3",
+          "git_sha": "cb2d0cffb2ba877840e9c0c2db8a7ddaacc1d2d3",
+          "judge_model": "gpt-5.6-terra",
+          "judge_reasoning_effort": "medium",
+          "server_trace_project": "document-intelligence-model-eval-server",
+          "extraction_model": "gpt-5.6-luna",
+          "extraction_reasoning_effort": "none",
+          "chat_models": {
+            "query_refinement": "gpt-5.4-nano",
+            "retrieval_agent": "gpt-5.6-luna",
+            "answer": "gpt-5.6-luna",
+            "retrieval_verifier": "gpt-5.4-nano",
+            "follow_up": "gpt-5.4-nano",
+            "embeddings": "text-embedding-3-small",
+            "chart_spec": "gpt-5.4-mini",
+            "chart_render": "gpt-5.4-mini"
+          },
+          "chart_model": "gpt-5.4-mini",
+          "rag_fallback_model": "gpt-5.4-mini",
+          "github_run_id": "40299739518",
+          "started_at": "2026-10-26T09:41:19.431731+00:00",
+          "concurrency": 4,
+          "collections": [
+            {
+              "repeat": 1,
+              "resumes": "b98cd7c3-7afe-4c0f-9fb7-fc96d66e0be7",
+              "invoices": "37552075-fb27-421a-aeb7-1c3688849e4f"
+            },
+            {
+              "repeat": 2,
+              "resumes": "4d7fec47-4109-4551-bb35-d06375f102fe",
+              "invoices": "3ba55eb1-3d16-4970-9651-6664155fcc18"
+            }
+          ],
+          "langsmith_experiment": "extract-luna-none-extraction-cb2d0cf-cb685532",
+          "langsmith_dataset": "document-intelligence-model-eval-extraction-v1-d1eaefac",
+          "finished_at": "2026-10-26T09:43:33.614325+00:00"
+        },
+        "summary": {
+          "documents": 84,
+          "fields_correct": 973,
+          "fields_total": 984,
+          "accuracy": 0.9888,
+          "numeric_exact": "153/156",
+          "missing_values": 0,
+          "unexpected_values": 0,
+          "complete_documents": "84/84",
+          "failed_documents": 0,
+          "latency_ms_p50": 4176,
+          "latency_ms_p95": 5404,
+          "estimated_cost_usd_mean": 0.000425,
+          "estimated_cost_usd_total": 0.035686,
+          "cost_measured": 84,
+          "cost_complete": true,
+          "cost_sources": [
+            "api"
+          ],
+          "config_verified": "84/84",
+          "served_models": [
+            "gpt-5.6-luna"
+          ],
+          "by_collection": {
+            "invoices": {
+              "fields_correct": 358,
+              "fields_total": 360,
+              "accuracy": 0.9944,
+              "documents": 36,
+              "complete_documents": 36,
+              "all_correct_documents": 34,
+              "per_repeat": {
+                "1": "179/180",
+                "2": "179/180"
+              }
+            },
+            "resumes": {
+              "fields_correct": 615,
+              "fields_total": 624,
+              "accuracy": 0.9856,
+              "documents": 48,
+              "complete_documents": 48,
+              "all_correct_documents": 40,
+              "per_repeat": {
+                "1": "308/312",
+                "2": "307/312"
+              }
+            }
+          },
+          "by_field": {
+            "invoices.currency": {
+              "correct": 36,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.customer_name": {
+              "correct": 36,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.due_date": {
+              "correct": 36,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.invoice_number": {
+              "correct": 36,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.issue_date": {
+              "correct": 36,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.line_item_categories": {
+              "correct": 34,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 2,
+              "judge_disagreed": 2
+            },
+            "invoices.line_items": {
+              "correct": 36,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.payment_terms": {
+              "correct": 36,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.total_amount": {
+              "correct": 36,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.vendor_name": {
+              "correct": 36,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.candidate_email": {
+              "correct": 48,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.candidate_name": {
+              "correct": 48,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.certifications": {
+              "correct": 48,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.current_role": {
+              "correct": 48,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.education": {
+              "correct": 48,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.education_level": {
+              "correct": 48,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.industries": {
+              "correct": 46,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 2,
+              "judge_disagreed": 1
+            },
+            "resumes.languages": {
+              "correct": 48,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.locations": {
+              "correct": 46,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 2,
+              "judge_disagreed": 2
+            },
+            "resumes.seniority_level": {
+              "correct": 47,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 1,
+              "judge_disagreed": 0
+            },
+            "resumes.skills": {
+              "correct": 48,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.work_experience": {
+              "correct": 47,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 1,
+              "judge_disagreed": 0
+            },
+            "resumes.years_of_experience": {
+              "correct": 45,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 3,
+              "judge_disagreed": 0
+            }
+          }
+        }
+      }
+    },
+    "extract-nano-low": {
+      "extraction": {
+        "run": {
+          "config": "extract-nano-low",
+          "config_sha256": "b5901ff62f01409e0d49eda49aa6f9325fe1a43cbeac2f12eee3a77e5815296c",
+          "profile": "openai-v1",
+          "settings": {
+            "ENRICHMENT_MODEL": "gpt-5.4-nano",
+            "ENRICHMENT_FALLBACK_MODEL": "gpt-5.4-nano",
+            "RAG_CHAT_REFINED_QUERY_LLM_PROVIDER": "openai",
+            "RAG_CHAT_REFINED_QUERY_LLM_MODEL": "gpt-5.4-nano",
+            "RAG_CHAT_AGENT_LLM_PROVIDER": "openai",
+            "RAG_CHAT_AGENT_LLM_MODEL": "gpt-5.6-luna",
+            "RAG_FALLBACK_PROVIDER": "openai",
+            "RAG_FALLBACK_MODEL": "gpt-5.4-mini",
+            "RAG_RETRIEVAL_VERIFIER_PROVIDER": "openai",
+            "RAG_RETRIEVAL_VERIFIER_MODEL": "gpt-5.4-nano",
+            "RAG_CHAT_ANSWER_LLM_PROVIDER": "openai",
+            "RAG_CHAT_ANSWER_LLM_MODEL": "gpt-5.6-luna",
+            "FOLLOW_UP_LLM_PROVIDER": "openai",
+            "FOLLOW_UP_LLM_MODEL": "gpt-5.4-nano",
+            "CHART_EXTRACTION_MODEL": "gpt-5.4-mini",
+            "CHART_RENDER_PROVIDER": "openai",
+            "CHART_RENDER_MODEL": "gpt-5.4-mini",
+            "TRANSCRIPT_PROVIDER": "openai",
+            "EXTRACTION_VALIDATION_LLM_ENABLED": "false",
+            "ENRICHMENT_REASONING_EFFORT": "low"
+          },
+          "about": "Cheaper/faster extraction candidate: gpt-5.4-nano at reasoning low (fewer reasoning tokens). Chat as baseline.",
+          "suite": "extraction",
+          "repeats": 2,
+          "dataset": "document-intelligence-model-eval",
+          "dataset_version": "v1",
+          "dataset_sha256": "d1eaefacafec99dfad27c1b9d5b0d2b8412a54008edf7c414f5c7ab8ca7169b3",
+          "git_sha": "cb2d0cffb2ba877840e9c0c2db8a7ddaacc1d2d3",
+          "judge_model": "gpt-5.6-terra",
+          "judge_reasoning_effort": "medium",
+          "server_trace_project": "document-intelligence-model-eval-server",
+          "extraction_model": "gpt-5.4-nano",
+          "extraction_reasoning_effort": "low",
+          "chat_models": {
+            "query_refinement": "gpt-5.4-nano",
+            "retrieval_agent": "gpt-5.6-luna",
+            "answer": "gpt-5.6-luna",
+            "retrieval_verifier": "gpt-5.4-nano",
+            "follow_up": "gpt-5.4-nano",
+            "embeddings": "text-embedding-3-small",
+            "chart_spec": "gpt-5.4-mini",
+            "chart_render": "gpt-5.4-mini"
+          },
+          "chart_model": "gpt-5.4-mini",
+          "rag_fallback_model": "gpt-5.4-mini",
+          "github_run_id": "40299739518",
+          "started_at": "2026-10-26T09:41:23.901363+00:00",
+          "concurrency": 4,
+          "collections": [
+            {
+              "repeat": 1,
+              "resumes": "6e9bfa57-550c-48f2-a45d-91a3590d3c36",
+              "invoices": "94f2733b-a2b9-443f-9b56-49815d15f230"
+            },
+            {
+              "repeat": 2,
+              "resumes": "2ff06cf2-deb8-4223-9acb-bb4fe638e027",
+              "invoices": "497383c4-b28e-4b71-aeba-ce082262017f"
+            }
+          ],
+          "langsmith_experiment": "extract-nano-low-extraction-cb2d0cf-6df38417",
+          "langsmith_dataset": "document-intelligence-model-eval-extraction-v1-d1eaefac",
+          "finished_at": "2026-10-26T09:43:46.207761+00:00"
+        },
+        "summary": {
+          "documents": 84,
+          "fields_correct": 953,
+          "fields_total": 984,
+          "accuracy": 0.9685,
+          "numeric_exact": "155/156",
+          "missing_values": 1,
+          "unexpected_values": 0,
+          "complete_documents": "83/84",
+          "failed_documents": 0,
+          "latency_ms_p50": 4731,
+          "latency_ms_p95": 7452,
+          "estimated_cost_usd_mean": 0.000851,
+          "estimated_cost_usd_total": 0.071448,
+          "cost_measured": 84,
+          "cost_complete": true,
+          "cost_sources": [
+            "api"
+          ],
+          "config_verified": "84/84",
+          "served_models": [
+            "gpt-5.4-nano"
+          ],
+          "by_collection": {
+            "invoices": {
+              "fields_correct": 335,
+              "fields_total": 360,
+              "accuracy": 0.9306,
+              "documents": 36,
+              "complete_documents": 36,
+              "all_correct_documents": 18,
+              "per_repeat": {
+                "1": "171/180",
+                "2": "164/180"
+              }
+            },
+            "resumes": {
+              "fields_correct": 618,
+              "fields_total": 624,
+              "accuracy": 0.9904,
+              "documents": 48,
+              "complete_documents": 47,
+              "all_correct_documents": 43,
+              "per_repeat": {
+                "1": "310/312",
+                "2": "308/312"
+              }
+            }
+          },
+          "by_field": {
+            "invoices.currency": {
+              "correct": 36,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.customer_name": {
+              "correct": 36,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.due_date": {
+              "correct": 36,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.invoice_number": {
+              "correct": 36,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.issue_date": {
+              "correct": 36,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.line_item_categories": {
+              "correct": 23,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 13,
+              "judge_disagreed": 4
+            },
+            "invoices.line_items": {
+              "correct": 24,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 12,
+              "judge_disagreed": 2
+            },
+            "invoices.payment_terms": {
+              "correct": 36,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.total_amount": {
+              "correct": 36,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "invoices.vendor_name": {
+              "correct": 36,
+              "of": 36,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.candidate_email": {
+              "correct": 48,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.candidate_name": {
+              "correct": 48,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.certifications": {
+              "correct": 48,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.current_role": {
+              "correct": 48,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.education": {
+              "correct": 48,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.education_level": {
+              "correct": 48,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.industries": {
+              "correct": 48,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.languages": {
+              "correct": 48,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            },
+            "resumes.locations": {
+              "correct": 47,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 1,
+              "judge_disagreed": 1
+            },
+            "resumes.seniority_level": {
+              "correct": 47,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 1,
+              "judge_disagreed": 0
+            },
+            "resumes.skills": {
+              "correct": 47,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 1,
+              "judge_disagreed": 1
+            },
+            "resumes.work_experience": {
+              "correct": 46,
+              "of": 48,
+              "missing": 0,
+              "unexpected": 0,
+              "wrong": 2,
+              "judge_disagreed": 0
+            },
+            "resumes.years_of_experience": {
+              "correct": 47,
+              "of": 48,
+              "missing": 1,
+              "unexpected": 0,
+              "wrong": 0,
+              "judge_disagreed": 0
+            }
+          }
+        }
+      }
+    }
+  },
+  "failures": [
+    {
+      "config": "baseline-nano-medium",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "r10.industries",
+      "status": "missing",
+      "expected": [
+        "software"
+      ],
+      "extracted": null,
+      "reason": "Industry field is null; expected software."
+    },
+    {
+      "config": "baseline-nano-medium",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "i06.line_item_categories",
+      "status": "wrong",
+      "expected": [
+        "consulting",
+        "software licenses",
+        "training"
+      ],
+      "extracted": [
+        "implementation",
+        "software licenses",
+        "training"
+      ],
+      "reason": "Software licenses and training match. Implementation does not match the expected consulting category."
+    },
+    {
+      "config": "baseline-nano-medium",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "i13.line_item_categories",
+      "status": "wrong",
+      "expected": [
+        "design services",
+        "software licenses"
+      ],
+      "extracted": [
+        "branding",
+        "stock image licenses"
+      ],
+      "reason": "Branding matches the design-services category. Stock image licenses is a different category from software licenses."
+    },
+    {
+      "config": "baseline-nano-medium",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "i15.line_item_categories",
+      "status": "missing",
+      "expected": [
+        "design services"
+      ],
+      "extracted": null,
+      "reason": "Category field is null while a design services category is expected."
+    },
+    {
+      "config": "baseline-nano-medium",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "i03.line_items",
+      "status": "wrong",
+      "expected": [
+        {
+          "description": "Managed Kubernetes cluster, June",
+          "quantity": 1,
+          "unit_price": 2650.0,
+          "amount": 2650.0
+        },
+        {
+          "description": "Object storage, 24 TB-month",
+          "quantity": 24,
+          "unit_price": 21.5,
+          "amount": 516.0
+        },
+        {
+          "description": "Premium support plan",
+          "quantity": 1,
+          "unit_price": 450.0,
+          "amount": 450.0
+        },
+        {
+          "description": "Data egress overage",
+          "quantity": 1,
+          "unit_price": 312.4,
+          "amount": 312.4
+        }
+      ],
+      "extracted": [
+        {
+          "description": "Managed Kubernetes cluster, June",
+          "quantity": 1.0,
+          "unit_price": 2650.0,
+          "amount": 2650.0
+        },
+        {
+          "description": "Object storage, 24 TB-month",
+          "quantity": 24.0,
+          "unit_price": 21.5,
+          "amount": 516.0
+        },
+        {
+          "description": "Premium support plan",
+          "quantity": 1.0,
+          "unit_price": 312.4,
+          "amount": 312.4
+        },
+        {
+          "description": "Data egress overage",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0
+        },
+        {
+          "description": null,
+          "quantity": null,
+          "unit_price": null,
+          "amount": null
+        },
+        {
+          "description": null,
+          "quantity": null,
+          "unit_price": null,
+          "amount": 393.0
+        },
+        {
+          "description": null,
+          "quantity": null,
+          "unit_price": null,
+          "amount": 3928.4
+        }
+      ],
+      "reason": "The Managed Kubernetes and Object storage lines match in description and all numeric values. Premium support and Data egress descriptions are present but their prices and amounts are swapped, so neither line matches. The null placeholder entries do not match billed lines."
+    },
+    {
+      "config": "baseline-nano-medium",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "i08.line_items",
+      "status": "wrong",
+      "expected": [
+        {
+          "description": "Ergonomic office chairs",
+          "quantity": 6,
+          "unit_price": 289.0,
+          "amount": 1734.0
+        },
+        {
+          "description": "Printer paper, A4, 10 boxes",
+          "quantity": 10,
+          "unit_price": 38.75,
+          "amount": 387.5
+        }
+      ],
+      "extracted": [
+        {
+          "description": "Ergonomic office chairs",
+          "quantity": 6.0,
+          "unit_price": 289.0,
+          "amount": 1734.0
+        },
+        {
+          "description": "Printer paper, A4, 10 boxes",
+          "quantity": 10.0,
+          "unit_price": 38.75,
+          "amount": 387.5
+        },
+        {
+          "description": "Sales tax",
+          "quantity": null,
+          "unit_price": null,
+          "amount": 0.0
+        }
+      ],
+      "reason": "Both expected billed lines match in description and numeric values. The additional sales tax entry is not an expected line item and lacks quantity and unit price."
+    },
+    {
+      "config": "baseline-nano-medium",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "i17.line_items",
+      "status": "wrong",
+      "expected": [
+        {
+          "description": "Point-of-sale software, 3 additional stores (prorated)",
+          "quantity": 3,
+          "unit_price": 590.0,
+          "amount": 1770.0
+        },
+        {
+          "description": "Inventory add-on module, annual",
+          "quantity": 1,
+          "unit_price": 4200.0,
+          "amount": 4200.0
+        }
+      ],
+      "extracted": [
+        {
+          "description": "Point-of-sale software, 3 additional stores (prorated)",
+          "quantity": null,
+          "unit_price": 590.0,
+          "amount": 1770.0
+        },
+        {
+          "description": "Inventory add-on module, annual",
+          "quantity": 1.0,
+          "unit_price": 4200.0,
+          "amount": 4200.0
+        }
+      ],
+      "reason": "The inventory add-on module line matches including numeric values. The point-of-sale software line has a missing quantity, so it does not match the expected quantity of 3."
+    },
+    {
+      "config": "baseline-nano-medium",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "r22.skills",
+      "status": "wrong",
+      "expected": [
+        "python",
+        "tensorflow",
+        "pytorch",
+        "recommender systems",
+        "rag",
+        "llms",
+        "spark",
+        "aws",
+        "kubernetes",
+        "mlops"
+      ],
+      "extracted": [
+        "python",
+        "tensorflow",
+        "pytorch",
+        "recommender systems",
+        "rag",
+        "llms",
+        "spark",
+        "aws",
+        "kubernetes mlops"
+      ],
+      "reason": "Eight skills are separately matched. Kubernetes and MLOps were merged into one list element (\"kubernetes mlops\") rather than extracted as two distinct skills."
+    },
+    {
+      "config": "baseline-nano-medium",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "i09.line_item_categories",
+      "status": "wrong",
+      "expected": [
+        "furniture",
+        "office supplies"
+      ],
+      "extracted": [
+        "office furniture",
+        "computer accessories",
+        "printer consumables"
+      ],
+      "reason": "Office furniture matches furniture, and printer consumables falls under office supplies. Computer accessories is an additional false category."
+    },
+    {
+      "config": "baseline-nano-medium",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "r06.years_of_experience",
+      "status": "wrong",
+      "expected": 11,
+      "extracted": 12,
+      "reason": null
+    },
+    {
+      "config": "baseline-nano-medium",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "i12.line_items",
+      "status": "wrong",
+      "expected": [
+        {
+          "description": "Peak-season staffing plan, 4 days",
+          "quantity": 4,
+          "unit_price": 72000.0,
+          "amount": 288000.0
+        },
+        {
+          "description": "Travel and accommodation",
+          "quantity": 1,
+          "unit_price": 21750.0,
+          "amount": 21750.0
+        }
+      ],
+      "extracted": [
+        {
+          "description": "Peak-season staffing plan, 4 days",
+          "quantity": null,
+          "unit_price": null,
+          "amount": 288000.0
+        },
+        {
+          "description": "Travel and accommodation",
+          "quantity": null,
+          "unit_price": null,
+          "amount": 21750.0
+        },
+        {
+          "description": "Subtotal",
+          "quantity": null,
+          "unit_price": null,
+          "amount": 309750.0
+        },
+        {
+          "description": "GST (18%)",
+          "quantity": null,
+          "unit_price": null,
+          "amount": 55755.0
+        },
+        {
+          "description": "Total due",
+          "quantity": null,
+          "unit_price": null,
+          "amount": 365505.0
+        }
+      ],
+      "reason": "Neither billed line fully matches because quantity and unit price are null rather than the expected numeric values. Subtotal, GST, and total due are also false extra line items."
+    },
+    {
+      "config": "baseline-nano-medium",
+      "suite": "extraction",
+      "repeat": 2,
+      "item": "i06.line_item_categories",
+      "status": "wrong",
+      "expected": [
+        "consulting",
+        "software licenses",
+        "training"
+      ],
+      "extracted": [
+        "milestone",
+        "software licenses",
+        "training"
+      ],
+      "reason": "Software licenses and training match. “Milestone” is not the expected consulting category and is a false category."
+    },
+    {
+      "config": "baseline-nano-medium",
+      "suite": "extraction",
+      "repeat": 2,
+      "item": "r05.seniority_level",
+      "status": "wrong",
+      "expected": "mid_level",
+      "extracted": "senior",
+      "reason": null
+    },
+    {
+      "config": "baseline-nano-medium",
+      "suite": "extraction",
+      "repeat": 2,
+      "item": "i15.line_item_categories",
+      "status": "wrong",
+      "expected": [
+        "design services"
+      ],
+      "extracted": [
+        "artwork"
+      ],
+      "reason": "“Artwork” is a deliverable description rather than the expected service category, “design services.”"
+    },
+    {
+      "config": "baseline-nano-medium",
+      "suite": "extraction",
+      "repeat": 2,
+      "item": "i05.line_item_categories",
+      "status": "wrong",
+      "expected": [
+        "consulting",
+        "software licenses"
+      ],
+      "extracted": [
+        "analytics",
+        "software licenses"
+      ],
+      "reason": "Software licenses matches. Analytics does not identify the expected consulting category."
+    },
+    {
+      "config": "baseline-nano-medium",
+      "suite": "extraction",
+      "repeat": 2,
+      "item": "i05.line_items",
+      "status": "wrong",
+      "expected": [
+        {
+          "description": "Customer churn model, build and validation",
+          "quantity": 96,
+          "unit_price": 165.0,
+          "amount": 15840.0
+        },
+        {
+          "description": "Analytics dashboard licences (10 seats)",
+          "quantity": 10,
+          "unit_price": 49.0,
+          "amount": 490.0
+        }
+      ],
+      "extracted": [
+        {
+          "description": "Customer churn model, build and validation",
+          "quantity": null,
+          "unit_price": null,
+          "amount": 15840.0
+        },
+        {
+          "description": "Analytics dashboard licences (10 seats)",
+          "quantity": null,
+          "unit_price": null,
+          "amount": 490.0
+        },
+        {
+          "description": null,
+          "quantity": null,
+          "unit_price": null,
+          "amount": null
+        }
+      ],
+      "reason": "The two described lines have matching amounts but missing quantities and unit prices, so neither fully matches the expected billed line. There is also an empty extra extracted line item."
+    },
+    {
+      "config": "baseline-nano-medium",
+      "suite": "extraction",
+      "repeat": 2,
+      "item": "i11.line_items",
+      "status": "wrong",
+      "expected": [
+        {
+          "description": "Inventory system rollout support, 10 days",
+          "quantity": 10,
+          "unit_price": 72000.0,
+          "amount": 720000.0
+        }
+      ],
+      "extracted": [
+        {
+          "description": "Inventory system rollout support",
+          "quantity": 10.0,
+          "unit_price": 72000.0,
+          "amount": 720000.0
+        },
+        {
+          "description": "GST (18%)",
+          "quantity": null,
+          "unit_price": null,
+          "amount": 129600.0
+        }
+      ],
+      "reason": "The rollout-support line matches in meaning and all numeric values. An additional GST line is not an expected billed line item."
+    },
+    {
+      "config": "chat-mini",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "i07.line_item_categories",
+      "status": "missing",
+      "expected": [
+        "office supplies"
+      ],
+      "extracted": null,
+      "reason": "Category field is null while ground truth contains office supplies."
+    },
+    {
+      "config": "chat-mini",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "i06.line_item_categories",
+      "status": "wrong",
+      "expected": [
+        "consulting",
+        "software licenses",
+        "training"
+      ],
+      "extracted": [
+        "milestone",
+        "software licenses",
+        "training"
+      ],
+      "reason": "Software licenses and training match. 'Milestone' is not the consulting category and is a false category."
+    },
+    {
+      "config": "chat-mini",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "i13.line_item_categories",
+      "status": "wrong",
+      "expected": [
+        "design services",
+        "software licenses"
+      ],
+      "extracted": [
+        "design/branding",
+        "stock images"
+      ],
+      "reason": "Design/branding matches design services. Stock images does not name the expected software-licenses category."
+    },
+    {
+      "config": "chat-mini",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "i03.line_items",
+      "status": "wrong",
+      "expected": [
+        {
+          "description": "Managed Kubernetes cluster, June",
+          "quantity": 1,
+          "unit_price": 2650.0,
+          "amount": 2650.0
+        },
+        {
+          "description": "Object storage, 24 TB-month",
+          "quantity": 24,
+          "unit_price": 21.5,
+          "amount": 516.0
+        },
+        {
+          "description": "Premium support plan",
+          "quantity": 1,
+          "unit_price": 450.0,
+          "amount": 450.0
+        },
+        {
+          "description": "Data egress overage",
+          "quantity": 1,
+          "unit_price": 312.4,
+          "amount": 312.4
+        }
+      ],
+      "extracted": [
+        {
+          "description": "Managed Kubernetes cluster, June",
+          "quantity": 1.0,
+          "unit_price": 2650.0,
+          "amount": 2650.0
+        },
+        {
+          "description": "Object storage, 24 TB-month",
+          "quantity": 24.0,
+          "unit_price": 215.0,
+          "amount": 516.0
+        },
+        {
+          "description": "Premium support plan",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0
+        },
+        {
+          "description": "Data egress overage",
+          "quantity": 1.0,
+          "unit_price": 312.4,
+          "amount": 312.4
+        }
+      ],
+      "reason": "Three billed lines match fully. The Object storage line has an incorrect unit price (215.0 extracted versus 21.5 expected), so that line does not match despite its matching quantity and amount."
+    },
+    {
+      "config": "chat-mini",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "i17.line_items",
+      "status": "wrong",
+      "expected": [
+        {
+          "description": "Point-of-sale software, 3 additional stores (prorated)",
+          "quantity": 3,
+          "unit_price": 590.0,
+          "amount": 1770.0
+        },
+        {
+          "description": "Inventory add-on module, annual",
+          "quantity": 1,
+          "unit_price": 4200.0,
+          "amount": 4200.0
+        }
+      ],
+      "extracted": [
+        {
+          "description": "Point-of-sale software, 3 additional stores (prorated)",
+          "quantity": null,
+          "unit_price": null,
+          "amount": 4200.0
+        },
+        {
+          "description": "Inventory add-on module, annual",
+          "quantity": 3.0,
+          "unit_price": 590.0,
+          "amount": 4200.0
+        }
+      ],
+      "reason": "Neither line item has the correct combination of description, quantity, unit price, and amount. The point-of-sale line has missing quantity and unit price and an incorrect amount; the inventory module line has incorrect quantity and unit price."
+    },
+    {
+      "config": "chat-mini",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "i09.line_item_categories",
+      "status": "missing",
+      "expected": [
+        "furniture",
+        "office supplies"
+      ],
+      "extracted": null,
+      "reason": "Categories are null while ground truth contains furniture and office supplies."
+    },
+    {
+      "config": "chat-mini",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "r06.years_of_experience",
+      "status": "wrong",
+      "expected": 11,
+      "extracted": 13,
+      "reason": null
+    },
+    {
+      "config": "chat-mini",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "i18.line_item_categories",
+      "status": "wrong",
+      "expected": [
+        "support",
+        "cloud infrastructure"
+      ],
+      "extracted": [
+        "software licensing",
+        "support services",
+        "cloud services"
+      ],
+      "reason": "Support services matches support and cloud services matches cloud infrastructure, but software licensing is an unsupported extra category."
+    },
+    {
+      "config": "chat-nano",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "r18.locations",
+      "status": "wrong",
+      "expected": [
+        "Pune"
+      ],
+      "extracted": [
+        "pune",
+        "mumbai"
+      ],
+      "reason": "Pune matches, but Mumbai is an unsupported extra location and is treated as false."
+    },
+    {
+      "config": "chat-nano",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "r05.seniority_level",
+      "status": "wrong",
+      "expected": "mid_level",
+      "extracted": "senior",
+      "reason": null
+    },
+    {
+      "config": "chat-nano",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "i01.line_items",
+      "status": "wrong",
+      "expected": [
+        {
+          "description": "Managed Kubernetes cluster, April",
+          "quantity": 1,
+          "unit_price": 2400.0,
+          "amount": 2400.0
+        },
+        {
+          "description": "Object storage, 18 TB-month",
+          "quantity": 18,
+          "unit_price": 21.5,
+          "amount": 387.0
+        },
+        {
+          "description": "Premium support plan",
+          "quantity": 1,
+          "unit_price": 450.0,
+          "amount": 450.0
+        }
+      ],
+      "extracted": [
+        {
+          "description": "Managed Kubernetes cluster, April",
+          "quantity": 1.0,
+          "unit_price": 2400.0,
+          "amount": 2400.0
+        },
+        {
+          "description": "Object storage, 18 TB-month",
+          "quantity": 18.0,
+          "unit_price": 21.5,
+          "amount": 450.0
+        },
+        {
+          "description": "Premium support plan",
+          "quantity": 1.0,
+          "unit_price": 387.0,
+          "amount": 387.0
+        }
+      ],
+      "reason": "The Managed Kubernetes line matches fully. Object storage has an incorrect amount, and Premium support has incorrect unit price and amount."
+    },
+    {
+      "config": "chat-nano",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "r08.years_of_experience",
+      "status": "wrong",
+      "expected": 10,
+      "extracted": 11,
+      "reason": null
+    },
+    {
+      "config": "chat-nano",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "i05.line_item_categories",
+      "status": "wrong",
+      "expected": [
+        "consulting",
+        "software licenses"
+      ],
+      "extracted": [
+        "consulting",
+        "software licenses",
+        "tax"
+      ],
+      "reason": "Consulting and software licenses match, but tax is an unsupported extra category."
+    },
+    {
+      "config": "chat-nano",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "i05.line_items",
+      "status": "wrong",
+      "expected": [
+        {
+          "description": "Customer churn model, build and validation",
+          "quantity": 96,
+          "unit_price": 165.0,
+          "amount": 15840.0
+        },
+        {
+          "description": "Analytics dashboard licences (10 seats)",
+          "quantity": 10,
+          "unit_price": 49.0,
+          "amount": 490.0
+        }
+      ],
+      "extracted": [
+        {
+          "description": "Customer churn model, build and validation",
+          "quantity": 96.0,
+          "unit_price": 165.0,
+          "amount": 15840.0
+        },
+        {
+          "description": "Analytics dashboard licences (10 seats)",
+          "quantity": 10.0,
+          "unit_price": 49.0,
+          "amount": 490.0
+        },
+        {
+          "description": "Sales tax",
+          "quantity": null,
+          "unit_price": null,
+          "amount": 0.0
+        }
+      ],
+      "reason": "Both expected billed lines match in description and all numeric values, but an unsupported extra Sales tax line was extracted."
+    },
+    {
+      "config": "chat-nano",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "r21.seniority_level",
+      "status": "wrong",
+      "expected": "mid_level",
+      "extracted": "senior",
+      "reason": null
+    },
+    {
+      "config": "chat-nano",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "r12.locations",
+      "status": "wrong",
+      "expected": [
+        "Austin, TX"
+      ],
+      "extracted": [
+        "Austin, TX",
+        "Dallas, TX"
+      ],
+      "reason": "Austin, TX matches. Dallas, TX is an additional extracted location absent from the ground truth; it is not treated as an error."
+    },
+    {
+      "config": "chat-nano",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "i18.line_item_categories",
+      "status": "wrong",
+      "expected": [
+        "support",
+        "cloud infrastructure"
+      ],
+      "extracted": [
+        "support",
+        "cloud backup",
+        "software licensing"
+      ],
+      "reason": "Support and cloud backup match the expected support and cloud infrastructure categories, but software licensing is a false extra category."
+    },
+    {
+      "config": "extract-luna-low",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "r14.locations",
+      "status": "wrong",
+      "expected": [
+        "Berlin"
+      ],
+      "extracted": [
+        "Berlin",
+        "Hamburg"
+      ],
+      "reason": "Berlin matches. Hamburg is an additional extracted location absent from the ground truth and is not treated as an error."
+    },
+    {
+      "config": "extract-luna-low",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "r13.industries",
+      "status": "wrong",
+      "expected": [
+        "e-commerce",
+        "fintech"
+      ],
+      "extracted": [
+        "payments",
+        "e-commerce"
+      ],
+      "reason": "E-commerce matches. Fintech is not extracted; payments is an additional resume-supported industry but does not match the expected fintech item."
+    },
+    {
+      "config": "extract-luna-low",
+      "suite": "extraction",
+      "repeat": 2,
+      "item": "r18.locations",
+      "status": "wrong",
+      "expected": [
+        "Pune"
+      ],
+      "extracted": [
+        "Pune",
+        "Mumbai"
+      ],
+      "reason": "Pune matches. Mumbai is an additional location absent from the ground truth and is not treated as an error."
+    },
+    {
+      "config": "extract-luna-low",
+      "suite": "extraction",
+      "repeat": 2,
+      "item": "r03.work_experience",
+      "status": "wrong",
+      "expected": [
+        {
+          "company": "Halcyon Payments",
+          "title": "Principal Software Engineer",
+          "start_year": 2019,
+          "end_year": null,
+          "summary": "Sets the architecture for the card-authorisation platform processing 4,000 transactions per second."
+        },
+        {
+          "company": "Halcyon Payments",
+          "title": "Staff Software Engineer",
+          "start_year": 2016,
+          "end_year": 2019,
+          "summary": "Designed the ledger and settlement services on PostgreSQL and Kafka."
+        },
+        {
+          "company": "Ridgeway Telecom",
+          "title": "Software Engineer",
+          "start_year": 2010,
+          "end_year": 2016,
+          "summary": "Built billing and provisioning services in Java for a mobile network."
+        }
+      ],
+      "extracted": [
+        {
+          "company": "Halcyon Payments",
+          "title": "Principal Software Engineer",
+          "start_year": 2019,
+          "end_year": null,
+          "summary": "Sets the architecture for a high-throughput card-authorization platform and led its migration from a monolith to Go and Java services on Kubernetes with Kafka event streams."
+        },
+        {
+          "company": "Halcyon Payments",
+          "title": "Staff Software Engineer",
+          "start_year": null,
+          "end_year": null,
+          "summary": "Designed double-entry ledger and settlement services using PostgreSQL and Kafka."
+        },
+        {
+          "company": "Ridgeway Telecom",
+          "title": "Software Engineer",
+          "start_year": 2010,
+          "end_year": 2016,
+          "summary": "Built Java billing and SIM provisioning services for a mobile network serving 6 million subscribers."
+        }
+      ],
+      "reason": "The Principal Software Engineer role at Halcyon Payments (2019-present) and Software Engineer role at Ridgeway Telecom (2010-2016) match. The Halcyon Payments Staff Software Engineer role has matching company, title, and duties, but its 2016-2019 dates were omitted, so it does not fully match."
+    },
+    {
+      "config": "extract-luna-none",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "r13.industries",
+      "status": "wrong",
+      "expected": [
+        "e-commerce",
+        "fintech"
+      ],
+      "extracted": [
+        "payments",
+        "e-commerce"
+      ],
+      "reason": "E-commerce matches. Fintech is missing; payments is a true resume industry absent from the ground truth and is not an error."
+    },
+    {
+      "config": "extract-luna-none",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "r08.years_of_experience",
+      "status": "wrong",
+      "expected": 10,
+      "extracted": 11,
+      "reason": null
+    },
+    {
+      "config": "extract-luna-none",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "r03.work_experience",
+      "status": "wrong",
+      "expected": [
+        {
+          "company": "Halcyon Payments",
+          "title": "Principal Software Engineer",
+          "start_year": 2019,
+          "end_year": null,
+          "summary": "Sets the architecture for the card-authorisation platform processing 4,000 transactions per second."
+        },
+        {
+          "company": "Halcyon Payments",
+          "title": "Staff Software Engineer",
+          "start_year": 2016,
+          "end_year": 2019,
+          "summary": "Designed the ledger and settlement services on PostgreSQL and Kafka."
+        },
+        {
+          "company": "Ridgeway Telecom",
+          "title": "Software Engineer",
+          "start_year": 2010,
+          "end_year": 2016,
+          "summary": "Built billing and provisioning services in Java for a mobile network."
+        }
+      ],
+      "extracted": [
+        {
+          "company": "Halcyon Payments",
+          "title": "Principal Software Engineer",
+          "start_year": 2019,
+          "end_year": null,
+          "summary": "Sets the architecture for a high-throughput card-authorisation platform and led its migration to Go and Java services on Kubernetes with Kafka event streams."
+        },
+        {
+          "company": "Halcyon Payments",
+          "title": "Staff Software Engineer",
+          "start_year": null,
+          "end_year": null,
+          "summary": "Designed double-entry ledger and settlement services using PostgreSQL and Kafka."
+        },
+        {
+          "company": "Ridgeway Telecom",
+          "title": "Software Engineer",
+          "start_year": 2010,
+          "end_year": 2016,
+          "summary": "Built billing and SIM provisioning services in Java for a mobile network serving 6 million subscribers."
+        }
+      ],
+      "reason": "The Principal Software Engineer role at Halcyon Payments (2019–present) and Software Engineer role at Ridgeway Telecom (2010–2016) match. The Halcyon Payments Staff Software Engineer role has matching company, title, and work description, but its expected 2016–2019 dates are missing in the extraction, so it does not fully match."
+    },
+    {
+      "config": "extract-luna-none",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "i09.line_item_categories",
+      "status": "wrong",
+      "expected": [
+        "furniture",
+        "office supplies"
+      ],
+      "extracted": [
+        "office furniture",
+        "office equipment",
+        "printer supplies"
+      ],
+      "reason": "Office furniture matches furniture, and printer supplies matches office supplies. Office equipment is an additional false category."
+    },
+    {
+      "config": "extract-luna-none",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "r06.locations",
+      "status": "wrong",
+      "expected": [
+        "Mumbai"
+      ],
+      "extracted": [
+        "Mumbai",
+        "Pune"
+      ],
+      "reason": "Mumbai matches. Pune is an additional resume location absent from the ground truth and is not treated as an error."
+    },
+    {
+      "config": "extract-luna-none",
+      "suite": "extraction",
+      "repeat": 2,
+      "item": "r05.seniority_level",
+      "status": "wrong",
+      "expected": "mid_level",
+      "extracted": "senior",
+      "reason": null
+    },
+    {
+      "config": "extract-luna-none",
+      "suite": "extraction",
+      "repeat": 2,
+      "item": "r13.years_of_experience",
+      "status": "wrong",
+      "expected": 7,
+      "extracted": 6,
+      "reason": null
+    },
+    {
+      "config": "extract-luna-none",
+      "suite": "extraction",
+      "repeat": 2,
+      "item": "r13.industries",
+      "status": "wrong",
+      "expected": [
+        "e-commerce",
+        "fintech"
+      ],
+      "extracted": [
+        "payments",
+        "e-commerce"
+      ],
+      "reason": "E-commerce matches. Payments does not match the expected fintech industry."
+    },
+    {
+      "config": "extract-luna-none",
+      "suite": "extraction",
+      "repeat": 2,
+      "item": "r08.years_of_experience",
+      "status": "wrong",
+      "expected": 10,
+      "extracted": 11,
+      "reason": null
+    },
+    {
+      "config": "extract-luna-none",
+      "suite": "extraction",
+      "repeat": 2,
+      "item": "i09.line_item_categories",
+      "status": "wrong",
+      "expected": [
+        "furniture",
+        "office supplies"
+      ],
+      "extracted": [
+        "office furniture",
+        "office equipment",
+        "printer supplies"
+      ],
+      "reason": "Office furniture matches furniture, and printer supplies matches office supplies. Office equipment is a valid additional category for the billed monitor arms."
+    },
+    {
+      "config": "extract-luna-none",
+      "suite": "extraction",
+      "repeat": 2,
+      "item": "r06.locations",
+      "status": "wrong",
+      "expected": [
+        "Mumbai"
+      ],
+      "extracted": [
+        "Mumbai",
+        "Pune"
+      ],
+      "reason": "Mumbai matches. Pune is an additional resume-true location absent from the ground truth, so it is not an error."
+    },
+    {
+      "config": "extract-nano-low",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "i06.line_items",
+      "status": "wrong",
+      "expected": [
+        {
+          "description": "Churn model go-live milestone",
+          "quantity": 1,
+          "unit_price": 9800.0,
+          "amount": 9800.0
+        },
+        {
+          "description": "Analytics dashboard licences (14 seats)",
+          "quantity": 14,
+          "unit_price": 49.0,
+          "amount": 686.0
+        },
+        {
+          "description": "Team training workshop",
+          "quantity": 1,
+          "unit_price": 1200.0,
+          "amount": 1200.0
+        }
+      ],
+      "extracted": [
+        {
+          "description": "Churn model go-live milestone",
+          "quantity": null,
+          "unit_price": null,
+          "amount": 9800.0
+        },
+        {
+          "description": "Analytics dashboard licences (14 seats)",
+          "quantity": 14.0,
+          "unit_price": 49.0,
+          "amount": 686.0
+        },
+        {
+          "description": "Team training workshop",
+          "quantity": 1.0,
+          "unit_price": 1200.0,
+          "amount": 1200.0
+        }
+      ],
+      "reason": "The software licenses and training lines match. The churn model milestone line has missing quantity and unit price, so it does not fully match."
+    },
+    {
+      "config": "extract-nano-low",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "i02.line_items",
+      "status": "wrong",
+      "expected": [
+        {
+          "description": "Managed Kubernetes cluster, May",
+          "quantity": 1,
+          "unit_price": 2400.0,
+          "amount": 2400.0
+        },
+        {
+          "description": "Object storage, 21 TB-month",
+          "quantity": 21,
+          "unit_price": 21.5,
+          "amount": 451.5
+        },
+        {
+          "description": "Premium support plan",
+          "quantity": 1,
+          "unit_price": 450.0,
+          "amount": 450.0
+        }
+      ],
+      "extracted": [
+        {
+          "description": "Managed Kubernetes cluster, May",
+          "quantity": 1.0,
+          "unit_price": 2400.0,
+          "amount": 2400.0
+        },
+        {
+          "description": "Object storage, 21 TB-month",
+          "quantity": 21.0,
+          "unit_price": 21.5,
+          "amount": 450.0
+        },
+        {
+          "description": "Premium support plan",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 451.5
+        }
+      ],
+      "reason": "The Managed Kubernetes line matches. Object storage has an incorrect amount (450.0 instead of 451.5), and Premium support has an incorrect amount (451.5 instead of 450.0)."
+    },
+    {
+      "config": "extract-nano-low",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "r05.seniority_level",
+      "status": "wrong",
+      "expected": "mid_level",
+      "extracted": "senior",
+      "reason": null
+    },
+    {
+      "config": "extract-nano-low",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "i04.line_item_categories",
+      "status": "wrong",
+      "expected": [
+        "consulting",
+        "software licenses"
+      ],
+      "extracted": [
+        "analytics",
+        "software licenses"
+      ],
+      "reason": "Software licenses matches. Analytics does not match the expected consulting category."
+    },
+    {
+      "config": "extract-nano-low",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "i04.line_items",
+      "status": "wrong",
+      "expected": [
+        {
+          "description": "Customer churn model, discovery phase",
+          "quantity": 40,
+          "unit_price": 165.0,
+          "amount": 6600.0
+        },
+        {
+          "description": "Analytics dashboard licences (10 seats)",
+          "quantity": 10,
+          "unit_price": 49.0,
+          "amount": 490.0
+        }
+      ],
+      "extracted": [
+        {
+          "description": "Customer churn model, discovery phase",
+          "quantity": null,
+          "unit_price": null,
+          "amount": null
+        },
+        {
+          "description": "Analytics dashboard licences (10 seats)",
+          "quantity": 40.0,
+          "unit_price": 165.0,
+          "amount": 6600.0
+        },
+        {
+          "description": "Analytics dashboard licences (10 seats)",
+          "quantity": 10.0,
+          "unit_price": 49.0,
+          "amount": 490.0
+        }
+      ],
+      "reason": "The analytics dashboard licenses line with quantity 10, unit price 49, and amount 490 matches. The churn-model line has missing numeric values, and the additional dashboard-description line has the churn-model amounts and does not match a billed line."
+    },
+    {
+      "config": "extract-nano-low",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "i05.line_item_categories",
+      "status": "wrong",
+      "expected": [
+        "consulting",
+        "software licenses"
+      ],
+      "extracted": [
+        "analytics",
+        "software licenses"
+      ],
+      "reason": "Software licenses matches. Analytics does not match the expected consulting category."
+    },
+    {
+      "config": "extract-nano-low",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "i05.line_items",
+      "status": "wrong",
+      "expected": [
+        {
+          "description": "Customer churn model, build and validation",
+          "quantity": 96,
+          "unit_price": 165.0,
+          "amount": 15840.0
+        },
+        {
+          "description": "Analytics dashboard licences (10 seats)",
+          "quantity": 10,
+          "unit_price": 49.0,
+          "amount": 490.0
+        }
+      ],
+      "extracted": [
+        {
+          "description": "Customer churn model, build and validation",
+          "quantity": null,
+          "unit_price": null,
+          "amount": null
+        },
+        {
+          "description": "Analytics dashboard licences (10 seats)",
+          "quantity": 96.0,
+          "unit_price": 165.0,
+          "amount": 15840.0
+        },
+        {
+          "description": null,
+          "quantity": 10.0,
+          "unit_price": 49.0,
+          "amount": 490.0
+        }
+      ],
+      "reason": "No extracted line item has both the matching description and matching quantity, unit price, and amount. One line has missing numeric values, one combines the dashboard description with consulting amounts, and one lacks a description."
+    },
+    {
+      "config": "extract-nano-low",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "i09.line_item_categories",
+      "status": "wrong",
+      "expected": [
+        "furniture",
+        "office supplies"
+      ],
+      "extracted": [
+        "office furniture",
+        "electronics accessories",
+        "printing supplies"
+      ],
+      "reason": "Office furniture matches furniture and printing supplies matches office supplies, but electronics accessories is a false extra category."
+    },
+    {
+      "config": "extract-nano-low",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "r22.skills",
+      "status": "wrong",
+      "expected": [
+        "python",
+        "tensorflow",
+        "pytorch",
+        "recommender systems",
+        "rag",
+        "llms",
+        "spark",
+        "aws",
+        "kubernetes",
+        "mlops"
+      ],
+      "extracted": [
+        "python",
+        "tensorflow",
+        "pytorch",
+        "recommender systems",
+        "rag",
+        "llms",
+        "spark",
+        "aws",
+        "kubernetes mlops"
+      ],
+      "reason": "All expected skills are represented. The final combined entry, \"kubernetes mlops,\" conveys both Kubernetes and MLOps despite being merged into one list element."
+    },
+    {
+      "config": "extract-nano-low",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "i12.line_item_categories",
+      "status": "wrong",
+      "expected": [
+        "consulting",
+        "travel"
+      ],
+      "extracted": [
+        "staffing",
+        "travel and accommodation"
+      ],
+      "reason": "Travel and accommodation matches the travel category. Staffing does not name the same category as consulting."
+    },
+    {
+      "config": "extract-nano-low",
+      "suite": "extraction",
+      "repeat": 1,
+      "item": "i18.line_item_categories",
+      "status": "wrong",
+      "expected": [
+        "support",
+        "cloud infrastructure"
+      ],
+      "extracted": [
+        "software support",
+        "cloud backup",
+        "subscription services"
+      ],
+      "reason": "Software support matches support and cloud backup matches cloud infrastructure, but subscription services is an unsupported extra category."
+    },
+    {
+      "config": "extract-nano-low",
+      "suite": "extraction",
+      "repeat": 2,
+      "item": "i02.line_item_categories",
+      "status": "wrong",
+      "expected": [
+        "cloud infrastructure",
+        "support"
+      ],
+      "extracted": [
+        "managed services",
+        "cloud hosting",
+        "support"
+      ],
+      "reason": "Cloud hosting matches cloud infrastructure and support matches support, but managed services is an unsupported extra category."
+    },
+    {
+      "config": "extract-nano-low",
+      "suite": "extraction",
+      "repeat": 2,
+      "item": "i02.line_items",
+      "status": "wrong",
+      "expected": [
+        {
+          "description": "Managed Kubernetes cluster, May",
+          "quantity": 1,
+          "unit_price": 2400.0,
+          "amount": 2400.0
+        },
+        {
+          "description": "Object storage, 21 TB-month",
+          "quantity": 21,
+          "unit_price": 21.5,
+          "amount": 451.5
+        },
+        {
+          "description": "Premium support plan",
+          "quantity": 1,
+          "unit_price": 450.0,
+          "amount": 450.0
+        }
+      ],
+      "extracted": [
+        {
+          "description": "Managed Kubernetes cluster, May",
+          "quantity": 1.0,
+          "unit_price": 2400.0,
+          "amount": 2400.0
+        },
+        {
+          "description": "Object storage, 21 TB-month",
+          "quantity": 21.0,
+          "unit_price": 21.5,
+          "amount": 450.0
+        },
+        {
+          "description": "Premium support plan",
+          "quantity": 1.0,
+          "unit_price": 451.5,
+          "amount": 451.5
+        }
+      ],
+      "reason": "The Managed Kubernetes line matches. Object storage has an incorrect amount (450.0 instead of 451.5), and Premium support has incorrect unit price and amount."
+    },
+    {
+      "config": "extract-nano-low",
+      "suite": "extraction",
+      "repeat": 2,
+      "item": "i06.line_item_categories",
+      "status": "wrong",
+      "expected": [
+        "consulting",
+        "software licenses",
+        "training"
+      ],
+      "extracted": [
+        "analytics",
+        "software licenses",
+        "training",
+        "consulting"
+      ],
+      "reason": "Consulting, software licenses, and training match expected categories, but analytics is an unsupported extra category."
+    },
+    {
+      "config": "extract-nano-low",
+      "suite": "extraction",
+      "repeat": 2,
+      "item": "i06.line_items",
+      "status": "wrong",
+      "expected": [
+        {
+          "description": "Churn model go-live milestone",
+          "quantity": 1,
+          "unit_price": 9800.0,
+          "amount": 9800.0
+        },
+        {
+          "description": "Analytics dashboard licences (14 seats)",
+          "quantity": 14,
+          "unit_price": 49.0,
+          "amount": 686.0
+        },
+        {
+          "description": "Team training workshop",
+          "quantity": 1,
+          "unit_price": 1200.0,
+          "amount": 1200.0
+        }
+      ],
+      "extracted": [
+        {
+          "description": "Churn model go-live milestone",
+          "quantity": null,
+          "unit_price": 9800.0,
+          "amount": 9800.0
+        },
+        {
+          "description": "Analytics dashboard licences (14 seats)",
+          "quantity": 1.0,
+          "unit_price": 49.0,
+          "amount": 686.0
+        },
+        {
+          "description": "Team training workshop",
+          "quantity": null,
+          "unit_price": 1200.0,
+          "amount": 1200.0
+        }
+      ],
+      "reason": "No line item has all required numerically matching fields: the first and third have missing quantities, and the software-license line has quantity 1 rather than 14."
+    },
+    {
+      "config": "extract-nano-low",
+      "suite": "extraction",
+      "repeat": 2,
+      "item": "i08.line_item_categories",
+      "status": "wrong",
+      "expected": [
+        "furniture",
+        "office supplies"
+      ],
+      "extracted": [
+        "office furniture",
+        "office supplies",
+        "printing supplies"
+      ],
+      "reason": "Furniture/office furniture and office supplies match, but 'printing supplies' is an unsupported extra category."
+    },
+    {
+      "config": "extract-nano-low",
+      "suite": "extraction",
+      "repeat": 2,
+      "item": "i03.line_items",
+      "status": "wrong",
+      "expected": [
+        {
+          "description": "Managed Kubernetes cluster, June",
+          "quantity": 1,
+          "unit_price": 2650.0,
+          "amount": 2650.0
+        },
+        {
+          "description": "Object storage, 24 TB-month",
+          "quantity": 24,
+          "unit_price": 21.5,
+          "amount": 516.0
+        },
+        {
+          "description": "Premium support plan",
+          "quantity": 1,
+          "unit_price": 450.0,
+          "amount": 450.0
+        },
+        {
+          "description": "Data egress overage",
+          "quantity": 1,
+          "unit_price": 312.4,
+          "amount": 312.4
+        }
+      ],
+      "extracted": [
+        {
+          "description": "Managed Kubernetes cluster, June",
+          "quantity": 1.0,
+          "unit_price": 2650.0,
+          "amount": 2650.0
+        },
+        {
+          "description": "Object storage, 24 TB-month",
+          "quantity": 24.0,
+          "unit_price": 21.5,
+          "amount": 516.0
+        },
+        {
+          "description": "Premium support plan",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0
+        },
+        {
+          "description": "Data egress overage",
+          "quantity": 1.0,
+          "unit_price": 312.4,
+          "amount": 312.4
+        },
+        {
+          "description": null,
+          "quantity": null,
+          "unit_price": null,
+          "amount": 3928.4
+        }
+      ],
+      "reason": "All four expected billed lines match in description and numeric values, but there is one extra invalid line with null description and values."
+    },
+    {
+      "config": "extract-nano-low",
+      "suite": "extraction",
+      "repeat": 2,
+      "item": "i16.line_items",
+      "status": "wrong",
+      "expected": [
+        {
+          "description": "Point-of-sale software, annual licence (12 stores)",
+          "quantity": 12,
+          "unit_price": 1180.0,
+          "amount": 14160.0
+        },
+        {
+          "description": "Implementation support",
+          "quantity": 16,
+          "unit_price": 140.0,
+          "amount": 2240.0
+        }
+      ],
+      "extracted": [
+        {
+          "description": "Point-of-sale software, annual licence (12 stores)",
+          "quantity": null,
+          "unit_price": 1180.0,
+          "amount": 14160.0
+        },
+        {
+          "description": "Implementation support",
+          "quantity": null,
+          "unit_price": 140.0,
+          "amount": 2240.0
+        }
+      ],
+      "reason": "Both billed lines have matching descriptions, unit prices, and amounts, but their quantities are null rather than the expected 12 and 16; therefore neither line item fully matches."
+    },
+    {
+      "config": "extract-nano-low",
+      "suite": "extraction",
+      "repeat": 2,
+      "item": "i04.line_item_categories",
+      "status": "wrong",
+      "expected": [
+        "consulting",
+        "software licenses"
+      ],
+      "extracted": [
+        "analytics",
+        "software licenses"
+      ],
+      "reason": "Software licenses matches, but consulting is missing and analytics is a false category."
+    },
+    {
+      "config": "extract-nano-low",
+      "suite": "extraction",
+      "repeat": 2,
+      "item": "i04.line_items",
+      "status": "wrong",
+      "expected": [
+        {
+          "description": "Customer churn model, discovery phase",
+          "quantity": 40,
+          "unit_price": 165.0,
+          "amount": 6600.0
+        },
+        {
+          "description": "Analytics dashboard licences (10 seats)",
+          "quantity": 10,
+          "unit_price": 49.0,
+          "amount": 490.0
+        }
+      ],
+      "extracted": [
+        {
+          "description": "Customer churn model, discovery phase",
+          "quantity": null,
+          "unit_price": null,
+          "amount": 6600.0
+        },
+        {
+          "description": "Analytics dashboard licences (10 seats)",
+          "quantity": 40.0,
+          "unit_price": 165.0,
+          "amount": 490.0
+        },
+        {
+          "description": "Analytics dashboard licences (10 seats)",
+          "quantity": 10.0,
+          "unit_price": 49.0,
+          "amount": 490.0
+        }
+      ],
+      "reason": "The 10-seat analytics dashboard licenses line matches. The churn-model line has missing quantity and unit price, and an additional dashboard-license line has incorrect quantity and unit price."
+    },
+    {
+      "config": "extract-nano-low",
+      "suite": "extraction",
+      "repeat": 2,
+      "item": "i10.line_item_categories",
+      "status": "wrong",
+      "expected": [
+        "consulting",
+        "travel"
+      ],
+      "extracted": [
+        "consulting",
+        "travel and accommodation",
+        "gst"
+      ],
+      "reason": "Consulting and travel/accommodation match the expected consulting and travel categories. GST is an additional false category."
+    },
+    {
+      "config": "extract-nano-low",
+      "suite": "extraction",
+      "repeat": 2,
+      "item": "i10.line_items",
+      "status": "wrong",
+      "expected": [
+        {
+          "description": "Warehouse process review, 6 days",
+          "quantity": 6,
+          "unit_price": 72000.0,
+          "amount": 432000.0
+        },
+        {
+          "description": "Travel and accommodation",
+          "quantity": 1,
+          "unit_price": 38500.0,
+          "amount": 38500.0
+        }
+      ],
+      "extracted": [
+        {
+          "description": "Warehouse process review, 6 days",
+          "quantity": null,
+          "unit_price": null,
+          "amount": 432000.0
+        },
+        {
+          "description": "Travel and accommodation",
+          "quantity": null,
+          "unit_price": null,
+          "amount": 38500.0
+        },
+        {
+          "description": "Travel and accommodation",
+          "quantity": null,
+          "unit_price": null,
+          "amount": 38500.0
+        }
+      ],
+      "reason": "None of the extracted line items fully match because quantity and unit price are null for every item; there is also a duplicate travel line."
+    },
+    {
+      "config": "extract-nano-low",
+      "suite": "extraction",
+      "repeat": 2,
+      "item": "i05.line_item_categories",
+      "status": "wrong",
+      "expected": [
+        "consulting",
+        "software licenses"
+      ],
+      "extracted": [
+        "analytics",
+        "software licenses",
+        "consulting"
+      ],
+      "reason": "Consulting and software licenses match, but the extra analytics category is not an expected category and is false."
+    },
+    {
+      "config": "extract-nano-low",
+      "suite": "extraction",
+      "repeat": 2,
+      "item": "i05.line_items",
+      "status": "wrong",
+      "expected": [
+        {
+          "description": "Customer churn model, build and validation",
+          "quantity": 96,
+          "unit_price": 165.0,
+          "amount": 15840.0
+        },
+        {
+          "description": "Analytics dashboard licences (10 seats)",
+          "quantity": 10,
+          "unit_price": 49.0,
+          "amount": 490.0
+        }
+      ],
+      "extracted": [
+        {
+          "description": "Customer churn model, build and validation",
+          "quantity": null,
+          "unit_price": null,
+          "amount": null
+        },
+        {
+          "description": "Analytics dashboard licences (10 seats)",
+          "quantity": null,
+          "unit_price": null,
+          "amount": null
+        }
+      ],
+      "reason": "Both descriptions correspond to billed lines, but quantity, unit price, and amount are null rather than the required numeric values, so neither line item matches."
+    },
+    {
+      "config": "extract-nano-low",
+      "suite": "extraction",
+      "repeat": 2,
+      "item": "r15.years_of_experience",
+      "status": "missing",
+      "expected": 3,
+      "extracted": null,
+      "reason": null
+    },
+    {
+      "config": "extract-nano-low",
+      "suite": "extraction",
+      "repeat": 2,
+      "item": "r15.work_experience",
+      "status": "wrong",
+      "expected": [
+        {
+          "company": "Haldi Health",
+          "title": "Software Engineer II",
+          "start_year": 2025,
+          "end_year": null,
+          "summary": "Owns the appointment-booking microservices in Java and Spring Boot."
+        },
+        {
+          "company": "Haldi Health",
+          "title": "Software Engineer I",
+          "start_year": 2023,
+          "end_year": 2025,
+          "summary": "Built REST APIs for patient records on AWS."
+        }
+      ],
+      "extracted": [
+        {
+          "company": "Haldi Health",
+          "title": "Software Engineer II",
+          "start_year": null,
+          "end_year": null,
+          "summary": "Owns the appointment-booking microservices (Java, Spring Boot, PostgreSQL, Redis) and cut p95 booking latency from 900 ms to 180 ms."
+        },
+        {
+          "company": "Haldi Health",
+          "title": "Software Engineer I",
+          "start_year": null,
+          "end_year": null,
+          "summary": "Built REST APIs for patient records and deployed them with Docker on AWS."
+        }
+      ],
+      "reason": "Both roles have the correct company and title and compatible summaries, but neither extracted item includes the required start/end years, so neither fully matches the expected work-experience item."
+    },
+    {
+      "config": "extract-nano-low",
+      "suite": "extraction",
+      "repeat": 2,
+      "item": "r03.locations",
+      "status": "wrong",
+      "expected": [
+        "London"
+      ],
+      "extracted": [
+        "London",
+        "Manchester"
+      ],
+      "reason": "London matches. Manchester is an additional location absent from the ground truth; it is not treated as an error if true for the resume."
+    },
+    {
+      "config": "extract-nano-low",
+      "suite": "extraction",
+      "repeat": 2,
+      "item": "i17.line_items",
+      "status": "wrong",
+      "expected": [
+        {
+          "description": "Point-of-sale software, 3 additional stores (prorated)",
+          "quantity": 3,
+          "unit_price": 590.0,
+          "amount": 1770.0
+        },
+        {
+          "description": "Inventory add-on module, annual",
+          "quantity": 1,
+          "unit_price": 4200.0,
+          "amount": 4200.0
+        }
+      ],
+      "extracted": [
+        {
+          "description": "Point-of-sale software, 3 additional stores (prorated)",
+          "quantity": null,
+          "unit_price": null,
+          "amount": 4200.0
+        },
+        {
+          "description": "Inventory add-on module, annual",
+          "quantity": null,
+          "unit_price": null,
+          "amount": 4200.0
+        },
+        {
+          "description": "Subtotal",
+          "quantity": null,
+          "unit_price": null,
+          "amount": 5970.0
+        },
+        {
+          "description": "Sales tax",
+          "quantity": null,
+          "unit_price": null,
+          "amount": 0.0
+        },
+        {
+          "description": "Total due",
+          "quantity": null,
+          "unit_price": null,
+          "amount": 5970.0
+        }
+      ],
+      "reason": "Neither billed line has all required numeric values correct: the point-of-sale line has missing quantity and unit price and an incorrect amount, while the inventory module has missing quantity and unit price. Subtotal, sales tax, and total due are false extra line items."
+    },
+    {
+      "config": "extract-nano-low",
+      "suite": "extraction",
+      "repeat": 2,
+      "item": "i09.line_item_categories",
+      "status": "wrong",
+      "expected": [
+        "furniture",
+        "office supplies"
+      ],
+      "extracted": [
+        "office furniture",
+        "office accessories",
+        "office supplies"
+      ],
+      "reason": "Office furniture matches furniture and office supplies matches. Office accessories is an unsupported extra category."
+    },
+    {
+      "config": "extract-nano-low",
+      "suite": "extraction",
+      "repeat": 2,
+      "item": "r12.work_experience",
+      "status": "wrong",
+      "expected": [
+        {
+          "company": "Tallgrass Health",
+          "title": "VP of Engineering",
+          "start_year": 2021,
+          "end_year": null,
+          "summary": "Runs a 120-person engineering organisation and its platform strategy."
+        },
+        {
+          "company": "Tallgrass Health",
+          "title": "Director of Engineering",
+          "start_year": 2017,
+          "end_year": 2021,
+          "summary": "Grew the engineering team from 40 to 85 and launched the patient app."
+        },
+        {
+          "company": "Cobaltline Software",
+          "title": "Engineering Manager",
+          "start_year": 2013,
+          "end_year": 2017,
+          "summary": "Managed two backend teams building workflow automation in Go."
+        },
+        {
+          "company": "Cobaltline Software",
+          "title": "Senior Software Engineer",
+          "start_year": 2008,
+          "end_year": 2013,
+          "summary": "Built the document routing engine and its public API."
+        }
+      ],
+      "extracted": [
+        {
+          "company": "Tallgrass Health",
+          "title": "VP of Engineering",
+          "start_year": 2021,
+          "end_year": null,
+          "summary": "Runs a 120-person engineering organization across 14 teams and a $22M budget; led platform consolidation onto AWS and Kubernetes, reducing infrastructure costs by 31%."
+        },
+        {
+          "company": "Tallgrass Health",
+          "title": "Director of Engineering",
+          "start_year": 2013,
+          "end_year": 2017,
+          "summary": "Grew the engineering team from 40 to 85 and launched the patient mobile app."
+        },
+        {
+          "company": "Cobaltline Software",
+          "title": "Engineering Manager",
+          "start_year": 2017,
+          "end_year": 2021,
+          "summary": "Managed two backend teams building workflow automation services in Go."
+        },
+        {
+          "company": "Cobaltline Software",
+          "title": "Senior Software Engineer",
+          "start_year": 2008,
+          "end_year": 2013,
+          "summary": "Built the document routing engine and its public API."
+        }
+      ],
+      "reason": "The Tallgrass Health VP of Engineering role and Cobaltline Software Senior Software Engineer role match. The Tallgrass Director of Engineering and Cobaltline Engineering Manager entries have incorrect, swapped employment years, so they do not match their expected roles; false work-history items dominate."
+    },
+    {
+      "config": "extract-nano-low",
+      "suite": "extraction",
+      "repeat": 2,
+      "item": "i18.line_item_categories",
+      "status": "wrong",
+      "expected": [
+        "support",
+        "cloud infrastructure"
+      ],
+      "extracted": [
+        "software licensing",
+        "support",
+        "cloud backup"
+      ],
+      "reason": "Support and cloud backup match the expected support and cloud infrastructure categories. Software licensing is an unsupported extra category."
+    },
+    {
+      "config": "baseline-nano-medium",
+      "suite": "rag",
+      "item": "inv_q02",
+      "status": "answer",
+      "reason": "The expected result contains no invoices with cloud infrastructure charges (count 0), but the answer lists four invoices.",
+      "truth_differs": true
+    },
+    {
+      "config": "baseline-nano-medium",
+      "suite": "rag",
+      "item": "inv_q04",
+      "status": "answer",
+      "reason": "The answer lists exactly the two expected invoices due on receipt. The count is implied by the two listed invoices.",
+      "truth_differs": false
+    },
+    {
+      "config": "baseline-nano-medium",
+      "suite": "rag",
+      "item": "p01",
+      "status": "answer",
+      "reason": "The answer states billing/provisioning services and Java, but does not state that they were for a mobile network.",
+      "truth_differs": false
+    },
+    {
+      "config": "baseline-nano-medium",
+      "suite": "rag",
+      "item": "h01",
+      "status": "answer",
+      "reason": "The answer correctly includes Michael Brennan and Priya Raghunathan, but omits Aarav Mehta and Oliver Schmidt, both of whom explicitly lead teams in their current roles and meet the experience threshold.",
+      "truth_differs": false
+    },
+    {
+      "config": "baseline-nano-medium",
+      "suite": "rag",
+      "item": "fu_python_aws_years_chart",
+      "status": "follow_up_chart",
+      "reason": "chart covered 7 (per_person), expected the 8 from turn 1: wrong={'Rahul Verma': {'expected': 5.0, 'chart': None}} extra=[]",
+      "truth_differs": false
+    },
+    {
+      "config": "baseline-nano-medium",
+      "suite": "rag",
+      "item": "s01",
+      "status": "answer",
+      "reason": "The answer incorrectly excludes Oliver Schmidt, who is required, and includes Ishaan Chatterjee, who is not among the expected candidates.",
+      "truth_differs": false
+    },
+    {
+      "config": "baseline-nano-medium",
+      "suite": "rag",
+      "item": "inv_q02",
+      "status": "answer",
+      "reason": "The expected result is zero invoices with cloud infrastructure charges, but the answer lists four invoices.",
+      "truth_differs": true
+    },
+    {
+      "config": "baseline-nano-medium",
+      "suite": "rag",
+      "item": "h02",
+      "status": "answer",
+      "reason": "The answer omits Aarav Mehta, who moved model training to Kubernetes with MLflow tracking. The other three required candidates are included.",
+      "truth_differs": false
+    },
+    {
+      "config": "baseline-nano-medium",
+      "suite": "rag",
+      "item": "inv_q01",
+      "status": "answer",
+      "reason": "All six expected euro-billed invoice numbers are listed with the correct totals, and the count is correctly stated as 6.",
+      "truth_differs": false
+    },
+    {
+      "config": "baseline-nano-medium",
+      "suite": "rag",
+      "item": "p03",
+      "status": "answer",
+      "reason": "The answer identifies Fatima Sheikh as a high-school chemistry teacher but omits that she taught grades 9–12 and ran the science olympiad programme.",
+      "truth_differs": false
+    },
+    {
+      "config": "baseline-nano-medium",
+      "suite": "rag",
+      "item": "h01",
+      "status": "answer",
+      "reason": "The answer omits two required candidates who meet the criteria: Aarav Mehta and Oliver Schmidt.",
+      "truth_differs": false
+    },
+    {
+      "config": "baseline-nano-medium",
+      "suite": "rag",
+      "item": "s01",
+      "status": "answer",
+      "reason": "The answer correctly covers all six expected candidates, but it adds Ishaan Chatterjee, who is not among the expected facts or acceptable extras.",
+      "truth_differs": false
+    },
+    {
+      "config": "baseline-nano-medium",
+      "suite": "rag",
+      "item": "inv_q06",
+      "status": "answer",
+      "reason": "The LRA-1189 dashboard licence item is incomplete: it should specify 14 seats, but the answer gives no seat count.",
+      "truth_differs": false
+    },
+    {
+      "config": "baseline-nano-medium",
+      "suite": "rag",
+      "item": "h02",
+      "status": "answer",
+      "reason": "The answer correctly identifies Daniel Okafor, Nadia Haddad, and Michael Brennan, but omits Aarav Mehta, whose work history states he moved model training to Kubernetes with MLflow tracking.",
+      "truth_differs": false
+    },
+    {
+      "config": "chat-mini",
+      "suite": "rag",
+      "item": "s02",
+      "status": "answer",
+      "reason": "The answer omits Fatima Sheikh, who changed from a chemistry teacher to a data analyst/junior data scientist, and instead names Hannah Becker, who is not an expected fact.",
+      "truth_differs": false
+    },
+    {
+      "config": "chat-mini",
+      "suite": "rag",
+      "item": "inv_q02",
+      "status": "answer",
+      "reason": "The expected result is zero invoices, but the answer lists two invoices as containing cloud infrastructure charges.",
+      "truth_differs": true
+    },
+    {
+      "config": "chat-mini",
+      "suite": "rag",
+      "item": "p03",
+      "status": "answer",
+      "reason": "The answer correctly identifies Fatima Sheikh as a chemistry teacher at Crescent Valley High School, but omits that she taught grades 9–12 and ran the science olympiad programme.",
+      "truth_differs": false
+    },
+    {
+      "config": "chat-mini",
+      "suite": "rag",
+      "item": "h01",
+      "status": "answer",
+      "reason": "The answer includes Meera Iyer, who is not an expected or acceptable-extra person, and it omits required team-scope details for Aarav Mehta and Priya Raghunathan.",
+      "truth_differs": false
+    },
+    {
+      "config": "chat-mini",
+      "suite": "rag",
+      "item": "fu_python_aws_years_chart",
+      "status": "follow_up_chart",
+      "reason": "chart covered 14 (per_person), expected the 8 from turn 1: wrong={} extra=['daniel okafor', 'emily carter', 'fatima sheikh', 'michael brennan', 'priya raghunathan', 'zoya ahmed']",
+      "truth_differs": false
+    },
+    {
+      "config": "chat-mini",
+      "suite": "rag",
+      "item": "s01",
+      "status": "answer",
+      "reason": "The answer omits Kenji Watanabe and Oliver Schmidt, both of whom are required. It also includes Ishaan Chatterjee, who is not among the expected candidates.",
+      "truth_differs": false
+    },
+    {
+      "config": "chat-mini",
+      "suite": "rag",
+      "item": "fu_eur_total",
+      "status": "turn1",
+      "reason": "The answer correctly lists the six invoice numbers and count, but omits the required vendor and total values for every expected invoice.",
+      "truth_differs": false
+    },
+    {
+      "config": "chat-mini",
+      "suite": "rag",
+      "item": "h02",
+      "status": "answer",
+      "reason": "The answer omits required details from two expected facts: Aarav Mehta's MLflow tracking and Michael Brennan's 31% cost reduction.",
+      "truth_differs": false
+    },
+    {
+      "config": "chat-mini",
+      "suite": "rag",
+      "item": "inv_q02",
+      "status": "answer",
+      "reason": "The expected result is zero invoices with cloud infrastructure charges, but the answer lists two invoices.",
+      "truth_differs": true
+    },
+    {
+      "config": "chat-mini",
+      "suite": "rag",
+      "item": "s02",
+      "status": "answer",
+      "reason": "The answer omits Fatima Sheikh, the expected career changer, and instead names Hannah Becker, who is not an expected item.",
+      "truth_differs": false
+    },
+    {
+      "config": "chat-mini",
+      "suite": "rag",
+      "item": "inv_q01",
+      "status": "answer",
+      "reason": "The invoice numbers and totals are correct, but the answer omits the vendor for each invoice, which is included in the expected invoice records.",
+      "truth_differs": false
+    },
+    {
+      "config": "chat-mini",
+      "suite": "rag",
+      "item": "p01",
+      "status": "answer",
+      "reason": "The answer correctly mentions billing and provisioning services, but omits that they were written in Java and for a mobile network.",
+      "truth_differs": false
+    },
+    {
+      "config": "chat-mini",
+      "suite": "rag",
+      "item": "p03",
+      "status": "answer",
+      "reason": "The answer correctly identifies Fatima Sheikh as a chemistry teacher at Crescent Valley High School, but omits that she taught grades 9–12 and ran the science olympiad programme.",
+      "truth_differs": false
+    },
+    {
+      "config": "chat-mini",
+      "suite": "rag",
+      "item": "h01",
+      "status": "answer",
+      "reason": "The answer omits three required qualifying candidates: Aarav Mehta, Priya Raghunathan, and Oliver Schmidt. It incorrectly presents only Michael Brennan and Siddharth Rao as the qualifying candidates.",
+      "truth_differs": false
+    },
+    {
+      "config": "chat-mini",
+      "suite": "rag",
+      "item": "fu_python_aws_years_chart",
+      "status": "follow_up_chart",
+      "reason": "chart covered 7 (per_person), expected the 8 from turn 1: wrong={'Arjun Malhotra': {'expected': 7.0, 'chart': None}} extra=[]",
+      "truth_differs": false
+    },
+    {
+      "config": "chat-mini",
+      "suite": "rag",
+      "item": "s01",
+      "status": "answer",
+      "reason": "The answer includes an extra candidate, Ishaan Chatterjee, who is not among the expected facts. It also omits required information for Kenji Watanabe (his LLM training/evaluation work) and does not state that Aarav Mehta's work was at Lumora Commerce.",
+      "truth_differs": false
+    },
+    {
+      "config": "chat-mini",
+      "suite": "rag",
+      "item": "fu_eur_total",
+      "status": "turn1",
+      "reason": "The answer correctly lists the six invoice numbers and count, but omits the required vendor and total values for every invoice.",
+      "truth_differs": false
+    },
+    {
+      "config": "chat-mini",
+      "suite": "rag",
+      "item": "h02",
+      "status": "answer",
+      "reason": "The answer omits Aarav Mehta entirely and does not provide all required work-history facts for the listed candidates. It also leaves out key required details such as Daniel Okafor's Kafka work, Michael Brennan's leadership/cost reduction, and Nadia Haddad's 40-service/Helm/Terraform migration.",
+      "truth_differs": false
+    },
+    {
+      "config": "chat-nano",
+      "suite": "rag",
+      "item": "inv_q02",
+      "status": "answer",
+      "reason": "The expected result contains no invoices and a count of 0, but the answer claims one invoice with cloud infrastructure charges.",
+      "truth_differs": true
+    },
+    {
+      "config": "chat-nano",
+      "suite": "rag",
+      "item": "inv_q01",
+      "status": "answer",
+      "reason": "The invoice numbers and totals are correct, but the required vendor for each invoice is absent.",
+      "truth_differs": false
+    },
+    {
+      "config": "chat-nano",
+      "suite": "rag",
+      "item": "n04",
+      "status": "answer",
+      "reason": "The answer lists Michael Brennan, who is not an expected candidate, and omits all three expected senior-level candidates with at least 8 years of experience.",
+      "truth_differs": false
+    },
+    {
+      "config": "chat-nano",
+      "suite": "rag",
+      "item": "inv_q03",
+      "status": "answer",
+      "reason": "The answer correctly gives the count and due-date distribution, but it does not identify the required invoices or their vendors.",
+      "truth_differs": false
+    },
+    {
+      "config": "chat-nano",
+      "suite": "rag",
+      "item": "p03",
+      "status": "answer",
+      "reason": "The answer correctly states that Fatima was a chemistry teacher, taught grades 9–12, and ran the science olympiad programme, but it omits Crescent Valley High School.",
+      "truth_differs": false
+    },
+    {
+      "config": "chat-nano",
+      "suite": "rag",
+      "item": "fu_python_aws_years_chart",
+      "status": "follow_up_chart",
+      "reason": "chart covered 14 (per_person), expected the 8 from turn 1: wrong={} extra=['daniel okafor', 'emily carter', 'fatima sheikh', 'michael brennan', 'priya raghunathan', 'zoya ahmed']",
+      "truth_differs": false
+    },
+    {
+      "config": "chat-nano",
+      "suite": "rag",
+      "item": "h01",
+      "status": "answer",
+      "reason": "The answer omits Aarav Mehta, who has 8 years of experience and leads the team building LLM retrieval/RAG assistants. The listed candidates are otherwise consistent with expected facts.",
+      "truth_differs": false
+    },
+    {
+      "config": "chat-nano",
+      "suite": "rag",
+      "item": "s01",
+      "status": "answer",
+      "reason": "The answer correctly covers all required candidates and their RAG/LLM work, but it also includes Ishaan Chatterjee, who is not among the expected facts. For facts questions, additional people are disallowed.",
+      "truth_differs": false
+    },
+    {
+      "config": "chat-nano",
+      "suite": "rag",
+      "item": "inv_q06",
+      "status": "answer",
+      "reason": "The response does not provide the billed line items as required; it replaces the specific services/products with generic categories and adds a tax category not among the expected items.",
+      "truth_differs": false
+    },
+    {
+      "config": "chat-nano",
+      "suite": "rag",
+      "item": "n02",
+      "status": "answer",
+      "reason": "The answer gives only a count and does not list any of the required candidate names.",
+      "truth_differs": false
+    },
+    {
+      "config": "chat-nano",
+      "suite": "rag",
+      "item": "h02",
+      "status": "answer",
+      "reason": "The answer identifies all relevant candidates, but it omits the stated 31% cost reduction associated with Michael Brennan's platform consolidation.",
+      "truth_differs": false
+    },
+    {
+      "config": "chat-nano",
+      "suite": "rag",
+      "item": "s02",
+      "status": "answer",
+      "reason": "The answer omits the required fact that Fatima Sheikh was a chemistry teacher before becoming a data analyst/junior data scientist, and incorrectly states that no such career change is explicitly described. It also introduces unaccepted additional candidates.",
+      "truth_differs": false
+    },
+    {
+      "config": "chat-nano",
+      "suite": "rag",
+      "item": "inv_q02",
+      "status": "answer",
+      "reason": "The expected result contains no invoices and a count of 0, but the answer identifies one invoice and gives a count of 1.",
+      "truth_differs": true
+    },
+    {
+      "config": "chat-nano",
+      "suite": "rag",
+      "item": "inv_q01",
+      "status": "answer",
+      "reason": "The answer lists exactly the six EUR-denominated invoice numbers with their correct totals.",
+      "truth_differs": false
+    },
+    {
+      "config": "chat-nano",
+      "suite": "rag",
+      "item": "n04",
+      "status": "answer",
+      "reason": "The answer lists Michael Brennan, who is not an expected candidate, and omits all three expected senior-level candidates.",
+      "truth_differs": false
+    },
+    {
+      "config": "chat-nano",
+      "suite": "rag",
+      "item": "h01",
+      "status": "answer",
+      "reason": "The response includes Rohan Deshpande, who is not among the required facts or acceptable extras. All four required candidates are correctly included, and Nadia Haddad is an acceptable extra.",
+      "truth_differs": false
+    },
+    {
+      "config": "chat-nano",
+      "suite": "rag",
+      "item": "fu_python_aws_years_chart",
+      "status": "turn1",
+      "reason": "The answer omits Anjali Nair, who is one of the expected candidates.",
+      "truth_differs": false
+    },
+    {
+      "config": "chat-nano",
+      "suite": "rag",
+      "item": "s01",
+      "status": "answer",
+      "reason": "The answer includes an extra candidate and omits Oliver Schmidt. It also does not fully state several required facts, including Aarav's Lumora Commerce context, Kenji's RLHF/LLM training work, and Siddharth's RAG-architecture advisory role.",
+      "truth_differs": false
+    },
+    {
+      "config": "chat-nano",
+      "suite": "rag",
+      "item": "inv_q06",
+      "status": "answer",
+      "reason": "The response identifies the invoices and broad categories, but it does not state the required specific billed items such as the churn-model phases/go-live milestone, analytics dashboard licences with seat counts, or the team training workshop.",
+      "truth_differs": false
+    },
+    {
+      "config": "chat-nano",
+      "suite": "rag",
+      "item": "fu_eur_total",
+      "status": "turn1",
+      "reason": "The answer gives only the count of EUR invoices and does not identify the six required invoices with their vendors and totals.",
+      "truth_differs": false
+    },
+    {
+      "config": "chat-nano",
+      "suite": "rag",
+      "item": "f03",
+      "status": "answer",
+      "reason": "The answer includes all expected candidates but also lists extra candidates who are not expected.",
+      "truth_differs": false
+    }
+  ]
+}

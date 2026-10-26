@@ -1,0 +1,183 @@
+[
+  {
+    "sample": "resumes",
+    "knowledge_id": "c4d3189f-8f93-4fa9-8f75-07ad08bd71c8",
+    "question": "How are candidates distributed by seniority level? Show it as a chart.",
+    "chart": {
+      "senior": 7.0,
+      "mid_level": 6.0,
+      "junior": 4.0,
+      "principal": 3.0,
+      "lead": 2.0,
+      "executive": 1.0,
+      "intern": 1.0
+    },
+    "expected": {
+      "junior": 4.0,
+      "mid_level": 6.0,
+      "principal": 3.0,
+      "senior": 7.0,
+      "lead": 2.0,
+      "executive": 1.0,
+      "intern": 1.0
+    },
+    "exact": true,
+    "wrong": {},
+    "extra": [],
+    "vs_truth": {
+      "exact": false,
+      "wrong": {
+        "lead": {
+          "expected": 3.0,
+          "chart": 2.0
+        },
+        "principal": {
+          "expected": 2.0,
+          "chart": 3.0
+        },
+        "junior": {
+          "expected": 5.0,
+          "chart": 4.0
+        }
+      },
+      "extra": [
+        "intern"
+      ]
+    },
+    "answer_draws_chart": false,
+    "aggregation_status": "ok",
+    "answer": "Here is the distribution by seniority level:\n\n| Seniority level | Candidates |\n|---|---:|\n| senior | 7 |\n| mid_level | 6 |\n| junior | 4 |\n| principal | 3 |\n| lead | 2 |\n| executive | 1 |\n| intern | 1 |\n\n**Total candidates: 24**"
+  },
+  {
+    "sample": "resumes",
+    "knowledge_id": "c4d3189f-8f93-4fa9-8f75-07ad08bd71c8",
+    "question": "What is the distribution of years of experience across candidates? Show a chart.",
+    "chart": {
+      "0": 1.0,
+      "1": 1.0,
+      "2": 2.0,
+      "3": 1.0,
+      "4": 3.0,
+      "5": 2.0,
+      "6": 1.0,
+      "7": 3.0,
+      "8": 1.0,
+      "9": 1.0,
+      "10": 2.0,
+      "11": 1.0,
+      "12": 1.0,
+      "13": 1.0,
+      "15": 1.0,
+      "16": 1.0,
+      "18": 1.0
+    },
+    "expected": {
+      "0": 1.0,
+      "1": 1.0,
+      "2": 2.0,
+      "3": 1.0,
+      "4": 3.0,
+      "5": 2.0,
+      "6": 1.0,
+      "7": 3.0,
+      "8": 1.0,
+      "9": 1.0,
+      "10": 2.0,
+      "11": 1.0,
+      "12": 1.0,
+      "13": 1.0,
+      "15": 1.0,
+      "16": 1.0,
+      "18": 1.0
+    },
+    "exact": true,
+    "wrong": {},
+    "extra": [],
+    "vs_truth": {
+      "exact": true,
+      "wrong": {},
+      "extra": []
+    },
+    "answer_draws_chart": false,
+    "aggregation_status": "ok",
+    "answer": "Here is the distribution of years of experience across the 24 candidates:\n\n| Years of experience | Candidates |\n|---|---:|\n| 0 | 1 |\n| 1 | 1 |\n| 2 | 2 |\n| 3 | 1 |\n| 4 | 3 |\n| 5 | 2 |\n| 6 | 1 |\n| 7 | 3 |\n| 8 | 1 |\n| 9 | 1 |\n| 10 | 2 |\n| 11 | 1 |\n| 12 | 1 |\n| 13 | 1 |\n| 15 | 1 |\n| 16 | 1 |\n| 18 | 1 |"
+  },
+  {
+    "sample": "resumes",
+    "knowledge_id": "c4d3189f-8f93-4fa9-8f75-07ad08bd71c8",
+    "question": "Chart the number of candidates by education level",
+    "chart": {
+      "bachelors": 15.0,
+      "masters": 8.0,
+      "phd": 1.0
+    },
+    "expected": {
+      "bachelors": 15.0,
+      "masters": 8.0,
+      "phd": 1.0
+    },
+    "exact": true,
+    "wrong": {},
+    "extra": [],
+    "vs_truth": {
+      "exact": true,
+      "wrong": {},
+      "extra": []
+    },
+    "answer_draws_chart": false,
+    "aggregation_status": "ok",
+    "answer": "| Education level | Number of candidates |\n|---|---:|\n| bachelors | 15 |\n| masters | 8 |\n| phd | 1 |"
+  },
+  {
+    "sample": "resumes",
+    "knowledge_id": "c4d3189f-8f93-4fa9-8f75-07ad08bd71c8",
+    "question": "How many candidates list each of these skills: python, aws, sql, docker, rag? Show a chart.",
+    "chart": {
+      "python": 18.0,
+      "aws": 11.0,
+      "sql": 13.0,
+      "docker": 5.0,
+      "rag": 5.0
+    },
+    "expected": {
+      "python": 18.0,
+      "aws": 11.0,
+      "sql": 13.0,
+      "docker": 5.0,
+      "rag": 5.0
+    },
+    "exact": true,
+    "wrong": {},
+    "extra": [],
+    "vs_truth": {
+      "exact": true,
+      "wrong": {},
+      "extra": []
+    },
+    "answer_draws_chart": false,
+    "aggregation_status": "ok",
+    "answer": "| Skill | Candidates |\n|---|---:|\n| python | 18 |\n| aws | 11 |\n| sql | 13 |\n| docker | 5 |\n| rag | 5 |"
+  },
+  {
+    "sample": "invoices",
+    "knowledge_id": "87396d15-d4b7-43b7-83ab-2ac0297711c3",
+    "question": "What is the total billed by each US-dollar vendor? Show it as a chart.",
+    "chart": {
+      "Lumen Ridge Analytics LLC": 35106.0,
+      "Quillmark Software Licensing": 27950.0,
+      "Copperleaf Office Supply Co.": 7225.7
+    },
+    "expected": {
+      "Quillmark Software Licensing": 27950.0,
+      "Lumen Ridge Analytics LLC": 35106.0,
+      "Copperleaf Office Supply Co.": 7225.7
+    },
+    "exact": true,
+    "wrong": {},
+    "extra": [],
+    "vs_truth": null,
+    "answer_draws_chart": false,
+    "aggregation_status": "ok",
+    "answer": "| Vendor | Total billed |\n|---|---:|\n| Lumen Ridge Analytics LLC | 35106 |\n| Quillmark Software Licensing | 27950 |\n| Copperleaf Office Supply Co. | 7225.7 |"
+  }
+]

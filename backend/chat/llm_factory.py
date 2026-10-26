@@ -146,6 +146,7 @@ async def get_llm(
     knowledge_id: Optional[str] = None,
     force_platform_key: bool = False,
     effort: Optional[str] = None,
+    reasoning_effort: Optional[str] = None,
 ) -> Tuple[Any, str, str]:
     """Build a rate-limited chat model for the knowledge chat path.
 
@@ -154,6 +155,13 @@ async def get_llm(
     (chat/credentials.py) so this never blocks the event loop — pass
     `knowledge_id` so that lookup resolves in-process instead of falling back
     to an external HTTP call (see chat/credentials.py's module docstring).
+
+    ``reasoning_effort`` pins an OpenAI reasoning model's effort (sent on the
+    Responses API, the way the extraction worker sends it) instead of the
+    chat default from chat/openai_reasoning.py. Only the enrichment preview sets
+    it, so the preview runs a registry model exactly as extraction will
+    (utils/enrichment/model_registry.py). ``effort`` is Anthropic's knob and is
+    not applied to OpenAI.
 
     ``force_platform_key=True`` bypasses the BYOK lookup and builds on the
     platform key. Callers should not set it directly — it is how
@@ -175,7 +183,7 @@ async def get_llm(
 
     llm = apply_llm_limits(
         _create_llm(provider, model, temperature, max_tokens, api_key, streaming,
-                    for_function_calling, effort=effort)
+                    for_function_calling, effort=effort, reasoning_effort=reasoning_effort)
     )
     return llm, provider, key_type
 
@@ -192,7 +200,7 @@ def _default_key_for_provider(provider: str) -> str:
 
 
 def _create_llm(provider, model, temperature, max_tokens, api_key, streaming,
-                for_function_calling=False, effort=None):
+                for_function_calling=False, effort=None, reasoning_effort=None):
     # max_tokens was already unconditionally passed to anthropic/groq/
     # deepseek/google below (i.e. every OTHER provider already capped at
     # get_llm's default of 1000) — openai/minimax silently dropped it, which
@@ -209,9 +217,15 @@ def _create_llm(provider, model, temperature, max_tokens, api_key, streaming,
             max_retries=2,
             timeout=LLM_REQUEST_TIMEOUT,
         )
-        reasoning_effort = openai_reasoning_effort_for_model(model, for_function_calling=for_function_calling)
-        if reasoning_effort is not None:
-            kwargs["reasoning_effort"] = reasoning_effort
+        if reasoning_effort:
+            # Same wire shape as the extraction worker (workers/.../llm_factory.py):
+            # `reasoning` routes the call through the Responses API, which accepts
+            # an effort together with structured output / tools.
+            kwargs["reasoning"] = {"effort": reasoning_effort}
+        else:
+            reasoning_effort = openai_reasoning_effort_for_model(model, for_function_calling=for_function_calling)
+            if reasoning_effort is not None:
+                kwargs["reasoning_effort"] = reasoning_effort
         return ChatOpenAI(**kwargs)
 
     elif provider == "anthropic":

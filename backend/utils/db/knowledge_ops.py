@@ -2,6 +2,7 @@
 Knowledge retrieval and insertion operations.
 """
 
+from utils.processing_telemetry import price_processing_telemetry
 from typing import Any, Dict, Optional, List
 from datetime import datetime
 from sqlmodel import select, and_
@@ -183,7 +184,10 @@ async def retrieve_chatbot_knowledge(user_id: Optional[str], knowledge_id: str, 
                     "source_url": row.source_url if row.source_url else None,
                     "created_time": row.created_at.isoformat() if isinstance(row.created_at, datetime) else str(row.created_at),
                     "updated_time": row.updated_at.isoformat() if isinstance(row.updated_at, datetime) else str(row.updated_at),
-                    "content_type": row.content_type
+                    "content_type": row.content_type,
+                    # What processing this document measured and cost
+                    # (utils/processing_telemetry.py). Null until the worker records it.
+                    "processing_telemetry": price_processing_telemetry(row.processing_telemetry),
                 }
 
                 if row.source_object_id is None:
@@ -460,6 +464,7 @@ async def get_knowledge_service(knowledge_id: str) -> Optional[dict]:
                 return {
                     "knowledge_id": service.knowledge_id,
                     "owner_id": service.owner_id,
+                    "sample_key": service.sample_key,
                     # "service_name": service.service_name,
                     "created_at": service.created_at.isoformat() if service.created_at else None,
                     "updated_at": service.updated_at.isoformat() if service.updated_at else None
@@ -872,6 +877,44 @@ def _derive_document_source(row) -> Optional[str]:
 
 @retry_db_connection(max_retries=3)
 @track_time("DB: Get Documents V2")
+async def retrieve_document_detail(knowledge_id: str, object_id: str) -> Optional[Dict[str, Any]]:
+    """One document's row for ``GET /v1/{knowledge_id}/documents/{object_id}``,
+    including its priced processing telemetry. None when it does not exist in
+    this knowledge base (or is deleted)."""
+    async with async_session() as session:
+        statement = select(Document).where(
+            and_(
+                Document.knowledge_id == knowledge_id,
+                Document.object_id == object_id,
+                Document.deleted == False,
+            )
+        )
+        row = (await session.execute(statement)).scalars().first()
+    if row is None:
+        return None
+
+    def _iso(value):
+        return value.isoformat() if isinstance(value, datetime) else (str(value) if value else None)
+
+    return {
+        "object_id": row.object_id,
+        "knowledge_id": row.knowledge_id,
+        "file_name": row.file_name,
+        "status": row.processing_status,
+        "error_detail": row.error_detail,
+        "content_type": row.content_type,
+        "url": row.url,
+        "source_url": row.source_url,
+        "source_object_id": row.source_object_id,
+        "document_processing_mode": row.document_processing_mode,
+        "created_time": _iso(row.created_at),
+        "updated_time": _iso(row.updated_at),
+        "completed_at": _iso(row.completed_at),
+        "task_duration_ms": row.task_duration_ms,
+        "processing_telemetry": price_processing_telemetry(row.processing_telemetry),
+    }
+
+
 async def retrieve_chatbot_knowledge_v2(
     user_id: Optional[str],
     knowledge_id: str,
@@ -938,6 +981,11 @@ async def retrieve_chatbot_knowledge_v2(
                     # for rows written before migration 042 ran, or by an insert path that
                     # forgot to set it.
                     "document_processing_mode": row.document_processing_mode,
+                    # Parse step, extraction model(s) incl. fallback, embeddings, total
+                    # ms and estimated cost (utils/processing_telemetry.py). Null for a
+                    # document processed before it was recorded, or still processing.
+                    "processing_telemetry": price_processing_telemetry(row.processing_telemetry),
+                    "task_duration_ms": row.task_duration_ms,
                 }
 
                 if row.source_object_id is None:

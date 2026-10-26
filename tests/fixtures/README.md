@@ -19,7 +19,7 @@ python tests/fixtures/generate_fixtures.py --verify     # rebuild and re-measure
 ```
 
 [Docs home](../../docs/README.md) ·
-[Testing guide](../../docs/development/testing.md) ·
+[Development and testing guide](../../docs/development.md#backend-and-worker) ·
 [Corpus provenance](sources/SOURCES.md) ·
 [Generator](generate_fixtures.py)
 

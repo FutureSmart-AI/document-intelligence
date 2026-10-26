@@ -25,6 +25,8 @@ import DocumentFields from "./DocumentFields";
 import DocumentViewer from "./DocumentViewer";
 import { documentKind } from "./kind";
 import type { TextMatch } from "./locate";
+import ProcessingTelemetry from "./ProcessingTelemetry";
+import { readProcessingTelemetry } from "./readProcessing";
 import { rowJson } from "./rowJson";
 
 /**
@@ -103,6 +105,7 @@ export default function DocumentDetail({
     String(item.content_type ?? "").toLowerCase() === "url"
       ? (item.url ?? null)
       : null;
+  const telemetry = readProcessingTelemetry(item.processing_telemetry);
 
   const copyExtractedText = async () => {
     if (!sections.length) {
@@ -248,6 +251,8 @@ export default function DocumentDetail({
             <Icon name="x" className="size-3.5" />
           </IconBtn>
         </header>
+
+        {telemetry && <ProcessingTelemetry telemetry={telemetry} />}
 
         {/* One column under 1280px: side by side, neither pane is readable on a
             laptop once the field labels and the document text are both in it. */}

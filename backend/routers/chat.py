@@ -45,6 +45,7 @@ from chat.db.config_ops import (
 from chat.db.health_events import build_health_event, emit_health_event
 from chat.db.sessions import list_sessions, soft_delete_session
 from chat.graph import run_knowledge_chat_graph
+from utils.auth import sample_access
 from utils.auth.dependencies import require_permission, resolve_kb_owner_id, PUBLIC_CALLER_SENTINEL
 from utils.pydantic_models_usage_limits import EstimatedMetric, Operation
 from utils.usage.enforcement import enforce_operation
@@ -294,6 +295,18 @@ class UsageInfo(BaseModel):
     output_tokens: int = 0
     total_tokens: int = 0
     service_calls: List[Dict[str, Any]] = Field(default_factory=list)
+    # -- Run-level telemetry (chat/run_usage.py; docs/api/usage-telemetry.md) --
+    # Counted from EVERY model call of the turn, not only the ones a node
+    # reported, so the token totals above include the verifier and follow-ups.
+    latency_ms: Optional[int] = Field(None, description="Server wall time of the turn, ms.")
+    cached_input_tokens: Optional[int] = Field(None, description="Subset of input_tokens served from the provider's prompt cache.")
+    calls: Optional[int] = Field(None, description="Model calls made (embeddings excluded).")
+    estimated_cost_usd: Optional[float] = Field(None, description="Sum of the priced operations, from the price table named in price_table. An estimate, not a bill.")
+    cost_complete: Optional[bool] = Field(None, description="False when any operation ran on a model with no price; estimated_cost_usd is then a lower bound.")
+    unpriced_models: List[str] = Field(default_factory=list, description='"provider/model" of every operation that could not be priced.')
+    price_table: Optional[str] = Field(None, description="Version of the price table used, e.g. openai-standard-2026-10-26.")
+    operations: List[Dict[str, Any]] = Field(default_factory=list, description="One row per (operation, provider, model): calls, tokens, latency_ms, estimated_cost_usd, fallback, requested_model.")
+    operation_latency_ms: Dict[str, int] = Field(default_factory=dict, description="Wall time of each operation's stage, tool time included.")
 
 
 class ChatResponse(BaseModel):
@@ -334,12 +347,22 @@ def _json_safe_rag_context(rag_context: Optional[Dict[str, Any]]) -> Optional[Di
 
 
 def _build_usage(final_state: Dict[str, Any]) -> Dict[str, Any]:
-    """Sum chat/utils/service_calls.py::build_service_call records
+    """The turn's usage block.
+
+    run_knowledge_chat_graph puts the run-level block (chat/run_usage.py --
+    every model call, attributed per operation, priced) on final_state["usage"];
+    that is returned as-is. The fallback below only serves a final state built
+    some other way (tests, an older caller) and is the historical behaviour:
+
+    Sum chat/utils/service_calls.py::build_service_call records
     (query_refiner_node's + rag_node's own LLM calls, accumulated on
     final_state["service_calls"] via the graph's operator.add reducer —
     see chat/graph.py's KnowledgeChatState). Returns zeros, not None, when
     no calls were recorded (e.g. the small-KB direct path, which retrieves
     without an LLM call) so UsageInfo is always well-formed."""
+    run_usage = final_state.get("usage")
+    if isinstance(run_usage, dict) and "operations" in run_usage:
+        return run_usage
     service_calls = final_state.get("service_calls") or []
     input_tokens = sum(int(c.get("input_tokens") or 0) for c in service_calls)
     output_tokens = sum(int(c.get("output_tokens") or 0) for c in service_calls)
@@ -454,7 +477,7 @@ def _build_response_payload(
     payload = {
         "query": query,
         "refined_query": final_state.get("refined_query"),
-        "response": final_state.get("response") or final_state.get("relevant_context") or "",
+        "response": final_state.get("response") or "",
         "session_id": session_id,
         "chat_id": chat_id,
         "data": {"knowledge": knowledge_data},
@@ -656,6 +679,9 @@ async def _persist_turn(
     }
 
     usage_by_model = final_state.get("usage_by_model") or []
+    # The same usage block the live response carries -- persisted so a thread
+    # read back later still shows what each step took and cost.
+    run_usage = final_state.get("usage") if isinstance(final_state.get("usage"), dict) else None
     llm_provider = usage_by_model[-1].get("provider") if usage_by_model else None
     model = usage_by_model[-1].get("model") if usage_by_model else None
 
@@ -669,7 +695,7 @@ async def _persist_turn(
         knowledge_id=knowledge_id,
         user_id=user_id,
         query=query,
-        response=final_state.get("response") or final_state.get("relevant_context") or "",
+        response=final_state.get("response") or "",
         refined_query=final_state.get("refined_query"),
         llm_provider=llm_provider,
         model=model,
@@ -677,6 +703,7 @@ async def _persist_turn(
         has_attachment=has_attachment,
         attachment_url=attachment_url,
         is_answered=is_answered,
+        usage=run_usage,
         # Caller facts, recorded on the session row rather than the log row.
         source=source,
         user_email=user_email,
@@ -827,17 +854,28 @@ async def chat(
     """
     session_id = request.session_id or str(uuid.uuid4())
 
-    # owner_id: explicit body value wins; otherwise resolve from the KB's own
-    # knowledge_config row, same lookup routers/document_management.py uses.
-    owner_id = request.owner_id or await resolve_kb_owner_id(knowledge_id)
+    # The body's owner_id/user_id are honoured for the master key only — a
+    # service-to-service caller acting for an owner. Anyone else is charged to the
+    # collection's real owner and recorded as who they are: a session or key that
+    # could name another owner would spend that owner's quota and credentials, and
+    # one that could name another user would write into their conversations
+    # (sample collections depend on both, see utils/auth/sample_access.py).
+    is_master_key = session_user_id is None
+    owner_id = (request.owner_id if is_master_key else None) or await resolve_kb_owner_id(knowledge_id)
 
-    # user_id: explicit body value wins; otherwise fall back to the identity
-    # require_permission already resolved from the session/API key. A public
-    # (credential-less) caller has no real identity — PUBLIC_CALLER_SENTINEL
-    # is an internal auth marker, never a user id, so it's excluded here.
-    user_id = request.user_id or (
+    # A public (credential-less) caller has no real identity —
+    # PUBLIC_CALLER_SENTINEL is an internal auth marker, never a user id.
+    user_id = (request.user_id if is_master_key else None) or (
         session_user_id if session_user_id != PUBLIC_CALLER_SENTINEL else None
     )
+
+    # A session id is only ever continued inside the collection it belongs to:
+    # its past turns are loaded into this answer's context, so a foreign one
+    # would read another collection's conversation into this one.
+    if request.session_id:
+        existing = await sample_access.get_session_identity(request.session_id)
+        if existing and existing.get("knowledge_id") != knowledge_id:
+            raise HTTPException(status_code=404, detail=f"Session '{request.session_id}' not found")
 
     chat_config = await resolve_chat_config(knowledge_id)
     if not chat_config.chat_enabled:
@@ -1396,6 +1434,14 @@ class ChatMessage(BaseModel):
     model: Optional[str] = None
     user_feedback: Optional[str] = Field(
         None, description='"positive", "negative", or null. Set via PATCH .../messages/{chat_id}/feedback.'
+    )
+    usage: Optional[Dict[str, Any]] = Field(
+        None,
+        description=(
+            "assistant-only. The turn's usage block exactly as the live /chat response "
+            "returned it (latency_ms, tokens, operations, estimated_cost_usd, "
+            "cost_complete, price_table). Null for turns stored before it was recorded."
+        ),
     )
     data: Dict[str, Any] = Field(
         default_factory=dict,

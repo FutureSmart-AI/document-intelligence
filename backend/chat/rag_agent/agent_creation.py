@@ -58,7 +58,7 @@ async def _build_rag_middleware(
         )
 
     fb_provider = os.environ.get("RAG_FALLBACK_PROVIDER", "openai").strip()
-    fb_model = os.environ.get("RAG_FALLBACK_MODEL", "gpt-4.1-mini").strip()
+    fb_model = os.environ.get("RAG_FALLBACK_MODEL", "gpt-5.4-mini").strip()
     if fb_provider and fb_model and (fb_provider, fb_model) != (llm_provider, llm_model):
         try:
             # Inherits force_platform_key: rebuilding the graph on the platform key
@@ -86,7 +86,7 @@ async def _build_rag_middleware(
 async def create_rag_agent_graph(
     knowledge_id: str,
     llm_provider: str = "openai",
-    llm_model: str = "gpt-4o-mini",
+    llm_model: str = "gpt-5.4-mini",
     temperature: float = 0,
     user_instructions: Optional[str] = None,
     owner_id: Optional[str] = None,

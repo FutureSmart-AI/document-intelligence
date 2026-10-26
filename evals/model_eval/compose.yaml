@@ -1,0 +1,52 @@
+# Overlay for the model evaluation. Use it on top of the root compose.yaml:
+#   docker compose -f compose.yaml -f evals/model_eval/compose.yaml ...
+# Paths are relative to the repository root (the first file's directory).
+#
+# The config under test reaches api + worker as an env file written by
+#   python evals/model_eval/run.py env --config NAME     -> model-eval-results/model-config.env
+# (its settings are the config's profile settings from deploy/model-profiles.json with the config's
+# overrides on top). Recreate api and worker after writing it. LangSmith tracing is on for both;
+# the server's traces go to project document-intelligence-model-eval-server.
+x-tracing: &tracing
+  LANGSMITH_API_KEY: ${LANGSMITH_API_KEY:-}
+  LANGCHAIN_API_KEY: ${LANGSMITH_API_KEY:-}
+  LANGCHAIN_TRACING_V2: ${MODEL_EVAL_TRACING:-true}
+  LANGSMITH_TRACING: ${MODEL_EVAL_TRACING:-true}
+  LANGCHAIN_PROJECT: document-intelligence-model-eval-server
+  LANGSMITH_PROJECT: document-intelligence-model-eval-server
+
+services:
+  api:
+    env_file: [.env, model-eval-results/model-config.env]
+    environment:
+      <<: *tracing
+  worker:
+    env_file: [.env, model-eval-results/model-config.env]
+    environment:
+      <<: *tracing
+  model-eval:
+    image: di-standalone-api
+    pull_policy: never
+    profiles: [eval]
+    restart: "no"
+    environment:
+      ENV_FILE: /run/di/.env
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      LANGSMITH_API_KEY: ${LANGSMITH_API_KEY:-}
+      LANGCHAIN_API_KEY: ${LANGSMITH_API_KEY:-}
+      LANGCHAIN_PROJECT: document-intelligence-model-eval
+      LANGSMITH_PROJECT: document-intelligence-model-eval
+      MODEL_EVAL_OUT: /repo/model-eval-results
+      MODEL_EVAL_API: http://api:8000/api/knowledge
+      MODEL_EVAL_JUDGE_MODEL: ${MODEL_EVAL_JUDGE_MODEL:-gpt-5.6-terra}
+      GITHUB_SHA: ${GITHUB_SHA:-}
+      GITHUB_RUN_ID: ${GITHUB_RUN_ID:-}
+    volumes:
+      - ./.env:/run/di/.env:ro
+      - ./evals:/repo/evals:ro
+      - ./backend/samples:/repo/backend/samples:ro
+      - ./deploy:/repo/deploy:ro
+      - ./model-eval-results:/repo/model-eval-results
+    working_dir: /repo
+    entrypoint: [python, /repo/evals/model_eval/run.py]
+    command: []

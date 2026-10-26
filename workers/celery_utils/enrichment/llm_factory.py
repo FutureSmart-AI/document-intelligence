@@ -107,11 +107,16 @@ ENRICHMENT_MODELS = {
         "supports_reasoning_effort": True,
         "reasoning_effort": "none",  # disables reasoning for 5.4 models
     },
+    # The platform fallback model. "medium", not "none": with no reasoning it does date
+    # arithmetic in one shot and miscounts. On the 24 sample resumes (3 runs each, with the
+    # Reference date section) years_of_experience was right 68/72 at "none", 70/72 at "low"
+    # and 72/72 at "medium", for ~370 extra reasoning tokens per document
+    # (backend/samples/resumes/EXTRACTION-YEARS-2026-10-25.md).
     "gpt-5.4-nano": {
         "provider": "openai",
         "supports_temperature": False,
         "supports_reasoning_effort": True,
-        "reasoning_effort": "none",  # disables reasoning for 5.4 models
+        "reasoning_effort": "medium",
     },
     # GPT-5.6 "Terra" — OpenAI's balanced tier, the 5.6-family successor to the
     # mini tier (per developers.openai.com/api/docs/models/gpt-5.6-terra).
@@ -160,6 +165,23 @@ ENRICHMENT_MODELS = {
         "supports_temperature": False,
         "supports_reasoning_effort": True,
         "reasoning_effort": "high",
+    },
+    # Production extraction candidate (2026-10-26): luna at "low". The model evaluation
+    # measured it the most accurate extraction model, 980/984 fields against 967/984 for
+    # gpt-5.4-nano at "medium", at about half the cost
+    # (evals/model_eval/RESULTS-2026-10-26.md). It is a separate name, not a change to
+    # "gpt-5.6-luna", because plain luna at "none" is also RICH_MODE_ENRICHMENT_MODEL
+    # (processing_modes.py) and that path was not measured at "low". Selecting it is a
+    # config change: enrichment_default_config (PATCH /v1/admin/enrichment-config) or a
+    # collection's enrichment_model. The API keeps a mirror of this entry
+    # (backend/utils/enrichment/model_registry.py); tests/unit/test_enrichment_model_registry.py
+    # fails when the two disagree.
+    "gpt-5.6-luna-low": {
+        "provider": "openai",
+        "api_model": "gpt-5.6-luna",
+        "supports_temperature": False,
+        "supports_reasoning_effort": True,
+        "reasoning_effort": "low",
     },
     # GPT-5.6 "Luna" — the budget tier of the 5.6 family, "roughly corresponds to
     # the nano model tier" per developers.openai.com/api/docs/models/gpt-5.6-luna.
@@ -265,14 +287,58 @@ def _api_model(model_name: str) -> str:
     return model_name
 
 
+def served_model_identity(model_name: Optional[str]) -> dict:
+    """What a call configured as ``model_name`` actually sent to the provider.
+
+    ``{"model": <wire model id>, "configured_model": <registry name, only when it
+    differs>, "reasoning_effort": <effort sent, only for reasoning models>}``.
+
+    Every record of an enrichment call (document telemetry, the enrichment-health
+    event, the usage event) names the WIRE model, because that is what the provider
+    bills and what every price table is keyed on: "gpt-5.6-luna-low" has no price,
+    "gpt-5.6-luna" does. The registry name and the effort travel beside it, so a
+    record still says which configuration ran.
+    """
+    if not model_name:
+        return {"model": model_name}
+    identity = {"model": _api_model(model_name)}
+    if identity["model"] != model_name:
+        identity["configured_model"] = model_name
+    if _supports_reasoning_effort(model_name):
+        identity["reasoning_effort"] = _get_reasoning_effort(model_name)
+    return identity
+
+
 def _supports_reasoning_effort(model_name: str) -> bool:
     """Check if a model supports reasoning_effort configuration."""
     model_config = ENRICHMENT_MODELS.get(model_name)
     return bool(model_config and model_config.get("supports_reasoning_effort"))
 
 
+REASONING_EFFORTS = ("none", "minimal", "low", "medium", "high", "xhigh")
+
+
+def _reasoning_effort_override() -> Optional[str]:
+    """ENRICHMENT_REASONING_EFFORT, when set, replaces the registry's effort for every
+    reasoning-capable enrichment model in this worker. It exists so a model evaluation
+    (evals/model_eval) can compare e.g. gpt-5.4-nano at "low" and "medium" through the
+    real worker; production leaves it unset and keeps the per-model registry values.
+    An unknown value is a configuration error, not something to guess around."""
+    import os
+
+    value = os.getenv("ENRICHMENT_REASONING_EFFORT", "").strip().lower()
+    if not value:
+        return None
+    if value not in REASONING_EFFORTS:
+        raise ValueError(f"ENRICHMENT_REASONING_EFFORT={value!r}; expected one of {REASONING_EFFORTS}")
+    return value
+
+
 def _get_reasoning_effort(model_name: str) -> str:
     """Return the reasoning effort value for a model ('minimal', None, etc.)."""
+    override = _reasoning_effort_override()
+    if override:
+        return override
     model_config = ENRICHMENT_MODELS.get(model_name)
     if model_config and "reasoning_effort" in model_config:
         return model_config["reasoning_effort"]
@@ -469,7 +535,7 @@ def get_enrichment_llm(
         openai_kwargs = dict()
         if _supports_reasoning_effort(model):
             openai_kwargs["reasoning"] = {"effort": "low"}
-        llm = ChatOpenAI(openai_api_key=api_key, model_name=model, temperature=temperature, **openai_kwargs)
+        llm = ChatOpenAI(openai_api_key=api_key, model_name=_api_model(model), temperature=temperature, **openai_kwargs)
         return llm, key_type
 
 
@@ -544,7 +610,7 @@ def get_enrichment_config(knowledge_config, processing_mode=None) -> Tuple[str, 
                                  the stronger model named in processing_modes.py
     3. Global DB default       — enrichment_default_config table (id=1)
     4. Env var                 — ENRICHMENT_MODEL + inferred provider
-    5. Hardcoded default       — openai / gpt-5-mini / 0.0
+    5. Hardcoded default       — openai / gpt-5.4-mini / 0.0
 
     The mode sits *below* the per-knowledge override on purpose: a knowledge base whose
     owner picked an enrichment model keeps it whatever the document looks like. The mode
@@ -562,7 +628,7 @@ def get_enrichment_config(knowledge_config, processing_mode=None) -> Tuple[str, 
     from celery_utils.db.db_utils import get_enrichment_default_config_sync
     from celery_utils.processing.processing_modes import enrichment_override_for_mode
 
-    hardcoded_model = DEFAULT_ENRICHMENT_MODEL or "gpt-5-mini"
+    hardcoded_model = DEFAULT_ENRICHMENT_MODEL or "gpt-5.4-mini"
     hardcoded_provider = get_provider_from_model(hardcoded_model)
     hardcoded_temperature = 0.0
 

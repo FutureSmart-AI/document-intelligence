@@ -380,7 +380,15 @@ DOMAIN_FIELD_TEMPLATES = {
         },
         {
             "field_name": "years_of_experience",
-            "description": "Total years of professional experience, as a whole number. Compute from the employment history when not stated explicitly; use 0 for freshers.",
+            "description": (
+                "Total years of paid professional work across the whole career, as a whole number, "
+                "computed from the dated jobs in the work history. Start at the start year of the "
+                "earliest job that is not an internship (jobs in an earlier career count) and end at "
+                "the latest end year, where 'Present' or an open end means the reference date's year. "
+                "Subtract the years of any break between jobs (study, a bootcamp, a career break). "
+                "A figure the resume states for only part of the career (for example 'seven years of "
+                "teaching') is not the total. Use 0 when the only work is internships."
+            ),
             "field_type": "int",
             "is_active": True,
             "is_custom": False,

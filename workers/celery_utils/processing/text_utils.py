@@ -11,6 +11,7 @@ from celery_utils.indexing.indexer import index_in_vectordb
 from celery_utils.processing.s3_utils import upload_extracted_text_to_s3
 from celery_utils.shared.user_usage_tracking import send_text_processing_event, get_owner_id_from_service_id
 from celery_utils.shared.tracing import track_time, mark_indexing_time, reset_embedding_cost, get_embedding_cost
+from celery_utils.shared import document_telemetry
 from langsmith import traceable
 
 
@@ -46,16 +47,23 @@ def process_and_index_text(user_id: Optional[str], knowledge_id: str, object_id:
         if status == "completed":
             logger.info(f"Task already completed for object_id={object_id}, skipping")
             return
+        document_telemetry.start(object_id)
 
         # Step 1: Fetch text content from S3 presigned URL
         update_processing_status(knowledge_id, object_id, "extracting")
         logger.info(f"Fetching text from S3 for object_id={object_id}")
+        _parse_t0 = time.time()
         try:
             text = _read_text_from_s3_presigned(text_url)
             logger.info(f"Fetched text from S3: chars={len(text)}")
         except Exception as e:
             logger.error(f"Failed to read text from S3 URL: {e}")
             raise
+        # Plain text needs no parser; the step is fetching it.
+        document_telemetry.record_parse(
+            object_id, parser="plain_text", mode="text_based",
+            ms=int((time.time() - _parse_t0) * 1000), chars=len(text),
+        )
 
         # Step 2: Enrich — add metadata, summaries, and chunk the text via LLM
         update_processing_status(knowledge_id, object_id, "enriching")

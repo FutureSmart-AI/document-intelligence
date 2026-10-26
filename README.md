@@ -15,6 +15,7 @@ capabilities through APIs.
 **[Try the Live Application](https://futuresmart.ai/solutions/document-intelligence)** ·
 **[View Installation Guide](#install)** ·
 **[Developer docs](https://futuresmart.ai/docs/document-intelligence)** ·
+**[Product capabilities](docs/product-capabilities.md)** ·
 **[Explore the API](docs/api/rag-service.md)**
 
 Open source · Apache-2.0 · Self-hostable · API accessible
@@ -94,6 +95,9 @@ What it does:
   audio. Text-based files and web pages are read locally; scanned, layout and
   visual modes use an optional LlamaParse key, and Firecrawl is an optional
   scraper.
+- **Charts.** Aggregate questions ("how many candidates per skill") return a
+  chart computed over every matching document's extracted fields, drawn
+  in-process with the same `OPENAI_API_KEY`.
 - **Structured extraction.** Define fields with types and descriptions; each
   document's values appear in a typed table you can inspect and export as CSV.
 - **Grounded answers.** Ask questions about a collection or chosen documents and
@@ -195,7 +199,7 @@ queues. Never use `down -v` as a rollback. See [installation](docs/installation.
 
 ## Guides
 
-[Installation](docs/installation.md) · [Configuration and model profiles](docs/configuration.md) ·
+[Product capabilities](docs/product-capabilities.md) · [Installation](docs/installation.md) · [Configuration and model profiles](docs/configuration.md) ·
 [Architecture](docs/architecture.md) · [Development](docs/development.md) ·
 [AWS ECS/Fargate deployment](docs/deployment/aws.md) · [Publication and source export](docs/publication.md)
 

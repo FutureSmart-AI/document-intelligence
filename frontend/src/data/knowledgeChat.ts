@@ -104,6 +104,8 @@ export interface KnowledgeWireMessage {
   llm_provider?: string | null;
   model?: string | null;
   is_answered?: boolean | string | null;
+  /** The turn's usage block, stored with it; null for turns stored before that. */
+  usage?: Record<string, unknown> | null;
 }
 
 /**
@@ -135,13 +137,16 @@ export function toConversationData(messages: KnowledgeWireMessage[]) {
 /**
  * The run report a stored turn can still supply.
  *
- * `usage` and `debug_info` ride the live stream only — the service does not
- * keep them — so a reloaded turn logs what it did and which model did it, but
- * not what it cost. `stored` is what tells the panel to say so instead of
- * printing zero.
+ * The service stores the turn's `usage` block with it, so a reloaded turn shows
+ * the same timings, models and cost as it did live. `debug_info` is still
+ * live-only, and turns stored before `usage` was kept have none — `stored` plus
+ * a missing `usage` is what tells the panel to say so instead of printing zero.
  */
 function storedRunBlock(message: KnowledgeWireMessage): DiRunBlock | undefined {
   const block: DiRunBlock = {
+    ...(message.usage && typeof message.usage === "object"
+      ? { usage: message.usage }
+      : {}),
     ...(message.refined_query ? { refined_query: message.refined_query } : {}),
     ...(message.llm_provider ? { llm_provider: message.llm_provider } : {}),
     ...(message.model ? { model: message.model } : {}),

@@ -1,0 +1,16 @@
+{
+  "sample_key": "resumes",
+  "owner_id": "document-intelligence-samples@futuresmart.ai",
+  "collection_name": "Sample: candidate resumes",
+  "service_description": "24 fictional resumes for trying Document Intelligence. Every person, employer and school is invented; emails use reserved example domains.",
+  "field_template": "resume",
+  "documents": "pdf/*.pdf",
+  "suggested_questions": [
+    "Which candidates know Python and AWS and have at least 5 years of experience?",
+    "Which candidates are based in or open to Bengaluru?",
+    "Which candidates hold a master's degree or a PhD?",
+    "Which candidates know both Kubernetes and Terraform?",
+    "Chart the number of candidates by education level"
+  ],
+  "_suggested_questions_source": "Each question was answered exactly against ground_truth.json on the live sample 7c37eb7d-7f1f-448c-9322-1a24203bd18f. q01 got 8/8 and q07 got 5/5 on :230 and again on :234 (live_sample/answers.json). q08 got 9/9 and 'Kubernetes and Terraform' got 4/4, each on two runs on :237 (live_sample/answers-237-run*.json). 'Three most experienced' was left out: it picks the right people but prints Daniel Okafor as 14 years against 16 in ground truth (an extraction miscount). Add a question here only after it is verified the same way, then run scripts.provision_sample --update-questions. The education-level chart was verified on :238, two runs: a bar chart of bachelors 15, masters 8, phd 1, exactly ground truth (live_sample/answers-238-chart-run*.json; chart pipeline verified by di-chart-verify). The skills, seniority and years charts are left out because their counts follow extraction errors, not ground truth. q07 (Bengaluru) was removed on :240. Six runs: 5 exact, and one returned 3 of 5, dropping Kavya Reddy and Vikram Singh (live_sample/bengaluru-240-runs.json). A suggested question has to be reliable; re-add it once the chat path answers it exactly every time. q07 was restored on :241 (di-metadata-qa's fix, PR 69): 6/6 exact on my own runs (live_sample/bengaluru-241-runs.json), plus 8/8 by di-metadata-qa. On :241 every other suggested question and both charts were re-checked and are still exact. Re-provisioned on 2026-10-25 after the years-of-experience extraction fix (PR 72, knowledge:242, workers:139): the live sample is now c4d3189f-8f93-4fa9-8f75-07ad08bd71c8 (7c37eb7d kept, no longer the sample). Every suggested question was re-asked twice and is exact (live_sample/answers-242-*.json); the education chart equals ground truth (live_sample/charts-242.json). 'Three most experienced' now answers 18/16/15 correctly 2/2 (EXTRACTION-YEARS-2026-10-25.md)."
+}

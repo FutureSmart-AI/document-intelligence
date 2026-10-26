@@ -187,6 +187,39 @@ def retrieve_knowledge_processing_status(knowledge_id: str, object_id: str):
         logger.error(f"Error retrieving processing status: {e}")
         return None
 
+def save_processing_telemetry(knowledge_id: str, object_id: str, telemetry: Optional[Dict[str, Any]]) -> bool:
+    """Write one document's processing telemetry (celery_utils/shared/
+    document_telemetry.py) to ``document.processing_telemetry`` (migration 056).
+
+    Its own statement, after the status write has committed, and never raises:
+    a schema without the column (migration not yet run) loses the telemetry,
+    never the document's status. Raw SQL rather than a mapped field on this
+    repo's Document model for the same reason -- a mapped column the database
+    lacks would break every Document read in the worker.
+    """
+    if not telemetry:
+        return False
+    try:
+        with get_session() as session:
+            session.execute(
+                text(
+                    "UPDATE document SET processing_telemetry = CAST(:telemetry AS JSONB) "
+                    "WHERE knowledge_id = :knowledge_id AND object_id = :object_id AND deleted = false"
+                ),
+                {"telemetry": json.dumps(telemetry, default=str),
+                 "knowledge_id": knowledge_id, "object_id": object_id},
+            )
+            session.commit()
+        logger.info(
+            f"Saved processing telemetry for object_id={object_id}: total_ms={telemetry.get('total_ms')}, "
+            f"operations={[(o.get('operation'), o.get('model')) for o in telemetry.get('operations') or []]}"
+        )
+        return True
+    except Exception as e:
+        logger.warning(f"Processing telemetry not saved for object_id={object_id}: {e}")
+        return False
+
+
 @track_time("DB: Update Processing Status")
 def update_processing_status(knowledge_id: str, object_id: str, status: str, error_detail: str = None):
     try:
@@ -198,6 +231,12 @@ def update_processing_status(knowledge_id: str, object_id: str, status: str, err
                     document.error_detail = error_detail[:2000]
                 session.commit()
                 logger.info(f"Updated status to '{status}' for object_id={object_id}")
+                if status == "failed":
+                    # A failed document keeps what it spent before failing.
+                    from celery_utils.shared import document_telemetry
+                    save_processing_telemetry(
+                        knowledge_id, object_id, document_telemetry.finish(object_id, status="failed")
+                    )
                 return 1
             logger.warning(f"Document not found for status update. knowledge_id={knowledge_id}, object_id={object_id}")
             return 0
@@ -229,6 +268,11 @@ def mark_task_completed(knowledge_id: str, object_id: str, processing_start_time
                     document.document_processing_mode = effective_mode
                 session.commit()
                 logger.info(f"Task completed for object_id={object_id}, duration: {duration_ms}ms")
+                from celery_utils.shared import document_telemetry
+                save_processing_telemetry(
+                    knowledge_id, object_id,
+                    document_telemetry.finish(object_id, status="completed", total_ms=duration_ms),
+                )
                 return duration_ms
             logger.warning(f"Document not found for task completion. knowledge_id={knowledge_id}, object_id={object_id}")
             return 0

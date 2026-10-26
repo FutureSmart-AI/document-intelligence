@@ -59,6 +59,7 @@ blindly.
 from __future__ import annotations
 
 import operator
+import time
 from typing import Annotated, Any, Dict, List, Optional, TypedDict
 
 from langgraph.graph import END, START, StateGraph
@@ -69,6 +70,7 @@ from chat.chart_node import chart_node
 from chat.follow_up import follow_up_node
 from chat.query_refiner import query_refiner_node
 from chat.rag_node import rag_node
+from chat.run_usage import build_usage_block, collect_run_usage, usage_operation
 from utils.logger import logger
 
 
@@ -185,6 +187,11 @@ async def _query_refiner_graph_node(state: KnowledgeChatState) -> Dict[str, Any]
     the LLM chain internally), so calling it without awaiting would hand
     LangGraph an un-awaited coroutine as the "state update" instead of a dict.
     """
+    with usage_operation("query_refinement"):
+        return await _query_refiner_call(state)
+
+
+async def _query_refiner_call(state: KnowledgeChatState) -> Dict[str, Any]:
     return await query_refiner_node(
         query=state["query"],
         past_messages=state.get("past_messages"),
@@ -233,14 +240,22 @@ async def _rag_graph_node(state: KnowledgeChatState) -> Dict[str, Any]:
 async def _chart_graph_node(state: KnowledgeChatState) -> Dict[str, Any]:
     """Thin LangGraph wrapper: unpack state -> chart_node's plain parameters,
     repack its return dict as a partial state update. Runs after rag so it
-    has detailed_chunks to work with; never raises (chart_node swallows its
+    has rag's document population (summaries / rag_context) and
+    detailed_chunks to work with; never raises (chart_node swallows its
     own failures)."""
+    with usage_operation("chart_render"):
+        return await _chart_call(state)
+
+
+async def _chart_call(state: KnowledgeChatState) -> Dict[str, Any]:
     return await chart_node(
         query=state.get("refined_query") or state["query"],
         knowledge_id=state["knowledge_id"],
         owner_id=state.get("owner_id"),
         detailed_chunks=state.get("detailed_chunks"),
         session_id=state.get("session_id"),
+        summaries=state.get("summaries"),
+        rag_context=state.get("rag_context"),
     )
 
 
@@ -251,9 +266,14 @@ async def _follow_up_graph_node(state: KnowledgeChatState) -> Dict[str, Any]:
     Uses the ORIGINAL query, not refined_query: the follow-ups are shown to
     the user, so they should follow from what the user actually asked.
     Never raises (follow_up_node swallows its own failures)."""
+    with usage_operation("follow_up"):
+        return await _follow_up_call(state)
+
+
+async def _follow_up_call(state: KnowledgeChatState) -> Dict[str, Any]:
     return await follow_up_node(
         query=state["query"],
-        response=state.get("response") or state.get("relevant_context") or "",
+        response=state.get("response") or "",
         is_answered=state.get("is_answered"),
         owner_id=state.get("owner_id"),
         past_messages=state.get("past_messages"),
@@ -417,4 +437,16 @@ async def run_knowledge_chat_graph(
         md["chat_id"] = str(chat_id)
     if session_id:
         md["session_id"] = session_id
-    return await _traced_graph_invoke(initial_state, langsmith_extra={"metadata": md})
+    # Every model call the turn makes — whichever node, sub-agent, fallback or
+    # helper makes it — is counted by one run-level collector, and the turn's
+    # `usage` block is built from that count (chat/run_usage.py). The block is
+    # what the API returns, streams, persists with the turn and what the health
+    # event's tokens/cost come from, so all four agree by construction.
+    started = time.perf_counter()
+    with collect_run_usage() as collector:
+        final_state = await _traced_graph_invoke(initial_state, langsmith_extra={"metadata": md})
+    latency_ms = int((time.perf_counter() - started) * 1000)
+    final_state["usage"] = build_usage_block(
+        collector, latency_ms, final_state.get("service_calls") or []
+    )
+    return final_state

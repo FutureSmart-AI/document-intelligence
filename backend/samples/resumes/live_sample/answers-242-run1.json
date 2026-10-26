@@ -1,0 +1,757 @@
+{
+  "q01": {
+    "id": "q01",
+    "category": "structured_fields",
+    "question": "Which candidates know Python and AWS and have at least 5 years of experience?",
+    "seconds": 12.4,
+    "chat_id": "11b171b6-4b55-491d-907a-8eed7788b0e9",
+    "refined_query": "Which candidates know Python and AWS and have at least 5 years of experience?",
+    "response": "These candidates match **Python + AWS** and have **at least 5 years of experience**:\n\n| Candidate | Years of experience | Current role |\n|---|---:|---|\n| Rohan Deshpande | 15 | Principal Data Engineer |\n| Arjun Malhotra | 7 | Senior AI Engineer |\n| Anjali Nair | 6 | Senior Data Engineer |\n| Oliver Schmidt | 10 | Lead MLOps Engineer |\n| Aarav Mehta | 8 | Senior Machine Learning Engineer |\n| Nadia Haddad | 9 | Senior Site Reliability Engineer |\n| Rahul Verma | 5 | DevOps Engineer |\n| Siddharth Rao | 13 | Staff Machine Learning Engineer |\n\nTotal: **8 candidates**.",
+    "error": null,
+    "debug_info": {
+      "enabled": true,
+      "latency_ms": null,
+      "type": "agentic_rag",
+      "is_answered": "yes",
+      "previous_context_used": true,
+      "document_ids": []
+    },
+    "sources": [
+      "r18-rohan-deshpande.pdf",
+      "r16-arjun-malhotra.pdf",
+      "r12-michael-brennan.pdf",
+      "r13-zoya-ahmed.pdf",
+      "r11-anjali-nair.pdf",
+      "r21-emily-carter.pdf",
+      "r14-oliver-schmidt.pdf",
+      "r01-aarav-mehta.pdf",
+      "r19-nadia-haddad.pdf",
+      "r02-priya-raghunathan.pdf",
+      "r05-rahul-verma.pdf",
+      "r03-daniel-okafor.pdf",
+      "r22-siddharth-rao.pdf",
+      "r08-fatima-sheikh.pdf"
+    ],
+    "tool_responses": [
+      {
+        "tool": "retrieve_metadata_catalog",
+        "tool_call_id": "call_prefetched_metadata_catalog",
+        "result_type": "str"
+      },
+      {
+        "tool": "retrieve_metadata_catalog",
+        "tool_call_id": "call_1GbS9LfNEaEG4MuPZkKroqGM",
+        "catalog_fields": 1
+      },
+      {
+        "tool": "retrieve_documents",
+        "tool_call_id": "call_msW02Oq9TIsMeinRBOJakpxP",
+        "question_shape": "predicate",
+        "applied_filter": {
+          "skills": {
+            "$in": [
+              "python",
+              "aws"
+            ]
+          },
+          "years_of_experience": {
+            "gte": 5
+          }
+        },
+        "retrieval_mode": "hybrid_query",
+        "count": 14,
+        "total_match_count": 14,
+        "truncated": false,
+        "total_is_lower_bound": false,
+        "semantic_candidate_count": 14,
+        "population_complete": true,
+        "documents": [
+          "r18-rohan-deshpande.pdf",
+          "r16-arjun-malhotra.pdf",
+          "r12-michael-brennan.pdf",
+          "r13-zoya-ahmed.pdf",
+          "r11-anjali-nair.pdf",
+          "r21-emily-carter.pdf",
+          "r14-oliver-schmidt.pdf",
+          "r01-aarav-mehta.pdf",
+          "r19-nadia-haddad.pdf",
+          "r02-priya-raghunathan.pdf",
+          "r05-rahul-verma.pdf",
+          "r03-daniel-okafor.pdf",
+          "r22-siddharth-rao.pdf",
+          "r08-fatima-sheikh.pdf"
+        ]
+      },
+      {
+        "tool": "RagAgentOutput",
+        "tool_call_id": "call_25aNaVc2WWSrSGqAw1nnAPQD",
+        "result_type": "str"
+      }
+    ],
+    "retrieval_attempts": 1,
+    "verifier_verdicts": [
+      {
+        "sufficient": true,
+        "confidence": "high",
+        "missing": "",
+        "reason": "A COMPLETE matching population of 14 candidate documents was retrieved using the exact filter conditions for the question (skills include both Python and AWS, and years_of_experience >= 5), and the needed fields (candidate_name/candidate_email/skills/years_of_experience) are present in all retrieved documents’ metadata.",
+        "suggested_action": ""
+      }
+    ],
+    "agent_output": {
+      "stop_reason": "answered",
+      "confidence": "high",
+      "granularity": "doc",
+      "question_shape": null
+    },
+    "chart": false
+  },
+  "q05": {
+    "id": "q05",
+    "category": "structured_fields",
+    "question": "What is the distribution of years of experience across candidates? Show a chart.",
+    "seconds": 19.6,
+    "chat_id": "41c3fe50-c98e-4619-bffa-8fb11589a535",
+    "refined_query": "What is the distribution of years of experience across candidates? Show a chart.",
+    "response": "Here is the distribution of years of experience across the 24 candidates:\n\n| Years of experience | Candidates |\n|---|---:|\n| 0-2 | 4 |\n| 3-5 | 6 |\n| 6-8 | 5 |\n| 9-11 | 4 |\n| 12-14 | 2 |\n| 15-17 | 2 |\n| 18+ | 1 |",
+    "error": null,
+    "debug_info": {
+      "enabled": true,
+      "latency_ms": null,
+      "type": "agentic_rag",
+      "is_answered": "yes",
+      "previous_context_used": true,
+      "document_ids": []
+    },
+    "sources": [
+      "r18-rohan-deshpande.pdf",
+      "r16-arjun-malhotra.pdf",
+      "r17-grace-liu.pdf",
+      "r12-michael-brennan.pdf",
+      "r15-kavya-reddy.pdf",
+      "r13-zoya-ahmed.pdf",
+      "r11-anjali-nair.pdf",
+      "r21-emily-carter.pdf",
+      "r09-lucas-fernandez.pdf",
+      "r20-vikram-singh.pdf",
+      "r14-oliver-schmidt.pdf",
+      "r01-aarav-mehta.pdf",
+      "r19-nadia-haddad.pdf",
+      "r10-ishaan-chatterjee.pdf",
+      "r06-meera-iyer.pdf",
+      "r02-priya-raghunathan.pdf",
+      "r07-kenji-watanabe.pdf",
+      "r04-sneha-kulkarni.pdf",
+      "r23-hannah-becker.pdf",
+      "r05-rahul-verma.pdf",
+      "r03-daniel-okafor.pdf",
+      "r22-siddharth-rao.pdf",
+      "r24-tanvi-joshi.pdf",
+      "r08-fatima-sheikh.pdf"
+    ],
+    "tool_responses": [
+      {
+        "tool": "retrieve_metadata_catalog",
+        "tool_call_id": "call_prefetched_metadata_catalog",
+        "result_type": "str"
+      },
+      {
+        "tool": "retrieve_documents",
+        "tool_call_id": "call_sZUuIBNzt4LWkRt4OgCunN80",
+        "question_shape": "aggregate",
+        "applied_filter": null,
+        "retrieval_mode": "hybrid_query",
+        "count": 24,
+        "total_match_count": 24,
+        "truncated": false,
+        "total_is_lower_bound": false,
+        "semantic_candidate_count": 24,
+        "population_complete": true,
+        "documents": [
+          "r18-rohan-deshpande.pdf",
+          "r16-arjun-malhotra.pdf",
+          "r17-grace-liu.pdf",
+          "r12-michael-brennan.pdf",
+          "r15-kavya-reddy.pdf",
+          "r13-zoya-ahmed.pdf",
+          "r11-anjali-nair.pdf",
+          "r21-emily-carter.pdf",
+          "r09-lucas-fernandez.pdf",
+          "r20-vikram-singh.pdf",
+          "r14-oliver-schmidt.pdf",
+          "r01-aarav-mehta.pdf",
+          "r19-nadia-haddad.pdf",
+          "r10-ishaan-chatterjee.pdf",
+          "r06-meera-iyer.pdf",
+          "r02-priya-raghunathan.pdf",
+          "r07-kenji-watanabe.pdf",
+          "r04-sneha-kulkarni.pdf",
+          "r23-hannah-becker.pdf",
+          "r05-rahul-verma.pdf",
+          "r03-daniel-okafor.pdf",
+          "r22-siddharth-rao.pdf",
+          "r24-tanvi-joshi.pdf",
+          "r08-fatima-sheikh.pdf"
+        ]
+      },
+      {
+        "tool": "RagAgentOutput",
+        "tool_call_id": "call_xf64QRgXuB1JtE8BM2CcgBy0",
+        "result_type": "str"
+      }
+    ],
+    "retrieval_attempts": 1,
+    "verifier_verdicts": [
+      {
+        "sufficient": true,
+        "confidence": "high",
+        "missing": "",
+        "reason": "The retrieval performed a COMPLETE aggregate over all 24 matching candidate documents for the `years_of_experience` field (no filter), with computed summary stats and full field coverage (24/24 present), which is sufficient to produce the requested distribution and chart.",
+        "suggested_action": ""
+      }
+    ],
+    "agent_output": {
+      "stop_reason": "answered",
+      "confidence": "high",
+      "granularity": "doc",
+      "question_shape": null
+    },
+    "chart": true
+  },
+  "q07": {
+    "id": "q07",
+    "category": "structured_fields",
+    "question": "Which candidates are based in or open to Bengaluru?",
+    "seconds": 29.3,
+    "chat_id": "2a26ce32-e5c6-4336-852f-c96087a03827",
+    "refined_query": "Which candidates are based in or open to Bengaluru?",
+    "response": "Candidates based in or open to Bengaluru:\n\n- Aarav Mehta — based in Bengaluru\n- Anjali Nair — relocating to Bengaluru and open to Bengaluru\n- Ishaan Chatterjee — open to Bengaluru\n- Kavya Reddy — based in Bengaluru\n- Vikram Singh — based in Bengaluru",
+    "error": null,
+    "debug_info": {
+      "enabled": true,
+      "latency_ms": null,
+      "type": "agentic_rag",
+      "is_answered": "yes",
+      "previous_context_used": true,
+      "document_ids": [
+        "0cc9dee1-2c56-41b6-b94e-e0470b3791fa",
+        "0ff9c26a-649e-59b4-87bb-7f0e959ad23b",
+        "41497ac6-ee78-43ec-84db-ce04cea2c407",
+        "ab9acf36-bdf6-424e-8b0b-9b67fb951dca"
+      ]
+    },
+    "sources": [
+      "r15-kavya-reddy.pdf",
+      "r11-anjali-nair.pdf",
+      "r10-ishaan-chatterjee.pdf"
+    ],
+    "tool_responses": [
+      {
+        "tool": "retrieve_metadata_catalog",
+        "tool_call_id": "call_vNQazalwmfZKJ9L98k6uxeQn",
+        "catalog_fields": 1
+      },
+      {
+        "tool": "retrieve_documents",
+        "tool_call_id": "call_28vEJRlNC6OMZUbDJZ0Y1jVM",
+        "question_shape": "predicate",
+        "applied_filter": {
+          "locations": "Bengaluru"
+        },
+        "retrieval_mode": "hybrid_query",
+        "count": 5,
+        "total_match_count": 5,
+        "truncated": false,
+        "total_is_lower_bound": false,
+        "semantic_candidate_count": 5,
+        "population_complete": true,
+        "documents": [
+          "r15-kavya-reddy.pdf",
+          "r11-anjali-nair.pdf",
+          "r20-vikram-singh.pdf",
+          "r01-aarav-mehta.pdf",
+          "r10-ishaan-chatterjee.pdf"
+        ]
+      },
+      {
+        "tool": "RagAgentOutput",
+        "tool_call_id": "call_51GpsNsBGa5lw5CH07fMIiz1",
+        "result_type": "str"
+      },
+      {
+        "tool": "retrieve_metadata_catalog",
+        "tool_call_id": "call_prefetched_metadata_catalog",
+        "result_type": "str"
+      },
+      {
+        "tool": "retrieve_chunks",
+        "tool_call_id": "call_TtTRlsPbz1zYhutjAdcJutFC",
+        "question_shape": "predicate",
+        "count": 0,
+        "error": "retrieve_chunks cannot answer a 'predicate' question: a chunk search returns a ranked sample, not every matching document. Call retrieve_documents with question_shape='predicate', a metadata_filter for the conditions. For evidence inside specific documents, pass their object_ids here."
+      },
+      {
+        "tool": "retrieve_chunks",
+        "tool_call_id": "call_jGbvULxZuUFR8lH7ysYNuWRE",
+        "question_shape": "multi_doc_synthesis",
+        "query": "Bengaluru Bangalore open to relocate willing to relocate relocation preferred location",
+        "count": 4,
+        "chunk_count": 4,
+        "chunk_docs": [
+          "r01-aarav-mehta.pdf",
+          "r10-ishaan-chatterjee.pdf",
+          "r11-anjali-nair.pdf",
+          "r15-kavya-reddy.pdf"
+        ]
+      },
+      {
+        "tool": "RagAgentOutput",
+        "tool_call_id": "call_bTae5PAdq1cOvA1uOnk2w8mN",
+        "result_type": "str"
+      }
+    ],
+    "retrieval_attempts": 2,
+    "verifier_verdicts": [
+      {
+        "sufficient": false,
+        "confidence": "high",
+        "missing": "The retrieval filter appears to match candidates whose `locations` metadata explicitly contains “Bengaluru”, but the question asks for candidates “based in or open to Bengaluru” (including relocation/open-to statements that may not be encoded as `locations=Bengaluru`). No chunks were retrieved, so we can’t verify “open to” from the resume text.",
+        "reason": "Although a COMPLETE set of 5 documents matched `locations` containing Bengaluru, the evidence doesn’t cover the full “based in or open to” condition and contains no text excerpts to confirm openness/relocation beyond the metadata filter.",
+        "suggested_action": "Re-run retrieval with question_shape='predicate' and a broadened predicate that captures both (a) `locations contains 'Bengaluru'` and (b) “open to/relocating to” Bengaluru as text signals; e.g., retrieve_documents with a predicate combining location metadata and resume-text indicators (Bengaluru/Bangalore + 'open to', 'relocating', 'willing', 'looking for', 'available in')."
+      }
+    ],
+    "agent_output": {
+      "stop_reason": "answered",
+      "confidence": "high",
+      "granularity": "chunk",
+      "question_shape": null
+    },
+    "chart": true
+  },
+  "q08": {
+    "id": "q08",
+    "category": "structured_fields",
+    "question": "Which candidates hold a master's degree or a PhD?",
+    "seconds": 21.1,
+    "chat_id": "37370e6a-6f07-4917-963f-0171d94c86af",
+    "refined_query": "Which candidates hold a master's degree or a PhD?",
+    "response": "Candidates holding a master’s degree or a PhD:\n\n- Grace Liu — Master’s\n- Michael Brennan — Master’s\n- Zoya Ahmed — Master’s\n- Oliver Schmidt — Master’s\n- Aarav Mehta — Master’s\n- Meera Iyer — Master’s\n- Priya Raghunathan — Master’s\n- Kenji Watanabe — PhD\n- Siddharth Rao — Master’s\n\n| Education level | Candidates |\n|---|---:|\n| masters | 8 |\n| phd | 1 |",
+    "error": null,
+    "debug_info": {
+      "enabled": true,
+      "latency_ms": null,
+      "type": "agentic_rag",
+      "is_answered": "yes",
+      "previous_context_used": true,
+      "document_ids": [
+        "11e57093-269b-47ca-9948-b8d089b5e587",
+        "3609c1c3-45fb-4bf3-b33b-4c7721488854",
+        "3e3f5153-ff27-4960-a14e-2759bdc9ced8",
+        "4201a04a-b9fd-43eb-8e82-80149a516403",
+        "4716472c-9dc2-48a9-91f8-3b6700436789",
+        "899f85d9-baf5-4b2d-8eab-22c62e59526c",
+        "bb3e9ca3-03fa-44e6-a73a-4fe561fe0a96",
+        "c957a108-306b-4e98-a6f2-fc2858cb7fbb",
+        "d463f890-73be-453d-9bd7-0db26dc4f7d4"
+      ]
+    },
+    "sources": [
+      "r17-grace-liu.pdf",
+      "r12-michael-brennan.pdf",
+      "r13-zoya-ahmed.pdf",
+      "r14-oliver-schmidt.pdf",
+      "r01-aarav-mehta.pdf",
+      "r06-meera-iyer.pdf",
+      "r02-priya-raghunathan.pdf",
+      "r07-kenji-watanabe.pdf",
+      "r22-siddharth-rao.pdf"
+    ],
+    "tool_responses": [
+      {
+        "tool": "retrieve_metadata_catalog",
+        "tool_call_id": "call_a7ZJmBmkraEw7PhP1DTRTCqI",
+        "catalog_fields": 1
+      },
+      {
+        "tool": "retrieve_documents",
+        "tool_call_id": "call_z6lttJoaItd9CQjX0sXGJ3l0",
+        "question_shape": "predicate",
+        "applied_filter": {
+          "education_level": {
+            "$in": [
+              "masters",
+              "phd"
+            ]
+          }
+        },
+        "retrieval_mode": "hybrid_query",
+        "count": 9,
+        "total_match_count": 9,
+        "truncated": false,
+        "total_is_lower_bound": false,
+        "semantic_candidate_count": 9,
+        "population_complete": true,
+        "documents": [
+          "r17-grace-liu.pdf",
+          "r12-michael-brennan.pdf",
+          "r13-zoya-ahmed.pdf",
+          "r14-oliver-schmidt.pdf",
+          "r01-aarav-mehta.pdf",
+          "r06-meera-iyer.pdf",
+          "r02-priya-raghunathan.pdf",
+          "r07-kenji-watanabe.pdf",
+          "r22-siddharth-rao.pdf"
+        ]
+      },
+      {
+        "tool": "RagAgentOutput",
+        "tool_call_id": "call_0ZCXU0jK0PsBaeUV9zoI8ypA",
+        "result_type": "str"
+      },
+      {
+        "tool": "retrieve_metadata_catalog",
+        "tool_call_id": "call_prefetched_metadata_catalog",
+        "result_type": "str"
+      },
+      {
+        "tool": "retrieve_chunks",
+        "tool_call_id": "call_jla2Q9tP6o9nEQFPYeB1XyHm",
+        "question_shape": "predicate",
+        "count": 0,
+        "error": "retrieve_chunks cannot answer a 'predicate' question: a chunk search returns a ranked sample, not every matching document. Call retrieve_documents with question_shape='predicate', a metadata_filter for the conditions. For evidence inside specific documents, pass their object_ids here."
+      },
+      {
+        "tool": "retrieve_documents",
+        "tool_call_id": "call_6ALcIBnJJivApvX7AWekU7gg",
+        "question_shape": "predicate",
+        "applied_filter": {
+          "education_level": {
+            "$in": [
+              "masters",
+              "phd"
+            ]
+          }
+        },
+        "retrieval_mode": "hybrid_query",
+        "count": 9,
+        "total_match_count": 9,
+        "truncated": false,
+        "total_is_lower_bound": false,
+        "semantic_candidate_count": 9,
+        "population_complete": true,
+        "documents": [
+          "r17-grace-liu.pdf",
+          "r12-michael-brennan.pdf",
+          "r13-zoya-ahmed.pdf",
+          "r14-oliver-schmidt.pdf",
+          "r01-aarav-mehta.pdf",
+          "r06-meera-iyer.pdf",
+          "r02-priya-raghunathan.pdf",
+          "r07-kenji-watanabe.pdf",
+          "r22-siddharth-rao.pdf"
+        ]
+      },
+      {
+        "tool": "RagAgentOutput",
+        "tool_call_id": "call_kP3lA22OQpL8r8Akx0rsOzc3",
+        "result_type": "str"
+      }
+    ],
+    "retrieval_attempts": 2,
+    "verifier_verdicts": [
+      {
+        "sufficient": false,
+        "confidence": "medium",
+        "missing": "The retrieved set is complete for the intended filter (education_level ∈ {masters, phd}), but the evidence shown does not include the actual candidate_name values (or education_level values) needed to list which candidates hold a master’s or a PhD.",
+        "reason": "While the retrieval claims a COMPLETE matching population for the correct education filter (9 documents), the provided document excerpts do not present the candidate identifiers required to answer “Which candidates…?”",
+        "suggested_action": "From the 9 matching documents (r17-grace-liu.pdf, r12-michael-brennan.pdf, r13-zoya-ahmed.pdf, r14-oliver-schmidt.pdf, r01-aarav-mehta.pdf, r06-meera-iyer.pdf, r02-priya-raghunathan.pdf, r07-kenji-watanabe.pdf, r22-siddharth-rao.pdf), fetch/print each document’s metadata fields for candidate_name (and education_level) and then list the corresponding names."
+      }
+    ],
+    "agent_output": {
+      "stop_reason": "answered",
+      "confidence": "high",
+      "granularity": "doc",
+      "question_shape": null
+    },
+    "chart": true
+  },
+  "q12": {
+    "id": "q12",
+    "category": "structured_fields",
+    "question": "List everyone with Kubernetes skills, with their current role and years of experience.",
+    "seconds": 13.7,
+    "chat_id": "85dc621d-8794-44b1-80d2-b2cd7a4834ae",
+    "refined_query": "List everyone with Kubernetes skills, with their current role and years of experience.",
+    "response": "Here are everyone with Kubernetes skills, along with their current role and years of experience:\n\n| Candidate | Current role | Years of experience |\n|---|---|---:|\n| Michael Brennan | VP of Engineering | 18 |\n| Oliver Schmidt | Lead MLOps Engineer | 10 |\n| Aarav Mehta | Senior Machine Learning Engineer | 8 |\n| Nadia Haddad | Senior Site Reliability Engineer | 9 |\n| Rahul Verma | DevOps Engineer | 5 |\n| Daniel Okafor | Principal Software Engineer | 16 |\n| Siddharth Rao | Staff Machine Learning Engineer | 13 |",
+    "error": null,
+    "debug_info": {
+      "enabled": true,
+      "latency_ms": null,
+      "type": "agentic_rag",
+      "is_answered": "yes",
+      "previous_context_used": false,
+      "document_ids": [
+        "11e57093-269b-47ca-9948-b8d089b5e587",
+        "b7396703-7137-438d-bf0f-247887192ccb",
+        "b7e16da9-070a-465e-bdd7-69ea90e50b4e",
+        "bb3e9ca3-03fa-44e6-a73a-4fe561fe0a96",
+        "c957a108-306b-4e98-a6f2-fc2858cb7fbb",
+        "d463f890-73be-453d-9bd7-0db26dc4f7d4",
+        "e4b92ca8-da70-454b-8fe6-49639bc77001"
+      ]
+    },
+    "sources": [
+      "r12-michael-brennan.pdf",
+      "r14-oliver-schmidt.pdf",
+      "r01-aarav-mehta.pdf",
+      "r19-nadia-haddad.pdf",
+      "r05-rahul-verma.pdf",
+      "r03-daniel-okafor.pdf",
+      "r22-siddharth-rao.pdf"
+    ],
+    "tool_responses": [
+      {
+        "tool": "retrieve_metadata_catalog",
+        "tool_call_id": "call_prefetched_metadata_catalog",
+        "result_type": "str"
+      },
+      {
+        "tool": "retrieve_metadata_catalog",
+        "tool_call_id": "call_weWrrM6HXm4nAXBe86VNiLdh",
+        "catalog_fields": 1
+      },
+      {
+        "tool": "retrieve_documents",
+        "tool_call_id": "call_RZJRVxfFzuTb8KvrzDvz8ypc",
+        "question_shape": "predicate",
+        "applied_filter": {
+          "skills": "kubernetes"
+        },
+        "retrieval_mode": "hybrid_query",
+        "count": 7,
+        "total_match_count": 7,
+        "truncated": false,
+        "total_is_lower_bound": false,
+        "semantic_candidate_count": 7,
+        "population_complete": true,
+        "documents": [
+          "r12-michael-brennan.pdf",
+          "r14-oliver-schmidt.pdf",
+          "r01-aarav-mehta.pdf",
+          "r19-nadia-haddad.pdf",
+          "r05-rahul-verma.pdf",
+          "r03-daniel-okafor.pdf",
+          "r22-siddharth-rao.pdf"
+        ]
+      },
+      {
+        "tool": "RagAgentOutput",
+        "tool_call_id": "call_72ZB1Szl0lIMZ4GV46otfJ0w",
+        "result_type": "str"
+      }
+    ],
+    "retrieval_attempts": 1,
+    "verifier_verdicts": [
+      {
+        "sufficient": true,
+        "confidence": "high",
+        "missing": "",
+        "reason": "agent self-reported stop_reason=answered, confidence=high, with 7 cited doc(s); no gap to verify",
+        "suggested_action": ""
+      }
+    ],
+    "agent_output": {
+      "stop_reason": "answered",
+      "confidence": "high",
+      "granularity": "doc",
+      "question_shape": null
+    },
+    "chart": true
+  },
+  "x01": {
+    "id": "x01",
+    "category": "years",
+    "question": "Who are the three most experienced candidates, and how many years of experience does each have?",
+    "seconds": 10.1,
+    "chat_id": "b8a26cca-fb03-4759-8ec3-ee9f22a8b158",
+    "refined_query": "Who are the three most experienced candidates, and how many years of experience does each have?",
+    "response": "The three most experienced candidates are:\n\n| Candidate | Years of experience |\n|---|---:|\n| Michael Brennan | 18 |\n| Daniel Okafor | 16 |\n| Rohan Deshpande | 15 |",
+    "error": null,
+    "debug_info": {
+      "enabled": true,
+      "latency_ms": null,
+      "type": "agentic_rag",
+      "is_answered": "yes",
+      "previous_context_used": false,
+      "document_ids": [
+        "11e57093-269b-47ca-9948-b8d089b5e587",
+        "9c272327-44d8-4bcb-ae9f-2875776093b4",
+        "b7e16da9-070a-465e-bdd7-69ea90e50b4e"
+      ]
+    },
+    "sources": [
+      "r12-michael-brennan.pdf",
+      "r03-daniel-okafor.pdf",
+      "r18-rohan-deshpande.pdf"
+    ],
+    "tool_responses": [
+      {
+        "tool": "retrieve_metadata_catalog",
+        "tool_call_id": "call_prefetched_metadata_catalog",
+        "result_type": "str"
+      },
+      {
+        "tool": "retrieve_documents",
+        "tool_call_id": "call_dBX0G8Fs8UYqwokjpG2hVwpZ",
+        "question_shape": "selection",
+        "applied_filter": null,
+        "retrieval_mode": "hybrid_query",
+        "count": 24,
+        "total_match_count": 24,
+        "truncated": false,
+        "total_is_lower_bound": false,
+        "semantic_candidate_count": 24,
+        "population_complete": true,
+        "documents": [
+          "r12-michael-brennan.pdf",
+          "r03-daniel-okafor.pdf",
+          "r18-rohan-deshpande.pdf",
+          "r22-siddharth-rao.pdf",
+          "r02-priya-raghunathan.pdf",
+          "r06-meera-iyer.pdf",
+          "r08-fatima-sheikh.pdf",
+          "r14-oliver-schmidt.pdf",
+          "r19-nadia-haddad.pdf",
+          "r01-aarav-mehta.pdf",
+          "r09-lucas-fernandez.pdf",
+          "r13-zoya-ahmed.pdf",
+          "r16-arjun-malhotra.pdf",
+          "r11-anjali-nair.pdf",
+          "r05-rahul-verma.pdf",
+          "r21-emily-carter.pdf",
+          "r07-kenji-watanabe.pdf",
+          "r17-grace-liu.pdf",
+          "r23-hannah-becker.pdf",
+          "r15-kavya-reddy.pdf",
+          "r20-vikram-singh.pdf",
+          "r24-tanvi-joshi.pdf",
+          "r04-sneha-kulkarni.pdf",
+          "r10-ishaan-chatterjee.pdf"
+        ]
+      },
+      {
+        "tool": "RagAgentOutput",
+        "tool_call_id": "call_6JMP5Tr8mitDw8f72PHfr2i9",
+        "result_type": "str"
+      }
+    ],
+    "retrieval_attempts": 1,
+    "verifier_verdicts": [
+      {
+        "sufficient": true,
+        "confidence": "high",
+        "missing": "",
+        "reason": "agent self-reported stop_reason=answered, confidence=high, with 3 cited doc(s); no gap to verify",
+        "suggested_action": ""
+      }
+    ],
+    "agent_output": {
+      "stop_reason": "answered",
+      "confidence": "high",
+      "granularity": "doc",
+      "question_shape": null
+    },
+    "chart": true
+  },
+  "x02": {
+    "id": "x02",
+    "category": "years",
+    "question": "Which candidates know both Kubernetes and Terraform?",
+    "seconds": 10.3,
+    "chat_id": "0599c044-3545-49a1-8980-c7bed2ffba6d",
+    "refined_query": "Which candidates know both Kubernetes and Terraform?",
+    "response": "The candidates who know both Kubernetes and Terraform are:\n\n- Oliver Schmidt\n- Nadia Haddad\n- Rahul Verma\n- Daniel Okafor",
+    "error": null,
+    "debug_info": {
+      "enabled": true,
+      "latency_ms": null,
+      "type": "agentic_rag",
+      "is_answered": "yes",
+      "previous_context_used": false,
+      "document_ids": [
+        "b7396703-7137-438d-bf0f-247887192ccb",
+        "b7e16da9-070a-465e-bdd7-69ea90e50b4e",
+        "c957a108-306b-4e98-a6f2-fc2858cb7fbb",
+        "e4b92ca8-da70-454b-8fe6-49639bc77001"
+      ]
+    },
+    "sources": [
+      "r14-oliver-schmidt.pdf",
+      "r19-nadia-haddad.pdf",
+      "r05-rahul-verma.pdf",
+      "r03-daniel-okafor.pdf"
+    ],
+    "tool_responses": [
+      {
+        "tool": "retrieve_metadata_catalog",
+        "tool_call_id": "call_prefetched_metadata_catalog",
+        "result_type": "str"
+      },
+      {
+        "tool": "retrieve_metadata_catalog",
+        "tool_call_id": "call_mGekCj5GOqAfBQYcAnRxoAc1",
+        "catalog_fields": 1
+      },
+      {
+        "tool": "retrieve_documents",
+        "tool_call_id": "call_5AKMd0UOgJOq6AK2RcuXoxig",
+        "question_shape": "predicate",
+        "applied_filter": {
+          "$and": [
+            {
+              "skills": "kubernetes"
+            },
+            {
+              "skills": "terraform"
+            }
+          ]
+        },
+        "retrieval_mode": "hybrid_query",
+        "count": 4,
+        "total_match_count": 4,
+        "truncated": false,
+        "total_is_lower_bound": false,
+        "semantic_candidate_count": 4,
+        "population_complete": true,
+        "documents": [
+          "r14-oliver-schmidt.pdf",
+          "r19-nadia-haddad.pdf",
+          "r05-rahul-verma.pdf",
+          "r03-daniel-okafor.pdf"
+        ]
+      },
+      {
+        "tool": "RagAgentOutput",
+        "tool_call_id": "call_LrFdXTKhKNaBcIepQIEMq1i2",
+        "result_type": "str"
+      }
+    ],
+    "retrieval_attempts": 1,
+    "verifier_verdicts": [
+      {
+        "sufficient": true,
+        "confidence": "high",
+        "missing": "",
+        "reason": "agent self-reported stop_reason=answered, confidence=high, with 4 cited doc(s); no gap to verify",
+        "suggested_action": ""
+      }
+    ],
+    "agent_output": {
+      "stop_reason": "answered",
+      "confidence": "high",
+      "granularity": "doc",
+      "question_shape": null
+    },
+    "chart": false
+  }
+}

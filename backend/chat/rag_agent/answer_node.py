@@ -407,9 +407,36 @@ def _chunk_matches_citation(chunk: Any, cited_doc_ids: set, cited_chunk_ids: set
     return False
 
 
+def _latest_population(tool_responses: List[Any]) -> Optional[Dict[str, Any]]:
+    """The last retrieve_documents result that reports a total_match_count
+    (set only for exhaustive shapes)."""
+    latest = None
+    for record in tool_responses:
+        result = record.get("result") if isinstance(record, dict) else None
+        if isinstance(result, dict) and isinstance(result.get("total_match_count"), int):
+            latest = result
+    return latest
+
+
+def _complete_population_ids(tool_responses: List[Any]) -> set:
+    population = _latest_population(tool_responses)
+    if not population or not population.get("population_complete"):
+        return set()
+    return {str(d.get("object_id")) for d in population.get("documents") or [] if isinstance(d, dict)}
+
+
 def _build_context_block(
     retrieved_context: Dict[str, Any],
 ) -> str:
+    return _build_context(retrieved_context)[0]
+
+
+def _build_context(
+    retrieved_context: Dict[str, Any],
+) -> tuple[str, List[str]]:
+    """The answer node's evidence block, and the object_id behind each
+    ``[Doc N]`` it shows (``handles[N-1]``): the answer names its result set by
+    those numbers (RagAnswerOutput.result_documents), never by copying ids."""
     summaries = retrieved_context.get("summaries") or {}
     chunks = retrieved_context.get("chunks") or []
     metadata_values = retrieved_context.get("metadata_values") or {}
@@ -433,6 +460,15 @@ def _build_context_block(
         ]
         # Apply only if the filter left something to ground on (guards against
         # citation ids that don't match any retrieved evidence).
+        # A complete exhaustive population IS the answer set for a predicate /
+        # aggregate / selection question: every matching document stays, cited
+        # or not. Trimming it to the agent's citations is how "more than 10
+        # years" was answered with 2 of the 6 matching candidates.
+        population_ids = _complete_population_ids(retrieved_context.get("tool_responses") or [])
+        if population_ids:
+            filtered_summaries.update({
+                oid: data for oid, data in summaries.items() if str(oid) in population_ids
+            })
         if filtered_summaries or filtered_chunks:
             logger.info(
                 f"[answer_node] citation filter: grounding on {len(filtered_summaries)} "
@@ -443,7 +479,30 @@ def _build_context_block(
             summaries = filtered_summaries
             chunks = filtered_chunks
 
+    # A follow-up about exactly the previous answer's documents ("chart their
+    # years" — the agent said so with about_previous_result): those documents
+    # ARE the evidence, whatever this turn cited or retrieved again. The chart
+    # plots the same set (chart_generator.build_population).
+    carried = [d for d in retrieved_context.get("carried_population") or []
+               if isinstance(d, dict) and d.get("object_id")]
+    if carried:
+        carried_ids = [str(d["object_id"]) for d in carried]
+        all_summaries = retrieved_context.get("summaries") or {}
+        summaries = {oid: all_summaries[oid] for oid in carried_ids if oid in all_summaries}
+        chunks = [c for c in (retrieved_context.get("chunks") or [])
+                  if _chunk_matches_citation(c, set(carried_ids), set())]
+        logger.info(f"[answer_node] grounding on the previous answer's {len(carried_ids)} document(s)")
+
     sections: List[str] = []
+
+    # The turn's shared aggregation (agent_execution computes it before this
+    # node; chart_node plots the same rows). First in the context so every
+    # count / total the answer states is copied from it, never recounted.
+    from chat.chart_generator import render_aggregation_facts
+
+    facts = render_aggregation_facts(retrieved_context.get("aggregation"))
+    if facts:
+        sections.extend([facts, ""])
 
     # Agent self-report block — surfaces the retrieval agent's stop_reason,
     # confidence, draft answer, and grounding docs so the answer LLM has
@@ -465,23 +524,37 @@ def _build_context_block(
     # in the context and the LLM has no choice but to count cards (and miscount
     # on long lists). Reads an existing field from existing tool_responses;
     # no new helper / no aggregation logic.
+    # The population an exhaustive answer is computed over is the LAST
+    # exhaustive retrieve_documents call — a re-planned retrieval supersedes the
+    # earlier one. This used to take the LARGEST total of any call, so a broad
+    # `document_type=resume` call (24) outvoted the precise `skills=python`
+    # call (18) for "how many know Python".
     docs_header = "## Retrieved Documents"
-    backend_total: Optional[int] = None
-    for record in retrieved_context.get("tool_responses") or []:
-        if not isinstance(record, dict):
-            continue
-        result = record.get("result")
-        if isinstance(result, dict):
-            total = result.get("total_match_count")
-            if isinstance(total, int) and (backend_total is None or total > backend_total):
-                backend_total = total
-    if backend_total is not None:
+    # A carried result set is the population; a retrieval run again this turn
+    # (possibly with a looser filter) must not hand the answer its own count.
+    population = None if carried else _latest_population(retrieved_context.get("tool_responses") or [])
+    if population is not None:
+        total = population.get("total_match_count")
+        complete = bool(population.get("population_complete"))
         docs_header = (
             f"## Retrieved Documents ({len(summaries)} shown · "
-            f"**tool reported total_match_count = {backend_total}** — "
-            f"use THIS number for any \"how many\" answer; do NOT count the cards below)"
+            f"**tool reported total_match_count = {total}** for filter "
+            f"{population.get('applied_filter')} — use THIS number for any \"how many\" answer; "
+            f"do NOT count the cards below)"
         )
+        from chat.rag_tools.population import render_population
 
+        block = render_population(population, total, complete)
+        if block:
+            sections.extend([
+                "## Structured Population (computed by the database over the matching documents — authoritative for counts, totals, averages, min/max and order)",
+                block,
+                "",
+            ])
+
+    # _format_summaries numbers the documents [Doc 1..n] in this order; the
+    # prior-turn documents below continue the numbering.
+    handles: List[str] = [str(oid) for oid in summaries]
     sections.extend([
         docs_header,
         _format_summaries(summaries),
@@ -501,7 +574,9 @@ def _build_context_block(
     #   • Agent cited nothing AND no fresh evidence (it reused prior docs / found
     #     nothing new) → keep prior-turn docs: they're the only grounding, and
     #     they're already relevance-gated upstream (see rag_node).
-    if cited_doc_ids and prior_turn_docs:
+    if carried:
+        prior_turn_docs = [d for d in carried if str(d["object_id"]) not in summaries]
+    elif cited_doc_ids and prior_turn_docs:
         prior_turn_docs = [
             d for d in prior_turn_docs
             if isinstance(d, dict) and str(d.get("object_id")) in cited_doc_ids
@@ -525,14 +600,15 @@ def _build_context_block(
             summary = (doc.get("summary") or "").strip()
             file_name = doc.get("file_name", "")
             metadata = doc.get("metadata") or {}
-            lines.append(f"\n### [{oid}]" + (f" — {file_name}" if file_name else ""))
+            handles.append(str(oid))
+            lines.append(f"\n### [Doc {len(handles)}] {oid}" + (f" — {file_name}" if file_name else ""))
             if summary:
                 lines.append(summary)
             for k, v in metadata.items():
                 lines.append(f"- **{k}**: {v}")
         sections.extend(lines)
 
-    return "\n".join(sections).rstrip()
+    return "\n".join(sections).rstrip(), handles
 
 
 def _build_system_prompt(
@@ -626,13 +702,14 @@ async def _judge_is_answered(
     query: str,
     answer_text: str,
     invoke_config: RunnableConfig,
-) -> bool:
+) -> tuple[bool, List[int]]:
     """Second, minimal structured-output call on the streaming path: ask the
     same answer LLM to self-judge is_answered against the answer it just
-    streamed. Reuses the same system content (question + evidence) so the
-    verdict is grounded in the same context the answer itself was produced
-    from. Fails open to True — a judge-call failure must not silently
-    downgrade an otherwise-good answer to "not answered".
+    streamed, and to name the documents that answer presented (its result
+    set, by [Doc N] number). Reuses the same system content (question +
+    evidence) so both are grounded in the same context the answer itself was
+    produced from. Fails open to (True, []) — a judge-call failure must not
+    silently downgrade an otherwise-good answer to "not answered".
     """
     judge_messages: List[Any] = [
         SystemMessage(content=system_content),
@@ -641,7 +718,8 @@ async def _judge_is_answered(
             content=(
                 "The answer below was already produced and shown to the user. "
                 "Self-judge only: does it directly resolve the question using "
-                "the retrieved evidence?\n\n"
+                "the retrieved evidence? And which [Doc N] documents does it "
+                "present as its result?\n\n"
                 f"--- ANSWER ---\n{answer_text}"
             )
         ),
@@ -652,19 +730,19 @@ async def _judge_is_answered(
             judge_messages,
             config={**invoke_config, "run_name": "rag_answer_is_answered_judge"},
         )
-        return bool(verdict.is_answered)
+        return bool(verdict.is_answered), list(getattr(verdict, "result_documents", None) or [])
     except Exception as e:
         logger.warning(f"[answer_node] is_answered judge call failed, defaulting True: {e}")
-        return True
+        return True, []
 
 
 @track_time("RAG: Answer Node")
 @traceable(name="rag_answer_node", run_type="chain")
-async def generate_rag_answer(
+async def _generate_rag_answer_impl(
     query: str,
     retrieved_context: Dict[str, Any],
     llm_provider: str = "openai",
-    llm_model: str = "gpt-4o-mini",
+    llm_model: str = "gpt-5.4-mini",
     owner_id: Optional[str] = None,
     generate_answer_instructions: Optional[str] = None,
     past_messages: Optional[List[Dict[str, Any]]] = None,
@@ -707,7 +785,7 @@ async def generate_rag_answer(
         generate_answer_instructions,
         include_url_guidance=include_url_guidance,
     )
-    context_block = _build_context_block(retrieved_context)
+    context_block, doc_handles = _build_context(retrieved_context)
 
     system_content = (
         f"{base_system_prompt}\n\n"
@@ -769,6 +847,7 @@ async def generate_rag_answer(
 
     answer_text = ""
     is_answered = False
+    result_numbers: List[int] = []
 
     if token_queue is not None:
         # ── Live-streaming path ───────────────────────────────────────────────
@@ -846,7 +925,7 @@ async def generate_rag_answer(
         # borrowed from the retrieval agent's stop_reason. Empty answer_text
         # skips the call entirely (nothing to judge).
         if answer_text and llm is not None:
-            is_answered = await _judge_is_answered(
+            is_answered, result_numbers = await _judge_is_answered(
                 llm=llm,
                 system_content=system_content,
                 query=query,
@@ -915,6 +994,7 @@ async def generate_rag_answer(
         if parsed is not None and not parsing_error:
             answer_text = parsed.answer or ""
             is_answered = bool(parsed.is_answered)
+            result_numbers = list(getattr(parsed, "result_documents", None) or [])
         else:
             # Structured-output parse failed — fall back to raw text content so
             # we don't drop the answer entirely. is_answered defaults to False
@@ -962,8 +1042,23 @@ async def generate_rag_answer(
         f"tokens={usage_metrics['total_tokens']}"
     )
 
+    # The documents this answer presented, as object_ids — persisted with the
+    # turn so a follow-up about "their"/"those" carries exactly this set
+    # (chat/rag_agent/result_set.py).
+    from chat.rag_agent.result_set import result_ids_from_handles
+
+    result_object_ids = result_ids_from_handles(doc_handles, result_numbers)
+
     return {
         "answer": final_text.strip(),
         "is_answered": is_answered,
         "usage_metrics": usage_metrics,
+        "result_object_ids": result_object_ids,
     }
+
+
+async def generate_rag_answer(*args, **kwargs):
+    """``_generate_rag_answer_impl`` with every model call it makes attributed to the
+    ``answer`` operation of the turn's usage block (chat/run_usage.py)."""
+    from chat.run_usage import in_operation
+    return await in_operation("answer", _generate_rag_answer_impl(*args, **kwargs))

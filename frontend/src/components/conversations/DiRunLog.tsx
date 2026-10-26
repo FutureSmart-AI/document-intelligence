@@ -20,14 +20,23 @@ export default function DiRunLog({ log }: { log: RunLog }) {
   const [open, setOpen] = useState(false);
   const [unfolded, setUnfolded] = useState<Record<string, boolean>>({});
 
+  const totals = log.totals;
   const summary = [
     ...(log.runType ? [log.runType] : []),
-    ...(log.totals?.latencyMs ? [formatMs(log.totals.latencyMs)] : []),
-    ...(log.totals?.totalTokens
-      ? [`${log.totals.totalTokens.toLocaleString()} tokens`]
+    ...(totals?.latencyMs ? [formatMs(totals.latencyMs)] : []),
+    ...(totals?.totalTokens
+      ? [`${totals.totalTokens.toLocaleString()} tokens`]
       : []),
-    ...(log.totals?.costUsd ? [formatCost(log.totals.costUsd)] : []),
+    ...(totals?.costUsd !== undefined && (totals.costUsd || totals.priceTable)
+      ? [`≈${formatCost(totals.costUsd)}`]
+      : []),
   ];
+  // Priced from a list-price table, so it is an estimate — and when a model had
+  // no price at all, the total is a lower bound and says so.
+  const costNote =
+    totals?.costComplete === false
+      ? `Cost not available for every model (${(totals.unpricedModels ?? []).join(", ") || "unpriced"}) — the total covers the priced calls only.`
+      : undefined;
 
   return (
     <div className="overflow-hidden rounded-di-lg border border-line bg-surface">
@@ -65,11 +74,20 @@ export default function DiRunLog({ log }: { log: RunLog }) {
               ))
             ) : (
               <span className="text-[11px] text-ink-3">
-                Timings and cost are reported while the answer streams and are
-                not stored, so this thread logs what ran but not what it took.
+                This answer was stored before timings and cost were recorded, so
+                the log shows what ran but not what it took.
               </span>
             )}
           </div>
+          {costNote && (
+            <div
+              role="note"
+              className="border-b border-line bg-warn-bg px-3 py-1.5 text-[11px] text-warn-text"
+            >
+              {costNote}
+            </div>
+          )}
+          {!!log.operations.length && <OperationTable log={log} />}
 
           <ol className="flex list-none flex-col gap-0 p-0">
             {log.steps.map((step, index) => (
@@ -190,5 +208,128 @@ function LogStep({
         </pre>
       )}
     </li>
+  );
+}
+
+/**
+ * Every model call of the run, one row per operation and serving model.
+ *
+ * The rows are what the service counted, not what a step remembered to report:
+ * a call nothing claimed is listed as "Other calls" rather than dropped. A row
+ * served by a fallback names the model that was asked for, so a degraded run is
+ * visible at a glance. Cost is an estimate from a list-price table; a model
+ * with no price shows "—", never "$0".
+ */
+function OperationTable({ log }: { log: RunLog }) {
+  const totals = log.totals;
+  return (
+    <div className="overflow-x-auto border-b border-line">
+      <table className="w-full border-collapse text-left text-[11px]">
+        <caption className="sr-only">
+          Model calls of this answer, by operation
+        </caption>
+        <thead>
+          <tr className="text-ink-3">
+            <th scope="col" className="px-3 py-1.5 font-semibold">
+              Operation
+            </th>
+            <th scope="col" className="px-2 py-1.5 font-semibold">
+              Model
+            </th>
+            <th scope="col" className="px-2 py-1.5 text-right font-semibold">
+              Time
+            </th>
+            <th scope="col" className="px-2 py-1.5 text-right font-semibold">
+              Tokens in / out
+            </th>
+            <th scope="col" className="px-3 py-1.5 text-right font-semibold">
+              ≈Cost
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {log.operations.map((op) => {
+            const stage = log.stageMs[op.operation];
+            const time = stage ?? op.latencyMs;
+            return (
+              <tr
+                key={`${op.operation}:${op.provider}:${op.model}:${op.requestedModel ?? ""}`}
+                className="border-t border-line-soft"
+              >
+                <td className="px-3 py-1.5 text-ink-2">
+                  {op.label}
+                  {(op.calls ?? 0) > 1 && (
+                    <span className="ml-1 text-ink-3">×{op.calls}</span>
+                  )}
+                  {!!op.failedCalls && (
+                    <span className="ml-1 text-danger-text">
+                      ({op.failedCalls} failed)
+                    </span>
+                  )}
+                </td>
+                <td className="px-2 py-1.5 font-mono text-[10.5px] text-ink-2">
+                  {[op.provider, op.model].filter(Boolean).join(" / ") || "—"}
+                  {op.fallback && (
+                    <span
+                      className="ml-1.5 rounded-sm bg-warn-bg px-1 font-sans text-[10px] text-warn-text"
+                      title={op.fallbackReason}
+                    >
+                      fallback from {op.requestedModel ?? "primary"}
+                    </span>
+                  )}
+                </td>
+                <td className="px-2 py-1.5 text-right font-mono text-[10.5px] whitespace-nowrap text-ink-3">
+                  {time !== undefined ? formatMs(time) : "—"}
+                </td>
+                <td className="px-2 py-1.5 text-right font-mono text-[10.5px] whitespace-nowrap text-ink-3">
+                  {(op.inputTokens ?? 0).toLocaleString()} /{" "}
+                  {(op.outputTokens ?? 0).toLocaleString()}
+                  {!!op.cachedInputTokens && (
+                    <span
+                      className="ml-1"
+                      title="Input tokens served from the prompt cache"
+                    >
+                      ({op.cachedInputTokens.toLocaleString()} cached)
+                    </span>
+                  )}
+                </td>
+                <td className="px-3 py-1.5 text-right font-mono text-[10.5px] whitespace-nowrap text-ink-3">
+                  {op.costUsd === null ? (
+                    <span title="No price for this model">—</span>
+                  ) : (
+                    formatCost(op.costUsd)
+                  )}
+                </td>
+              </tr>
+            );
+          })}
+          <tr className="border-t border-line font-semibold text-ink-2">
+            <td className="px-3 py-1.5" colSpan={2}>
+              Total
+              {totals?.priceTable && (
+                <span className="ml-1.5 font-normal text-ink-3">
+                  prices {totals.priceTable}
+                </span>
+              )}
+            </td>
+            <td className="px-2 py-1.5 text-right font-mono text-[10.5px] whitespace-nowrap">
+              {totals?.latencyMs !== undefined
+                ? formatMs(totals.latencyMs)
+                : "—"}
+            </td>
+            <td className="px-2 py-1.5 text-right font-mono text-[10.5px] whitespace-nowrap">
+              {totals?.totalTokens !== undefined
+                ? totals.totalTokens.toLocaleString()
+                : "—"}
+            </td>
+            <td className="px-3 py-1.5 text-right font-mono text-[10.5px] whitespace-nowrap">
+              {totals?.costUsd !== undefined
+                ? `${totals.costComplete === false ? "≥" : ""}${formatCost(totals.costUsd)}`
+                : "—"}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   );
 }

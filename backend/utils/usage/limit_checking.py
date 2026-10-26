@@ -103,6 +103,13 @@ async def get_owner_limits(session: AsyncSession, owner_id: str) -> LimitsInfo:
         logger.warning("get_owner_limits called with no owner_id; returning empty limits")
         return LimitsInfo()
 
+    # A verified FutureSmart / AI Demos account has no trial ceilings — every limit
+    # None, which every gate reads as unlimited. Usage is still recorded as usual.
+    # See utils/usage/internal_accounts.py for how an account qualifies.
+    from utils.usage.internal_accounts import is_internal_owner
+    if await is_internal_owner(owner_id):
+        return LimitsInfo()
+
     config = await get_owner_config(session, owner_id)
     if not config:
         logger.info(f"No owner configuration row for owner_id={owner_id}; falling back to tier defaults")
@@ -406,7 +413,7 @@ def _is_enforcement_enabled() -> bool:
 
 # Tiers this service actually has, per OwnerConfigResponse.tier_type's Literal.
 # Not a marketing catalog — just names for the three values the DB can hold.
-_TIER_DISPLAY_NAMES = {"trial": "Trial", "payg": "Pay as you go", "custom": "Custom"}
+_TIER_DISPLAY_NAMES = {"trial": "Trial", "payg": "Pay as you go", "custom": "Custom", "internal": "Internal"}
 
 
 def _percent(used, limit_val) -> Optional[float]:
@@ -441,6 +448,11 @@ async def get_usage_limits_screen(session: AsyncSession, owner_id: str) -> Limit
         tier_type=tier_type,
         is_default=config is None,
     )
+    # get_owner_limits has already lifted every ceiling for a verified internal
+    # account; name it so each row reads "Unlimited on Internal", not "on Trial".
+    from utils.usage.internal_accounts import is_internal_owner
+    if await is_internal_owner(owner_id):
+        tier = TierInfo(name=_TIER_DISPLAY_NAMES["internal"], tier_type="internal", is_default=False)
     # max_team_members lives on OwnerConfigResponse.platform_limits, not on LimitsInfo
     # (limit_checking's own schema never carried it — see docs/plan/usage-and-limits
     # gap G7). Fall back to the same YAML default get_owner_limits itself falls back to.

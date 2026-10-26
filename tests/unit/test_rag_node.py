@@ -202,7 +202,10 @@ def test_rag_node_forwards_request_chat_config_to_resolve_chat_config(monkeypatc
     assert agent_kwargs["answer_llm_provider"] == "google"
     assert agent_kwargs["answer_llm_model"] == "gemini-2.5-flash"
     assert agent_kwargs["user_instructions"] == "Be terse."
-    assert agent_kwargs["generate_answer_instructions"] == "Include ClickUp URLs."
+    # include_charts defaults on, so the chart directive follows the operator's text.
+    assert agent_kwargs["generate_answer_instructions"] == (
+        "Include ClickUp URLs.\n\n" + rag_node.CHART_RENDERED_SEPARATELY_DIRECTIVE
+    )
 
 
 def test_rag_node_request_chat_config_none_forwards_no_overrides(monkeypatch):
@@ -272,7 +275,8 @@ def test_rag_node_unconfigured_answer_role_matches_rag_role(monkeypatch):
     # The DB row's system_prompt stays on the retrieval role only — feeding it
     # to the answer role as well would append the same suffix twice.
     assert agent_kwargs["user_instructions"] == "From the DB row."
-    assert agent_kwargs["generate_answer_instructions"] is None
+    # No operator instructions; include_charts defaults on, so only the chart directive.
+    assert agent_kwargs["generate_answer_instructions"] == rag_node.CHART_RENDERED_SEPARATELY_DIRECTIVE
 
 
 def test_rag_node_requires_knowledge_id_positional(monkeypatch):
@@ -298,15 +302,20 @@ def test_answer_node_output_emits_final_response(monkeypatch):
     assert result.get("response") == "Final answer text"
 
 
-def test_answer_node_warns_but_does_not_fail_on_empty_output(monkeypatch):
+def test_empty_answer_is_reported_never_replaced_by_retrieval_context(monkeypatch):
+    """The router used to fall back to relevant_context ("DOCUMENT SUMMARIES /
+    RELEVANT CHUNKS ...") when no answer was produced, and that prompt dump
+    reached users as the answer on the hosted resume sample."""
     _patch_schema(monkeypatch)
     _disable_small_kb_direct(monkeypatch)
     _patch_run_rag_agent(monkeypatch, _default_context(raw_output=""))
 
     result = asyncio.run(rag_node.rag_node(query="hello", knowledge_id="kb-1"))
 
-    assert "response" not in result
-    assert result["error"] is None
+    assert result["response"] == rag_node.NO_ANSWER_RESPONSE
+    assert "RELEVANT CHUNKS" not in result["response"]
+    assert result["is_answered"] == "no"
+    assert result["error"] == "answer_generation_empty"
 
 
 # ---------------------------------------------------------------------------

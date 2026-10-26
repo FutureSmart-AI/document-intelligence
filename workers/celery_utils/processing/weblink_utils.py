@@ -26,6 +26,7 @@ from celery_utils.processing.processing_modes import (
     ProcessingMode, resolve_mode, resolve_html_scraper, firecrawl_only_main_content,
 )
 from celery_utils.shared.tracing import track_time, traced_step, traced_reader, mark_indexing_time, reset_embedding_cost, get_embedding_cost
+from celery_utils.shared import document_telemetry
 from langsmith import traceable
 
 # --- Constants ---
@@ -854,9 +855,11 @@ def process_and_index_weblink(
         if status == "completed":
             logger.info(f"Task already completed for object_id={object_id}, skipping")
             return
+        document_telemetry.start(object_id)
 
         # Step 1: Scrape/crawl the weblink
         update_processing_status(knowledge_id, object_id, "scraping")
+        _parse_t0 = time.time()
         logger.info(f"Scraping weblink: url={weblink}, mode={mode.value}, scraper={resolved_scraper}, method={scraping_method}")
         scraped_content = extract_weblink_content(
             weblink, use_llama_parse, resolved_scraper, scraping_method, max_depth,
@@ -873,6 +876,17 @@ def process_and_index_weblink(
         resolved_as_file = effective_mode is not None
         # Captured here because scraped_content is freed before the usage event is sent.
         scraped_content_parse_mode = scraped_content.get("parse_mode") if resolved_as_file else None
+        document_telemetry.record_parse(
+            object_id,
+            parser=(
+                ("llamaparse" if scraped_content_parse_mode else "local_text")
+                if resolved_as_file else (resolved_scraper or scraping_method or "scraper")
+            ),
+            mode=effective_mode or mode.value,
+            ms=int((time.time() - _parse_t0) * 1000),
+            scraping_method=scraping_method,
+            fallback_reason=(scraped_content.get("parse_fallback_reason") if isinstance(scraped_content, dict) else None),
+        )
 
         # Step 2: Extract and process content
         update_processing_status(knowledge_id, object_id, "extracting")

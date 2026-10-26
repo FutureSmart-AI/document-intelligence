@@ -1,7 +1,26 @@
+from datetime import date, datetime, timezone
 from typing import Dict, List, Optional
 from services.pydantic_models import PromptType
 from celery_utils.db.prompt_db_utils import get_admin_prompts_sync
 from services import celery_setup_env
+
+
+def reference_date_section(reference_date: Optional[date] = None) -> str:
+    """The prompt section that tells the model what date "now" is.
+
+    Without it the model has no current date, so an open-ended range ("2010 - Present")
+    is measured to whatever year the model believes it is. On the sample resumes in
+    October 2026, "2010 - Present" came out as 14 years and "2023 - Present" as 2.
+    """
+    today = reference_date or datetime.now(timezone.utc).date()
+    return (
+        "\n\n## Reference date\n"
+        f"Today is {today.isoformat()}, the date this document is being processed. "
+        "Whenever a field needs a value measured up to now (a duration, an age, a tenure), "
+        'measure it to this date: an end written as "Present", "Current", "Now" or "to date", '
+        "or a range left open, ends on this date. Do not assume any other current date."
+    )
+
 
 def create_enrichment_prompt(
     existing_metadata=None,
@@ -9,6 +28,7 @@ def create_enrichment_prompt(
     knowledge_prompt: Optional[str] = None,
     include_deterministic_chunks: bool = False,
     existing_field_values: Optional[Dict[str, List]] = None,
+    reference_date: Optional[date] = None,
 ):
     """
     Create enrichment prompt by combining base admin prompt with optional knowledge-specific prompt.
@@ -20,6 +40,8 @@ def create_enrichment_prompt(
         include_deterministic_chunks: When True, fetches the Strategy 2 deterministic pre-split prompt instead
         existing_field_values: Dict of field_name → [values] fetched from previously indexed documents.
                                When provided and non-empty, appends a Consistency Guidelines section.
+        reference_date: The date "now" means for this extraction (Reference date section).
+                        Defaults to today, UTC.
 
     Returns:
         Combined enrichment prompt string
@@ -111,6 +133,8 @@ def create_enrichment_prompt(
 
     if knowledge_prompt:
         enrichment_prompt = f"{enrichment_prompt}\n\nAdditional Instructions:\n{knowledge_prompt}"
+
+    enrichment_prompt = f"{enrichment_prompt}{reference_date_section(reference_date)}"
 
     # Append consistency guidelines from previously indexed documents
     _FIELD_CHAR_CAP = 5000  # ~1,250 tokens per field; interim cap pending dynamic budget

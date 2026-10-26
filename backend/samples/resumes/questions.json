@@ -1,0 +1,419 @@
+{
+  "meta": {
+    "computed_from": "ground_truth.json"
+  },
+  "questions": [
+    {
+      "id": "q01",
+      "question": "Which candidates know Python and AWS and have at least 5 years of experience?",
+      "answer_source": "structured_fields",
+      "why": "Exact filter on skills (contains python AND aws) plus years_of_experience >= 5.",
+      "expected": {
+        "candidates": [
+          {
+            "name": "Rohan Deshpande",
+            "years_of_experience": 15
+          },
+          {
+            "name": "Siddharth Rao",
+            "years_of_experience": 13
+          },
+          {
+            "name": "Oliver Schmidt",
+            "years_of_experience": 10
+          },
+          {
+            "name": "Nadia Haddad",
+            "years_of_experience": 9
+          },
+          {
+            "name": "Aarav Mehta",
+            "years_of_experience": 8
+          },
+          {
+            "name": "Arjun Malhotra",
+            "years_of_experience": 7
+          },
+          {
+            "name": "Anjali Nair",
+            "years_of_experience": 6
+          },
+          {
+            "name": "Rahul Verma",
+            "years_of_experience": 5
+          }
+        ],
+        "count": 8
+      },
+      "near_misses": [
+        {
+          "name": "Daniel Okafor",
+          "reason": "AWS but no Python skill listed"
+        },
+        {
+          "name": "Michael Brennan",
+          "reason": "AWS but no Python skill listed"
+        },
+        {
+          "name": "Priya Raghunathan",
+          "reason": "Python but Azure, not AWS"
+        },
+        {
+          "name": "Tanvi Joshi",
+          "reason": "Python, no AWS, 2 years"
+        }
+      ]
+    },
+    {
+      "id": "q02",
+      "question": "Who has hands-on experience building RAG or LLM applications? Cite what they built.",
+      "answer_source": "document_text",
+      "why": "The evidence (what was built) lives in role bullets and projects; skills tags alone miss Oliver's LLM support models and over-include nobody.",
+      "expected": {
+        "candidates": [
+          "Aarav Mehta",
+          "Kenji Watanabe",
+          "Ishaan Chatterjee",
+          "Oliver Schmidt",
+          "Arjun Malhotra",
+          "Siddharth Rao",
+          "Tanvi Joshi"
+        ],
+        "count": 7,
+        "evidence_hints": {
+          "Aarav Mehta": "RAG assistants for 2,000+ support agents; hallucination 11% -> 3%",
+          "Kenji Watanabe": "retrieval-augmented QA prototype; long-context retrieval eval suite; RLHF",
+          "Ishaan Chatterjee": "CampusQA RAG chatbot over college notes (student project)",
+          "Oliver Schmidt": "deploys LLM support models; llmops",
+          "Arjun Malhotra": "RAG over 1.2M legal contracts with clause citations; accuracy 71% -> 88%",
+          "Siddharth Rao": "RAG over 50k policy documents deflecting 35% of tickets; RAG consulting",
+          "Tanvi Joshi": "RAG chatbots over help-centre articles with LangChain + FastAPI"
+        }
+      }
+    },
+    {
+      "id": "q03",
+      "question": "Compare the strongest candidates for a Senior AI Engineer role (production LLM/RAG systems, 5+ years). Who would you shortlist and why?",
+      "answer_source": "hybrid",
+      "why": "Filter on fields (years, rag/llm skills), then judge from role bullets (production scale, evaluation, leadership).",
+      "expected": {
+        "shortlist": [
+          "Arjun Malhotra",
+          "Siddharth Rao",
+          "Aarav Mehta"
+        ],
+        "rationale": {
+          "Arjun Malhotra": "Current Senior AI Engineer; RAG + agents over 1.2M contracts; built LLM eval pipeline; 7 yrs.",
+          "Siddharth Rao": "13 yrs; leads LLM support assistant (RAG over 50k docs); RAG consulting; possibly over-senior (staff).",
+          "Aarav Mehta": "8 yrs; leads RAG assistants team; hallucination eval harness; LoRA fine-tuning."
+        },
+        "should_not_shortlist": {
+          "Kenji Watanabe": "strong LLM research but 4 years and research-focused (acceptable as an honourable mention)",
+          "Tanvi Joshi": "RAG work but only 2 years",
+          "Ishaan Chatterjee": "fresher; RAG only as a student project"
+        }
+      }
+    },
+    {
+      "id": "q04",
+      "question": "How are candidates distributed by seniority level? Show it as a chart.",
+      "answer_source": "structured_fields",
+      "chart": "bar",
+      "why": "Aggregate count over the seniority_level facet across all 24 documents.",
+      "expected": {
+        "distribution": {
+          "junior": 5,
+          "mid_level": 6,
+          "senior": 7,
+          "lead": 3,
+          "principal": 2,
+          "executive": 1
+        },
+        "total": 24
+      }
+    },
+    {
+      "id": "q05",
+      "question": "What is the distribution of years of experience across candidates? Show a chart.",
+      "answer_source": "structured_fields",
+      "chart": "histogram",
+      "why": "Aggregate over the numeric years_of_experience field.",
+      "expected": {
+        "buckets": {
+          "0-2": 4,
+          "3-5": 6,
+          "6-9": 6,
+          "10-14": 5,
+          "15+": 3
+        },
+        "min": 0,
+        "max": 18,
+        "mean": 7.5,
+        "median": 7.0
+      },
+      "known_ambiguity": "Fatima Sheikh counts as 10 (total professional) or 3 (tech only); the 6-9 / 10-14 / 0-2 buckets shift by one if 3 is used."
+    },
+    {
+      "id": "q06",
+      "question": "What are the most common skills across all candidates? Chart the top 10.",
+      "answer_source": "structured_fields",
+      "chart": "bar",
+      "why": "Aggregate value counts over the skills List[str] facet.",
+      "expected": {
+        "top_skills": [
+          {
+            "skill": "python",
+            "count": 18
+          },
+          {
+            "skill": "sql",
+            "count": 13
+          },
+          {
+            "skill": "aws",
+            "count": 11
+          },
+          {
+            "skill": "kubernetes",
+            "count": 7
+          },
+          {
+            "skill": "docker",
+            "count": 5
+          },
+          {
+            "skill": "rag",
+            "count": 5
+          },
+          {
+            "skill": "langchain",
+            "count": 4
+          },
+          {
+            "skill": "spark",
+            "count": 4
+          },
+          {
+            "skill": "tableau",
+            "count": 4
+          },
+          {
+            "skill": "terraform",
+            "count": 4
+          }
+        ],
+        "all_skills_with_3_plus": {
+          "python": 18,
+          "sql": 13,
+          "aws": 11,
+          "kubernetes": 7,
+          "docker": 5,
+          "rag": 5,
+          "langchain": 4,
+          "spark": 4,
+          "tableau": 4,
+          "terraform": 4,
+          "a/b testing": 3,
+          "gcp": 3,
+          "go": 3,
+          "kafka": 3,
+          "postgresql": 3,
+          "product analytics": 3,
+          "pytorch": 3,
+          "snowflake": 3,
+          "statistics": 3
+        }
+      }
+    },
+    {
+      "id": "q07",
+      "question": "Which candidates are based in or open to Bengaluru?",
+      "answer_source": "structured_fields",
+      "why": "Filter on the locations facet.",
+      "expected": {
+        "candidates": [
+          "Aarav Mehta",
+          "Ishaan Chatterjee",
+          "Anjali Nair",
+          "Kavya Reddy",
+          "Vikram Singh"
+        ],
+        "count": 5
+      }
+    },
+    {
+      "id": "q08",
+      "question": "Which candidates hold a master's degree or a PhD?",
+      "answer_source": "structured_fields",
+      "why": "Filter on education_level in {masters, phd}. MBAs count as masters.",
+      "expected": {
+        "candidates": [
+          {
+            "name": "Aarav Mehta",
+            "education_level": "masters"
+          },
+          {
+            "name": "Priya Raghunathan",
+            "education_level": "masters"
+          },
+          {
+            "name": "Meera Iyer",
+            "education_level": "masters"
+          },
+          {
+            "name": "Kenji Watanabe",
+            "education_level": "phd"
+          },
+          {
+            "name": "Michael Brennan",
+            "education_level": "masters"
+          },
+          {
+            "name": "Zoya Ahmed",
+            "education_level": "masters"
+          },
+          {
+            "name": "Oliver Schmidt",
+            "education_level": "masters"
+          },
+          {
+            "name": "Grace Liu",
+            "education_level": "masters"
+          },
+          {
+            "name": "Siddharth Rao",
+            "education_level": "masters"
+          }
+        ],
+        "count": 9
+      }
+    },
+    {
+      "id": "q09",
+      "question": "Who holds an AWS certification, and which one?",
+      "answer_source": "structured_fields",
+      "why": "Filter on the certifications facet.",
+      "expected": {
+        "candidates": [
+          {
+            "name": "Aarav Mehta",
+            "certifications": [
+              "AWS Certified Machine Learning - Specialty"
+            ]
+          },
+          {
+            "name": "Daniel Okafor",
+            "certifications": [
+              "AWS Certified Solutions Architect - Professional"
+            ]
+          },
+          {
+            "name": "Rahul Verma",
+            "certifications": [
+              "AWS Certified DevOps Engineer - Professional"
+            ]
+          },
+          {
+            "name": "Anjali Nair",
+            "certifications": [
+              "AWS Certified Data Engineer - Associate"
+            ]
+          },
+          {
+            "name": "Arjun Malhotra",
+            "certifications": [
+              "AWS Certified Solutions Architect - Associate"
+            ]
+          },
+          {
+            "name": "Rohan Deshpande",
+            "certifications": [
+              "AWS Certified Data Analytics - Specialty"
+            ]
+          }
+        ],
+        "count": 6
+      }
+    },
+    {
+      "id": "q10",
+      "question": "Has anyone switched careers into tech or taken a career break? Explain each case.",
+      "answer_source": "document_text",
+      "why": "Career changes and gaps are narrative facts in summaries and extra sections, not extracted fields.",
+      "expected": {
+        "cases": {
+          "Fatima Sheikh": "career switcher: chemistry teacher 2015-2022, data science bootcamp 2022-2023, then analytics/data science",
+          "Zoya Ahmed": "career break Jul 2021 - Jun 2022 to care for a family member",
+          "Hannah Becker": "gap year 2021-2022 volunteering in Peru after graduation",
+          "Meera Iyer": "moved from software engineering to product management via a full-time MBA (2015-2017) - acceptable, not required"
+        },
+        "required": [
+          "Fatima Sheikh",
+          "Zoya Ahmed",
+          "Hannah Becker"
+        ]
+      }
+    },
+    {
+      "id": "q11",
+      "question": "Which candidates have worked in healthcare?",
+      "answer_source": "structured_fields",
+      "why": "Filter on the industries facet.",
+      "expected": {
+        "candidates": [
+          "Priya Raghunathan",
+          "Fatima Sheikh",
+          "Michael Brennan",
+          "Kavya Reddy"
+        ],
+        "count": 4
+      }
+    },
+    {
+      "id": "q12",
+      "question": "List everyone with Kubernetes skills, with their current role and years of experience.",
+      "answer_source": "structured_fields",
+      "why": "Filter on skills, project current_role and years_of_experience into a table.",
+      "expected": {
+        "candidates": [
+          {
+            "name": "Michael Brennan",
+            "current_role": "VP of Engineering",
+            "years_of_experience": 18
+          },
+          {
+            "name": "Daniel Okafor",
+            "current_role": "Principal Software Engineer",
+            "years_of_experience": 16
+          },
+          {
+            "name": "Siddharth Rao",
+            "current_role": "Staff Machine Learning Engineer",
+            "years_of_experience": 13
+          },
+          {
+            "name": "Oliver Schmidt",
+            "current_role": "Lead MLOps Engineer",
+            "years_of_experience": 10
+          },
+          {
+            "name": "Nadia Haddad",
+            "current_role": "Senior Site Reliability Engineer",
+            "years_of_experience": 9
+          },
+          {
+            "name": "Aarav Mehta",
+            "current_role": "Senior Machine Learning Engineer",
+            "years_of_experience": 8
+          },
+          {
+            "name": "Rahul Verma",
+            "current_role": "DevOps Engineer",
+            "years_of_experience": 5
+          }
+        ],
+        "count": 7
+      }
+    }
+  ]
+}
